@@ -4,12 +4,7 @@ type ResourceLocation = string; // "minecraft:stone", "mod:item"
 type ResourceKey = string;      // registry key e.g. "minecraft:item"
 type Codec = unknown;
 
-/** An NBT compound tag (map of key→value) */
-interface NbtCompound {
-  [key: string]: NbtValue;
-}
-
-type NbtValue = string | number | boolean | NbtCompound | NbtValue[];
+type NbtValue = string | number | boolean | Record<string, unknown> | NbtValue[];
 
 /** A Minecraft text component (can be a plain string or structured Component) */
 type TextComponent = string | { text: string; color?: string; bold?: boolean; italic?: boolean };

@@ -1,30 +1,28 @@
 // src/server/starter-kit.ts
 // Gives new players a starter kit on first join.
 //
-// TODO (you): Decide what the starter kit contains. Current stubs are placeholders.
-// Consider: basic food, a Sophisticated Backpack, the first Patchouli lore book,
-//           a compass, and a note explaining the quest book (press B).
-//
 // This uses PlayerEvents.loggedIn — it fires on every login, so we use a
 // persistent flag (KubeJS globalThis.global) to ensure one-time delivery.
 // For a proper one-time trigger, use FTB Quests reward delivery instead and
 // leave this file as a reference only.
 
-export function onPlayerFirstJoin(e: PlayerKubeEvent): void {
-  const player = e.player;
+export function onPlayerFirstJoin(event: PlayerKubeEvent): void {
+  const player = event.player;
+  const nbt = player.persistentData;
 
-  // TODO (you): Replace placeholder items with your chosen starter kit
-  // Example kit — adjust to your balance decisions:
+  // Starter kit already given
+  if (nbt.getBoolean("roguelike:kit_given")) {
+    return;
+  }
 
-  // player.give(Item.of('sophisticatedbackpacks:backpack'));
-  // player.give(Item.of('minecraft:cooked_beef', 16));
-  // player.give(Item.of('minecraft:compass'));
-  // player.give(Item.of('patchouli:guide_book').withNbt({ 'patchouli:book': 'roguelike:guide' }));
+  nbt.putBoolean("roguelike:kit_given", true);
+
+  // Give player starter kit
+  player.give(Item.of("sophisticatedbackpacks:backpack"));
 
   // Hint about quest book
-  player.tell('§6Welcome to Roguelike Dimensions! §rPress §eB§r to open your Quest Book.');
+  player.tell("§6Welcome to Roguelike Dimensions!");
 }
 
-// NOTE: For a true one-time kit, use FTB Quests "login" detection quest with
-// item rewards. Uncomment the handler below only if you want script-based delivery.
-// PlayerEvents.loggedIn(onPlayerFirstJoin);
+// Script based delivery checked with nbt
+PlayerEvents.loggedIn(onPlayerFirstJoin);

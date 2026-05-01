@@ -1,12 +1,33 @@
 // KubeJS 7 — Minecraft item / block / fluid wrapper types
 
+/** NBT compound tag — matches $CompoundTag from ProbeJS */
+interface NbtCompound {
+  getBoolean(key: string): boolean;
+  putBoolean(key: string, value: boolean): void;
+  getByte(key: string): number;
+  putByte(key: string, value: number): void;
+  getShort(key: string): number;
+  putShort(key: string, value: number): void;
+  getInt(key: string): number;
+  putInt(key: string, value: number): void;
+  getLong(key: string): number;
+  putLong(key: string, value: number): void;
+  getFloat(key: string): number;
+  putFloat(key: string, value: number): void;
+  getDouble(key: string): number;
+  putDouble(key: string, value: number): void;
+  contains(key: string): boolean;
+  remove(key: string): void;
+  size(): number;
+}
+
 /** A resolved ItemStack with item id, count, and optional NBT */
 interface ItemStack {
   readonly id: ResourceLocation;
   readonly count: number;
   readonly nbt: NbtCompound | null;
   withCount(count: number): ItemStack;
-  withNbt(nbt: NbtCompound): ItemStack;
+  withNbt(nbt: NbtCompound | Record<string, unknown>): ItemStack;
 }
 
 /** An ingredient that matches one or more items (can be tag or item id) */

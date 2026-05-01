@@ -1,23 +1,16 @@
 // KubeJS 7 — StartupEvents type stubs
 
-// ── Registry event (startup-side) ────────────────────────────────────────────
-
 interface RegistryKubeEvent {
   create(id: ResourceLocation, props?: Record<string, unknown>): void;
 }
 
-// ── Startup lifecycle ─────────────────────────────────────────────────────────
-
 interface KubeStartupEvent {
-  // marker — no extra fields at startup time
+  // marker
 }
 
-// ── StartupEvents interface ───────────────────────────────────────────────────
-
-interface StartupEvents {
-  init: EventHandler<KubeStartupEvent>;
-  postInit: EventHandler<KubeStartupEvent>;
-  registry: TargetedEventHandler<ResourceKey, RegistryKubeEvent>;
+// Merges with ProbeJS's generated StartupEvents namespace
+namespace StartupEvents {
+  function init(handler: (event: KubeStartupEvent) => void): void;
+  function postInit(handler: (event: KubeStartupEvent) => void): void;
+  function registry(target: ResourceKey, handler: (event: RegistryKubeEvent) => void): void;
 }
-
-declare const StartupEvents: StartupEvents;

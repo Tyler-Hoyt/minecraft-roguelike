@@ -3,8 +3,6 @@
     // No browser/DOM/Node libs — KubeJS runs on GraalJS/Rhino
     // ES2015 provides core JS types (Array, String, Map, etc.) without DOM
     "lib": ["ES2015"],
-    // Our hand-written stubs + any future ProbeJS dump
-    "typeRoots": ["types"],
     "target": "ES2015",
     "module": "ESNext",
     "moduleResolution": "bundler",
@@ -22,9 +20,9 @@
   },
   "include": [
     "src/**/*.ts",
-    "types/**/*.d.ts"
+    "types/**/*.d.ts",
     // When ProbeJS dump is available, add:
-    // "kubejs/probe/**/*.d.ts"
+    "kubejs/probe/**/*.d.ts"
   ],
   "exclude": [
     "node_modules",

@@ -6,11 +6,10 @@ interface ItemKubeEvent {
   readonly level: ServerLevel;
 }
 
-interface ItemEvents {
-  rightClicked: TargetedEventHandler<ResourceLocation, ItemKubeEvent>;
-  leftClicked: TargetedEventHandler<ResourceLocation, ItemKubeEvent>;
-  entityInteracted: TargetedEventHandler<ResourceLocation, ItemKubeEvent & { readonly entity: unknown }>;
-  tooltip: TargetedEventHandler<ResourceLocation, { readonly item: ItemStack; addTooltip(text: TextComponent): void }>;
+// Merges with ProbeJS's generated ItemEvents namespace
+namespace ItemEvents {
+  function rightClicked(target: ResourceLocation, handler: (event: ItemKubeEvent) => void): void;
+  function leftClicked(target: ResourceLocation, handler: (event: ItemKubeEvent) => void): void;
+  function entityInteracted(target: ResourceLocation, handler: (event: ItemKubeEvent & { readonly entity: unknown }) => void): void;
+  function tooltip(target: ResourceLocation, handler: (event: { readonly item: ItemStack; addTooltip(text: TextComponent): void }) => void): void;
 }
-
-declare const ItemEvents: ItemEvents;

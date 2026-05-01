@@ -1,0 +1,11 @@
+{
+  "name": "probejs-snippets",
+  "contributes": {
+    "snippets": [
+      {
+        "language": "typescript",
+        "path": "./probe.code-snippets"
+      }
+    ]
+  }
+}

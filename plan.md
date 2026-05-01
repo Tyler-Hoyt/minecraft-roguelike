@@ -67,7 +67,7 @@
 - Repurposed Structures
 - Dungeons and Taverns
 - Spelunkery
-- Caverns & Chasms
+- Caverns & Chasms X
 
 ### Storage (Progressive)
 | Mod | Unlocked | Notes |
@@ -83,15 +83,16 @@
 | Apotheosis | Overworld | Enchanting overhaul, gem system |
 | Ars Nouveau | Undergarden | Spell crafting, glyphs |
 | Forbidden Arcanus | Nether | Dark magic |
-| Blood Magic | Nether | Sacrifice-based magic |
+| Blood Magic | Nether | Sacrifice-based magic | X
 | Malum | Aether | Spirit / shadow magic |
 
 ### Combat
 - Better Combat (animations, dual wield, combos)
 - Simply Swords (halberds, rapiers, katanas)
-- Savage & Ravage (tougher mobs)
+- Savage & Ravage (tougher mobs) X
 - Iron's Spells & Spellbooks (cast-based combat)
 - Paragliders (stamina + gliding)
+- Gravestone (death system)
 
 ### Performance
 - Embeddium, FerriteCore, ModernFix, Clumps, Entity Culling, ImmediatelyFast
@@ -137,10 +138,10 @@ kubejs/data/ftbquests/quests/chapters/
 
 ## Notes & Decisions Needed (TODO for you)
 
-- [ ] Confirm Twilight Forest vs Blue Skies (check NeoForge 1.21.1 availability)
+- [X] Confirm Twilight Forest vs Blue Skies (check NeoForge 1.21.1 availability)
 - [ ] Decide starter kit contents (armor tier, food, tools)
 - [ ] Write quest descriptions / lore text per chapter
 - [ ] Design chapter background art (1920x1080 PNG per dimension)
 - [ ] Tune recipe costs for gate items (balancing)
-- [ ] Confirm all mods are on NeoForge 1.21.1 before installing
+- [X] Confirm all mods are on NeoForge 1.21.1 before installing
 - [ ] Decide on a pack name and icon
