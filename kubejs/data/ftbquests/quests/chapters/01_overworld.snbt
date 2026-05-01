@@ -1,0 +1,167 @@
+{
+	id: "01overworld"
+	group: ""
+	order_index: 0
+	filename: "01_overworld"
+	title: "The Surface World"
+	icon: "minecraft:grass_block"
+	default_quest_shape: "rsquare"
+	default_hide_dependency_lines: false
+	quests: [
+		{
+			title: "Welcome to Roguelike Dimensions"
+			icon: "minecraft:book"
+			x: 0d
+			y: 0d
+			shape: "rsquare"
+			id: "01OW001"
+			tasks: [{
+				id: "01OW001T1"
+				type: "checkmark"
+				title: "Read this quest to begin your journey."
+			}]
+			rewards: [{
+				id: "01OW001R1"
+				type: "item"
+				item: "minecraft:compass"
+				count: 1
+			}]
+			description: [
+				"Welcome, Rogue."
+				""
+				"This world is dangerous. Each dimension you explore will be harder than the last."
+				""
+				"Follow the quest chain in order. Each chapter unlocks the next."
+				""
+				"§eTODO: Replace this description with your lore text.§r"
+			]
+		}
+		{
+			title: "Survive Your First Night"
+			icon: "minecraft:bed"
+			x: 2d
+			y: 0d
+			shape: "rsquare"
+			id: "01OW002"
+			dependencies: ["01OW001"]
+			tasks: [{
+				id: "01OW002T1"
+				type: "item"
+				item: "minecraft:white_bed"
+				count: 1
+			}]
+			rewards: [{
+				id: "01OW002R1"
+				type: "xp_levels"
+				xp_levels: 2
+			}]
+		}
+		{
+			title: "Craft a Backpack"
+			icon: "sophisticatedbackpacks:backpack"
+			x: 4d
+			y: 0d
+			shape: "rsquare"
+			id: "01OW003"
+			dependencies: ["01OW002"]
+			tasks: [{
+				id: "01OW003T1"
+				type: "item"
+				item: "sophisticatedbackpacks:backpack"
+				count: 1
+			}]
+			rewards: [{
+				id: "01OW003R1"
+				type: "item"
+				item: "minecraft:iron_ingot"
+				count: 8
+			}]
+			description: [
+				"A backpack will be your best friend throughout your journey."
+				"§eTODO: Add flavour text.§r"
+			]
+		}
+		{
+			title: "Craft an Apotheosis Enchanting Table"
+			icon: "minecraft:enchanting_table"
+			x: 6d
+			y: 0d
+			shape: "rsquare"
+			id: "01OW004"
+			dependencies: ["01OW003"]
+			tasks: [{
+				id: "01OW004T1"
+				type: "item"
+				item: "minecraft:enchanting_table"
+				count: 1
+			}]
+			rewards: [{
+				id: "01OW004R1"
+				type: "xp_levels"
+				xp_levels: 3
+			}]
+			description: [
+				"Apotheosis overhauls the enchanting system."
+				"Place bookshelves and try your first enchantment."
+				"§eTODO: Add Apotheosis tips here.§r"
+			]
+		}
+		{
+			title: "Find a Dungeon"
+			icon: "minecraft:mossy_cobblestone"
+			x: 8d
+			y: 0d
+			shape: "rsquare"
+			id: "01OW005"
+			dependencies: ["01OW004"]
+			tasks: [{
+				id: "01OW005T1"
+				type: "checkmark"
+				title: "Explore a YUNG's dungeon and return with loot."
+			}]
+			rewards: [{
+				id: "01OW005R1"
+				type: "item"
+				item: "minecraft:golden_apple"
+				count: 2
+			}]
+		}
+		{
+			title: "Craft the Undergarden Catalyst"
+			icon: "undergarden:catalyst"
+			x: 10d
+			y: 0d
+			shape: "rsquare"
+			id: "01OW006"
+			dependencies: ["01OW005"]
+			tasks: [{
+				id: "01OW006T1"
+				type: "item"
+				item: "undergarden:catalyst"
+				count: 1
+			}]
+			rewards: [
+				{
+					id: "01OW006R1"
+					type: "item"
+					item: "patchouli:guide_book"
+					count: 1
+					title: "Undergarden Lore Book"
+				}
+				{
+					id: "01OW006R2"
+					type: "xp_levels"
+					xp_levels: 5
+				}
+			]
+			description: [
+				"The Undergarden awaits below."
+				""
+				"Craft the Catalyst and build a portal using Stone Bricks or Deepslate Bricks."
+				"Right-click the inner bottom of the frame with the Catalyst."
+				""
+				"§eTODO: Add lore about the Undergarden.§r"
+			]
+		}
+	]
+}

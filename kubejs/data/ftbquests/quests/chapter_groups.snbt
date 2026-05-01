@@ -1,0 +1,7 @@
+{
+	default_chapter_group: {
+		id: "00000000"
+		order_index: 0
+		chapters: ["01overworld", "02undergarden", "03nether", "04aether", "05twilight", "06deepdark", "07end"]
+	}
+}

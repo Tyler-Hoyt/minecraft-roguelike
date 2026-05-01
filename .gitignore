@@ -1,0 +1,7 @@
+node_modules/
+kubejs/startup_scripts/
+kubejs/server_scripts/
+kubejs/client_scripts/
+# ProbeJS generates these — commit them when available
+# kubejs/probe/
+dist/

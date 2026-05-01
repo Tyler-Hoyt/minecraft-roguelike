@@ -1,0 +1,133 @@
+{
+	id: "02undergarden"
+	group: ""
+	order_index: 1
+	filename: "02_undergarden"
+	title: "Below the Bedrock"
+	icon: "undergarden:umberstone"
+	default_quest_shape: "rsquare"
+	default_hide_dependency_lines: false
+	quests: [
+		{
+			title: "Enter the Undergarden"
+			icon: "undergarden:catalyst"
+			x: 0d
+			y: 0d
+			shape: "rsquare"
+			id: "02UG001"
+			dependencies: ["01OW006"]
+			tasks: [{
+				id: "02UG001T1"
+				type: "checkmark"
+				title: "Step through the Undergarden portal."
+			}]
+			rewards: [{
+				id: "02UG001R1"
+				type: "xp_levels"
+				xp_levels: 2
+			}]
+			description: [
+				"Deep below the bedrock, a forgotten world awaits."
+				"§eTODO: Write lore for the Undergarden arrival.§r"
+			]
+		}
+		{
+			title: "Find a Sunken Keep"
+			icon: "undergarden:cloggrum_ingot"
+			x: 2d
+			y: 0d
+			shape: "rsquare"
+			id: "02UG002"
+			dependencies: ["02UG001"]
+			tasks: [{
+				id: "02UG002T1"
+				type: "checkmark"
+				title: "Find and explore the Sunken Keep dungeon."
+			}]
+			rewards: [{
+				id: "02UG002R1"
+				type: "xp_levels"
+				xp_levels: 3
+			}]
+		}
+		{
+			title: "Mine Cloggrum"
+			icon: "undergarden:cloggrum_ore"
+			x: 4d
+			y: 0d
+			shape: "rsquare"
+			id: "02UG003"
+			dependencies: ["02UG002"]
+			tasks: [{
+				id: "02UG003T1"
+				type: "item"
+				item: "undergarden:cloggrum_ingot"
+				count: 16
+			}]
+			rewards: [{
+				id: "02UG003R1"
+				type: "item"
+				item: "undergarden:cloggrum_ingot"
+				count: 8
+			}]
+		}
+		{
+			title: "Begin Your Magic Journey"
+			icon: "ars_nouveau:worn_notebook"
+			x: 6d
+			y: 0d
+			shape: "rsquare"
+			id: "02UG004"
+			dependencies: ["02UG003"]
+			tasks: [{
+				id: "02UG004T1"
+				type: "item"
+				item: "ars_nouveau:worn_notebook"
+				count: 1
+			}]
+			rewards: [{
+				id: "02UG004R1"
+				type: "xp_levels"
+				xp_levels: 5
+			}]
+			description: [
+				"The Cloggrum ore pulses with a strange energy that resonates with spell glyphs."
+				"Craft the Worn Notebook to begin your journey into Ars Nouveau."
+				"§eTODO: Add Ars Nouveau tips here.§r"
+			]
+		}
+		{
+			title: "Defeat the Rotspawn"
+			icon: "undergarden:rotting_stone"
+			x: 8d
+			y: 0d
+			shape: "rsquare"
+			id: "02UG005"
+			dependencies: ["02UG004"]
+			tasks: [{
+				id: "02UG005T1"
+				type: "checkmark"
+				title: "Defeat the Undergarden's Rotspawn boss."
+			}]
+			rewards: [
+				{
+					id: "02UG005R1"
+					type: "item"
+					item: "minecraft:blaze_rod"
+					count: 4
+					title: "Nether Access Token"
+				}
+				{
+					id: "02UG005R2"
+					type: "xp_levels"
+					xp_levels: 10
+				}
+			]
+			description: [
+				"The Rotspawn guards the gateway to your next challenge."
+				"Defeat it to unlock access to the Nether."
+				"§eTODO: Write boss lore / tips.§r"
+			]
+		}
+	]
+}

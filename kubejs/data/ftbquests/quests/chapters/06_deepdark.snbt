@@ -1,0 +1,130 @@
+{
+	id: "06deepdark"
+	group: ""
+	order_index: 5
+	filename: "06_deepdark"
+	title: "Echoes in the Dark"
+	icon: "minecraft:sculk"
+	default_quest_shape: "rsquare"
+	default_hide_dependency_lines: false
+	quests: [
+		{
+			title: "Find an Ancient City"
+			icon: "minecraft:ancient_debris"
+			x: 0d
+			y: 0d
+			shape: "rsquare"
+			id: "06DD001"
+			dependencies: ["05TW006"]
+			tasks: [{
+				id: "06DD001T1"
+				type: "checkmark"
+				title: "Find and enter an Ancient City."
+			}]
+			rewards: [{
+				id: "06DD001R1"
+				type: "xp_levels"
+				xp_levels: 5
+			}]
+			description: [
+				"Move carefully. The Warden is listening."
+				"§eTODO: Write Ancient City arrival lore.§r"
+			]
+		}
+		{
+			title: "Survive a Shrieker Sequence"
+			icon: "minecraft:sculk_shrieker"
+			x: 2d
+			y: 0d
+			shape: "rsquare"
+			id: "06DD002"
+			dependencies: ["06DD001"]
+			tasks: [{
+				id: "06DD002T1"
+				type: "checkmark"
+				title: "Trigger and survive a Sculk Shrieker sequence without dying."
+			}]
+			rewards: [{
+				id: "06DD002R1"
+				type: "xp_levels"
+				xp_levels: 5
+			}]
+		}
+		{
+			title: "Kill the Warden"
+			icon: "minecraft:warden_spawn_egg"
+			x: 4d
+			y: 0d
+			shape: "rsquare"
+			id: "06DD003"
+			dependencies: ["06DD002"]
+			tasks: [{
+				id: "06DD003T1"
+				type: "kill"
+				entity: "minecraft:warden"
+				value: 1
+			}]
+			rewards: [
+				{
+					id: "06DD003R1"
+					type: "item"
+					item: "roguelike:heart_of_the_warden"
+					count: 1
+					title: "Heart of the Warden"
+				}
+				{
+					id: "06DD003R2"
+					type: "xp_levels"
+					xp_levels: 20
+				}
+			]
+			description: [
+				"Face your greatest fear. The Warden cannot be evaded forever."
+				"§eTODO: Write Warden fight tips.§r"
+			]
+		}
+		{
+			title: "Forge Warden Gear"
+			icon: "minecraft:netherite_chestplate"
+			x: 6d
+			y: 0d
+			shape: "rsquare"
+			id: "06DD004"
+			dependencies: ["06DD003"]
+			tasks: [{
+				id: "06DD004T1"
+				type: "item"
+				item: "roguelike:heart_of_the_warden"
+				count: 1
+			}]
+			rewards: [{
+				id: "06DD004R1"
+				type: "xp_levels"
+				xp_levels: 10
+			}]
+			description: [
+				"Use the Heart of the Warden to forge Deep Dark tier equipment."
+				"§eTODO: List the gear recipes here as quest hints.§r"
+			]
+		}
+		{
+			title: "The End Awaits"
+			icon: "minecraft:ender_eye"
+			x: 8d
+			y: 0d
+			shape: "rsquare"
+			id: "06DD005"
+			dependencies: ["06DD004"]
+			tasks: [{
+				id: "06DD005T1"
+				type: "checkmark"
+				title: "Find a Stronghold and locate the End Portal."
+			}]
+			rewards: [{
+				id: "06DD005R1"
+				type: "xp_levels"
+				xp_levels: 10
+			}]
+		}
+	]
+}

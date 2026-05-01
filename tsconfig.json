@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    // No browser/DOM/Node libs — KubeJS runs on GraalJS/Rhino
+    // ES2015 provides core JS types (Array, String, Map, etc.) without DOM
+    "lib": ["ES2015"],
+    // Our hand-written stubs + any future ProbeJS dump
+    "typeRoots": ["types"],
+    "target": "ES2015",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    // esbuild handles emit; tsc is type-check only
+    "noEmit": true,
+    // Strict
+    "strict": true,
+    "skipLibCheck": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false
+  },
+  "include": [
+    "src/**/*.ts",
+    "types/**/*.d.ts"
+    // When ProbeJS dump is available, add:
+    // "kubejs/probe/**/*.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "tests"
+  ]
+}

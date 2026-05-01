@@ -1,0 +1,137 @@
+{
+	id: "05twilight"
+	group: ""
+	order_index: 4
+	filename: "05_twilight"
+	title: "The Forgotten Forest"
+	icon: "twilightforest:magic_log"
+	default_quest_shape: "rsquare"
+	default_hide_dependency_lines: false
+	quests: [
+		{
+			title: "Enter the Twilight Forest"
+			icon: "twilightforest:portal"
+			x: 0d
+			y: 0d
+			shape: "rsquare"
+			id: "05TW001"
+			dependencies: ["04AE006"]
+			tasks: [{
+				id: "05TW001T1"
+				type: "checkmark"
+				title: "Enter the Twilight Forest dimension."
+			}]
+			rewards: [{
+				id: "05TW001R1"
+				type: "xp_levels"
+				xp_levels: 2
+			}]
+			description: ["§eTODO: Write Twilight Forest arrival lore. If using Blue Skies instead, update this chapter.§r"]
+		}
+		{
+			title: "Defeat the Naga"
+			icon: "twilightforest:naga_trophy"
+			x: 2d
+			y: 0d
+			shape: "rsquare"
+			id: "05TW002"
+			dependencies: ["05TW001"]
+			tasks: [{
+				id: "05TW002T1"
+				type: "checkmark"
+				title: "TODO: Set kill task for Naga boss."
+			}]
+			rewards: [{
+				id: "05TW002R1"
+				type: "xp_levels"
+				xp_levels: 10
+			}]
+		}
+		{
+			title: "Defeat the Lich"
+			icon: "twilightforest:lich_trophy"
+			x: 4d
+			y: 0d
+			shape: "rsquare"
+			id: "05TW003"
+			dependencies: ["05TW002"]
+			tasks: [{
+				id: "05TW003T1"
+				type: "checkmark"
+				title: "TODO: Set kill task for Lich boss."
+			}]
+			rewards: [{
+				id: "05TW003R1"
+				type: "xp_levels"
+				xp_levels: 12
+			}]
+		}
+		{
+			title: "Defeat the Hydra"
+			icon: "twilightforest:hydra_trophy"
+			x: 6d
+			y: 0d
+			shape: "rsquare"
+			id: "05TW004"
+			dependencies: ["05TW003"]
+			tasks: [{
+				id: "05TW004T1"
+				type: "checkmark"
+				title: "TODO: Set kill task for Hydra boss."
+			}]
+			rewards: [{
+				id: "05TW004R1"
+				type: "xp_levels"
+				xp_levels: 15
+			}]
+		}
+		{
+			title: "Defeat the Final Boss"
+			icon: "minecraft:dragon_head"
+			x: 8d
+			y: 0d
+			shape: "rsquare"
+			id: "05TW005"
+			dependencies: ["05TW004"]
+			tasks: [{
+				id: "05TW005T1"
+				type: "checkmark"
+				title: "TODO: Set kill task for the final Twilight boss."
+			}]
+			rewards: [
+				{
+					id: "05TW005R1"
+					type: "item"
+					item: "roguelike:twilight_trophy"
+					count: 1
+					title: "Twilight Champion Trophy"
+				}
+				{
+					id: "05TW005R2"
+					type: "xp_levels"
+					xp_levels: 20
+				}
+			]
+		}
+		{
+			title: "Craft the Echo Key"
+			icon: "roguelike:echo_key"
+			x: 10d
+			y: 0d
+			shape: "rsquare"
+			id: "05TW006"
+			dependencies: ["05TW005"]
+			tasks: [{
+				id: "05TW006T1"
+				type: "item"
+				item: "roguelike:echo_key"
+				count: 1
+			}]
+			rewards: [{
+				id: "05TW006R1"
+				type: "xp_levels"
+				xp_levels: 10
+			}]
+		}
+	]
+}
