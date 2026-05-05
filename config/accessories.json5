@@ -8,8 +8,8 @@
 		"disabledDefaultRenders": []
 	},
 	"screenOptions": {
-		"selectedScreenType": "NONE",
-		"showUnusedSlots": false,
+		"selectedScreenType": "EXPERIMENTAL_V1",
+		"showUnusedSlots": true,
 		"allowSlotScrolling": true,
 		"inventoryButtonOffset": {
 			"x": 66,
@@ -19,7 +19,7 @@
 			"x": 96,
 			"y": 6
 		},
-		"isDarkMode": false,
+		"isDarkMode": true,
 		"showEquippedStackSlotType": true,
 		"entityLooksAtMouseCursor": false,
 		"allowSideBarCraftingGrid": true,

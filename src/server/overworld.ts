@@ -1,34 +1,45 @@
 // src/server/overworld.ts
-// Overworld chapter — recipe modifications, Apotheosis gem system tweaks,
-// and early-game progression balancing.
+// Overworld chapter — recipe modifications and pre-Undergarden progression gating.
 //
-// STUB SECTIONS (marked TODO — fill in with your balance decisions):
-//   - Which vanilla recipes to remove or make harder
-//   - Apotheosis gem crafting adjustments
-//   - Any early-game custom items
+// GATE PHILOSOPHY:
+//   Ars Nouveau and AE2 are locked until post-Undergarden / late-game.
+//   Iron's Spellbooks is a dungeon-reward system — arcane_anvil is craftable early,
+//   but high-tier items drop from dungeons rather than being craftable from scratch.
+//   Sophisticated Backpacks power upgrades (magnet, void) are gated to Nether.
 
 export function registerOverworldRecipes(e: RecipesKubeEvent): void {
-  // ── Remove / Nerf vanilla shortcuts ──────────────────────────────────────
-  // TODO (you): Decide which vanilla recipes to restrict for roguelike feel.
-  // Examples below are commented out — uncomment and adjust as needed.
+  // ── Vanilla tweaks ────────────────────────────────────────────────────────
+  e.remove({ output: 'minecraft:enchanted_golden_apple' });
 
-  // Remove crafting diamond tools directly (force smelting first)
-  // e.remove({ output: 'minecraft:diamond_pickaxe' });
-  // e.remove({ output: 'minecraft:diamond_sword' });
+  // ── Ars Nouveau — block all entry points pre-Undergarden ──────────────────
+  // The imbuement chamber is the root of the Ars Nouveau crafting tree.
+  // Blocking it (and the worn notebook) prevents all magic before Undergarden.
+  // Gated replacements are added in undergarden.ts.
+  e.remove({ output: 'ars_nouveau:worn_notebook' });
+  e.remove({ output: 'ars_nouveau:imbuement_chamber' });
+  // Remove imbuement routes that bypass the source gem crafting block.
+  // These convert lapis/amethyst → source gems using only overworld materials.
+  e.remove({ type: 'ars_nouveau:imbuement', output: 'ars_nouveau:source_gem' });
+  e.remove({ type: 'ars_nouveau:imbuement', output: 'ars_nouveau:source_gem_block' });
 
-  // Remove easy enchanting shortcuts
-  // e.remove({ output: 'minecraft:enchanted_golden_apple' });
+  // ── Applied Energistics 2 — block entry chain pre-AE2_ONLINE ─────────────
+  // AE2 is end-game automation. Certus Quartz spawns in the overworld but
+  // the crafting chain should not unlock until the AE2_ONLINE quest stage.
+  // Gated re-adds live in src/server/ae2.ts.
+  e.remove({ output: 'appliedenergistics2:inscriber' });
+  e.remove({ output: 'appliedenergistics2:controller' });
+  e.remove({ output: 'appliedenergistics2:drive' });
+  e.remove({ output: 'appliedenergistics2:fluix_crystal' });
 
-  // ── Apotheosis Integration ────────────────────────────────────────────────
-  // TODO (you): Add Apotheosis gem crafting tweaks here.
-  // Apotheosis generates its own recipes, but you can add bridges.
-  // Example: make a specific gem require an Undergarden material (post-gate):
-  // e.shaped('apotheosis:gem_X', [...], { ... });
-
-  // ── Sophisticated Storage Bridge ──────────────────────────────────────────
-  // Make the iron backpack available early — it's the tutorial storage item
-  // TODO (you): Adjust if you want storage to feel more earned
-  // e.shaped('sophisticatedbackpacks:backpack', [...], { ... });
+  // ── Sophisticated Backpacks — gate power upgrades ─────────────────────────
+  // Iron backpack and basic upgrades are fine early.
+  // Magnet and void upgrades are re-added in nether.ts.
+  // Auto-crafting upgrade is re-added in aether.ts.
+  e.remove({ output: 'sophisticatedbackpacks:magnet_upgrade' });
+  e.remove({ output: 'sophisticatedbackpacks:advanced_magnet_upgrade' });
+  e.remove({ output: 'sophisticatedbackpacks:void_upgrade' });
+  e.remove({ output: 'sophisticatedbackpacks:advanced_void_upgrade' });
+  e.remove({ output: 'sophisticatedbackpacks:crafting_upgrade' });
 }
 
 export function registerOverworldTags(e: TagKubeEvent): void {

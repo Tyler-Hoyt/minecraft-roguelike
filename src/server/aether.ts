@@ -8,6 +8,19 @@
 //   - Dimensional Lens recipe is in gates.ts
 
 export function registerAetherRecipes(e: RecipesKubeEvent): void {
+  // ── Sophisticated Backpacks — crafting upgrade unlock in Aether ──────────
+  // The auto-crafting upgrade is removed in overworld.ts.
+  // Re-adding it here requires Zanite Gemstone (Aether-only material).
+  e.shaped('sophisticatedbackpacks:crafting_upgrade', [
+    'ZBZ',
+    'ZCZ',
+    'ZBZ',
+  ], {
+    Z: 'aether:zanite_gemstone',
+    B: 'sophisticatedbackpacks:upgrade_base',
+    C: 'minecraft:crafting_table',
+  });
+
   // ── AE2 — Charger Gate ────────────────────────────────────────────────────
   // The AE2 Charger is the first thing you build. Gate it behind Aether Silver.
   // This ensures AE2 cannot be started before the Aether chapter.

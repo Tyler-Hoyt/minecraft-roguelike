@@ -127,40 +127,373 @@
 			}]
 		}
 		{
-			title: "Craft the Undergarden Catalyst"
-			icon: "undergarden:catalyst"
+			title: "The Frontier Gateway"
+			icon: "gateways:gate_pearl"
 			x: 10d
 			y: 0d
 			shape: "rsquare"
-			id: "01OW006"
+			id: "01OW014"
 			dependencies: ["01OW005"]
+			tasks: [{
+				id: "01OW014T1"
+				type: "advancement"
+				advancement: "apotheosis:gateways/frontier"
+				title: "Complete the Apotheosis Frontier Gateway"
+			}]
+			rewards: [
+				{
+					id: "01OW014R1"
+					type: "item"
+					item: "undergarden:catalyst"
+					count: 1
+					title: "Undergarden Catalyst"
+				}
+				{
+					id: "01OW014R2"
+					type: "xp_levels"
+					xp_levels: 5
+				}
+			]
+			description: [
+				"Before you descend underground, you must prove your strength."
+				""
+				"§lThe Apotheosis Gateway§r is a wave-based boss challenge."
+				""
+				"§lHow to start:§r"
+				"  1. Find or craft a §6Gate Pearl§r (check boss spawner towers)"
+				"  2. Right-click the Gate Pearl on flat ground to open a §cGateway§r"
+				"  3. Survive the waves — each wave is harder than the last"
+				"  4. Defeat the final wave boss to complete the Frontier Gateway"
+				""
+				"§lWhy this matters:§r"
+				"  Completing the Gateway unlocks the §6Ascent tier§r — better Apotheosis"
+				"  gem drops will now appear from mobs and structures."
+				""
+				"  You'll also receive the §6Undergarden Catalyst§r — the only way"
+				"  to open the portal to the dimension below."
+				""
+				"§lTip:§r Stock up on food, potions, and make sure your armor is"
+				"enchanted before attempting the Gateway."
+			]
+		}
+		{
+			title: "Descend to the Undergarden"
+			icon: "undergarden:catalyst"
+			x: 12d
+			y: 0d
+			shape: "rsquare"
+			id: "01OW006"
+			dependencies: ["01OW014"]
 			tasks: [{
 				id: "01OW006T1"
 				type: "item"
 				item: "undergarden:catalyst"
 				count: 1
 			}]
+			rewards: [{
+				id: "01OW006R1"
+				type: "item"
+				item: "patchouli:guide_book"
+				count: 1
+				title: "Undergarden Lore Book"
+			}]
+			description: [
+				"You have the Catalyst. Now build the portal."
+				""
+				"§lPortal frame:§r Build a frame using §eStone Bricks§r or §eDeepslate Bricks§r."
+				"The frame must be at least 4x5 blocks (like a Nether portal but taller)."
+				""
+				"§lActivation:§r Right-click the bottom-center block of the frame with the Catalyst."
+				""
+				"What awaits you is a world of ancient dark stone, glowing fungi,"
+				"and creatures that never see sunlight."
+				""
+				"§eTODO: Add lore about the Undergarden.§r"
+			]
+		}
+		{
+			title: "Your Unified Inventory"
+			icon: "minecraft:chain"
+			x: 0d
+			y: -2d
+			shape: "rsquare"
+			id: "01OW007"
+			dependencies: ["01OW001"]
+			tasks: [{
+				id: "01OW007T1"
+				type: "checkmark"
+				title: "Open the Accessories screen and explore your equipment slots."
+			}]
+			rewards: [{
+				id: "01OW007R1"
+				type: "xp_levels"
+				xp_levels: 2
+			}]
+			description: [
+				"In this pack, all equipment slots are unified under one screen."
+				""
+				"Press §eE§r to open your inventory, then click the §6Accessories button§r."
+				""
+				"The Accessories screen has three groups of slots:"
+				"  • §aAccessories§r — rings, amulets, and other accessories"
+				"  • §bCurios§r — spell books, belts, and mod-specific trinkets"
+				"  • §cAether§r — Aether rings, pendants, gloves, capes, and shields"
+				""
+				"There's also a §6crafting grid§r on the side — no crafting table needed for basic recipes."
+				""
+				"§lTip:§r In Controls, bind §e\"Accessories Inventory\"§r to §eE§r and"
+				"move §e\"Inventory\"§r to §eI§r for direct one-key access."
+			]
+		}
+		{
+			title: "The New Combat System"
+			icon: "minecraft:iron_sword"
+			x: 0d
+			y: 2d
+			shape: "rsquare"
+			id: "01OW008"
+			dependencies: ["01OW001"]
+			tasks: [{
+				id: "01OW008T1"
+				type: "checkmark"
+				title: "Try a light attack and a heavy attack on any mob."
+			}]
 			rewards: [
 				{
-					id: "01OW006R1"
+					id: "01OW008R1"
 					type: "item"
-					item: "patchouli:guide_book"
+					item: "minecraft:bow"
 					count: 1
-					title: "Undergarden Lore Book"
 				}
 				{
-					id: "01OW006R2"
-					type: "xp_levels"
-					xp_levels: 5
+					id: "01OW008R2"
+					type: "item"
+					item: "minecraft:arrow"
+					count: 32
 				}
 			]
 			description: [
-				"The Undergarden awaits below."
+				"§lBetter Combat§r replaces vanilla's one-click combat with real attack patterns."
 				""
-				"Craft the Catalyst and build a portal using Stone Bricks or Deepslate Bricks."
-				"Right-click the inner bottom of the frame with the Catalyst."
+				"§6Light Attack§r — Click to perform a quick strike"
+				"§6Heavy Attack§r — Hold to charge, release for a powerful blow"
+				"§6Combo Chain§r — Chain light attacks for multi-hit sequences"
 				""
-				"§eTODO: Add lore about the Undergarden.§r"
+				"Different weapon types have unique movesets:"
+				"  • §eSwords§r — standard combos"
+				"  • §eGreatswords§r — wide sweeping strikes (from Simply Swords)"
+				"  • §ePolearms§r — long reach, thrust attacks"
+				"  • §eScythes§r — spin attacks with area coverage"
+				""
+				"Find §6special weapons in dungeons§r for the most unique attack patterns."
+				"Simply Swords weapons are dungeon loot — the best ones aren't craftable."
+			]
+		}
+		{
+			title: "Spirit Orbs"
+			icon: "minecraft:nether_star"
+			x: 2d
+			y: 2d
+			shape: "rsquare"
+			id: "01OW009"
+			dependencies: ["01OW002"]
+			tasks: [{
+				id: "01OW009T1"
+				type: "checkmark"
+				title: "Find your first Spirit Orb in a dungeon chest."
+			}]
+			rewards: [
+				{
+					id: "01OW009R1"
+					type: "item"
+					item: "minecraft:golden_apple"
+					count: 2
+				}
+				{
+					id: "01OW009R2"
+					type: "xp_levels"
+					xp_levels: 2
+				}
+			]
+			description: [
+				"The §6Paraglider§r mod brings a Breath of the Wild-style progression system."
+				""
+				"§lSpirit Orbs§r are found in dungeon chests and dropped by boss spawners."
+				"Collect §e4 orbs§r and trade them with the §6Great Fairy§r for:"
+				"  • §c+1 Heart Container§r — permanently increases your max health"
+				"  • §b+1 Stamina Vessel§r — increases climbing and paraglider stamina"
+				""
+				"§lWhere to find orbs:§r"
+				"  • §7YUNG's Dungeons§r and §7Dungeon Crawl§r chests"
+				"  • Dropped by §7mob spawner§r minibosses"
+				"  • §7Dungeons and Taverns§r structures"
+				""
+				"§lTip:§r Prioritize Heart Containers early. Switch to Stamina Vessels"
+				"once you have enough health to survive tough encounters."
+			]
+		}
+		{
+			title: "Upgrade Your Backpack"
+			icon: "sophisticatedbackpacks:backpack"
+			x: 4d
+			y: 2d
+			shape: "rsquare"
+			id: "01OW010"
+			dependencies: ["01OW003"]
+			tasks: [{
+				id: "01OW010T1"
+				type: "checkmark"
+				title: "Shift-right-click your equipped backpack to open its upgrade slots."
+			}]
+			rewards: [{
+				id: "01OW010R1"
+				type: "item"
+				item: "sophisticatedbackpacks:pickup_upgrade"
+				count: 1
+			}]
+			description: [
+				"Your §6Sophisticated Backpack§r has upgrade card slots."
+				""
+				"§lHow to access:§r Shift-right-click while the backpack is equipped"
+				"(worn as chest armor or in offhand)."
+				""
+				"§lKey upgrades available now:§r"
+				"  • §aPickup Upgrade§r — auto-collects nearby dropped items"
+				"  • §aFilter Upgrade§r — controls exactly what gets picked up"
+				"  • §aStack Upgrade§r — increases items per slot"
+				""
+				"§lUnlocked later:§r"
+				"  • §6Magnet Upgrade§r — extended range pickup (§eNether tier§r)"
+				"  • §6Void Upgrade§r — destroys filtered excess items (§eNether tier§r)"
+				"  • §cAuto-Crafting Upgrade§r — automated crafting inside the pack (§eAether tier§r)"
+				""
+				"§lTip:§r You can stack multiple upgrades of the same type to amplify their effect."
+			]
+		}
+		{
+			title: "Your Battle Statistics"
+			icon: "minecraft:filled_map"
+			x: 6d
+			y: -2d
+			shape: "rsquare"
+			id: "01OW011"
+			dependencies: ["01OW004"]
+			tasks: [{
+				id: "01OW011T1"
+				type: "checkmark"
+				title: "Open the Attributes panel using the sword icon in the top-right of your inventory."
+			}]
+			rewards: [{
+				id: "01OW011R1"
+				type: "xp_levels"
+				xp_levels: 2
+			}]
+			description: [
+				"§lApothic Attributes§r adds a combat statistics panel to all inventory screens."
+				""
+				"Click the §6sword icon§r in the §etop-right corner§r of your inventory to open it."
+				""
+				"It tracks:"
+				"  • §cAttack Damage§r and §cCrit Chance§r"
+				"  • §bArmor§r, §bArmor Toughness§r, and §bKnockback Resistance§r"
+				"  • §aMovement Speed§r and §aReach§r"
+				"  • Many more from Apotheosis and equipped accessories"
+				""
+				"§lWhat affects stats:§r"
+				"  • §6Apotheosis gems§r socketed into armor and weapons"
+				"  • §6Enchantments§r from the enchanting table"
+				"  • §6Accessories§r equipped in your Accessories screen"
+				"  • §6Iron's Spellbooks§r casting rings and armor"
+			]
+		}
+		{
+			title: "Gem Socketing"
+			icon: "minecraft:emerald"
+			x: 8d
+			y: -2d
+			shape: "rsquare"
+			id: "01OW012"
+			dependencies: ["01OW011"]
+			tasks: [{
+				id: "01OW012T1"
+				type: "checkmark"
+				title: "Socket a gem into a piece of armor or a weapon."
+			}]
+			rewards: [
+				{
+					id: "01OW012R1"
+					type: "item"
+					item: "minecraft:experience_bottle"
+					count: 5
+				}
+				{
+					id: "01OW012R2"
+					type: "xp_levels"
+					xp_levels: 3
+				}
+			]
+			description: [
+				"§lApotheosis§r drops tiered gems from mobs and dungeon chests."
+				""
+				"§6Gem Tiers§r (weakest → strongest):"
+				"  §7Common§r → §aUncommon§r → §bRare§r → §dEpic§r → §6Legendary§r → §cMythic§r"
+				""
+				"§lHow to socket:§r"
+				"  1. Find a gem (check mob drops and dungeon loot)"
+				"  2. Right-click your armor or weapon §ewith the gem in hand§r"
+				"  3. Each item has limited socket slots — higher-rarity items have more"
+				""
+				"§lRemoving gems:§r Craft or find a §6Vial of Expulsion§r to unsocket"
+				"without destroying either the item or the gem."
+				""
+				"§lTip:§r Higher-tier dungeons and §cMythic§r-rarity mobs drop better gems."
+				"Check §eJEI§r for the full gem list and their stat boosts."
+			]
+		}
+		{
+			title: "Spells Are Found, Not Crafted"
+			icon: "minecraft:writable_book"
+			x: 8d
+			y: 2d
+			shape: "rsquare"
+			id: "01OW013"
+			dependencies: ["01OW005"]
+			tasks: [{
+				id: "01OW013T1"
+				type: "checkmark"
+				title: "Find a spell scroll in a dungeon and learn a spell."
+			}]
+			rewards: [
+				{
+					id: "01OW013R1"
+					type: "item"
+					item: "irons_spellbooks:arcane_essence"
+					count: 2
+				}
+				{
+					id: "01OW013R2"
+					type: "xp_levels"
+					xp_levels: 3
+				}
+			]
+			description: [
+				"§lIron's Spellbooks§r uses a loot-based magic system — spells are found, not crafted."
+				""
+				"§lSpell Scrolls§r drop from dungeon mobs and chests."
+				"Right-click a scroll to learn the spell. Learned spells are cast using casting gear."
+				""
+				"§lCasting gear:§r"
+				"  • §6Staves§r — found in dungeons, each attuned to a spell school"
+				"    (Fire, Ice, Blood, Nature, Lightning, Evocation, ...)"
+				"  • §6Spell Books§r — held in offhand, lets you cast equipped spells"
+				"  • §6Casting Rings§r — craftable from amethyst, allow casting without a staff"
+				""
+				"§lSpell upgrade system:§r"
+				"  Craft the §6Arcane Anvil§r (3x Amethyst Block + Diamond + Anvil + 2x Deepslate)"
+				"  to access the spell upgrade and arcane armor crafting trees."
+				""
+				"§lTip:§r Scroll rarity = spell power. Legendary scrolls are rare dungeon treasures."
+				"Prioritize dungeons with §7Dungeon Crawl§r — they have dedicated caster mob variants."
 			]
 		}
 	]

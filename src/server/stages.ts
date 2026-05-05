@@ -1,7 +1,6 @@
 // src/server/stages.ts
 // Central definition of all progression stage flags.
 // Grant stages from FTB Quests Command Rewards using /roguelike stage grant <stage>
-
 export const STAGES = {
   OVERWORLD_COMPLETE: "roguelike:stage_overworld_complete",
   UNDERGARDEN_ENTERED: "roguelike:stage_undergarden_entered",
@@ -16,15 +15,15 @@ export const STAGES = {
 
 export type Stage = typeof STAGES[keyof typeof STAGES];
 
-export function hasStage(player: $ServerPlayerKJS$$Interface, stage: Stage): boolean {
+export function hasStage(player: Player, stage: Stage): boolean {
   return player.persistentData.getBoolean(stage);
 }
 
-export function grantStage(player: $ServerPlayerKJS$$Interface, stage: Stage): void {
+export function grantStage(player: Player, stage: Stage): void {
   player.persistentData.putBoolean(stage, true);
 }
 
-export function revokeStage(player: $ServerPlayerKJS$$Interface, stage: Stage): void {
+export function revokeStage(player: Player, stage: Stage): void {
   player.persistentData.putBoolean(stage, false);
 }
 

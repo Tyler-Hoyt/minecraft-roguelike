@@ -139,7 +139,7 @@ kubejs/data/ftbquests/quests/chapters/
 ## Notes & Decisions Needed (TODO for you)
 
 - [X] Confirm Twilight Forest vs Blue Skies (check NeoForge 1.21.1 availability)
-- [ ] Decide starter kit contents (armor tier, food, tools)
+- [X] Decide starter kit contents (armor tier, food, tools)
 - [ ] Write quest descriptions / lore text per chapter
 - [ ] Design chapter background art (1920x1080 PNG per dimension)
 - [ ] Tune recipe costs for gate items (balancing)

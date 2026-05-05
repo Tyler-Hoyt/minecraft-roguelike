@@ -20,12 +20,11 @@
   },
   "include": [
     "src/**/*.ts",
-    "types/**/*.d.ts",
+    "node_modules/@kubejs-types/core/**/*.d.ts",
     // When ProbeJS dump is available, add:
     "kubejs/probe/**/*.d.ts"
   ],
   "exclude": [
-    "node_modules",
     "tests"
   ]
 }

@@ -1,0 +1,39 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "where_am_i"
+	group: "7650F77BA0EAB457"
+	icon: {
+		id: "minecraft:compass"
+	}
+	id: "22CEC91DEF12725F"
+	order_index: 0
+	quest_links: [ ]
+	quests: [
+		{
+			id: "1D742C356E8AB2FE"
+			tasks: [{
+				id: "55B562489ED8A04A"
+				type: "checkmark"
+			}]
+			x: 2.5d
+			y: 5.5d
+		}
+		{
+			dependencies: ["1D742C356E8AB2FE"]
+			id: "21DCA656A3F8D368"
+			rewards: [{
+				id: "6B24F3497F65FA27"
+				type: "xp_levels"
+				xp_levels: 5
+			}]
+			tasks: [{
+				id: "2B12D06C6207949F"
+				item: { count: 1, id: "minecraft:crafting_table" }
+				type: "item"
+			}]
+			x: 2.5d
+			y: 8.5d
+		}
+	]
+}

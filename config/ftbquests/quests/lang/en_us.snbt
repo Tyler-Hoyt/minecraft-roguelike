@@ -1,0 +1,19 @@
+{
+	chapter.22CEC91DEF12725F.title: "0. Introduction"
+	chapter.53AD94008E23152F.title: "2. Undergarden"
+	chapter.58D13238A912DCAE.title: "1. Overworld"
+	chapter_group.7650F77BA0EAB457.title: "Dimensions"
+	quest.1D742C356E8AB2FE.quest_desc: [
+		"Split Dimensions is a mod about progressing through different the world one dimension at a time."
+		""
+		"The primary goal is to bring you the player an experience of each of the wild and crazy experiences that exist in whole custom dimensions that the modding community has created."
+		""
+		"Start by looking through this initial quest chapter and reading about different sections of the mod and where to start!"
+	]
+	quest.1D742C356E8AB2FE.quest_subtitle: "Let's get started"
+	quest.1D742C356E8AB2FE.title: "Welcome to Split Dimensions!"
+	quest.21DCA656A3F8D368.quest_desc: ["To start you are going to need to get a crafting table just like in vanilla minecraft."]
+	quest.21DCA656A3F8D368.quest_subtitle: "Humble Beginning..."
+	task.55B562489ED8A04A.title: "Welcome!"
+	task.6EA00037634B7728.title: "Step into the Undergarden"
+}

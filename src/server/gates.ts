@@ -13,16 +13,9 @@
 export function registerGateRecipes(e: RecipesKubeEvent): void {
   // ── Undergarden Catalyst ──────────────────────────────────────────────────
   // Unlocks: Undergarden dimension
-  // Requires: Iron, Deepslate, and the Overworld Gate Token (FTB Quests reward)
-  // TODO (you): Adjust the pattern and materials to your preferred balance
-  e.shaped('undergarden:catalyst', [
-    ' A ',
-    'ABA',
-    ' A ',
-  ], {
-    A: 'minecraft:deepslate', // TODO: replace with your preferred gate material
-    B: 'minecraft:iron_block', // TODO: replace with your preferred center piece
-  });
+  // Gate: FTB Quests reward after completing the Apotheosis Frontier Gateway
+  // The catalyst is NOT craftable — it is quest-only.
+  e.remove({ output: 'undergarden:catalyst' });
 
   // ── Gilded Stone (Aether Portal Key) ─────────────────────────────────────
   // Unlocks: The Aether dimension
