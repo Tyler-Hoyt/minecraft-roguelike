@@ -11,6 +11,33 @@ npm run dev          # watch mode (recompiles on save)
 npm test             # run all tests in Node.js (no Minecraft needed)
 ```
 
+## First-Time Setup: Link to CurseForge Instance
+
+The repo's `kubejs/` and `config/` directories are **junctioned** into the CurseForge
+instance so that `npm run build` compiles directly to where Minecraft reads scripts, and
+`/probejs dump` writes the type dump back into the tracked repo automatically.
+
+Run these PowerShell commands **once** when cloning on a new machine (replace the instance
+path if your CurseForge library is in a different location):
+
+```powershell
+$instance = "C:\Users\$env:USERNAME\curseforge\minecraft\Instances\minecraft-roguelike"
+$repo     = Split-Path -Parent $PSScriptRoot   # or set this to your repo path
+
+# Link kubejs/ — compiled scripts go directly to the game
+Remove-Item "$instance\kubejs" -Recurse -Force -ErrorAction SilentlyContinue
+New-Item -ItemType Junction -Path "$instance\kubejs" -Target "$repo\kubejs"
+
+# Link config/ — mod balance configs are version controlled here
+Remove-Item "$instance\config" -Recurse -Force -ErrorAction SilentlyContinue
+New-Item -ItemType Junction -Path "$instance\config" -Target "$repo\config"
+```
+
+After setup:
+- `npm run dev` — recompiles TypeScript on save; just `/kubejs reload` in-game
+- `/probejs dump` — writes directly to `kubejs/probe/` in this repo; commit the result
+- Changes to `config/` in-game are automatically tracked here
+
 ## Project Structure
 
 ```

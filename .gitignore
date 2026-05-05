@@ -5,3 +5,24 @@ kubejs/client_scripts/
 # ProbeJS generates these — commit them when available
 # kubejs/probe/
 dist/
+
+# CurseForge instance runtime files
+# (config/ and kubejs/ are junctioned into this repo — only ignore game-generated noise)
+saves/
+logs/
+crash-reports/
+local/
+downloads/
+moddata/
+moonlight-global-datapacks/
+resourcepacks/
+patchouli_books/
+dynamic-resource-pack-cache/
+options.txt
+usercache.json
+usernamecache.json
+patchouli_data.json
+command_history.txt
+.mixin.out/
+.probe/
+.curseclient
