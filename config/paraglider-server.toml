@@ -78,4 +78,4 @@ paragliderInTowersOfTheWild = "DEFAULT"
 	#Paragliding will consume stamina. Run /paraglider reloadPlayerStates after change.
 	paraglidingConsumesStamina = true
 	#Certain non-paragliding actions, such as running and swimming, will consume stamina. Run /paraglider reloadPlayerStates after change.
-	runningAndSwimmingConsumesStamina = false
+	runningAndSwimmingConsumesStamina = true

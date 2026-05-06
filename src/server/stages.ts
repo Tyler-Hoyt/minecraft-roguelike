@@ -4,13 +4,15 @@
 export const STAGES = {
   OVERWORLD_COMPLETE: "roguelike:stage_overworld_complete",
   UNDERGARDEN_ENTERED: "roguelike:stage_undergarden_entered",
-  ARS_NOUVEAU_T1: "roguelike:stage_ars_noeuveau_t1",
+  ARS_NOUVEAU_T1: "roguelike:stage_ars_nouveau_t1",
+  /*
   ARS_NOUVEAU_T2: "roguelike:stage_ars_nouveau_t2",
   NETHER_COMPLETE: "roguelike:stage_nether_complete",
   AETHER_COMPLETE: "roguelike:stage_aether_complete",
   AE2_ONLINE: "roguelike:stage_ae2_online",
   TWILIGHT_COMPLETE: "roguelike:stage_twilight_complete",
   DEEP_DARK_COMPLETE: "roguelike:stage_deep_dark_complete",
+  */
 } as const;
 
 export type Stage = typeof STAGES[keyof typeof STAGES];
@@ -48,6 +50,6 @@ PlayerEvents.tick((event) => {
 
   if (player.level.dimension.toString() === 'undergarden:undergarden' && !hasStage(player, STAGES.UNDERGARDEN_ENTERED)) {
     grantStage(player, STAGES.UNDERGARDEN_ENTERED);
-    player.tell("§d[Roguelike] You have entered the Undergarden. New recipes are availables.");
+    player.tell("§d[Roguelike] You have entered the Undergarden. New recipes are available!");
   }
 });

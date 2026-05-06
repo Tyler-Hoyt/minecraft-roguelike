@@ -9,11 +9,11 @@
 | Stage | Status | Focus |
 |-------|--------|-------|
 | 0 | ✅ Done | Foundation — project structure, stubs, FTB Quests shells |
-| 1 | ⬜ Pending | Overworld — starter kit, Apotheosis, Catalyst recipe |
-| 2 | ⬜ Pending | Undergarden — Ars Nouveau gates, Cloggrum bridge |
-| 3 | ⬜ Pending | Nether — Blood Magic, Forbidden Arcanus |
-| 4 | ⬜ Pending | Aether — AE2 unlock, Malum, Zanite bridge |
-| 5 | ⬜ Pending | Twilight / Blue Skies — trophy recipes, AE2 endgame |
+| 1 | 🔧 In Progress | Overworld — starter kit, Apotheosis, Catalyst gate, quest text |
+| 2 | ⬜ Pending | Undergarden — Ars Nouveau gates, Cloggrum bridge, quest text |
+| 3 | ⬜ Pending | Nether — gating, storage (Storage Drawers/Forbidden Arcanus deferred) |
+| 4 | ⬜ Pending | Aether — AE2 deferred, Malum deferred |
+| 5 | ⬜ Pending | Twilight Forest — deferred (mod removed for now) |
 | 6 | ⬜ Pending | Deep Dark — Warden gear, sculk tools |
 | 7 | ⬜ Pending | The End — Dragon egg, final crafting |
 
@@ -21,7 +21,7 @@
 
 ```
 [Overworld]
-    │  craft Undergarden Catalyst
+    │  Complete apotheosis wave based fight, get the Catalyst
     ▼
 [Undergarden]  ←── Ars Nouveau unlocked here
     │  complete Rotspawn boss quest
@@ -101,26 +101,25 @@
 
 ```
 src/server/
-├── starter-kit.ts      ← First-spawn kit (STUB — you decide the kit contents)
-├── overworld.ts        ← Apotheosis tweaks, Catalyst recipe
-├── undergarden.ts      ← Ars Nouveau gates, Cloggrum bridge
-├── nether.ts           ← Blood Magic altar, Forbidden Arcanus
-├── aether.ts           ← AE2 unlock, Malum, Zanite bridge
-├── twilight.ts         ← Trophy recipes, AE2 endgame gate
-├── deepdark.ts         ← Warden gear, Sculk tools
-├── end.ts              ← Dragon egg, final crafting
-└── loot-tables.ts      ← Custom loot table tweaks
+├── starter-kit.ts      ← First-spawn kit
+├── stages.ts           ← Progression stage flags + commands
+├── gates.ts            ← Dimension gate recipe enforcement
+├── overworld.ts        ← Apotheosis tweaks, Ars Nouveau pre-gate
+├── undergarden.ts      ← Ars Nouveau unlock, Cloggrum bridge
+└── loot-tables.ts      ← Custom loot table tweaks (stub)
 ```
+
+Note: `nether.ts`, `aether.ts`, `twilight.ts`, `deepdark.ts`, `end.ts`, `ae2.ts` were removed — will be re-added when each dimension is ready.
 
 ## FTB Quests Chapters
 
 ```
-kubejs/data/ftbquests/quests/chapters/
+config/ftbquests/quests/chapters/
 ├── 01_overworld.snbt
 ├── 02_undergarden.snbt
 ├── 03_nether.snbt
 ├── 04_aether.snbt
-├── 05_twilight.snbt
+├── 05_twilight.snbt   ← has broken TF item refs (TF not installed)
 ├── 06_deepdark.snbt
 └── 07_end.snbt
 ```
@@ -145,3 +144,57 @@ kubejs/data/ftbquests/quests/chapters/
 - [ ] Tune recipe costs for gate items (balancing)
 - [X] Confirm all mods are on NeoForge 1.21.1 before installing
 - [ ] Decide on a pack name and icon
+
+---
+
+## Current Issues (from review)
+
+### Bugs to Fix
+
+3. **Broken quest reward** — Quest `719F30116BDC4DAB` in `01_overworld.snbt` rewards `irons_spellbooks:arcane_essence` (mod removed, shows as `ftbquests:missing_item`). Replace with `2× minecraft:golden_apple` + keep the 3 XP reward.
+4. **Magnet/void upgrades permanently locked** — `overworld.ts` removes them with comment "re-added in nether.ts" but `nether.ts` was deleted. Remove the 4 `e.remove()` calls for `magnet_upgrade`, `advanced_magnet_upgrade`, `void_upgrade`, `advanced_void_upgrade`.
+5. **Deleted src files not committed** — `ae2.ts`, `aether.ts`, `deepdark.ts`, `end.ts`, `nether.ts`, `twilight.ts` are deleted on disk but not staged.
+
+### Quest Content Gaps
+
+#### Ch.1 — `01_overworld.snbt` (all 14 quests missing `title` and `description`)
+
+| ID | Task / Reward | Title | Description |
+|----|--------------|-------|-------------|
+| `11A973B524829B5F` | Checkmark → Compass | Welcome, Rogue | You have arrived in a world where every dimension hides a greater challenge. Press B to open this quest book. Start here. |
+| `27451C740469E15E` | Checkmark → 2 XP | Gather Supplies | Chop wood, mine stone, and gather the basics before night falls. |
+| `4099F6410D87D1F4` | Checkmark → 2 XP | Into the Unknown | Explore the surface and underground. This world has enhanced dungeons and deadlier mobs. |
+| `73F8DF2A4110C850` | Checkmark → no reward | Prepare to Fight | Stock up on food, armor, and weapons. The final Overworld challenge is no ordinary fight. |
+| `4E3E4D4FC594DB08` | Checkmark → Pickup Upgrade | Stay Organized | Upgrade your backpack with a Pickup Upgrade to auto-collect loot while you fight. |
+| `32BF460B3FFD6232` | Submit Copper Backpack → Iron Block | Carry More | Craft a Copper Backpack. Keep extra slots free for dungeon loot. |
+| `51442107E7ADB0C9` | Submit Enchanting Table → 3 XP | The Art of Enchantment | Build an Enchanting Table. Apotheosis adds gem sockets and higher max enchant levels. |
+| `6B6748DCD7D2DDFD` | Checkmark → Bow + 32 Arrows | Dead-Eye | Ranged weapons are critical against the Gateway boss. Have a bow and plenty of arrows ready. |
+| `719F2E80A0281358` | Checkmark → 5 XP bottles + 3 XP | Bottled Wisdom | Gather XP to fuel Apotheosis enchanting. Dungeons and Taverns are excellent XP sources. |
+| `68BAC0432D500A9A` | Checkmark → 2× Golden Apple | Golden Resilience | Stock up on Golden Apples before dangerous territory. They are a lifesaver in tough fights. |
+| `0B8685D0D5712DD0` | Checkmark → 2× Golden Apple + 2 XP | Survive the Night | The mobs here hit harder than vanilla. Keep your health and food topped up. |
+| `719F30116BDC4DAB` | Checkmark → (see bug #3) + 3 XP | War Chest | Fill your inventory with consumables and backup gear. The Frontier Guardian punishes the unprepared. |
+| `5E5DEFB174138B9C` | Advancement `apotheosis:gateways/frontier` → Catalyst + 5 XP | Slay the Frontier Guardian | Find an Apotheosis Frontier Gateway (green beacon) and defeat the boss inside to unlock the path below. |
+| `03131E68FD2B0D53` | Submit Catalyst → Patchouli book | The Gateway Below | Place the Undergarden Catalyst in a 3×3 ring of Cobblestone and right-click the center to open the portal. |
+
+**Dependencies to add:**
+- `5E5DEFB174138B9C` (Gateway boss) should depend on `73F8DF2A4110C850` (Prepare to Fight)
+- `03131E68FD2B0D53` (Submit Catalyst) should depend on `5E5DEFB174138B9C` (Gateway boss)
+
+#### Ch.2 — `02_undergarden.snbt` (all 5 quests missing `title`, `description`, and `dependencies`)
+
+| ID | Task / Reward | Title | Description |
+|----|--------------|-------|-------------|
+| `578089BF83172D19` | Checkmark → 2 XP | Into the Garden of Decay | Step through the Undergarden portal into the world below. |
+| `0F00D150DB439316` | Checkmark → 3 XP | Explore the Deep | Find a Sunken Keep — the Undergarden dungeon. It holds Cloggrum-tier loot. |
+| `238C74462BD4C631` | Submit 16× Cloggrum → 8× Cloggrum | Mine Cloggrum | Cloggrum Ore resonates with magical energy and is the key to unlocking Ars Nouveau. |
+| `26D5313F86429851` | Submit Worn Notebook → 5 XP | First Steps in Magic | Craft the Worn Notebook using a Book and a Cloggrum Ingot to unlock Ars Nouveau. |
+| `5DCD61CDFB3A419C` | Checkmark → 4× Blaze Rod + 10 XP | Defeat the Rotspawn | The Rotspawn is the Undergarden final boss. Defeat it to earn the Nether key and advance your progression. |
+
+**Dependencies to add (linear chain):**
+- `0F00D150DB439316` depends on `578089BF83172D19`
+- `238C74462BD4C631` depends on `0F00D150DB439316`
+- `26D5313F86429851` depends on `238C74462BD4C631`
+- `5DCD61CDFB3A419C` depends on `26D5313F86429851`
+
+#### Other notes
+- `05_twilight.snbt` references `twilightforest:magic_log` and `twilightforest:portal` — TF not installed, icons will appear broken. Not urgent.

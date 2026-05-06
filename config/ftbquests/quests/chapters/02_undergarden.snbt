@@ -1,133 +1,104 @@
 {
-	id: "02undergarden"
-	group: ""
-	order_index: 1
-	filename: "02_undergarden"
-	title: "Below the Bedrock"
-	icon: "undergarden:umberstone"
-	default_quest_shape: "rsquare"
 	default_hide_dependency_lines: false
+	default_quest_shape: "rsquare"
+	filename: "02_undergarden"
+	group: ""
+	id: "6917F47B9645A15A"
+	order_index: 1
+	quest_links: [ ]
 	quests: [
 		{
-			title: "Enter the Undergarden"
-			icon: "undergarden:catalyst"
-			x: 0d
-			y: 0d
-			shape: "rsquare"
-			id: "02UG001"
-			dependencies: ["01OW006"]
-			tasks: [{
-				id: "02UG001T1"
-				type: "checkmark"
-				title: "Step through the Undergarden portal."
-			}]
+			id: "578089BF83172D19"
 			rewards: [{
-				id: "02UG001R1"
+				id: "20BDE065E16387D6"
 				type: "xp_levels"
 				xp_levels: 2
 			}]
-			description: [
-				"Deep below the bedrock, a forgotten world awaits."
-				"§eTODO: Write lore for the Undergarden arrival.§r"
-			]
+			shape: "rsquare"
+			tasks: [{
+				id: "03C950B9D2A04987"
+				type: "checkmark"
+			}]
+			x: 0.0d
+			y: 0.0d
 		}
 		{
-			title: "Find a Sunken Keep"
-			icon: "undergarden:cloggrum_ingot"
-			x: 2d
-			y: 0d
-			shape: "rsquare"
-			id: "02UG002"
-			dependencies: ["02UG001"]
-			tasks: [{
-				id: "02UG002T1"
-				type: "checkmark"
-				title: "Find and explore the Sunken Keep dungeon."
-			}]
+			id: "0F00D150DB439316"
 			rewards: [{
-				id: "02UG002R1"
+				id: "343A8498B6AB1668"
 				type: "xp_levels"
 				xp_levels: 3
 			}]
+			shape: "rsquare"
+			tasks: [{
+				id: "11892FA7EA834739"
+				type: "checkmark"
+			}]
+			x: 2.0d
+			y: 0.0d
 		}
 		{
-			title: "Mine Cloggrum"
-			icon: "undergarden:cloggrum_ore"
-			x: 4d
-			y: 0d
-			shape: "rsquare"
-			id: "02UG003"
-			dependencies: ["02UG002"]
-			tasks: [{
-				id: "02UG003T1"
-				type: "item"
-				item: "undergarden:cloggrum_ingot"
-				count: 16
-			}]
+			id: "238C74462BD4C631"
 			rewards: [{
-				id: "02UG003R1"
-				type: "item"
-				item: "undergarden:cloggrum_ingot"
 				count: 8
+				id: "79D1CF12100B52B9"
+				item: {
+					count: 1
+					id: "undergarden:cloggrum_ingot"
+				}
+				type: "item"
 			}]
+			shape: "rsquare"
+			tasks: [{
+				count: 16L
+				id: "2610AD1BD908EEFD"
+				item: { count: 1, id: "undergarden:cloggrum_ingot" }
+				type: "item"
+			}]
+			x: 4.0d
+			y: 0.0d
 		}
 		{
-			title: "Begin Your Magic Journey"
-			icon: "ars_nouveau:worn_notebook"
-			x: 6d
-			y: 0d
-			shape: "rsquare"
-			id: "02UG004"
-			dependencies: ["02UG003"]
-			tasks: [{
-				id: "02UG004T1"
-				type: "item"
-				item: "ars_nouveau:worn_notebook"
-				count: 1
-			}]
+			id: "26D5313F86429851"
 			rewards: [{
-				id: "02UG004R1"
+				id: "21CA2F3377CD52C6"
 				type: "xp_levels"
 				xp_levels: 5
 			}]
-			description: [
-				"The Cloggrum ore pulses with a strange energy that resonates with spell glyphs."
-				"Craft the Worn Notebook to begin your journey into Ars Nouveau."
-				"§eTODO: Add Ars Nouveau tips here.§r"
-			]
+			shape: "rsquare"
+			tasks: [{
+				id: "602D0651D47440A3"
+				item: { count: 1, id: "ars_nouveau:worn_notebook" }
+				type: "item"
+			}]
+			x: 6.0d
+			y: 0.0d
 		}
 		{
-			title: "Defeat the Rotspawn"
-			icon: "undergarden:rotting_stone"
-			x: 8d
-			y: 0d
-			shape: "rsquare"
-			id: "02UG005"
-			dependencies: ["02UG004"]
-			tasks: [{
-				id: "02UG005T1"
-				type: "checkmark"
-				title: "Defeat the Undergarden's Rotspawn boss."
-			}]
+			id: "5DCD61CDFB3A419C"
 			rewards: [
 				{
-					id: "02UG005R1"
-					type: "item"
-					item: "minecraft:blaze_rod"
 					count: 4
-					title: "Nether Access Token"
+					id: "37A177413AFB56FA"
+					item: {
+						count: 1
+						id: "minecraft:blaze_rod"
+					}
+					type: "item"
 				}
 				{
-					id: "02UG005R2"
+					id: "6490126519C7A847"
 					type: "xp_levels"
 					xp_levels: 10
 				}
 			]
-			description: [
-				"The Rotspawn guards the gateway to your next challenge."
-				"Defeat it to unlock access to the Nether."
-				"§eTODO: Write boss lore / tips.§r"
-			]
+			shape: "rsquare"
+			tasks: [{
+				id: "45C6F0C3B2987841"
+				type: "checkmark"
+			}]
+			x: 8.0d
+			y: 0.0d
 		}
 	]
 }

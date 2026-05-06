@@ -19,10 +19,10 @@ export function onPlayerFirstJoin(event: PlayerKubeEvent): void {
 
   // Give player starter kit
   player.give(Item.of("simplyswords:gold_sai"));
-  player.give(Item.of("minecraft:stone_axe"));
-  player.give(Item.of("ftbquests:book"));
-  player.give(Item.of("sophisticatedbackpacks:backpack"));
   player.give(Item.of("minecraft:cooked_chicken", 16));
+  player.give(Item.of("sophisticatedbackpacks:backpack"));
+  player.give(Item.of("paraglider:paraglider"));
+  player.give(Item.of("ftbquests:book"));
 
   // Hint about quest book
   player.tell("§6Welcome to Roguelike Dimensions!");

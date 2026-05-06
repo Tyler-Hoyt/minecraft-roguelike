@@ -33,9 +33,6 @@ export function registerUndergarden(e: RecipesKubeEvent): void {
     X: 'ars_nouveau:archwood_planks',
     G: 'undergarden:cloggrum_ingot',
   });
-
-  // TODO (you): Forgotten Metal bridges — decide if it gates anything
-  // e.shaped('ars_nouveau:item_xyz', [...], { A: 'undergarden:forgotten_metal_ingot' });
 }
 
 export function registerUndergardenTags(e: TagKubeEvent): void {

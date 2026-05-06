@@ -1,500 +1,306 @@
 {
-	id: "01overworld"
-	group: ""
-	order_index: 0
-	filename: "01_overworld"
-	title: "The Surface World"
-	icon: "minecraft:grass_block"
-	default_quest_shape: "rsquare"
 	default_hide_dependency_lines: false
+	default_quest_shape: "rsquare"
+	filename: "01_overworld"
+	group: ""
+	id: "684FE97BC4A6D10A"
+	order_index: 0
+	quest_links: [ ]
 	quests: [
 		{
-			title: "Welcome to Roguelike Dimensions"
-			icon: "minecraft:book"
-			x: 0d
-			y: 0d
+			id: "11A973B524829B5F"
+			rewards: [{
+				id: "2671B1D3E419517E"
+				item: {
+					count: 1
+					id: "minecraft:compass"
+				}
+				type: "item"
+			}]
 			shape: "rsquare"
-			id: "01OW001"
 			tasks: [{
-				id: "01OW001T1"
+				id: "230E011915B082B8"
 				type: "checkmark"
-				title: "Read this quest to begin your journey."
 			}]
-			rewards: [{
-				id: "01OW001R1"
-				type: "item"
-				item: "minecraft:compass"
-				count: 1
-			}]
-			description: [
-				"Welcome, Rogue."
-				""
-				"This world is dangerous. Each dimension you explore will be harder than the last."
-				""
-				"Follow the quest chain in order. Each chapter unlocks the next."
-				""
-				"§eTODO: Replace this description with your lore text.§r"
-			]
+			x: 6.0d
+			y: 0.0d
 		}
 		{
-			title: "Survive Your First Night"
-			icon: "minecraft:bed"
-			x: 2d
-			y: 0d
-			shape: "rsquare"
-			id: "01OW002"
-			dependencies: ["01OW001"]
-			tasks: [{
-				id: "01OW002T1"
-				type: "item"
-				item: "minecraft:white_bed"
-				count: 1
-			}]
+			dependencies: ["4099F6410D87D1F4"]
+			id: "51442107E7ADB0C9"
 			rewards: [{
-				id: "01OW002R1"
-				type: "xp_levels"
-				xp_levels: 2
-			}]
-		}
-		{
-			title: "Craft a Backpack"
-			icon: "sophisticatedbackpacks:backpack"
-			x: 4d
-			y: 0d
-			shape: "rsquare"
-			id: "01OW003"
-			dependencies: ["01OW002"]
-			tasks: [{
-				id: "01OW003T1"
-				type: "item"
-				item: "sophisticatedbackpacks:backpack"
-				count: 1
-			}]
-			rewards: [{
-				id: "01OW003R1"
-				type: "item"
-				item: "minecraft:iron_ingot"
-				count: 8
-			}]
-			description: [
-				"A backpack will be your best friend throughout your journey."
-				"§eTODO: Add flavour text.§r"
-			]
-		}
-		{
-			title: "Craft an Apotheosis Enchanting Table"
-			icon: "minecraft:enchanting_table"
-			x: 6d
-			y: 0d
-			shape: "rsquare"
-			id: "01OW004"
-			dependencies: ["01OW003"]
-			tasks: [{
-				id: "01OW004T1"
-				type: "item"
-				item: "minecraft:enchanting_table"
-				count: 1
-			}]
-			rewards: [{
-				id: "01OW004R1"
+				id: "2B60F196D5789AAD"
 				type: "xp_levels"
 				xp_levels: 3
 			}]
-			description: [
-				"Apotheosis overhauls the enchanting system."
-				"Place bookshelves and try your first enchantment."
-				"§eTODO: Add Apotheosis tips here.§r"
-			]
-		}
-		{
-			title: "Find a Dungeon"
-			icon: "minecraft:mossy_cobblestone"
-			x: 8d
-			y: 0d
 			shape: "rsquare"
-			id: "01OW005"
-			dependencies: ["01OW004"]
 			tasks: [{
-				id: "01OW005T1"
-				type: "checkmark"
-				title: "Explore a YUNG's dungeon and return with loot."
-			}]
-			rewards: [{
-				id: "01OW005R1"
+				id: "1BA9CB358685CE42"
+				item: { count: 1, id: "minecraft:enchanting_table" }
 				type: "item"
-				item: "minecraft:golden_apple"
-				count: 2
 			}]
+			x: 6.0d
+			y: -4.0d
 		}
 		{
-			title: "The Frontier Gateway"
-			icon: "gateways:gate_pearl"
-			x: 10d
-			y: 0d
-			shape: "rsquare"
-			id: "01OW014"
-			dependencies: ["01OW005"]
-			tasks: [{
-				id: "01OW014T1"
-				type: "advancement"
-				advancement: "apotheosis:gateways/frontier"
-				title: "Complete the Apotheosis Frontier Gateway"
+			dependencies: ["73F8DF2A4110C850"]
+			id: "68BAC0432D500A9A"
+			rewards: [{
+				count: 2
+				id: "11E1BC0DE19A32B0"
+				item: {
+					count: 1
+					id: "minecraft:golden_apple"
+				}
+				type: "item"
 			}]
+			shape: "rsquare"
+			tasks: [{
+				id: "536EC015B4750CA3"
+				type: "checkmark"
+			}]
+			x: 4.5d
+			y: 3.0d
+		}
+		{
+			id: "5E5DEFB174138B9C"
 			rewards: [
 				{
-					id: "01OW014R1"
+					id: "00AEC9E1A1892AFB"
+					item: {
+						count: 1
+						id: "undergarden:catalyst"
+					}
 					type: "item"
-					item: "undergarden:catalyst"
-					count: 1
-					title: "Undergarden Catalyst"
 				}
 				{
-					id: "01OW014R2"
+					id: "3D15F74BCC5B782B"
 					type: "xp_levels"
 					xp_levels: 5
 				}
 			]
-			description: [
-				"Before you descend underground, you must prove your strength."
-				""
-				"§lThe Apotheosis Gateway§r is a wave-based boss challenge."
-				""
-				"§lHow to start:§r"
-				"  1. Find or craft a §6Gate Pearl§r (check boss spawner towers)"
-				"  2. Right-click the Gate Pearl on flat ground to open a §cGateway§r"
-				"  3. Survive the waves — each wave is harder than the last"
-				"  4. Defeat the final wave boss to complete the Frontier Gateway"
-				""
-				"§lWhy this matters:§r"
-				"  Completing the Gateway unlocks the §6Ascent tier§r — better Apotheosis"
-				"  gem drops will now appear from mobs and structures."
-				""
-				"  You'll also receive the §6Undergarden Catalyst§r — the only way"
-				"  to open the portal to the dimension below."
-				""
-				"§lTip:§r Stock up on food, potions, and make sure your armor is"
-				"enchanted before attempting the Gateway."
-			]
+			shape: "rsquare"
+			tasks: [{
+				advancement: "apotheosis:gateways/frontier"
+				criterion: ""
+				id: "30941D8738035BC2"
+				type: "advancement"
+			}]
+			x: 8.0d
+			y: 0.0d
 		}
 		{
-			title: "Descend to the Undergarden"
-			icon: "undergarden:catalyst"
-			x: 12d
-			y: 0d
-			shape: "rsquare"
-			id: "01OW006"
-			dependencies: ["01OW014"]
-			tasks: [{
-				id: "01OW006T1"
-				type: "item"
-				item: "undergarden:catalyst"
-				count: 1
-			}]
+			id: "03131E68FD2B0D53"
 			rewards: [{
-				id: "01OW006R1"
+				id: "6A73A79F64702695"
+				item: {
+					count: 1
+					id: "patchouli:guide_book"
+				}
 				type: "item"
-				item: "patchouli:guide_book"
-				count: 1
-				title: "Undergarden Lore Book"
 			}]
-			description: [
-				"You have the Catalyst. Now build the portal."
-				""
-				"§lPortal frame:§r Build a frame using §eStone Bricks§r or §eDeepslate Bricks§r."
-				"The frame must be at least 4x5 blocks (like a Nether portal but taller)."
-				""
-				"§lActivation:§r Right-click the bottom-center block of the frame with the Catalyst."
-				""
-				"What awaits you is a world of ancient dark stone, glowing fungi,"
-				"and creatures that never see sunlight."
-				""
-				"§eTODO: Add lore about the Undergarden.§r"
-			]
+			shape: "rsquare"
+			tasks: [{
+				id: "1684BBFC441D18D3"
+				item: { count: 1, id: "undergarden:catalyst" }
+				type: "item"
+			}]
+			x: 10.0d
+			y: 0.0d
 		}
 		{
-			title: "Your Unified Inventory"
-			icon: "minecraft:chain"
-			x: 0d
-			y: -2d
-			shape: "rsquare"
-			id: "01OW007"
-			dependencies: ["01OW001"]
-			tasks: [{
-				id: "01OW007T1"
-				type: "checkmark"
-				title: "Open the Accessories screen and explore your equipment slots."
-			}]
+			dependencies: ["11A973B524829B5F"]
+			id: "27451C740469E15E"
 			rewards: [{
-				id: "01OW007R1"
+				id: "2BE7ED1BDA79400D"
 				type: "xp_levels"
 				xp_levels: 2
 			}]
-			description: [
-				"In this pack, all equipment slots are unified under one screen."
-				""
-				"Press §eE§r to open your inventory, then click the §6Accessories button§r."
-				""
-				"The Accessories screen has three groups of slots:"
-				"  • §aAccessories§r — rings, amulets, and other accessories"
-				"  • §bCurios§r — spell books, belts, and mod-specific trinkets"
-				"  • §cAether§r — Aether rings, pendants, gloves, capes, and shields"
-				""
-				"There's also a §6crafting grid§r on the side — no crafting table needed for basic recipes."
-				""
-				"§lTip:§r In Controls, bind §e\"Accessories Inventory\"§r to §eE§r and"
-				"move §e\"Inventory\"§r to §eI§r for direct one-key access."
-			]
+			shape: "rsquare"
+			tasks: [{
+				id: "2D6256741D5CA8B2"
+				type: "checkmark"
+			}]
+			x: 4.0d
+			y: 0.0d
 		}
 		{
-			title: "The New Combat System"
-			icon: "minecraft:iron_sword"
-			x: 0d
-			y: 2d
-			shape: "rsquare"
-			id: "01OW008"
-			dependencies: ["01OW001"]
-			tasks: [{
-				id: "01OW008T1"
-				type: "checkmark"
-				title: "Try a light attack and a heavy attack on any mob."
-			}]
+			dependencies: ["4099F6410D87D1F4"]
+			id: "6B6748DCD7D2DDFD"
 			rewards: [
 				{
-					id: "01OW008R1"
+					id: "5BB0D5A336D21114"
+					item: {
+						count: 1
+						id: "minecraft:bow"
+					}
 					type: "item"
-					item: "minecraft:bow"
-					count: 1
 				}
 				{
-					id: "01OW008R2"
-					type: "item"
-					item: "minecraft:arrow"
 					count: 32
+					id: "1DA968DE43CEAE97"
+					item: {
+						count: 1
+						id: "minecraft:arrow"
+					}
+					type: "item"
 				}
 			]
-			description: [
-				"§lBetter Combat§r replaces vanilla's one-click combat with real attack patterns."
-				""
-				"§6Light Attack§r — Click to perform a quick strike"
-				"§6Heavy Attack§r — Hold to charge, release for a powerful blow"
-				"§6Combo Chain§r — Chain light attacks for multi-hit sequences"
-				""
-				"Different weapon types have unique movesets:"
-				"  • §eSwords§r — standard combos"
-				"  • §eGreatswords§r — wide sweeping strikes (from Simply Swords)"
-				"  • §ePolearms§r — long reach, thrust attacks"
-				"  • §eScythes§r — spin attacks with area coverage"
-				""
-				"Find §6special weapons in dungeons§r for the most unique attack patterns."
-				"Simply Swords weapons are dungeon loot — the best ones aren't craftable."
-			]
+			shape: "rsquare"
+			tasks: [{
+				id: "64B15EC9F5BC0749"
+				type: "checkmark"
+			}]
+			x: 7.5d
+			y: -3.0d
 		}
 		{
-			title: "Spirit Orbs"
-			icon: "minecraft:nether_star"
-			x: 2d
-			y: 2d
-			shape: "rsquare"
-			id: "01OW009"
-			dependencies: ["01OW002"]
-			tasks: [{
-				id: "01OW009T1"
-				type: "checkmark"
-				title: "Find your first Spirit Orb in a dungeon chest."
-			}]
+			dependencies: ["73F8DF2A4110C850"]
+			id: "0B8685D0D5712DD0"
 			rewards: [
 				{
-					id: "01OW009R1"
-					type: "item"
-					item: "minecraft:golden_apple"
 					count: 2
+					id: "45E1DB73D4FFC7B9"
+					item: {
+						count: 1
+						id: "minecraft:golden_apple"
+					}
+					type: "item"
 				}
 				{
-					id: "01OW009R2"
+					id: "76FFBDC7AADA9419"
 					type: "xp_levels"
 					xp_levels: 2
 				}
 			]
-			description: [
-				"The §6Paraglider§r mod brings a Breath of the Wild-style progression system."
-				""
-				"§lSpirit Orbs§r are found in dungeon chests and dropped by boss spawners."
-				"Collect §e4 orbs§r and trade them with the §6Great Fairy§r for:"
-				"  • §c+1 Heart Container§r — permanently increases your max health"
-				"  • §b+1 Stamina Vessel§r — increases climbing and paraglider stamina"
-				""
-				"§lWhere to find orbs:§r"
-				"  • §7YUNG's Dungeons§r and §7Dungeon Crawl§r chests"
-				"  • Dropped by §7mob spawner§r minibosses"
-				"  • §7Dungeons and Taverns§r structures"
-				""
-				"§lTip:§r Prioritize Heart Containers early. Switch to Stamina Vessels"
-				"once you have enough health to survive tough encounters."
-			]
+			shape: "rsquare"
+			tasks: [{
+				id: "560C038B2938A8B5"
+				type: "checkmark"
+			}]
+			x: 6.0d
+			y: 3.5d
 		}
 		{
-			title: "Upgrade Your Backpack"
-			icon: "sophisticatedbackpacks:backpack"
-			x: 4d
-			y: 2d
-			shape: "rsquare"
-			id: "01OW010"
-			dependencies: ["01OW003"]
-			tasks: [{
-				id: "01OW010T1"
-				type: "checkmark"
-				title: "Shift-right-click your equipped backpack to open its upgrade slots."
-			}]
+			dependencies: ["27451C740469E15E"]
+			id: "4E3E4D4FC594DB08"
 			rewards: [{
-				id: "01OW010R1"
+				id: "5543B37E7D92935C"
+				item: {
+					count: 1
+					id: "sophisticatedbackpacks:pickup_upgrade"
+				}
 				type: "item"
-				item: "sophisticatedbackpacks:pickup_upgrade"
-				count: 1
 			}]
-			description: [
-				"Your §6Sophisticated Backpack§r has upgrade card slots."
-				""
-				"§lHow to access:§r Shift-right-click while the backpack is equipped"
-				"(worn as chest armor or in offhand)."
-				""
-				"§lKey upgrades available now:§r"
-				"  • §aPickup Upgrade§r — auto-collects nearby dropped items"
-				"  • §aFilter Upgrade§r — controls exactly what gets picked up"
-				"  • §aStack Upgrade§r — increases items per slot"
-				""
-				"§lUnlocked later:§r"
-				"  • §6Magnet Upgrade§r — extended range pickup (§eNether tier§r)"
-				"  • §6Void Upgrade§r — destroys filtered excess items (§eNether tier§r)"
-				"  • §cAuto-Crafting Upgrade§r — automated crafting inside the pack (§eAether tier§r)"
-				""
-				"§lTip:§r You can stack multiple upgrades of the same type to amplify their effect."
-			]
+			shape: "rsquare"
+			tasks: [{
+				id: "029C6FD605CC95EB"
+				type: "checkmark"
+			}]
+			x: 2.5d
+			y: 1.0d
 		}
 		{
-			title: "Your Battle Statistics"
-			icon: "minecraft:filled_map"
-			x: 6d
-			y: -2d
-			shape: "rsquare"
-			id: "01OW011"
-			dependencies: ["01OW004"]
-			tasks: [{
-				id: "01OW011T1"
-				type: "checkmark"
-				title: "Open the Attributes panel using the sword icon in the top-right of your inventory."
-			}]
+			dependencies: ["11A973B524829B5F"]
+			id: "4099F6410D87D1F4"
 			rewards: [{
-				id: "01OW011R1"
+				id: "54C4EE8B78D08AFC"
 				type: "xp_levels"
 				xp_levels: 2
 			}]
-			description: [
-				"§lApothic Attributes§r adds a combat statistics panel to all inventory screens."
-				""
-				"Click the §6sword icon§r in the §etop-right corner§r of your inventory to open it."
-				""
-				"It tracks:"
-				"  • §cAttack Damage§r and §cCrit Chance§r"
-				"  • §bArmor§r, §bArmor Toughness§r, and §bKnockback Resistance§r"
-				"  • §aMovement Speed§r and §aReach§r"
-				"  • Many more from Apotheosis and equipped accessories"
-				""
-				"§lWhat affects stats:§r"
-				"  • §6Apotheosis gems§r socketed into armor and weapons"
-				"  • §6Enchantments§r from the enchanting table"
-				"  • §6Accessories§r equipped in your Accessories screen"
-				"  • §6Iron's Spellbooks§r casting rings and armor"
-			]
+			shape: "rsquare"
+			tasks: [{
+				id: "54265CD9747F7DD6"
+				type: "checkmark"
+			}]
+			x: 6.0d
+			y: -2.0d
 		}
 		{
-			title: "Gem Socketing"
-			icon: "minecraft:emerald"
-			x: 8d
-			y: -2d
-			shape: "rsquare"
-			id: "01OW012"
-			dependencies: ["01OW011"]
-			tasks: [{
-				id: "01OW012T1"
-				type: "checkmark"
-				title: "Socket a gem into a piece of armor or a weapon."
-			}]
+			dependencies: ["4099F6410D87D1F4"]
+			id: "719F2E80A0281358"
 			rewards: [
 				{
-					id: "01OW012R1"
-					type: "item"
-					item: "minecraft:experience_bottle"
 					count: 5
+					id: "0776621DCC4D9E98"
+					item: {
+						count: 1
+						id: "minecraft:experience_bottle"
+					}
+					type: "item"
 				}
 				{
-					id: "01OW012R2"
+					id: "32A9387AF45F6A47"
 					type: "xp_levels"
 					xp_levels: 3
 				}
 			]
-			description: [
-				"§lApotheosis§r drops tiered gems from mobs and dungeon chests."
-				""
-				"§6Gem Tiers§r (weakest → strongest):"
-				"  §7Common§r → §aUncommon§r → §bRare§r → §dEpic§r → §6Legendary§r → §cMythic§r"
-				""
-				"§lHow to socket:§r"
-				"  1. Find a gem (check mob drops and dungeon loot)"
-				"  2. Right-click your armor or weapon §ewith the gem in hand§r"
-				"  3. Each item has limited socket slots — higher-rarity items have more"
-				""
-				"§lRemoving gems:§r Craft or find a §6Vial of Expulsion§r to unsocket"
-				"without destroying either the item or the gem."
-				""
-				"§lTip:§r Higher-tier dungeons and §cMythic§r-rarity mobs drop better gems."
-				"Check §eJEI§r for the full gem list and their stat boosts."
-			]
+			shape: "rsquare"
+			tasks: [{
+				id: "00D5390F3E95381D"
+				type: "checkmark"
+			}]
+			x: 4.5d
+			y: -3.0d
 		}
 		{
-			title: "Spells Are Found, Not Crafted"
-			icon: "minecraft:writable_book"
-			x: 8d
-			y: 2d
-			shape: "rsquare"
-			id: "01OW013"
-			dependencies: ["01OW005"]
-			tasks: [{
-				id: "01OW013T1"
-				type: "checkmark"
-				title: "Find a spell scroll in a dungeon and learn a spell."
-			}]
+			dependencies: ["73F8DF2A4110C850"]
+			id: "719F30116BDC4DAB"
 			rewards: [
 				{
-					id: "01OW013R1"
-					type: "item"
-					item: "irons_spellbooks:arcane_essence"
 					count: 2
+					id: "16AC4006955D197F"
+					item: {
+						components: {
+							"ftbquests:missing_item": "irons_spellbooks:arcane_essence"
+						}
+						count: 1
+						id: "ftbquests:missing_item"
+					}
+					type: "item"
 				}
 				{
-					id: "01OW013R2"
+					id: "3CFB14C89A6B2A4A"
 					type: "xp_levels"
 					xp_levels: 3
 				}
 			]
-			description: [
-				"§lIron's Spellbooks§r uses a loot-based magic system — spells are found, not crafted."
-				""
-				"§lSpell Scrolls§r drop from dungeon mobs and chests."
-				"Right-click a scroll to learn the spell. Learned spells are cast using casting gear."
-				""
-				"§lCasting gear:§r"
-				"  • §6Staves§r — found in dungeons, each attuned to a spell school"
-				"    (Fire, Ice, Blood, Nature, Lightning, Evocation, ...)"
-				"  • §6Spell Books§r — held in offhand, lets you cast equipped spells"
-				"  • §6Casting Rings§r — craftable from amethyst, allow casting without a staff"
-				""
-				"§lSpell upgrade system:§r"
-				"  Craft the §6Arcane Anvil§r (3x Amethyst Block + Diamond + Anvil + 2x Deepslate)"
-				"  to access the spell upgrade and arcane armor crafting trees."
-				""
-				"§lTip:§r Scroll rarity = spell power. Legendary scrolls are rare dungeon treasures."
-				"Prioritize dungeons with §7Dungeon Crawl§r — they have dedicated caster mob variants."
-			]
+			shape: "rsquare"
+			tasks: [{
+				id: "34698E21775ABC60"
+				type: "checkmark"
+			}]
+			x: 7.5d
+			y: 3.0d
+		}
+		{
+			dependencies: ["27451C740469E15E"]
+			id: "32BF460B3FFD6232"
+			rewards: [{
+				id: "273AD2B6BD0B87FA"
+				item: {
+					count: 1
+					id: "minecraft:iron_block"
+				}
+				type: "item"
+			}]
+			tasks: [{
+				id: "086C4B18FF17A9A3"
+				item: { count: 1, id: "sophisticatedbackpacks:copper_backpack" }
+				type: "item"
+			}]
+			x: 2.5d
+			y: -1.0d
+		}
+		{
+			dependencies: ["11A973B524829B5F"]
+			id: "73F8DF2A4110C850"
+			tasks: [{
+				id: "184A2A144E630100"
+				type: "checkmark"
+			}]
+			x: 6.0d
+			y: 2.0d
 		}
 	]
 }

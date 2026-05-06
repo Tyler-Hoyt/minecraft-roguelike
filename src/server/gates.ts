@@ -16,47 +16,6 @@ export function registerGateRecipes(e: RecipesKubeEvent): void {
   // Gate: FTB Quests reward after completing the Apotheosis Frontier Gateway
   // The catalyst is NOT craftable — it is quest-only.
   e.remove({ output: 'undergarden:catalyst' });
-
-  // ── Gilded Stone (Aether Portal Key) ─────────────────────────────────────
-  // Unlocks: The Aether dimension
-  // Requires: Nether materials + Wither Star (dropped after Wither quest)
-  // TODO (you): Adjust recipe cost after playtesting the Nether chapter
-  e.shaped('roguelike:gilded_stone', [
-    'ABA',
-    'BCB',
-    'ABA',
-  ], {
-    A: 'minecraft:nether_brick',   // TODO: balance material
-    B: 'minecraft:blaze_rod',      // TODO: balance material
-    C: 'minecraft:nether_star',    // Wither drop — the real gate ingredient
-  });
-
-  // ── Dimensional Lens (Twilight/Blue Skies Key) ────────────────────────────
-  // Unlocks: Twilight Forest or Blue Skies
-  // Requires: Aether materials + Slider Trophy (FTB Quests reward from Slider kill)
-  // TODO (you): Adjust once Aether boss drops are confirmed
-  e.shaped('roguelike:dimensional_lens', [
-    'ABA',
-    'BCB',
-    'ABA',
-  ], {
-    A: 'aether:skyroot_planks',    // TODO: replace with Aether-tier material
-    B: 'aether:zanite_gemstone',   // TODO: balance material
-    C: 'roguelike:slider_trophy',  // Custom item — rewarded by FTB Quests on Slider kill
-  });
-
-  // ── Echo Key (Deep Dark Key) ──────────────────────────────────────────────
-  // Unlocks: The Deep Dark chapter
-  // Requires: Late-dim boss trophy + End materials
-  // TODO (you): Adjust once Twilight/Blue Skies chapter is complete
-  e.shaped('roguelike:echo_key', [
-    ' A ',
-    'ABA',
-    ' A ',
-  ], {
-    A: 'minecraft:echo_shard',             // Found in Ancient Cities
-    B: 'roguelike:twilight_trophy',        // Custom item — rewarded on late-dim boss kill
-  });
 }
 
 ServerEvents.recipes(registerGateRecipes);
