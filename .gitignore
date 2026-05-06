@@ -8,6 +8,9 @@ dist/
 
 # CurseForge instance runtime files
 # (config/ and kubejs/ are junctioned into this repo — only ignore game-generated noise)
+
+# Ars Nouveau auto-generated Lucene search index
+config/ars_nouveau/search_index/
 saves/
 logs/
 crash-reports/
