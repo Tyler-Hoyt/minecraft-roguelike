@@ -183,9 +183,22 @@ Three layers control item distribution in chests (order matters):
 | 2 — KubeJS `changeLootModifiers` | `src/server/loot-tables.ts` | ALL CHEST tables | Replaces any diamond SS weapon → `spelunkery:rough_diamond` |
 | 3 — KubeJS `addDungeonCrawlModdedLoot` | `src/server/loot-tables.ts` | Dungeon Crawl chests | Tiered Ars Nouveau essence/spell book injection by depth |
 
-> **Simply Swords `enableLootDrops = false`** — intentional. SS own injection is disabled; `lootintegrations` handles SS weapon distribution. Do not re-enable.
+> **Simply Swords `enableLootDrops = false`** — intentional. SS own injection is disabled; `lootintegrations` handles SS weapon distribution. Do not re-enable.  
+> **`lootintegration_wda` mod should be REMOVED** — it creates a third injection layer for WDA structures alongside `lootintegrations`. See plan.md Expert Review.
 
-`reduceDungeonCrawlRolls` caps pool sizes per DC tier to prevent loot overflow. The loot limiter at the bottom of `loot-tables.ts` enforces `MAX_UNIQUE_ITEMS = 6` per chest.
+`reduceDungeonCrawlRolls` caps pool sizes per DC tier. ⚠️ **Registration is commented out** — uncomment `LootJS.lootTables(reduceDungeonCrawlRolls)` in loot-tables.ts.
+
+## Paxi Datapacks
+
+`config/paxi/datapacks/` is currently **empty**. All three planned datapacks need to be created:
+
+| Datapack | Path | Purpose |
+|----------|------|---------|
+| `structures` | `datapacks/structures/` | Per-structure spacing for WDA, DC, YUNG's, villages |
+| `hostility` | `datapacks/hostility/` | L2Hostility dimension/zone-specific overrides |
+| `compat` | `datapacks/compat/data/apotheosis/enchanting_stats/` | Modded block enchanting shelf registration |
+
+Reference RAD3's `rad3-compat` and `rad3-structures` datapacks for JSON format. Each datapack must have a `pack.mcmeta` file at its root.
 
 ## Recommended Keybind Layout
 

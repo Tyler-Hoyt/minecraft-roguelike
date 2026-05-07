@@ -117,21 +117,21 @@
 
 ### Performance (all installed ✅)
 - Sodium, BadOptimizations, FerriteCore, ModernFix, Entity Culling, ImmediatelyFast, FastSuite, Chloride
-- ⚠️ **Embeddium is removed** — it conflicted with Sodium (crash 2026-05-07). Still listed in CurseForge install log — risk of re-install on next CurseForge sync. Remove via CurseForge UI.
-- ⬜ **TODO: Add Noisium** (faster worldgen noise, NeoForge 1.21.1 port available on Modrinth)
-- ⬜ **TODO: Add Dynamic FPS** (reduces GPU load when window unfocused)
+- ✅ **Noisium** installed (`noisium-neoforge-2.7.0`) — faster worldgen noise
+- ✅ **Dynamic FPS** installed (`dynamic-fps-3.11.4`) — reduces GPU load when unfocused
+- ⚠️ **Embeddium is removed** — it conflicted with Sodium (crash 2026-05-07). Still listed in CurseForge install log — risk of re-install on next CurseForge pack sync. Remove via CurseForge UI.
 
 ### KubeJS Scripts
 
 ```
 src/server/
 ├── starter-kit.ts      ← First-spawn kit ✅
-├── stages.ts           ← Progression stage flags + commands ✅
-├── gates.ts            ← Dimension gate recipe enforcement (partial)
+├── stages.ts           ← Progression stage flags + commands ✅ (⚠️ portal block bug)
+├── gates.ts            ← Dimension gate recipe enforcement (⚠️ Eye of Ender issue)
 ├── overworld.ts        ← Apotheosis tweaks, Ars Nouveau pre-gate ✅
 ├── undergarden.ts      ← Ars Nouveau unlock, Cloggrum bridge ✅
 ├── recipes.ts          ← Armor progression recipes, jukebox upgrade removals ✅
-└── loot-tables.ts      ← Spelunkery replacements, Dungeon Crawl rolls + Ars loot, limiter ✅
+└── loot-tables.ts      ← Spelunkery replacements, Dungeon Crawl rolls + Ars loot, limiter ⚠️ (rolls commented out)
 ```
 
 > `nether.ts`, `aether.ts`, `twilight.ts`, `deepdark.ts`, `end.ts`, `ae2.ts` — not yet added.
@@ -140,10 +140,14 @@ src/server/
 
 Paxi loads JSON datapacks before world creation, making it the right place for **worldgen config** that KubeJS cannot touch.
 
+> ⚠️ **The `datapacks/` directory is currently EMPTY.** The status entries below are **planned, not done.**
+> Structure spacing is currently handled only by `sparsestructures.json5` (global factor 1), which means WDA, YUNG's, DC, and village spacing customization via Paxi has never been applied.
+
 | Datapack | Status | Purpose |
 |----------|--------|---------|
-| `structures` | ✅ Done | Structure spacing — Dungeon Crawl, When Dungeons Arise, Villages, Ancient City, Woodland Mansions |
-| `hostility` | ✅ Done | L2Hostility difficulty configs — L2 Hostility confirmed installed |
+| `structures` | ❌ Not created | Structure spacing — Dungeon Crawl, When Dungeons Arise, Villages, Ancient City, Woodland Mansions |
+| `hostility` | ❌ Not created | L2Hostility dimension/zone-specific difficulty overrides |
+| `compat` | ❌ Not created | Apotheosis enchanting_stats for modded shelves |
 
 ### KubeJS vs Datapack — what goes where
 
@@ -183,10 +187,12 @@ config/ftbquests/quests/chapters/
 |------|-----------|---------|
 | → Undergarden | `undergarden:catalyst` is quest-only (vanilla recipe removed in `gates.ts`) | FTB Quest reward after Apotheosis Frontier Gateway boss |
 | → Nether | Quest flag + `/roguelike stage grant` command reward | Rotspawn kill + Ars Nouveau T1 quest chain |
-| → Aether | `roguelike:gilded_stone` (recipe TBD) | Wither kill |
-| → Twilight Forest | `roguelike:dimensional_lens` (recipe TBD) | Aether Slider kill |
-| → Deep Dark | `roguelike:echo_key` (recipe TBD) | Late dim boss chain complete |
+| → Aether | `roguelike:gilded_stone` (recipe TBD, requires Runes) | Wither kill |
+| → Twilight Forest | `roguelike:dimensional_lens` (recipe TBD, requires Runes) | Aether Slider kill |
+| → Deep Dark | `roguelike:echo_key` (recipe TBD, requires Runes) | Late dim boss chain complete |
 | → The End | Quest flag unlock | Warden kill |
+
+> ⚠️ **Eye of Ender issue:** `gates.ts` removes the Eye of Ender recipe. There is no FTB Quest reward distributing Eyes to players. End Portal entry is currently impossible. Fix: add quest reward Eyes to the Nether completion quest, or re-enable vanilla crafting and gate via a different mechanism.
 
 ## Open Decisions
 
@@ -194,10 +200,199 @@ config/ftbquests/quests/chapters/
 - [ ] **Tune recipe costs** for gate items (Gilded Stone, Dimensional Lens, Echo Key)
 - [ ] **Chapter background art** — 1920×1080 PNG per dimension
 - [ ] **Quest lore text** — final wording per chapter (drafts below)
+- [ ] **Rune economy** — confirm 4 fragments per tier vs different count
+- [ ] **Waystones** — add mod or use FTB Teams home point system
+- [ ] **Farmer's Delight** — add food progression or keep vanilla food
+- [ ] **Boss content** — Cataclysm vs Bosses of Mass Destruction vs both
 
 ---
 
-## Active Issues (Stages 1–2)
+## Expert Review — Game Design & Balance Findings
+
+> Full review as of 2026-05-07. All items below are **actionable changes** organized by priority.
+
+### 🔴 CRITICAL BUGS (break existing systems)
+
+#### Bug 1: `reduceDungeonCrawlRolls` is never called
+`loot-tables.ts` line 105 has the registration commented out:
+```ts
+// LootJS.lootTables(reduceDungeonCrawlRolls);  ← THIS IS COMMENTED OUT
+```
+The function is fully implemented but never registered. Dungeon Crawl chests generate with uncapped roll counts. **Fix:** Uncomment the line.
+
+#### Bug 2: Ars Nouveau essences injected into Overworld dungeons
+`addDungeonCrawlModdedLoot` injects T1 Ars Nouveau essences into DC `stage_1` and `stage_2` — which are Overworld dungeons. But `overworld.ts` gates all Ars Nouveau until the Undergarden. Players finding essences can't use them yet (fine), but it breaks the intended design of "Undergarden = magic awakening." Fix: Move essence injection to `stage_3+` only, or gate the injection behind a player-stage check.
+
+#### Bug 3: Nether portal block is too broad
+`stages.ts` blocks `rightClicked("minecraft:obsidian")` with flint and steel. This blocks ALL flint-and-steel use on ANY obsidian block — including using F&S for lighting campfires or furnaces adjacent to obsidian, or building with obsidian in general. **Fix:** Use `BlockEvents.portalCreated` to cancel portal creation instead.
+
+#### Bug 4: Eye of Ender removed with no replacement path
+`gates.ts` removes the Eye of Ender recipe. No FTB Quest currently rewards Eyes of Ender to players. The End Portal is currently impossible to complete. **Fix:** Add 12× Eye of Ender as an FTB Quest reward upon completing the "Kill the Wither" quest in the Nether chapter.
+
+#### Bug 5: Paxi datapacks directory is empty
+The plan says `structures` and `hostility` datapacks are ✅ Done. Neither exists. The `config/paxi/datapacks/` directory is empty. Structure spacing currently relies only on `sparsestructures.json5` (global factor 1) — no fine-grained per-structure control. L2Hostility dimension configs are only in the mod config directory, not as overrideable datapacks. **Fix:** Create both datapacks (see Paxi section above).
+
+---
+
+### 🟠 BALANCE ISSUES
+
+#### Balance 1: Stamina consumption is backwards
+`betterparagliders-server.toml` currently:
+- `one_handed_stamina_consumption = 2.5` — rapier, sai, katana (fast weapons)
+- `two_handed_stamina_consumption = 2.0` — glaive, halberd, greathammer (heavy weapons)
+
+One-handed weapons cost MORE stamina per hit than two-handed weapons. This is backwards — fast weapons should be stamina-efficient, heavy weapons should be heavy. Recommended:
+```
+melee_stamina_consumption = 1.0     (base, unchanged)
+one_handed_stamina_consumption = 1.5  (↓ from 2.5)
+two_handed_stamina_consumption = 2.5  (↑ from 2.0)
+block_stamina_consumption = 8.0       (↓ from 10.0 — slightly less punishing)
+```
+
+#### Balance 2: L2 Hostility is aggressive at spawn
+`defaultLevelBase = 5` — mobs start at level 5. Combine with `globalTraitChance = 1.0` and `initialTraitChanceSlope = 0.01` and level-5 mobs have a 5% chance of having traits (fire, speed, etc.). Near spawn, new players face these before getting geared. Reduce `defaultLevelBase = 2` and `globalTraitSuppression = 0.2` (↑ from 0.1) for a more welcoming first session.
+
+#### Balance 3: MAX_UNIQUE_ITEMS = 6 hits treasure rooms too hard
+The global loot limiter caps all CHEST loot at 6 items. Dungeon Crawl treasure and secret rooms are supposed to be exciting moments. At 6 items max they often feel underwhelming. Recommended: raise to 8 for treasure/secret rooms. Implement dimension-specific limits (stages 1-2 = 6, treasure = 9, Nether+ = 8).
+
+#### Balance 4: Spirit Orb spawner drop = 1.0 per spawner
+`paraglider-server.toml`: `spawnerSpiritOrbDrops = 1.0` — every spawner drop guarantees 1 Spirit Orb. This makes stamina/heart farming trivial: find a spawner farm, collect orbs indefinitely. Recommend: `spawnerSpiritOrbDrops = 0.25` (25% chance) to make orbs feel special.
+
+#### Balance 5: lootintegration_wda creates double injection for WDA structures
+`lootintegration_wda` mod + `lootintegrations` mod both inject items into WDA structures. WDA's own built-in loot tables also fire. Result: three item injection layers in WDA chests, causing inflated loot quantities. **Remove `lootintegration_wda`** — `lootintegrations` at weight 1 handles the same purpose.
+
+---
+
+### 🟡 MODS TO REMOVE
+
+| Mod | Reason |
+|-----|--------|
+| `lootintegration_wda-1.8.jar` | Double-injects into WDA with `lootintegrations` mod. Remove. |
+| `armordamagescale-1.21.1-3.2.jar` | Conflicts with L2Hostility damage scaling — both modify damage. Pick one. L2Hostility is more feature-rich; remove `armordamagescale`. |
+| `better_tooltips-1.0.3.jar` | Two tooltip enhancement mods installed (`better_tooltips` + `SimplyTooltips`). Verify they don't conflict. If both work, keep both. If conflict, remove `better_tooltips`. |
+
+---
+
+### 🟢 MODS TO ADD (Priority)
+
+| Mod | Why | Priority |
+|-----|-----|----------|
+| **Waystones** (neoforge 1.21.1) | Multi-dimension pack with no fast travel = brutal. Players lose 10+ minutes backtracking. Waystones at dimension hubs solve this. | 🔴 High |
+| **Farmer's Delight** | Gives food a progression arc (knife → cooking pot → advanced meals). Ties in well with Tavern structures. Without it, food is purely vanilla. | 🟠 Medium |
+| **Cataclysm** | High-quality boss fights (Netherite Monstrosity, Ender Guardian, Leviathan). Each boss fits a dimension tier. Gives players a satisfying boss kill per dimension beyond vanilla bosses. | 🟠 Medium |
+| **Twilight Forest** | Stage 5 in the progression plan — not yet installed. | 🟠 Medium |
+| **The Aether** | Stage 4 in the progression plan — not yet installed. | 🟠 Medium |
+| **Goblin Traders** | Merchant NPCs in structures that accept custom coins/runes. Ties into RAD3-inspired economy. | 🟡 Low |
+| **Towers of the Wild: Reworked** | Generates tall exploration towers with Paraglider rewards at the top — perfect for the stamina/gliding theme. Note: `paraglider-server.toml` already has `paragliderInTowersOfTheWild = "DEFAULT"` configured. | 🟡 Low |
+| **BetterDeath** / Corail integration | Improve death experience with better visual graves that preserve XP | 🟡 Low |
+
+---
+
+### 🎮 GAME DESIGN GAPS
+
+#### Gap 1: No narrative thread between dimensions
+The pack is mechanically strong but narratively empty. Players jump from dimension to dimension without understanding why. Each dimension chapter needs an opening quest that delivers 2-3 lines of lore establishing WHY this dimension matters. Example: Undergarden = "The roots of the world hold ancient magic..." Nether = "The heat of creation forged the first runes..." The current stub quests have good mechanical descriptions but no story hooks.
+
+#### Gap 2: The Paraglider is underutilized as a star feature
+Paragliding + stamina is the most unique feature of this pack. But the current quest flow treats it as one item in the Combat chapter ("Take Flight" = 1 quest). RAD3 inspiration: dedicate a full **Spirit Paths chapter** to the paraglider + stamina system:
+- Find a Shrine of Bargain
+- Trade 4 Spirit Orbs for a Heart Container  
+- Upgrade stamina to 2 vessels
+- Unlock the dodge roll
+- Complete a paraglider challenge (land at a destination from 200+ blocks up)
+
+#### Gap 3: No economy/social loop
+For multiplayer, RAD3's coin system gives players a reason to interact — trade coins for shop items, pool coins for group rewards. Without it, multiplayer is just parallel single-player. Implement **Dimension Runes** (see next section) as the meta-currency.
+
+#### Gap 4: Weapons feel samey without guidance
+Simply Swords adds 15+ weapon types, each with unique movesets. But nothing tells players about them. The Combat chapter stubs are good, but players need to be pushed to TRY different weapons. Add a "Weapon Trials" quest chain: equip each weapon type and kill a mob with it.
+
+#### Gap 5: Magic onboarding is overwhelming
+When Ars Nouveau unlocks in the Undergarden, 30+ recipes become available instantly. Players who haven't seen the mod before will be lost. The 16-quest Magic chapter is excellent but needs to be locked at the quest level — each quest should unlock the next. The current tree likely isn't linear. Make it a strict linear chain: Source Jar → Source Relay → Imbuement Chamber → first glyph → etc.
+
+#### Gap 6: No food progression
+Vanilla food with AppleSkin tooltips is fine for a launch baseline, but by Stage 3 (Nether), players should be eating better food for combat bonuses. Farmer's Delight provides this without being overwhelming.
+
+---
+
+### ✨ DESIGN ADDITIONS (Inspired by RAD3)
+
+#### Addition 1: Dimension Rune Economy (new system)
+
+RAD3's coin system makes quest completion feel economically rewarding beyond just XP. Adapt this for our pack:
+
+**Rune Fragments** — custom KubeJS startup items, one type per dimension tier:
+- `roguelike:overworld_rune_fragment` — dropped by Apotheosis gems bosses, DC treasure room quest rewards
+- `roguelike:undergarden_rune_fragment` — dropped by Rotspawn, Undergarden dungeon quests
+- `roguelike:nether_rune_fragment` — Wither kill, Nether Fortress quests
+- etc.
+
+**Runes** — crafting: 4 fragments → 1 Rune (shaped, 2×2)
+- `roguelike:overworld_rune`, `roguelike:undergarden_rune`, etc.
+
+**Uses for Runes:**
+1. Required components in gate item recipes (Gilded Stone needs 2 Undergarden Runes, etc.)
+2. Quest "shop" chapter — submit Runes for powerful rewards (affix items, extra heart containers, special gear)
+3. Visual only: Runes are used to display dimension completion in the quest book milestone wall
+
+**Implementation:**
+- Register fragment items in `src/startup/runes.ts` (KubeJS `StartupEvents.registry`)
+- Add crafting recipes in `src/server/recipes.ts`
+- Add fragment drops via LootJS in `src/server/loot-tables.ts`
+- Add Rune reward events via FTB Quests command rewards
+
+#### Addition 2: Spirit Paths Quest Chapter (new chapter)
+
+Dedicated to the BetterParagliders stamina/heart system — the star feature of the pack.
+
+| # | Title | Task | Reward |
+|---|-------|------|--------|
+| 1 | The Wheel of Life | Equip the Paraglider | Stamina Vessel |
+| 2 | First Shrine | Find a Shrine of Bargain | 2 Spirit Orbs |
+| 3 | The Trade | Trade 4 Spirit Orbs at a Shrine | Heart Container |
+| 4 | Second Wind | Reach 2 full stamina wheels | Stamina Vessel |
+| 5 | The Leap | Glide 200 blocks in a single flight | 2 XP |
+| 6 | Dodge Roll | Dodge 10 attacks | 3 XP |
+| 7 | Full Hearts | Consume 5 Heart Containers | 1 Heart Container |
+| 8 | Pilgrim | Find 5 Shrines of Bargain | Overworld Rune Fragment |
+| 9 | Sky Walker | Glide across a YUNG's ravine | Rune Fragment |
+| 10 | The Vessel Within | Reach max stamina (10 vessels) | 1 Heart Container + title |
+
+#### Addition 3: The Market Quest Chapter (Rune shop)
+
+A chapter where players spend Runes for out-of-quest-line rewards:
+
+| Shop Item | Cost | Unlocked After |
+|-----------|------|----------------|
+| Apotheosis Gem Pouch | 2 Overworld Runes | Overworld complete |
+| Ancient Tome | 3 Overworld Runes | Overworld complete |
+| Ars Nouveau Apprentice Book | 2 Undergarden Runes | Undergarden complete |
+| Affix Loot item (random) | 4 Undergarden Runes | Undergarden complete |
+| Heart Container | 6 Undergarden Runes | Undergarden complete |
+
+Implement as FTB Quests with item submission tasks (turn in Runes) and item rewards.
+
+#### Addition 4: Weapon Trials Quest Chain
+
+Add to Combat chapter as quests 15-20:
+- "Katana Trial" — kill 5 mobs with a Katana
+- "Halberd Trial" — kill 5 mobs with a Halberd  
+- "Rapier Trial" — kill 5 mobs with a Rapier
+- "Glaive Trial" — kill 5 mobs with a Glaive
+- "Arms Master" — complete all weapon trials → reward: Overworld Rune Fragment
+
+#### Addition 5: Lore Codex (Patchouli book)
+
+A Patchouli book given in the starter kit that adds pages as dimensions are entered:
+- Given at first join alongside the FTB Quests book
+- Page 1-3: World overview, stamina system, paraglider guide
+- Page 4-6: Unlocked on Undergarden entry — Ars Nouveau primer
+- Page 7-9: Unlocked on Nether entry — Forbidden Arcanus, magic tier 2
+- Implement page unlocks via KubeJS `PlayerEvents` + Patchouli advancement system
+
+---
+
+## Active Issues
 
 ### ✅ FIXED: Sparse Structures — `spreadFactor` set to 1
 `config/sparsestructures.json5` — changed `spreadFactor: 2` → `1`. Paxi datapacks now have sole control over custom structure spacing.
@@ -208,27 +403,32 @@ config/ftbquests/quests/chapters/
 ### ✅ FIXED: Duplicate loot table entries
 Duplicate `diamond_longsword` and `diamond_cutlass` entries removed from `loot-tables.ts`.
 
+### 🔴 Bug: reduceDungeonCrawlRolls never registered
+`loot-tables.ts` line 105: `// LootJS.lootTables(reduceDungeonCrawlRolls);` is commented out. Uncomment to apply roll caps.
+
+### 🔴 Bug: Eye of Ender removed with no quest distribution
+`gates.ts` removes Eye of Ender recipe. No quest currently distributes Eyes. End Portal is unreachable. Add 12× Eyes as Nether completion quest reward.
+
+### 🔴 Bug: Nether portal block too broad
+`stages.ts` blocks `rightClicked("minecraft:obsidian")` + flint and steel. Blocks ALL F&S on obsidian, not just portal creation. Use `BlockEvents.portalCreated` cancel instead.
+
 ### 🟡 WARNING: Sodium + Embeddium conflict risk
+Embeddium jar manually removed but still tracked in CurseForge — may reinstall on sync. Remove via CurseForge UI.
 
-The last crash (2026-05-07 14:56) was a Sodium vs. Embeddium conflict. Embeddium jar was manually removed but is still tracked in CurseForge — may be re-installed on next CurseForge pack sync.
+### 🟡 WARNING: Stamina consumption is backwards
+`betterparagliders-server.toml`: `one_handed = 2.5` costs MORE than `two_handed = 2.0`. Fix: one-handed → 1.5, two-handed → 2.5, block → 8.0.
 
-**Fix:** Remove Embeddium from the CurseForge mod list via the CurseForge UI ("Mods" tab → remove Embeddium). Keep only Sodium.
+### 🟡 WARNING: Paxi datapacks directory is empty
+`config/paxi/datapacks/` has no datapacks. Create `structures`, `hostility`, and `compat` datapacks.
 
-### 🟡 WARNING: Stamina system — verify in-game
-
-BetterParagliders is confirmed loaded. The system IS working. However:
-- One-handed weapon stamina cost multiplier is 2.5× base — may feel too punishing early game
-- Ensure the Combat quest chapter guides players to find Spirit Orbs early
-
-**Config to tune if needed:** `~\curseforge\minecraft\Instances\minecraft-roguelike\config\betterparagliders-server.toml`
+### 🟡 Bug: Ars Nouveau essences injected into Overworld DC stages
+Move essence injection from stages 1-2 to stages 3+ in `loot-tables.ts` — contradicts Undergarden gate.
 
 ### 🟡 Bug: Verify quest reward `719F30116BDC4DAB`
-
-May reward `irons_spellbooks:arcane_essence` (removed mod). If it shows as `ftbquests:missing_item`, replace with `2× minecraft:golden_apple` + keep 3 XP reward.
+May reward `irons_spellbooks:arcane_essence` (removed mod). Replace with `2× minecraft:golden_apple` if broken.
 
 ### 🟡 Bug: Loot limiter API needs in-game verification
-
-`loot-tables.ts` uses `loot.removeAll()`, `loot.size()`, and `loot.forEach()` inside `.customAction()`. Verify with ProbeJS or in-game testing — if wrong the loot limiter silently fails.
+`loot.removeAll()`, `loot.size()`, `loot.forEach()` inside `.customAction()` — verify with ProbeJS.
 
 ---
 
