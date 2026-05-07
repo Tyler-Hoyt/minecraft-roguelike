@@ -147,6 +147,88 @@ config/ftbquests/quests/chapters/
 
 ---
 
+## Dungeon Crawl Loot Reduction Plan
+
+### Problem
+Dungeon Crawl chests contain too many items per chest. The chests feel more like a
+Christmas tree than a dungeon reward. We also want modded items from the installed magic
+and combat mods to appear as dungeon loot, reinforcing the progression theme.
+
+### Answer: No new mod needed
+**LootJS** (already installed) is exactly the right tool. It integrates with KubeJS and
+provides a clean API for both reducing rolls on existing pools and injecting new modded
+items via global modifiers.
+
+### Dungeon Crawl Loot Table IDs
+Verify with `/lootjs tables dungeon_crawl:` in-game. Expected IDs:
+- `dungeon_crawl:chests/corridor` — hallway chests (most common, lowest tier)
+- `dungeon_crawl:chests/node` — junction chests (mid tier)
+- `dungeon_crawl:chests/room/normal` — room chests (mid tier)
+- `dungeon_crawl:chests/room/treasure` — treasure rooms (highest tier)
+- `dungeon_crawl:chests/room/challenge` — challenge rooms (rare, high tier)
+
+### Roll Reduction Targets (current → target)
+| Table | Est. Current Rolls | Target Rolls |
+|-------|-------------------|-------------|
+| corridor | 3–7 | 1–3 |
+| node | 4–8 | 2–4 |
+| room/normal | 4–8 | 2–4 |
+| room/treasure | 6–12 | 3–5 |
+| room/challenge | 5–10 | 2–5 |
+
+> These are estimates. Confirm actual ranges in-game then tune.
+
+### Modded Item Integration (by chest tier)
+
+**Corridor chests** (common drops, ~10–15% chance each):
+- `ars_nouveau:fire_essence`, `ars_nouveau:earth_essence`, `ars_nouveau:air_essence` — cheap Ars Nouveau crafting materials
+- `irons_spellbooks:scroll` (low-level spell scroll) — early Iron's Spells exposure
+- `simplyswords:gem_diamond` or similar material — Simply Swords crafting hint
+
+**Node / Room Normal chests** (uncommon drops, ~8–12% chance each):
+- `ars_nouveau:manipulation_essence` — mid-tier Ars Nouveau
+- `irons_spellbooks:common_spell_book` — Iron's Spells spellbook
+- `simplyswords:rapier` or other Simply Swords weapon at 5–8% chance
+- `apotheosis:gem` (random common gem) via tag `apotheosis:gems/common` at 10%
+
+**Treasure / Challenge chests** (rare drops, ~5–10% chance each):
+- `ars_nouveau:manipulation_essence` (larger stack) or a glyph
+- `irons_spellbooks:uncommon_spell_book` at 5%
+- `forbidden_arcanus:dark_matter` or `forbidden_arcanus:stella_arcanum` at 5%
+- `malum:sacred_salt` or `malum:spirit_fragment` at 8%
+- `simplyswords:greatsword` or another high-tier Simply Swords weapon at 5%
+- `apotheosis:gem` (uncommon gem) at 8%
+
+> Exact item IDs must be verified against in-game ProbeJS completions or `/kubejs hand`.
+
+### Implementation Approach
+All changes go in `src/server/loot-tables.ts`:
+
+```typescript
+// Reduce rolls
+LootJS.lootTables(event => {
+  for (const tableId of ['dungeon_crawl:chests/corridor', ...]) {
+    event.getLootTable(tableId).forEachPool(pool => {
+      pool.setRolls(min, max);
+    });
+  }
+});
+
+// Add modded items
+LootJS.modifiers(event => {
+  event.addTableModifier('dungeon_crawl:chests/corridor')
+    .addLoot(LootEntry.of('ars_nouveau:fire_essence').randomChance(0.12));
+  ...
+});
+```
+
+### Tests
+Add `tests/server/loot-tables.test.ts` that mocks the LootJS event and asserts:
+- Roll reduction is applied to all Dungeon Crawl tables
+- Each tier's modded items are registered
+
+---
+
 ## Current Issues (from review)
 
 ### Bugs to Fix

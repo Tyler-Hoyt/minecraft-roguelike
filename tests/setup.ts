@@ -69,6 +69,55 @@ const Fluid = {
   of: (id: string, amount?: number) => ({ fluid: id, amount: amount ?? 1000 }),
 };
 
+// ── LootJS stubs ─────────────────────────────────────────────────────────────
+
+const makeLootEntry = (): any => ({
+  randomChance: vi.fn().mockReturnThis(),
+  setCount: vi.fn().mockReturnThis(),
+  when: vi.fn().mockReturnThis(),
+});
+
+const LootEntry = {
+  of: vi.fn(() => makeLootEntry()),
+  tag: vi.fn(() => makeLootEntry()),
+  empty: vi.fn(() => makeLootEntry()),
+};
+
+const makeLootPool = (): any => ({
+  rolls: vi.fn().mockReturnThis(),
+  bonusRolls: vi.fn().mockReturnThis(),
+  addEntry: vi.fn().mockReturnThis(),
+  when: vi.fn().mockReturnThis(),
+  apply: vi.fn().mockReturnThis(),
+});
+
+const makeLootTable = (): any => {
+  const table: any = {
+    firstPool: vi.fn((cb?: (p: any) => void) => { if (cb) cb(makeLootPool()); return table; }),
+    modifyPool: vi.fn((idx: number, cb: (p: any) => void) => { cb(makeLootPool()); return table; }),
+    createPool: vi.fn((cb?: (p: any) => void) => { if (cb) cb(makeLootPool()); return table; }),
+    forEachPool: vi.fn((cb: (p: any) => void) => { cb(makeLootPool()); return table; }),
+    getPools: vi.fn(() => []),
+  };
+  return table;
+};
+
+const makeLootModifierBuilder = (): any => ({
+  addLoot: vi.fn().mockReturnThis(),
+  pool: vi.fn((cb?: (p: any) => void) => { if (cb) cb(makeLootPool()); return makeLootModifierBuilder(); }),
+  randomChance: vi.fn().mockReturnThis(),
+  when: vi.fn().mockReturnThis(),
+});
+
+const LootJS = {
+  lootTables: vi.fn((cb: (e: any) => void) =>
+    cb({ getLootTable: vi.fn(() => makeLootTable()) })
+  ),
+  modifiers: vi.fn((cb: (e: any) => void) =>
+    cb({ addTableModifier: vi.fn(() => makeLootModifierBuilder()) })
+  ),
+};
+
 // ── Inject into globalThis so scripts can reference them ─────────────────────
 
 Object.assign(globalThis, {
@@ -81,6 +130,8 @@ Object.assign(globalThis, {
   Item,
   Block,
   Fluid,
+  LootJS,
+  LootEntry,
   SECOND: 1000,
   MINUTE: 60000,
   HOUR: 3600000,
@@ -100,4 +151,6 @@ export {
   BlockEvents,
   ItemEvents,
   PlayerEvents,
+  LootJS,
+  LootEntry,
 };
