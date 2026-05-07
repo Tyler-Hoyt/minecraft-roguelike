@@ -94,7 +94,7 @@ it('adds the Undergarden Catalyst recipe', () => {
 
 ## FTB Quests
 
-Quest data is in `kubejs/data/ftbquests/quests/chapters/*.snbt`.
+Quest data is in `config/ftbquests/quests/chapters/*.snbt`.
 
 **DO NOT edit SNBT files by hand unless you know the format.** Prefer using the in-game
 FTB Quests editor (open with `B` key), then commit the resulting SNBT changes.
@@ -104,6 +104,19 @@ The chapter shell files are pre-created. Open the game and use the quest editor 
 2. Set icons, descriptions, and dependencies
 3. Set rewards (items, XP, custom)
 4. Save — FTB Quests writes to the SNBT files automatically
+
+### Current chapters
+
+| File | Status |
+|------|--------|
+| `01_overworld.snbt` | 14 quests — in-game editing needed |
+| `02_undergarden.snbt` | 5 quests + 3 stubs to add (see plan.md) |
+| `combat.snbt` | 14 quest stubs in plan.md — not yet created in-game |
+| `magic_ars_nouveau.snbt` | 16 quest stubs in plan.md — not yet created in-game |
+| `enchanting_apotheosis.snbt` | 12 quest stubs in plan.md — not yet created in-game |
+| `exploration.snbt` | 14 quest stubs in plan.md — not yet created in-game |
+| `storage_skills.snbt` | 12 quest stubs in plan.md — not yet created in-game |
+| `world_biomes.snbt` | 5 quest stubs in plan.md — not yet created in-game |
 
 ## ProbeJS Type Generation (One-Time, Requires Minecraft)
 
@@ -160,7 +173,44 @@ These are ProbeJS bugs — `static` members are not valid inside TypeScript inte
 - `kubejs/probe/**/*.d.ts` — ProbeJS-generated full Java class types (provides completions for the entire mod API)
 - `skipLibCheck: true` in tsconfig.json suppresses type-level declaration conflicts between the two sets of `.d.ts` files
 
-## Neovim LSP Setup
+## Loot System Architecture
+
+Three layers control item distribution in chests (order matters):
+
+| Layer | Where | Scope | What it does |
+|-------|-------|-------|-------------|
+| 1 — `lootintegrations` mod | `config/lootintegrations.json` | ALL structures | Auto-injects all installed mod items at weight 1 |
+| 2 — KubeJS `changeLootModifiers` | `src/server/loot-tables.ts` | ALL CHEST tables | Replaces any diamond SS weapon → `spelunkery:rough_diamond` |
+| 3 — KubeJS `addDungeonCrawlModdedLoot` | `src/server/loot-tables.ts` | Dungeon Crawl chests | Tiered Ars Nouveau essence/spell book injection by depth |
+
+> **Simply Swords `enableLootDrops = false`** — intentional. SS own injection is disabled; `lootintegrations` handles SS weapon distribution. Do not re-enable.
+
+`reduceDungeonCrawlRolls` caps pool sizes per DC tier to prevent loot overflow. The loot limiter at the bottom of `loot-tables.ts` enforces `MAX_UNIQUE_ITEMS = 6` per chest.
+
+## Recommended Keybind Layout
+
+| Key | Action | Mod |
+|-----|--------|-----|
+| `B` | Open Backpack | Sophisticated Backpacks |
+| `C` | Open Worn Notebook | Ars Nouveau |
+| `E` | Inventory | Vanilla |
+| `F` | Swap offhand | Vanilla |
+| `G` | Open Curios | Curios |
+| `H` | Open Quest Book | FTB Quests |
+| `K` | Open Skills Tree | Pufferfish Skills |
+| `M` | World Map | Xaero's |
+| `N` | Zoom | Chloride |
+| `U` | Waypoints | Xaero's |
+| `V` | Ars Spell HUD | Ars Nouveau |
+| `X` | Ars Next Spell | Ars Nouveau |
+| `Z` | Ars Prev Spell | Ars Nouveau |
+| `R` | L2 focus swap | L2 Mods |
+| `DEL` | Trash slot delete | TrashSlot |
+| `ALT+Z` | Toggle Pickup Upgrade | Sophisticated Backpacks |
+| `ALT+X` | Toggle Filter Upgrade | Sophisticated Backpacks |
+| `[` / `]` | Transfer to/from storage | SophisticatedCore |
+
+These keybinds are applied to `options.txt` in the CurseForge instance. Re-apply if the instance is reset.
 
 `typescript-language-server` is already installed. Add to your nvim config:
 
@@ -196,7 +246,7 @@ The following are intentionally stubbed — these are your creative decisions:
 |-------------|----------------|
 | `src/server/starter-kit.ts` | What items the player starts with |
 | Each `*Events.recipes()` call | Specific item costs and recipe shapes |
-| `kubejs/data/ftbquests/` | Quest descriptions, lore text, icons |
+| `config/ftbquests/` | Quest descriptions, lore text, icons |
 | `kubejs/assets/*/textures/gui/quests/` | Chapter background art |
 | Gate item recipes | Balancing — what the keys cost to craft |
 | Loot table additions | What custom items appear in chests |
