@@ -128,23 +128,22 @@ describe('reduceDungeonCrawlRolls', () => {
 // ── Modded Item Tests ─────────────────────────────────────────────────────────
 
 describe('addDungeonCrawlModdedLoot', () => {
-  it('adds modifiers for all seven table groups', () => {
+  it('adds modifiers for three table groups (no injection in stages 1-2)', () => {
     const event = makeLootModifiersEvent();
     addDungeonCrawlModdedLoot(event);
-    // Four calls: stages 1-2, stages 3-4, stage 5, treasure+secret_room
-    expect(event.addTableModifier).toHaveBeenCalledTimes(4);
+    // Three calls: stages 3-4 (Ars essences), stage 5 (spell book), treasure+secret_room (archmage)
+    expect(event.addTableModifier).toHaveBeenCalledTimes(3);
   });
 
-  it('targets stages 1 and 2 in the first modifier call', () => {
+  it('does NOT target stages 1-2 (magic gated to Undergarden)', () => {
     const event = makeLootModifiersEvent();
     addDungeonCrawlModdedLoot(event);
-    expect(event.addTableModifier).toHaveBeenCalledWith(
-      'dungeoncrawl:chests/stage_1',
-      'dungeoncrawl:chests/stage_2',
-    );
+    const calls = event.addTableModifier.mock.calls.flat() as string[];
+    expect(calls).not.toContain('dungeoncrawl:chests/stage_1');
+    expect(calls).not.toContain('dungeoncrawl:chests/stage_2');
   });
 
-  it('targets stages 3 and 4 in the second modifier call', () => {
+  it('targets stages 3 and 4 in the first modifier call', () => {
     const event = makeLootModifiersEvent();
     addDungeonCrawlModdedLoot(event);
     expect(event.addTableModifier).toHaveBeenCalledWith(
@@ -153,13 +152,13 @@ describe('addDungeonCrawlModdedLoot', () => {
     );
   });
 
-  it('targets stage 5 alone in the third modifier call', () => {
+  it('targets stage 5 alone in the second modifier call', () => {
     const event = makeLootModifiersEvent();
     addDungeonCrawlModdedLoot(event);
     expect(event.addTableModifier).toHaveBeenCalledWith('dungeoncrawl:chests/stage_5');
   });
 
-  it('targets treasure and secret_room in the fourth modifier call', () => {
+  it('targets treasure and secret_room in the third modifier call', () => {
     const event = makeLootModifiersEvent();
     addDungeonCrawlModdedLoot(event);
     expect(event.addTableModifier).toHaveBeenCalledWith(
@@ -168,15 +167,14 @@ describe('addDungeonCrawlModdedLoot', () => {
     );
   });
 
-  it('injects Ars Nouveau T1 essences into early stages', () => {
+  it('injects Ars Nouveau T1 essences into mid stages (3-4)', () => {
     const builder = makeLootModifierBuilder();
     const event = { addTableModifier: vi.fn().mockReturnValue(builder) };
     addDungeonCrawlModdedLoot(event);
 
-    // First call is stages 1-2; verify addLoot contains ars_nouveau essences
+    // First call is stages 3-4; verify addLoot contains ars_nouveau essences
     const calls = builder.addLoot.mock.calls;
     expect(calls.length).toBeGreaterThan(0);
-    // LootEntry.of is called for fire/earth/air/water essences — check via global mock
     const ofCalls = (globalThis as any).LootEntry.of.mock.calls.map((c: any[]) => c[0]);
     expect(ofCalls).toContain('ars_nouveau:fire_essence');
     expect(ofCalls).toContain('ars_nouveau:earth_essence');
@@ -190,18 +188,19 @@ describe('addDungeonCrawlModdedLoot', () => {
     expect(ofCalls.some((id) => id.startsWith('irons_spellbooks:'))).toBe(false);
   });
 
-  it('includes Simply Swords iron weapons in early stages', () => {
+  it('does not manually inject Simply Swords weapons (delegated to lootintegrations mod)', () => {
     addDungeonCrawlModdedLoot(makeLootModifiersEvent());
     const ofCalls = (globalThis as any).LootEntry.of.mock.calls.map((c: any[]) => c[0]) as string[];
-    expect(ofCalls).toContain('simplyswords:iron_rapier');
-    expect(ofCalls).toContain('simplyswords:iron_longsword');
+    // SS weapons are now injected by the lootintegrations mod (not KubeJS)
+    // so they should NOT appear in our manual LootEntry.of calls
+    expect(ofCalls.some((id) => id.startsWith('simplyswords:iron_'))).toBe(false);
+    expect(ofCalls.some((id) => id.startsWith('simplyswords:diamond_'))).toBe(false);
   });
 
-  it('includes Simply Swords diamond weapons in late stages', () => {
+  it('does not manually inject Simply Swords diamond weapons (handled by lootintegrations + replaceLoot chain)', () => {
     addDungeonCrawlModdedLoot(makeLootModifiersEvent());
     const ofCalls = (globalThis as any).LootEntry.of.mock.calls.map((c: any[]) => c[0]) as string[];
-    expect(ofCalls).toContain('simplyswords:diamond_rapier');
-    expect(ofCalls).toContain('simplyswords:diamond_halberd');
+    expect(ofCalls.some((id) => id.startsWith('simplyswords:diamond_'))).toBe(false);
   });
 
   it('includes Ars Nouveau archmage spell book in treasure tables', () => {
