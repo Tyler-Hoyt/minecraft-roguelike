@@ -5,11 +5,12 @@ import { describe, it, expect, vi } from 'vitest';
 import { registerRecipes } from '../../src/server/recipes';
 
 function makeMockRecipesEvent(): RecipesKubeEvent {
+  const shaped = vi.fn().mockReturnValue({ modifyResult: vi.fn() });
   return {
     remove: vi.fn(),
     replaceInput: vi.fn(),
     replaceOutput: vi.fn(),
-    shaped: vi.fn(),
+    shaped,
     shapeless: vi.fn(),
     smelting: vi.fn(),
     blasting: vi.fn(),
@@ -22,37 +23,41 @@ function makeMockRecipesEvent(): RecipesKubeEvent {
 }
 
 describe('registerRecipes', () => {
-  it('removes the vanilla string recipe', () => {
+  it('removes all jukebox upgrade recipes', () => {
     const event = makeMockRecipesEvent();
     registerRecipes(event);
-    expect(event.remove).toHaveBeenCalledWith({ output: 'minecraft:string' });
+    expect(event.remove).toHaveBeenCalledWith({ output: 'sophisticatedstorage:jukebox_upgrade' });
+    expect(event.remove).toHaveBeenCalledWith({ output: 'sophisticatedstorage:advanced_jukebox_upgrade' });
+    expect(event.remove).toHaveBeenCalledWith({
+      output: 'sophisticatedstorage:storage_jukebox_upgrade_from_backpack_jukebox_upgrade'
+    });
+    expect(event.remove).toHaveBeenCalledWith({
+      output: 'sophisticatedstorage:backpack_advanced_jukebox_upgrade_from_storage_advanced_jukebox_upgrade'
+    });
   });
 
-  it('adds a shaped diamond recipe', () => {
+  it('adds shaped armor progression recipes for all tiers and pieces', () => {
     const event = makeMockRecipesEvent();
     registerRecipes(event);
+    // Iron tier chestplate as a representative sample
     expect(event.shaped).toHaveBeenCalledWith(
-      'minecraft:diamond',
-      ['ABA', 'BCB', 'ABA'],
-      { A: 'minecraft:coal', B: 'minecraft:iron_ingot', C: 'minecraft:gold_ingot' }
+      expect.objectContaining({ id: 'minecraft:iron_chestplate' }),
+      ['A A', 'ABA', 'AAA'],
+      { A: 'minecraft:iron_ingot', B: 'minecraft:leather_chestplate' }
     );
   });
 
-  it('adds a smelting recipe for gold ingot', () => {
+  it('removes existing armor recipes before adding progressive ones', () => {
     const event = makeMockRecipesEvent();
     registerRecipes(event);
-    expect(event.smelting).toHaveBeenCalledWith(
-      'minecraft:gold_ingot',
-      'minecraft:iron_ingot',
-      0.5,
-      100
-    );
+    expect(event.remove).toHaveBeenCalledWith({ output: 'minecraft:iron_helmet' });
+    expect(event.remove).toHaveBeenCalledWith({ output: 'minecraft:diamond_chestplate' });
   });
 
-  it('does not call any other recipe methods', () => {
+  it('does not call shapeless or smelting', () => {
     const event = makeMockRecipesEvent();
     registerRecipes(event);
     expect(event.shapeless).not.toHaveBeenCalled();
-    expect(event.blasting).not.toHaveBeenCalled();
+    expect(event.smelting).not.toHaveBeenCalled();
   });
 });

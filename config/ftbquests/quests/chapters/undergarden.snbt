@@ -1,0 +1,13 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "undergarden"
+	group: "6A0B2452372BA78B"
+	icon: {
+		id: "undergarden:cloggrum_ingot"
+	}
+	id: "151AAA09091B3F9A"
+	order_index: 1
+	quest_links: [ ]
+	quests: [ ]
+}

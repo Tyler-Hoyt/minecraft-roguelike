@@ -21,6 +21,8 @@
   "include": [
     "src/**/*.ts",
     "node_modules/@kubejs-types/core/**/*.d.ts",
+    "node_modules/@kubejs-types/lootjs/**/*.d.ts",
+    "node_modules/@kubejs-types/ftb-xmod-compat/**/*.d.ts",
     // When ProbeJS dump is available, add:
     "kubejs/probe/**/*.d.ts"
   ],

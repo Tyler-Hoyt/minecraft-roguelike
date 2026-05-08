@@ -14,8 +14,9 @@ export function registerGateRecipes(e: RecipesKubeEvent): void {
   // ── Undergarden Catalyst ──────────────────────────────────────────────────
   // Unlocks: Undergarden dimension
   // Gate: FTB Quests reward after completing the Apotheosis Frontier Gateway
-  // The catalyst is NOT craftable — it is quest-only.
+  // The catalyst is NOT craftable — it is quest-only. Probably going to get end remastered for the eye of ender issue
   e.remove({ output: 'undergarden:catalyst' });
+  e.remove({ output: 'minecraft:eye_of_ender' });
 }
 
 ServerEvents.recipes(registerGateRecipes);

@@ -59,6 +59,7 @@ const PlayerEvents = {
 const Item = {
   of: (id: string, count?: number) => ({ id, count: count ?? 1, nbt: null }),
   empty: () => ({ id: "minecraft:air", count: 0, nbt: null }),
+  exists: vi.fn(() => true),
 };
 
 const Block = {
@@ -74,6 +75,7 @@ const Fluid = {
 const makeLootEntry = (): any => ({
   randomChance: vi.fn().mockReturnThis(),
   setCount: vi.fn().mockReturnThis(),
+  limitCount: vi.fn().mockReturnThis(),
   when: vi.fn().mockReturnThis(),
 });
 
@@ -106,6 +108,8 @@ const makeLootModifierBuilder = (): any => ({
   addLoot: vi.fn().mockReturnThis(),
   pool: vi.fn((cb?: (p: any) => void) => { if (cb) cb(makeLootPool()); return makeLootModifierBuilder(); }),
   randomChance: vi.fn().mockReturnThis(),
+  replaceLoot: vi.fn().mockReturnThis(),
+  customAction: vi.fn().mockReturnThis(),
   when: vi.fn().mockReturnThis(),
 });
 
@@ -132,6 +136,18 @@ Object.assign(globalThis, {
   Fluid,
   LootJS,
   LootEntry,
+  LootType: {
+    CHEST: "minecraft:chest",
+    ENTITY: "minecraft:entity",
+    BLOCK: "minecraft:block",
+    FISHING: "minecraft:fishing",
+    GIFT: "minecraft:gift",
+  },
+  ItemFilter: {
+    ANY: () => true,
+    ALWAYS_TRUE: () => true,
+    ALWAYS_FALSE: () => false,
+  },
   SECOND: 1000,
   MINUTE: 60000,
   HOUR: 3600000,

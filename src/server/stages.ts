@@ -50,6 +50,7 @@ PlayerEvents.tick((event) => {
 
   // Need to give the player Overworld Complete after beating the Ars wave game.
 
+  // Grant proper stage once player reaches the undergarden
   if (player.level.dimension.toString() === 'undergarden:undergarden' && !hasStage(player, STAGES.UNDERGARDEN_ENTERED)) {
     grantStage(player, STAGES.UNDERGARDEN_ENTERED);
     player.tell("§d[Roguelike] You have entered the Undergarden. New recipes are available!");
@@ -57,8 +58,10 @@ PlayerEvents.tick((event) => {
 });
 
 // Block Nether portal creation until Stage 3 (Nether chapter)
-BlockEvents.portalCreated((event) => {
-  if (event.dimension.toString() !== 'minecraft:overworld') return;
-  event.cancel();
-  event.player?.tell("You are not ready...");
+BlockEvents.rightClicked("minecraft:obsidian", (event) => {
+  if (event.item.idLocation.toString() === "minecraft:flint_and_steel" ||
+    event.item.idLocation.toString() === "minecraft:fire_charge") {
+    event.player.tell("You are not ready for that yet...");
+    event.cancel();
+  }
 });

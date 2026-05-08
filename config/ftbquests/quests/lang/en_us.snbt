@@ -1,9 +1,22 @@
 {
+	chapter.01920D30B2B57A1A.title: "World and Biomes"
+	chapter.0C64637DF1A81275.title: "The Void Between"
+	chapter.1178CFD41D8A2082.title: "Storage and Skills"
+	chapter.151AAA09091B3F9A.title: "Undergarden"
+	chapter.217BDB674D7B2F71.title: "Paradise Lost"
 	chapter.22CEC91DEF12725F.title: "0. Introduction"
+	chapter.279C26C4FB15748B.title: "Combat"
+	chapter.356B60E2CD7D65C2.title: "Magic - Ars Nouveau"
+	chapter.37F8850FF5C0B68F.title: "The Hellfire Chapter"
 	chapter.3EA227CA4F154B51.title: "2. Underworld"
+	chapter.50073859B34CB179.title: "Echoes in the Dark"
 	chapter.527CB33F0B322020.title: "1. Overworld"
-	chapter.684FE97BC4A6D10A.title: "The Surface World"
-	chapter.6917F47B9645A15A.title: "Below the Bedrock"
+	chapter.5C57CA31C068BBC4.title: "Enchanting - Apotheosis"
+	chapter.5F5D83ECC7FFA6E4.title: "The Forgotten Forest"
+	chapter.60505F46164E289D.title: "Overworld"
+	chapter.79E555129401E48C.title: "Exploration"
+	chapter_group.6A0B2452372BA78B.title: "Dimensions"
+	chapter_group.7A74E888FA12D824.title: "Systems"
 	quest.00000000004AE001.quest_desc: ["§eTODO: Write Aether arrival lore.§r"]
 	quest.00000000004AE001.title: "Enter the Aether"
 	quest.00000000004AE002.title: "Loot a Bronze Dungeon"
@@ -42,11 +55,15 @@
 		"§lActivation:§r Right-click the bottom-center block of the frame with the Catalyst."
 		""
 		"What awaits you is a world of ancient dark stone, glowing fungi,"
-		"and creatures that never see sunlight."
-		""
-		"§eTODO: Add lore about the Undergarden.§r"
+		"and creatures that never see sunlight.§r"
 	]
 	quest.03131E68FD2B0D53.title: "Descend to the Undergarden"
+	quest.03E76B7C990FE1D9.quest_desc: [
+		"Taverns spawn in the world and serve as waypoints. "
+		""
+		"Great places to restock mid-exploration."
+	]
+	quest.03E76B7C990FE1D9.quest_subtitle: "Find a Dungeons and Taverns tavern"
 	quest.0AE0963FA16AD7F0.quest_desc: [
 		"Summon and defeat the Wither to prove your dominance over the Nether."
 		"Your reward: the Gilded Stone, key to the Aether."
@@ -79,12 +96,28 @@
 		"This world is dangerous. Each dimension you explore will be harder than the last."
 		""
 		"Follow the quest chain in order. Each chapter unlocks the next."
-		""
-		"§eTODO: Replace this description with your lore text.§r"
 	]
 	quest.11A973B524829B5F.title: "Welcome to Roguelike Dimensions"
+	quest.135816F9B253A97D.quest_desc: [
+		"The surface is dotted with structures from multiple mods. "
+		""
+		"Xaero's Minimap will mark dungeons as you discover them. "
+		""
+		"Explore actively — structures are spaced out for a reason."
+	]
+	quest.137B05568DB09028.quest_desc: ["§eTODO: Write End arrival lore.§r"]
+	quest.137B05568DB09028.title: "Activate the End Portal"
+	quest.13F201450EE595BD.quest_desc: ["YUNG's Better Mineshafts replaces vanilla mineshafts with larger branching networks with richer ore veins and more chests."]
+	quest.13F201450EE595BD.quest_subtitle: "Discover a YUNG's Better Mineshaft"
+	quest.145B5DE3AE47AC70.quest_desc: ["§eTODO: Write Nether arrival lore.§r"]
+	quest.145B5DE3AE47AC70.title: "Enter the Nether"
+	quest.1610F196816CBF57.title: "Find a Bastion Remnant"
 	quest.16A932D4F613DAAD.title: "Craft the Echo Key"
+	quest.17488E41D68D86C5.quest_desc: ["§eTODO: Write Twilight Forest arrival lore. If using Blue Skies instead, update this chapter.§r"]
+	quest.17488E41D68D86C5.title: "Enter the Twilight Forest"
+	quest.1920D2F68A473313.title: "Defeat the Hydra"
 	quest.19C3881A3D5BEBA5.title: "Find a Bastion Remnant"
+	quest.1CE3572837B41D31.quest_desc: ["The green wheel on your screen is your stamina. It drains when you attack, run, glide, or swim. It refills when idle. Don't exhaust it before a fight — you won't be able to attack."]
 	quest.1D742C356E8AB2FE.quest_desc: [
 		"Split Dimensions is a mod about progressing through different the world one dimension at a time."
 		""
@@ -98,7 +131,23 @@
 	quest.1E94BF843BBC007D.quest_subtitle: "Welcome to Roguelike Dimensions!"
 	quest.21DCA656A3F8D368.quest_desc: ["To start you are going to need to get a crafting table just like in vanilla minecraft."]
 	quest.21DCA656A3F8D368.quest_subtitle: "Humble Beginning..."
+	quest.235A49823743BB16.quest_desc: [
+		"YUNG's Better Strongholds replaces vanilla strongholds with larger structures with more loot. "
+		""
+		"The Ender Portal is still inside — find it to progress to The End."
+	]
+	quest.235A49823743BB16.quest_subtitle: "Discover a YUNG's Better Stronghold"
 	quest.238C74462BD4C631.title: "Mine Cloggrum"
+	quest.259ABEE64D62BB05.quest_desc: ["§eTODO: Write Blood Magic intro tips.§r"]
+	quest.259ABEE64D62BB05.title: "Craft a Blood Altar"
+	quest.25F3DBD94BE86574.quest_desc: [
+		"Every weapon has a combo chain. "
+		""
+		"Time your clicks to keep the combo going for bonus hit patterns. "
+		""
+		"The combo resets if you idle for too long."
+	]
+	quest.25F3DBD94BE86574.quest_subtitle: "Land 3 hits in a combo"
 	quest.26D5313F86429851.quest_desc: [
 		"The Cloggrum ore pulses with a strange energy that resonates with spell glyphs."
 		"Craft the Worn Notebook to begin your journey into Ars Nouveau."
@@ -121,6 +170,21 @@
 		"move §e\"Inventory\"§r to §eI§r for direct one-key access."
 	]
 	quest.27451C740469E15E.title: "Your Unified Inventory"
+	quest.27F97EE34C3D87A3.title: "Defeat the Lich"
+	quest.287F0A8859CF37FE.quest_desc: [
+		"Blocking with a shield costs stamina but reduces damage. "
+		""
+		"Block a projectile to intercept it at extra stamina cost."
+	]
+	quest.287F0A8859CF37FE.quest_subtitle: "Craft or find a shield"
+	quest.287F0A8859CF37FE.title: "Shield Up"
+	quest.2EA6FBCB440213E5.quest_desc: [
+		"Dungeon Crawl generates massive multi-level vertical dungeons descending deep underground with corridors, node rooms, treasure rooms, and challenge rooms. "
+		""
+		"Bring food and torches."
+	]
+	quest.2EA6FBCB440213E5.quest_subtitle: "Discover a Dungeon Crawl Dungeon"
+	quest.2EA6FBCB440213E5.title: "Dungeon Crawl"
 	quest.32BF460B3FFD6232.quest_desc: [
 		"Your &eSophisticated Backpack&r has the ability to be expanded!"
 		""
@@ -130,6 +194,14 @@
 	quest.33035C8FC017B07B.title: "Slay the Ender Dragon"
 	quest.3568F019B80A3223.title: "Defeat the Naga"
 	quest.38A2C77C743473AC.title: "Defeat the Final Boss"
+	quest.3A3C1DF75D0CDBD6.quest_desc: [
+		"All dungeon chests are &lLootr&r chests — each player gets their own loot roll. "
+		""
+		"No fighting over who gets the good item. "
+		""
+		"Chests glow to show they haven't been opened by you yet."
+	]
+	quest.3AF29A31082CC535.title: "Slay the Ender Dragon"
 	quest.3BA1F79159FDF8E8.title: "Defeat the Lich"
 	quest.4041CD21A76DEDE7.quest_desc: [
 		"You started with nothing."
@@ -161,8 +233,44 @@
 		"  • §6Enchantments§r from the enchanting table"
 		"  • §6Accessories§r equipped in your Accessories screen"
 		"  • §6Iron's Spellbooks§r casting rings and armor"
+		"{image:simplyswords:item/diamond_claymore width:100 height:100 align:center}"
 	]
 	quest.4099F6410D87D1F4.title: "Your Battle Statistics"
+	quest.4134A33F99042D44.quest_desc: [
+		"You started with nothing."
+		"You faced the darkness of the Undergarden."
+		"You survived the flames of the Nether."
+		"You reached the heights of the Aether."
+		"You conquered the forgotten forests."
+		"You faced the Warden in its domain."
+		"And you slew the Dragon."
+		""
+		"You are the Legend of the Roguelike."
+		""
+		"§eTODO: Write your final lore message here.§r"
+	]
+	quest.4134A33F99042D44.title: "Legend of the Roguelike"
+	quest.43CEF655A82498AF.quest_desc: [
+		"Heart Containers increase your maximum health by one heart. "
+		""
+		"The Ender Dragon and Wither each drop one when killed."
+	]
+	quest.479DF61001CD83FE.quest_desc: [
+		"You start with a Gold Sai in your kit. Better Combat changes everything — attacks have windup animations and arc hitboxes. "
+		""
+		"Click and hold to feel the difference."
+	]
+	quest.480168765E314EF7.title: "Defeat the Final Boss"
+	quest.48DC6E36FC70172F.quest_desc: [
+		"This modpack takes advantage of the many YUNG's modpacks to enhance the minecraft experience for many generated structures."
+		""
+		"Look for &4towers&r, &6larger strongholds&r and more!"
+	]
+	quest.4D7CB56E2E457C7E.quest_desc: [
+		"Gather materials from every dimension and forge the weapon of legend."
+		"§eTODO: List the required materials here as quest hints.§r"
+	]
+	quest.4D7CB56E2E457C7E.title: "Forge the Ultimate Weapon"
 	quest.4E3E4D4FC594DB08.quest_desc: [
 		"Your §6Sophisticated Backpack§r has upgrade card slots."
 		""
@@ -197,6 +305,7 @@
 	]
 	quest.578089BF83172D19.title: "Enter the Undergarden"
 	quest.58DCD73DB216771A.title: "Find a Nether Fortress"
+	quest.596953EDF10C5591.title: "Defeat the Naga"
 	quest.5DCD61CDFB3A419C.quest_desc: [
 		"The Rotspawn guards the gateway to your next challenge."
 		"Defeat it to unlock access to the Nether."
@@ -228,8 +337,21 @@
 	quest.61B601F424000ECE.title: "Claim Your Elytra"
 	quest.625D54F117926D01.quest_desc: ["§eTODO: Write End arrival lore.§r"]
 	quest.625D54F117926D01.title: "Activate the End Portal"
+	quest.65043BEF54EDF701.quest_desc: [
+		"Each Stamina Vessel adds 200 stamina. "
+		""
+		"One full wheel = 1000 stamina. "
+		""
+		"You can hold up to 10 vessels."
+	]
 	quest.6637A0C1BA0E814E.quest_desc: ["Included in this modpack is Apotheosis which introduces new &lenemy&r and &lweapon&r attributes."]
 	quest.6637A0C1BA0E814E.quest_subtitle: "Weapon Upgrade System"
+	quest.6646634751ECFE01.quest_desc: [
+		"Summon and defeat the Wither to prove your dominance over the Nether."
+		"Your reward: the Gilded Stone, key to the Aether."
+		"§eTODO: Add Wither tips.§r"
+	]
+	quest.6646634751ECFE01.title: "Kill the Wither"
 	quest.6784560D0DCF3A82.quest_desc: [
 		"Gather materials from every dimension and forge the weapon of legend."
 		"§eTODO: List the required materials here as quest hints.§r"
@@ -237,7 +359,18 @@
 	quest.6784560D0DCF3A82.title: "Forge the Ultimate Weapon"
 	quest.68515F1492ACABF8.quest_desc: ["§eTODO: Write Twilight Forest arrival lore. If using Blue Skies instead, update this chapter.§r"]
 	quest.68515F1492ACABF8.title: "Enter the Twilight Forest"
+	quest.68BAC0432D500A9A.quest_subtitle: "Find a dungeon, beware of monsters..."
 	quest.68BAC0432D500A9A.title: "Find a Dungeon"
+	quest.6A6DB3C0B9DBED57.quest_desc: [
+		"YUNG's Better Dungeons replaces vanilla dungeons with multi-room themed structures: "
+		""
+		"Spider Cave, Undead Crypt, Spider Dungeon."
+		""
+		"Expect spawners and some good loot!"
+	]
+	quest.6A6DB3C0B9DBED57.quest_subtitle: "Discover a YUNG's Better Dungeon"
+	quest.6A6DB3C0B9DBED57.title: "Better Dungeons"
+	quest.6B1B83241B2B4C8D.title: "Find a Nether Fortress"
 	quest.6B6748DCD7D2DDFD.quest_desc: [
 		"§lBetter Combat§r replaces vanilla's one-click combat with real attack patterns."
 		""
@@ -255,6 +388,8 @@
 		"Simply Swords weapons are dungeon loot — the best ones aren't craftable."
 	]
 	quest.6B6748DCD7D2DDFD.title: "The New Combat System"
+	quest.6C16E3BD80FEEBD2.title: "Claim Your Elytra"
+	quest.6F875EF06EE00961.title: "Craft the Echo Key"
 	quest.705865A00F115A73.title: "Defeat the Hydra"
 	quest.719F2E80A0281358.quest_desc: [
 		"§lApotheosis§r drops tiered gems from mobs and dungeon chests."
@@ -274,65 +409,98 @@
 		"Check §eEMI§r for the full gem list and their stat boosts."
 	]
 	quest.719F2E80A0281358.title: "Gem Socketing"
-	quest.719F30116BDC4DAB.quest_desc: [
-		"§lIron's Spellbooks§r uses a loot-based magic system — spells are found, not crafted."
-		""
-		"§lSpell Scrolls§r drop from dungeon mobs and chests."
-		"Right-click a scroll to learn the spell. Learned spells are cast using casting gear."
-		""
-		"§lCasting gear:§r"
-		"  • §6Staves§r — found in dungeons, each attuned to a spell school"
-		"    (Fire, Ice, Blood, Nature, Lightning, Evocation, ...)"
-		"  • §6Spell Books§r — held in offhand, lets you cast equipped spells"
-		"  • §6Casting Rings§r — craftable from amethyst, allow casting without a staff"
-		""
-		"§lSpell upgrade system:§r"
-		"  Craft the §6Arcane Anvil§r (3x Amethyst Block + Diamond + Anvil + 2x Deepslate)"
-		"  to access the spell upgrade and arcane armor crafting trees."
-		""
-		"§lTip:§r Scroll rarity = spell power. Legendary scrolls are rare dungeon treasures."
-		"Prioritize dungeons with §7Dungeon Crawl§r — they have dedicated caster mob variants."
-	]
-	quest.719F30116BDC4DAB.title: "Spells Are Found, Not Crafted"
 	quest.73F8DF2A4110C850.quest_desc: [
 		"Lots of new structures have been added in this modpack."
 		"Look around for &1dungeons&r, &6towers&r and other &4structures&r for unique loot and accessories."
 	]
 	quest.73F8DF2A4110C850.title: "Enhanced Exploration"
+	quest.754DDDA84B241458.quest_desc: [
+		"Better Combat supports dual wielding. "
+		""
+		"Put a weapon in your offhand — both weapons animate together. "
+		""
+		"Dual wielding increases attack speed by 20% but drains stamina faster."
+	]
+	quest.765C5F3B44C4E1E3.quest_desc: [
+		"Simply Swords adds many weapon types. Each has a unique moveset, range, and stamina cost. "
+		""
+		"- &eRapier&r (fast, precise) "
+		"- &eHalberd&r (long reach, sweep) "
+		"- &eKatana&r (quick combos)"
+		"- &eGlaive&r (wide sweep)"
+	]
+	quest.7A3C8D3E7E34D25C.quest_desc: [
+		"Spirit Orbs drop from spawners, dungeon chests, and trial completions."
+		""
+		"Trade 4 orbs at a Shrine of Bargain to increase your max stamina or max hearts. "
+		""
+		"Prioritize stamina — low stamina means slow attacks."
+	]
+	quest.7E1636998DC6FD91.title: "Find an End City"
+	reward_table.20364C062030869B.title: "Stamina/Heart"
 	task.00D5390F3E95381D.title: "Socket a gem into a piece of armor or a weapon."
-	task.029C6FD605CC95EB.title: "Shift-right-click your equipped backpack to open its upgrade slots."
 	task.03C950B9D2A04987.title: "Step through the Undergarden portal."
 	task.03D7DBAB7E14328D.title: "TODO: Set kill task for the final Twilight boss."
+	task.06643BDF52CBBC15.title: "Step through a Nether portal."
+	task.0709DD8EBC82B7A6.title: "You have conquered every dimension. The legend is complete."
 	task.092033D0B6F234DA.title: "Find and enter a Nether Fortress."
+	task.0DD0E71B3C5D1D5B.title: "Tavern"
+	task.0E6B4667446EAE6D.title: "Defeat the Slider boss in the Gold Dungeon."
+	task.0F97318404D96357.title: "Complete a Silver Dungeon."
 	task.10926A3556337723.title: "Apotheosis"
+	task.1126C80BB43C7B1B.title: "The Art of the Combo"
+	task.1161E275428F03B4.title: "Loot Per Player"
 	task.11892FA7EA834739.title: "Find and explore the Sunken Keep dungeon."
 	task.12A1A7F963225E03.title: "Step through a Nether portal."
+	task.14A8D92172351E9E.title: "Build and enter an Aether portal."
+	task.17D06F9FED399F4C.title: "Find and enter an Ancient City."
 	task.184A2A144E630100.title: "Look for towers and other new structures!"
+	task.19EDC820FE73BA6B.title: "TODO: Set kill task for Lich boss."
 	task.230E011915B082B8.title: "Read this quest to begin your journey."
 	task.248302DB57A0A537.title: "Build and enter an Aether portal."
+	task.2883C904B7F524E5.title: "First Blood"
+	task.2917BAB6289DC6C1.title: "TODO: Set kill task for Naga boss."
 	task.2D6256741D5CA8B2.title: "Open the Accessories screen and explore your equipment slots."
+	task.2EE1FA99B1B79009.title: "Any #sophisticatedbackpacks:upgrade"
 	task.30941D8738035BC2.title: "Complete the Apotheosis Frontier Gateway"
 	task.315E716DAAD6017A.title: "Defeat the Slider boss in the Gold Dungeon."
+	task.332B347E462278D5.title: "Find an End City with a Ship."
 	task.34698E21775ABC60.title: "Find a spell scroll in a dungeon and learn a spell."
+	task.3565FC34AD4281A6.title: "TODO: Set kill task for Hydra boss."
+	task.363C4AA1055C3B3A.title: "Find and enter a Nether Fortress."
 	task.372509EA3539C271.title: "Getting Started"
+	task.3823AD9CDFD9EA45.title: "Enter the Twilight Forest dimension."
 	task.3B6EF3B6E6192B9A.title: "Find an End City with a Ship."
+	task.3EDCDCE071FCC9C7.title: "Activate and enter the End Portal."
 	task.3F06182EABE78C71.title: "Complete a Silver Dungeon."
+	task.40DB66DD2C8CF51E.title: "Find a Stronghold and locate the End Portal."
+	task.414AE116E2305712.title: "Find and explore a Bastion Remnant."
 	task.455C8AA24E5B8509.title: "Find a Stronghold and locate the End Portal."
 	task.45C6F0C3B2987841.title: "Defeat the Undergarden's Rotspawn boss."
+	task.4D441AB089535171.title: "Locate a Stronghold"
 	task.5083238E56E5D768.title: "Find and enter an Ancient City."
 	task.53268F3972A87A22.title: "You have conquered every dimension. The legend is complete."
-	task.536EC015B4750CA3.title: "Explore a YUNG's dungeon and return with loot."
 	task.54265CD9747F7DD6.title: "Open the Attributes panel using the sword icon in the top-right of your inventory."
+	task.54F426C5B432DDBC.title: "Dual Wielding"
 	task.55B562489ED8A04A.title: "Welcome!"
-	task.560C038B2938A8B5.title: "Find your first Spirit Orb in a dungeon chest."
+	task.561B00D52B1D6481.title: "Locate a Mineshaft"
 	task.5662971E0123C54F.title: "TODO: Set kill task for Lich boss."
 	task.58B15428E6C4EC6E.title: "Activate and enter the End Portal."
+	task.59960C1774DC588D.title: "Use a Stamina Vessel"
 	task.5A7C6EF75E393E04.title: "TODO: Set kill task for Hydra boss."
+	task.5ACFC95BDEAE18CF.title: "The Stamina Wheel"
+	task.5B292B16F5674FAB.title: "Into the Wild"
+	task.5D7337B87383D3E5.title: "Stronghold"
+	task.5DB749C8F26005AF.title: "Know Your Weapon"
 	task.5E2CB02CCCACDD15.title: "TODO: Set kill task for Naga boss."
-	task.64B15EC9F5BC0749.title: "Try a light attack and a heavy attack on any mob."
+	task.5EADBE925110ADA8.title: "Trigger and survive a Sculk Shrieker sequence without dying."
+	task.64985A81A7D8DFC6.title: "Mineshaft"
 	task.6850FD88C7E75CED.title: "Enter the Twilight Forest dimension."
 	task.6BB0FE1665DDECE2.title: "Complete a Bronze Dungeon."
 	task.6EA00037634B7728.title: "Step into the Undergarden"
 	task.712769BE8054C98E.title: "Find and explore a Bastion Remnant."
+	task.78448E976914E2B9.title: "Time to Explore!"
 	task.7947C5EDF085737C.title: "Trigger and survive a Sculk Shrieker sequence without dying."
+	task.7BA2A29DD7B35143.title: "TODO: Set kill task for the final Twilight boss."
+	task.7CE5BB315AF4BD1C.title: "Complete a Bronze Dungeon."
 }

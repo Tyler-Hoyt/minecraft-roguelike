@@ -14,6 +14,8 @@
   "type": "module",
   "devDependencies": {
     "@kubejs-types/core": "file:../kubejs-types/packages/core",
+    "@kubejs-types/lootjs": "file:../kubejs-types/packages/lootjs",
+    "@kubejs-types/ftb-xmod-compat": "file:../kubejs-types/packages/ftb-xmod-compat",
     "esbuild": "^0.28.0",
     "typescript": "^5.8.3",
     "vitest": "^4.1.5"

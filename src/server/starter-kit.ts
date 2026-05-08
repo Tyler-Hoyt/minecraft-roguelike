@@ -15,14 +15,14 @@ export function onPlayerFirstJoin(event: PlayerKubeEvent): void {
     return;
   }
 
-  nbt.putBoolean("roguelike:kit_given", true);
-
   // Give player starter kit
-  player.give(Item.of("simplyswords:gold_sai"));
-  player.give(Item.of("minecraft:cooked_chicken", 16));
-  player.give(Item.of("sophisticatedbackpacks:backpack"));
-  player.give(Item.of("paraglider:paraglider"));
-  player.give(Item.of("ftbquests:book"));
+  player.inventory.setStackInSlot(0, Item.of("simplyswords:gold_sai"));
+  player.inventory.setStackInSlot(1, Item.of("sophisticatedbackpacks:backpack"));
+  player.inventory.setStackInSlot(2, Item.of("minecraft:cooked_chicken", 16));
+  player.inventory.setStackInSlot(3, Item.of("ftbquests:book"));
+  player.inventory.setStackInSlot(8, Item.of("paraglider:paraglider"));
+
+  nbt.putBoolean("roguelike:kit_given", true);
 
   // Hint about quest book
   player.tell("§6Welcome to Roguelike Dimensions!");
