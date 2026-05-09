@@ -205,6 +205,251 @@ config/ftbquests/quests/chapters/
 
 ---
 
+## 🔥 DIMENSIONAL SCALING SYSTEM — Apotheosis × L2 Hostility Sync
+
+> **Context:** Apotheotic Hostility (the bridge mod that links L2H mob level to Apotheosis affix rarity) has no 1.21.1 NeoForge release. This section documents a manual sync approach using the tools available: L2H datapacks, Apotheosis datapacks, LootJS, and KubeJS.
+
+### The Core Problem
+
+Without Apotheotic Hostility:
+- **L2 Hostility** scales mob health/damage/traits based on player kill-count + distance from spawn + `dimensionFactor`
+- **Apotheosis** independently randomizes affix rarity and gem quality from its own weighted tables
+- Result: a level 200 Undergarden mob drops the same quality affix gear as a level 2 overworld zombie
+
+The goal is to re-create the quality escalation manually, per dimension, so loot quality tracks dimensional danger.
+
+---
+
+### Architecture — 5 Layers
+
+#### Layer 1: L2 Hostility — Dimension Floors (Paxi Datapack)
+
+**Why:** The `dimensionFactor = 2` in `l2hostility-server.toml` multiplies existing player-level-based mob levels, but it does NOT set a minimum. A new player jumping through a gate with player level 5 still meets Undergarden mobs at ~level 10, which is trivially easy. We need a floor.
+
+**How (verified schema):** L2H reads two datapack config types:
+- `data/{ns}/l2hostility_config/entity/{name}.json` — global per-entity configs (`enableEntitySpecificDatapack`)
+- `data/{ns}/l2hostility_config/difficulty/{name}.json` — per-dimension configs with `levelMap` (difficulty formula per dim) and `levelDefaultTraits` (entity overrides scoped to a dimension)
+
+For setting a dimension-wide mob level floor, the correct approach is a **difficulty config** with `levelDefaultTraits` entries for each entity type, using the `minSpawnLevel` field (NOT `minimumLevel` — that name does not exist).
+
+**Implementation:**
+- Create `config/paxi/datapacks/hostility/data/roguelike/l2hostility_config/difficulty/undergarden.json`
+- Use `levelMap` to set a stronger base difficulty formula for `undergarden:undergarden`
+- Use `levelDefaultTraits` to pin `minSpawnLevel: 80` for hostile mobs in the Undergarden
+- Specific boss mobs (rotspawn) get their own `entity/` config with a higher `minSpawnLevel`
+
+**Verified field names (from L2H 1.21 source):**
+- Minimum level field: `minSpawnLevel` (int, default 0)
+- `entities` accepts a single string or array of entity type IDs
+- Entity config list entries merge with `COLLECT` — multiple files append, they don't overwrite
+
+**L2H Config Tuning** (`l2hostility-server.toml`):
+- Current `dimensionFactor = 2` — consider raising to `3` once the floor is set, so the **ceiling** also grows
+- `defaultLevelBase = 2`, `defaultLevelVar = 4.0` — this means overworld mobs spawn level 2–6, which is correct for the start
+- `killsPerLevel = 50` — player levels up every 50 kills; by the time they reach the Undergarden gate (Apotheosis boss + quests), they should be level 30–60, meaning Undergarden floor of 80 is a meaningful threat
+
+**Dimension floor targets** (full chain, using `levelMap.base` + `minSpawnLevel` in `levelDefaultTraits`):
+| Dimension | Gate Boss | Est. Player Level | `levelMap.base` | `minSpawnLevel` | Boss `minSpawnLevel` |
+|-----------|-----------|-------------------|-----------------|-----------------|----------------------|
+| Overworld | — (start) | 0–60 | 20 (default) | 1 | varies |
+| Undergarden | Apotheosis Frontier Gateway | ~50–80 | 60 | 80 | 100 (rotspawn) |
+| Nether | Rotspawn | ~150–200 | 160 | 200 | 250 (Wither) |
+| Aether | Wither | ~300–400 | 350 | 400 | 450 (Slider) |
+| Twilight Forest | Aether Slider | ~500–600 | 550 | 600 | 700 (TF boss chain) |
+| Deep Dark | TF boss chain | ~700–800 | 750 | 800 | 900 (Warden) |
+| The End | Warden | ~900+ | 900 | 1000 | 1100 (Dragon) |
+
+L2H's `maxMobLevel = 5000` and `maxPlayerLevel = 999` both accommodate this range. The `dimensionFactor` multiplies ON TOP of the floor for returning high-level players.
+
+---
+
+#### Layer 2: Apotheosis Gem Tier Gating (LootJS)
+
+**Why:** Apotheosis gems range from Burned (worst) to Pristine (best). Currently, any tier can drop anywhere. Gating gem tiers per dimension is the primary "loot sync" lever.
+
+**How (verified schema):** LootJS `addEntityLootModifier` can check `context.level.dimension`. The `apotheosis:gem` item is a **single item ID** — purity and type are stored as NeoForge data components. This means we cannot filter by item ID substring; we need to check if the item is `apotheosis:gem` and then examine its components.
+
+Alternatively (cleaner): rather than stripping gems, we **add** dimension-appropriate gem drops on top of the existing system — ensuring better gems are more plentiful in later dimensions. The base loot tables already give some gems; we augment them.
+
+**Verified Gem Purity Tiers** (from Apotheosis 1.21 source — `Purity.java`):
+| Serialized Name | Color | Our Use |
+|---|---|---|
+| `cracked` | Gray | Overworld tier 1 |
+| `chipped` | Green | Overworld tier 2 |
+| `flawed` | Blue | Undergarden tier 1 |
+| `normal` | Purple | Undergarden tier 2 |
+| `flawless` | Orange | Nether–Aether |
+| `perfect` | Rainbow | Deep Dark–End |
+
+Note: Gems use a single item `apotheosis:gem` with data components — there is no per-purity item ID.
+
+**Gem tier targets** (full chain — using verified purity names from `Purity.java`):
+| Dimension | Purity Floor | Purity Ceiling | Notes |
+|-----------|-------------|----------------|-------|
+| Overworld | cracked | chipped | Low-quality gems from mob drops |
+| Undergarden | flawed | normal | Mid-quality unlocked |
+| Nether | normal | flawless | Better quality starts dropping |
+| Aether | flawless | flawless | Consistent high-quality |
+| Twilight Forest | flawless | perfect | Boss drops can yield perfect |
+| Deep Dark | perfect | perfect | End-tier exclusively |
+| The End | perfect | perfect | Dragon/End City drops |
+
+**Implementation detail:** All gems share the single item ID `apotheosis:gem` — purity is a NeoForge data component, not an item ID suffix. LootJS filtering must check the data component value, or use Apotheosis's own `min_purity` field in gem datapacks to control what drops where (cleaner approach). The gem datapack approach (Layer 3 Apotheosis datapacks) handles this more cleanly than LootJS filtering.
+
+---
+
+#### Layer 3: Affix Rarity + Gem Scaling (Apotheosis Datapacks via Paxi)
+
+**Why:** Apotheosis affix loot entries and gem definitions both support dimension constraints natively via `"constraints": { "dimensions": [...] }`. This is the cleanest way to sync loot quality to dimension — no LootJS needed for this layer.
+
+**Verified schema (from Apotheosis 1.21 source — `AffixLootEntry.java`, `Gem.java`, `Constraints.java`):**
+
+```json
+// affix_loot_entry example for Undergarden
+{
+    "type": "apotheosis:affix_loot_entry",
+    "stack": { "id": "minecraft:iron_sword", "count": 1 },
+    "weights": {
+        "ascent":   { "quality": 2.0, "weight": 30 },
+        "summit":   { "quality": 2.0, "weight": 20 },
+        "pinnacle": { "quality": 2.0, "weight": 10 }
+    },
+    "constraints": {
+        "dimensions": ["undergarden:undergarden"]
+    },
+    "rarities": ["apotheosis:rare", "apotheosis:epic"]
+}
+```
+
+**World tier names** (used as `weights` keys — NOT the same as affix rarities):
+`haven` | `frontier` | `ascent` | `summit` | `pinnacle`
+
+**Affix rarity IDs:** `apotheosis:common` | `apotheosis:uncommon` | `apotheosis:rare` | `apotheosis:epic` | `apotheosis:mythic`
+
+**How:** Add to `config/paxi/datapacks/apotheosis-compat/`:
+- `data/roguelike/affix_loot_entries/undergarden_weapons.json` — dimension-constrained entries with `rarities: ["apotheosis:rare", "apotheosis:epic"]`
+- `data/roguelike/affix_loot_entries/undergarden_armor.json` — same for armor
+- `data/roguelike/gems/undergarden/` — custom gems with `constraints.dimensions: ["undergarden:undergarden"]` and `min_purity: "flawed"`
+- Same pattern for each future dimension
+
+**Affix rarity targets by dimension** (controlled via `rarities` array in affix_loot_entry and `min_purity` in gems):
+| Dimension | Allowed Rarities | Gem `min_purity` |
+|-----------|-----------------|-----------------|
+| Overworld | common, uncommon, rare | cracked |
+| Undergarden | rare, epic | flawed |
+| Nether | rare, epic, mythic | normal |
+| Aether | epic, mythic | flawless |
+| Twilight Forest | epic, mythic | flawless |
+| Deep Dark | mythic | perfect |
+| The End | mythic | perfect |
+
+> The vanilla Apotheosis entries (no constraints) already provide common/uncommon drops everywhere. Our dimension-constrained entries **add** higher-rarity options on top — they don't replace the base system.
+
+---
+
+#### Layer 4: Undergarden Gear Attribute Tuning (KubeJS)
+
+**Why:** The armor-recipes.ts already defines the Undergarden tier path (Cloggrum → Froststeel → Utherium). However, the vanilla Undergarden mod stats may not feel like a clear upgrade over iron. We need the stats to justify the dimension transition.
+
+**Target stat philosophy:**
+- **Cloggrum**: Iron-tier protection, 50% more durability (makes it worth switching from iron as your "safe" set)
+- **Froststeel**: ~70% of diamond protection, diamond-tier durability (bridge set, pairs well with early Ars enchants)
+- **Utherium**: ~90% of diamond protection + resistance effect (near-endgame, pairs with affix system)
+
+**How:** KubeJS `ItemEvents.modification` can set attribute overrides for any item, including modded ones. Test with:
+```typescript
+// src/server/dimensions/undergarden-attributes.ts
+ItemEvents.modification('undergarden:cloggrum_chestplate', (event) => {
+  event.setMaxDamage(600); // iron chestplate is 240
+});
+```
+If `ItemEvents.modification` cannot set armor defense values on modded items (limitation of KubeJS in 1.21.1), the fallback is to rely on the affix + enchant system to compensate for the stat gap, and instead use quest text to explicitly frame what each tier is for.
+
+**Undergarden mod stat baseline (from default Undergarden values):**
+- Cloggrum: comparable to iron (defensively), just rare
+- Froststeel: between iron and diamond
+- Utherium: approaches diamond+
+This means the vanilla stats are *roughly* correct — the main gap is clearly communicating to players WHY Cloggrum is better than keeping iron. Quest text + FTB Quests tooltips can handle this.
+
+---
+
+#### Layer 5: Optional Harder Mode (Player Choice)
+
+**Existing systems to leverage:**
+1. **L2H Hostility Orbs** — already in game (`allowHostilityOrb = true`). Players collect these from boss kills to voluntarily raise their LOCAL zone difficulty. No code needed.
+2. **L2H Adaptive Leveling** — `enableAdaptiveLeveling = true`. Mobs scale up if player level is much higher, preventing over-leveling.
+
+**New: Conqueror's Path FTB Quests Chapter** (optional, unlocked from Overworld)
+A chapter with high-difficulty optional challenges. Rewards are cosmetic/quality-of-life, not power:
+| Quest | Challenge | Reward |
+|-------|-----------|--------|
+| Iron Giant | Kill the Apotheosis boss wearing only iron armor | 5 Overworld Rune Fragments |
+| No Quarter | Reach Undergarden without dying once | Exclusive "Conqueror" title |
+| Speed Run | Enter Undergarden within 2 in-game days | 3 Heart Containers |
+| Blind Run | Turn off Xaero's minimap, find a WDA structure | Rare Apotheosis gem |
+| Max Hostility | Reach L2H player level 100 | 2 Undergarden Rune Fragments (pre-gate reward) |
+
+**KubeJS opt-in difficulty flag:**
+```typescript
+// /roguelike difficulty hardcore — toggleable persistent mode
+// Applies: +20% mob damage received, -30% passive regen
+// Tracked via player.persistentData
+// Reward: bonus rune drops for players running this mode
+```
+
+---
+
+### Implementation Files Summary
+
+| File | Type | Purpose |
+|------|------|---------|
+| `config/paxi/datapacks/hostility/data/roguelike/l2hostility_config/difficulty/undergarden.json` | Paxi Datapack | `levelMap` difficulty formula + `levelDefaultTraits` with `minSpawnLevel: 80` for Undergarden mobs |
+| `config/paxi/datapacks/hostility/data/roguelike/l2hostility_config/entity/rotspawn.json` | Paxi Datapack | `minSpawnLevel: 100` for the Rotspawn boss specifically |
+| `config/l2configs/l2hostility-server.toml` | Config Edit | Tune `dimensionFactor` (currently 2, consider 3), review `killsPerLevel` |
+| `config/paxi/datapacks/apotheosis-compat/data/roguelike/affix_loot_entries/undergarden_weapons.json` | Paxi Datapack | Undergarden-only affix entries: `rarities: ["apotheosis:rare","apotheosis:epic"]`, `constraints.dimensions: ["undergarden:undergarden"]` |
+| `config/paxi/datapacks/apotheosis-compat/data/roguelike/affix_loot_entries/undergarden_armor.json` | Paxi Datapack | Same for armor slots |
+| `config/paxi/datapacks/apotheosis-compat/data/roguelike/gems/undergarden/` | Paxi Datapack | Custom gems constrained to Undergarden with `min_purity: "flawed"` |
+| `src/server/loot/dimension-scaling.ts` | KubeJS (new) | LootJS bonus gem injection per dimension (supplements the datapack approach) |
+| `src/server/dimensions/undergarden-attributes.ts` | KubeJS (new) | `ItemEvents.modification` for Cloggrum/Froststeel/Utherium stats |
+| `src/server/stages.ts` | KubeJS (edit) | Add HARDCORE_MODE stage flag |
+| FTB Quests (in-game editor) | SNBT | Conqueror's Path chapter |
+
+### Sync Point — The Key Insight
+
+The manual "Apotheotic Hostility" bridge is:
+1. **L2H floors** ensure Undergarden mobs are always dangerous (Layer 1)
+2. **LootJS dimension checks** ensure Undergarden mob drops are always quality-appropriate (Layer 2 + 3)
+3. **The gate system** (gates.ts + FTB Quests) ensures players only enter the Undergarden with appropriate gear
+
+This creates a **soft sync**: you don't need L2H level to directly control Apotheosis rarity; instead, the dimension itself is the proxy for "how far progressed" the player is, and we control loot quality at the dimension level.
+
+### Verified Schemas (research complete ✅)
+
+**L2 Hostility (from `Minecraft-LightLand/L2Hostility` 1.21 branch):**
+- Datapack path: `data/{ns}/l2hostility_config/difficulty/{name}.json`
+- Minimum level field: `minSpawnLevel` (int) inside `levelDefaultTraits[].minSpawnLevel`
+- Dimension-scoped entity floors go in `levelDefaultTraits` keyed by dimension ID
+- Separate boss entity config: `data/{ns}/l2hostility_config/entity/{name}.json` with `list[].minSpawnLevel`
+- Multiple files merge with `MAP_COLLECT` (append) for `levelDefaultTraits`
+
+**Apotheosis (from `Shadows-of-Fire/Apotheosis` 1.21 branch):**
+- Affix loot entry path: `data/{ns}/affix_loot_entries/{name}.json`, type: `"apotheosis:affix_loot_entry"`
+- Dimension constraints **fully supported**: `"constraints": { "dimensions": ["undergarden:undergarden"] }`
+- Biome constraints also supported: `"constraints": { "biomes": "#c:is_snowy" }`
+- World tiers (weight keys): `haven`, `frontier`, `ascent`, `summit`, `pinnacle`
+- Affix rarities: `apotheosis:common`, `apotheosis:uncommon`, `apotheosis:rare`, `apotheosis:epic`, `apotheosis:mythic`
+- Gem path: `data/{ns}/gems/{subfolder}/{name}.json`, type: `"apotheosis:gem"`
+- Gem purity tiers (lowest→highest): `cracked`, `chipped`, `flawed`, `normal`, `flawless`, `perfect`
+- All gems use item ID `apotheosis:gem` — purity is a NeoForge data component (not an item ID suffix)
+- Gem dimension constraints: same `constraints` object, confirmed by `inferno.json` (Nether gem) and `earth.json` (Overworld gem) in vanilla Apotheosis data
+
+### Open Questions Before Implementation
+- [ ] Confirm exact Rotspawn entity ID from Undergarden mod (`undergarden:rotspawn`?)
+- [ ] Decide: raise `dimensionFactor` 2→3? (Makes Undergarden mobs 3× overworld level instead of 2×)
+- [ ] Confirm Paxi namespace — can we use any namespace (`roguelike:`) or must it match an existing mod namespace?
+
+---
+
 ### 🎮 GAME DESIGN GAPS
 
 #### Gap 1: No narrative thread between dimensions

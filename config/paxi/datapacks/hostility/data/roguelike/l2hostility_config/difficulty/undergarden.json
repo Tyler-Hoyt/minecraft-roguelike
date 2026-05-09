@@ -1,0 +1,46 @@
+{
+  "levelMap": {
+    "undergarden:undergarden": {
+      "min": 0,
+      "base": 60,
+      "variation": 15.0,
+      "scale": 1.2,
+      "apply_chance": 1.0,
+      "trait_chance" 1.0,
+      "suppression": 0.0
+    }
+  },
+  "levelDefaultTraits": {
+    "undergarden:undergarden": [
+      {
+        "entities": [
+          "undergarden:gwibling",
+          "undergarden:grobling",
+          "undergarden:stomper",
+          "undergarden:quarray_eel",
+          "undergarden:voppan",
+          "undergarden:scabber"
+        ],
+        "minSpawnLevel": 80,
+        "maxLevel": 0,
+        "maxTraitCount": -1,
+        "healthScale": 1.0,
+        "attackScale": 1.0,
+        "presetTraitsOnly": false,
+        "blacklist": [],
+        "difficulty": {
+          "min": 0,
+          "base": 20,
+          "variation": 10.0,
+          "scale": 0.0,
+          "apply_chance": 1.0,
+          "trait_chance": 1.0,
+          "suppression": 0.0
+        },
+        "traits": [],
+        "items": [],
+        "specialConditions": []
+      }
+    ]
+  }
+}
