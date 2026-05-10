@@ -121,8 +121,8 @@ public static "read"(arg0: $CompoundTag$$Type): $RecipeBookSettings
 public "copy"(): $RecipeBookSettings
 public "isFiltering"(arg0: $RecipeBookType$$Type): boolean
 public "setFiltering"(arg0: $RecipeBookType$$Type, arg1: boolean): void
-public "replaceFrom"(arg0: $RecipeBookSettings$$Type): void
 public "setOpen"(arg0: $RecipeBookType$$Type, arg1: boolean): void
+public "replaceFrom"(arg0: $RecipeBookSettings$$Type): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -146,11 +146,11 @@ static readonly "RECIPE_BOOK_TAG": StringJS
 
 constructor()
 
-public "fromNbt"(arg0: $CompoundTag$$Type, arg1: $RecipeManager$$Type): void
-public "toNbt"(): $CompoundTag
+public "sendInitialRecipeBook"(arg0: $ServerPlayer$$Type): void
 public "addRecipes"(arg0: $Collection$$Type<($RecipeHolder$$Type<(never)>)>, arg1: $ServerPlayer$$Type): integer
 public "removeRecipes"(arg0: $Collection$$Type<($RecipeHolder$$Type<(never)>)>, arg1: $ServerPlayer$$Type): integer
-public "sendInitialRecipeBook"(arg0: $ServerPlayer$$Type): void
+public "fromNbt"(arg0: $CompoundTag$$Type, arg1: $RecipeManager$$Type): void
+public "toNbt"(): $CompoundTag
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -162,11 +162,11 @@ export type $ServerRecipeBook$$Type = ($ServerRecipeBook);
  */
 export type $ServerRecipeBook$$Original = $ServerRecipeBook;}
 declare module "net.minecraft.stats.StatType" {
-import {$Iterator} from "java.util.Iterator"
 import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
 import {$Iterable$$Interface} from "java.lang.Iterable"
-import {$Stat, $Stat$$Type} from "net.minecraft.stats.Stat"
+import {$Iterator} from "java.util.Iterator"
 import {$Registry, $Registry$$Type} from "net.minecraft.core.Registry"
+import {$Stat, $Stat$$Type} from "net.minecraft.stats.Stat"
 import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
 import {$Spliterator} from "java.util.Spliterator"
 import {$StatFormatter$$Type} from "net.minecraft.stats.StatFormatter"
@@ -181,8 +181,8 @@ public "get"(arg0: T, arg1: $StatFormatter$$Type): $Stat<(T)>
 public "iterator"(): $Iterator<($Stat<(T)>)>
 public "contains"(arg0: T): boolean
 public "getDisplayName"(): $Component
-public "getRegistry"(): $Registry<(T)>
 public "streamCodec"(): $StreamCodec<($RegistryFriendlyByteBuf), ($Stat<(T)>)>
+public "getRegistry"(): $Registry<(T)>
 public "spliterator"(): $Spliterator<($Stat<(T)>)>
 public "forEach"(arg0: $Consumer$$Type<($Stat<(T)>)>): void
 [Symbol.iterator](): IterableIterator<$Stat<(T)>>;
@@ -206,69 +206,9 @@ export type $StatType$$Type<T> = (Special.StatType);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $StatType$$Original<T> = $StatType<(T)>;}
-declare module "net.minecraft.stats.StatsCounter" {
-import {$StatType$$Type} from "net.minecraft.stats.StatType"
-import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
-import {$Stat$$Type} from "net.minecraft.stats.Stat"
-
-export class $StatsCounter {
-constructor()
-
-public "getValue"<T>(arg0: $StatType$$Type<(T)>, arg1: T): integer
-public "getValue"(arg0: $Stat$$Type<(never)>): integer
-public "increment"(arg0: $Player$$Type, arg1: $Stat$$Type<(never)>, arg2: integer): void
-public "setValue"(arg0: $Player$$Type, arg1: $Stat$$Type<(never)>, arg2: integer): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $StatsCounter$$Type = ($StatsCounter);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $StatsCounter$$Original = $StatsCounter;}
-declare module "net.minecraft.stats.RecipeBook" {
-import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
-import {$RecipeHolder$$Type} from "net.minecraft.world.item.crafting.RecipeHolder"
-import {$RecipeBookType$$Type} from "net.minecraft.world.inventory.RecipeBookType"
-import {$RecipeBookMenu$$Type} from "net.minecraft.world.inventory.RecipeBookMenu"
-import {$RecipeBookSettings, $RecipeBookSettings$$Type} from "net.minecraft.stats.RecipeBookSettings"
-
-export class $RecipeBook {
-constructor()
-
-public "remove"(arg0: $RecipeHolder$$Type<(never)>): void
-public "add"(arg0: $RecipeHolder$$Type<(never)>): void
-public "contains"(arg0: $RecipeHolder$$Type<(never)>): boolean
-public "contains"(arg0: $ResourceLocation$$Type): boolean
-public "isOpen"(arg0: $RecipeBookType$$Type): boolean
-public "willHighlight"(arg0: $RecipeHolder$$Type<(never)>): boolean
-public "removeHighlight"(arg0: $RecipeHolder$$Type<(never)>): void
-public "getBookSettings"(): $RecipeBookSettings
-public "isFiltering"(arg0: $RecipeBookMenu$$Type<(never), (never)>): boolean
-public "isFiltering"(arg0: $RecipeBookType$$Type): boolean
-public "setBookSettings"(arg0: $RecipeBookSettings$$Type): void
-public "addHighlight"(arg0: $RecipeHolder$$Type<(never)>): void
-public "setFiltering"(arg0: $RecipeBookType$$Type, arg1: boolean): void
-public "setBookSetting"(arg0: $RecipeBookType$$Type, arg1: boolean, arg2: boolean): void
-public "copyOverData"(arg0: $RecipeBook$$Type): void
-public "setOpen"(arg0: $RecipeBookType$$Type, arg1: boolean): void
-get "bookSettings"(): $RecipeBookSettings
-set "bookSettings"(value: $RecipeBookSettings$$Type)
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $RecipeBook$$Type = ($RecipeBook);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $RecipeBook$$Original = $RecipeBook;}
 declare module "net.minecraft.stats.Stat" {
-import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
 import {$StatType, $StatType$$Type} from "net.minecraft.stats.StatType"
+import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
 import {$ObjectiveCriteria} from "net.minecraft.world.scores.criteria.ObjectiveCriteria"
 import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
 
@@ -321,8 +261,8 @@ constructor(arg0: $MinecraftServer$$Type, arg1: $File$$Type)
 
 public "save"(): void
 public "setValue"(arg0: $Player$$Type, arg1: $Stat$$Type<(never)>, arg2: integer): void
-public "parseLocal"(arg0: $DataFixer$$Type, arg1: StringJS): void
 public "sendStats"(arg0: $ServerPlayer$$Type): void
+public "parseLocal"(arg0: $DataFixer$$Type, arg1: StringJS): void
 public "markAllDirty"(): void
 }
 /**
@@ -360,3 +300,63 @@ export type $StatFormatter$$Type = ((arg0: integer) => StringJS);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $StatFormatter$$Original = $StatFormatter;}
+declare module "net.minecraft.stats.StatsCounter" {
+import {$StatType$$Type} from "net.minecraft.stats.StatType"
+import {$Player$$Type} from "net.minecraft.world.entity.player.Player"
+import {$Stat$$Type} from "net.minecraft.stats.Stat"
+
+export class $StatsCounter {
+constructor()
+
+public "getValue"<T>(arg0: $StatType$$Type<(T)>, arg1: T): integer
+public "getValue"(arg0: $Stat$$Type<(never)>): integer
+public "increment"(arg0: $Player$$Type, arg1: $Stat$$Type<(never)>, arg2: integer): void
+public "setValue"(arg0: $Player$$Type, arg1: $Stat$$Type<(never)>, arg2: integer): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $StatsCounter$$Type = ($StatsCounter);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $StatsCounter$$Original = $StatsCounter;}
+declare module "net.minecraft.stats.RecipeBook" {
+import {$ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
+import {$RecipeHolder$$Type} from "net.minecraft.world.item.crafting.RecipeHolder"
+import {$RecipeBookMenu$$Type} from "net.minecraft.world.inventory.RecipeBookMenu"
+import {$RecipeBookType$$Type} from "net.minecraft.world.inventory.RecipeBookType"
+import {$RecipeBookSettings, $RecipeBookSettings$$Type} from "net.minecraft.stats.RecipeBookSettings"
+
+export class $RecipeBook {
+constructor()
+
+public "remove"(arg0: $RecipeHolder$$Type<(never)>): void
+public "add"(arg0: $RecipeHolder$$Type<(never)>): void
+public "contains"(arg0: $ResourceLocation$$Type): boolean
+public "contains"(arg0: $RecipeHolder$$Type<(never)>): boolean
+public "isOpen"(arg0: $RecipeBookType$$Type): boolean
+public "getBookSettings"(): $RecipeBookSettings
+public "addHighlight"(arg0: $RecipeHolder$$Type<(never)>): void
+public "setBookSettings"(arg0: $RecipeBookSettings$$Type): void
+public "removeHighlight"(arg0: $RecipeHolder$$Type<(never)>): void
+public "isFiltering"(arg0: $RecipeBookMenu$$Type<(never), (never)>): boolean
+public "isFiltering"(arg0: $RecipeBookType$$Type): boolean
+public "willHighlight"(arg0: $RecipeHolder$$Type<(never)>): boolean
+public "setBookSetting"(arg0: $RecipeBookType$$Type, arg1: boolean, arg2: boolean): void
+public "setFiltering"(arg0: $RecipeBookType$$Type, arg1: boolean): void
+public "setOpen"(arg0: $RecipeBookType$$Type, arg1: boolean): void
+public "copyOverData"(arg0: $RecipeBook$$Type): void
+get "bookSettings"(): $RecipeBookSettings
+set "bookSettings"(value: $RecipeBookSettings$$Type)
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $RecipeBook$$Type = ($RecipeBook);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $RecipeBook$$Original = $RecipeBook;}

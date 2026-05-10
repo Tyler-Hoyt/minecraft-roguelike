@@ -12,13 +12,13 @@ constructor(id: integer)
 
 public "getId"(): integer
 public "close"(): void
-public "getTexture"(): $DynamicTexture
 public "getIdentifier"(): $ResourceLocation
 public "getNextMapLocation"(): integer
+public "getTexture"(): $DynamicTexture
 get "id"(): integer
-get "texture"(): $DynamicTexture
 get "identifier"(): $ResourceLocation
 get "nextMapLocation"(): integer
+get "texture"(): $DynamicTexture
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

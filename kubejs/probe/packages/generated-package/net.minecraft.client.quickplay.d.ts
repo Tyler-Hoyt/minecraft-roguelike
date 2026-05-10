@@ -16,11 +16,11 @@ public static "values"(): ($QuickPlayLog$Type)[]
 public static "valueOf"(arg0: StringJS): $QuickPlayLog$Type
 public "getSerializedName"(): StringJS
 public static "keys"(arg0: ($StringRepresentable$$Type)[]): $Keyable
-public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
 public "getRemappedEnumConstantName"(): StringJS
 public static "fromEnum"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
 public static "fromValues"<T extends $StringRepresentable>(arg0: $Supplier$$Type<((T)[])>): $Codec<(T)>
+public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 get "serializedName"(): StringJS
 get "remappedEnumConstantName"(): StringJS
 }
@@ -34,8 +34,8 @@ export type $QuickPlayLog$Type$$Type = (("singleplayer") | ("multiplayer") | ("r
  */
 export type $QuickPlayLog$Type$$Original = $QuickPlayLog$Type;}
 declare module "net.minecraft.client.quickplay.QuickPlayLog" {
-import {$Minecraft$$Type} from "net.minecraft.client.Minecraft"
 import {$QuickPlayLog$Type$$Type} from "net.minecraft.client.quickplay.QuickPlayLog$Type"
+import {$Minecraft$$Type} from "net.minecraft.client.Minecraft"
 
 export class $QuickPlayLog {
 public "log"(arg0: $Minecraft$$Type): void

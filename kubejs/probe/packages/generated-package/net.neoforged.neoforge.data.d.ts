@@ -1,39 +1,3 @@
-declare module "net.neoforged.neoforge.data.event.GatherDataEvent$DataGeneratorConfig" {
-import {$Collection, $Collection$$Type} from "java.util.Collection"
-import {$CompletableFuture$$Type} from "java.util.concurrent.CompletableFuture"
-import {$File$$Type} from "java.io.File"
-import {$Function$$Type} from "java.util.function.Function"
-import {$Set, $Set$$Type} from "java.util.Set"
-import {$Path, $Path$$Type} from "java.nio.file.Path"
-import {$DataGenerator} from "net.minecraft.data.DataGenerator"
-import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
-
-export class $GatherDataEvent$DataGeneratorConfig {
-/**
- * 
- * @deprecated
- */
-constructor(arg0: $Set$$Type<(StringJS)>, arg1: $Path$$Type, arg2: $Collection$$Type<($Path$$Type)>, arg3: $CompletableFuture$$Type<($HolderLookup$Provider$$Type)>, arg4: boolean, arg5: boolean, arg6: boolean, arg7: boolean, arg8: boolean, arg9: boolean)
-constructor(arg0: $Set$$Type<(StringJS)>, arg1: $Path$$Type, arg2: $Collection$$Type<($Path$$Type)>, arg3: $CompletableFuture$$Type<($HolderLookup$Provider$$Type)>, arg4: boolean, arg5: boolean, arg6: boolean, arg7: boolean, arg8: boolean, arg9: boolean, arg10: StringJS, arg11: $File$$Type, arg12: $Collection$$Type<($Path$$Type)>)
-
-public "getInputs"(): $Collection<($Path)>
-public "runAll"(): void
-public "getMods"(): $Set<(StringJS)>
-public "isFlat"(): boolean
-public "makeGenerator"(arg0: $Function$$Type<($Path), ($Path$$Type)>, arg1: boolean): $DataGenerator
-get "inputs"(): $Collection<($Path)>
-get "mods"(): $Set<(StringJS)>
-get "flat"(): boolean
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $GatherDataEvent$DataGeneratorConfig$$Type = ($GatherDataEvent$DataGeneratorConfig);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $GatherDataEvent$DataGeneratorConfig$$Original = $GatherDataEvent$DataGeneratorConfig;}
 declare module "net.neoforged.neoforge.data.event.GatherDataEvent$DataProviderFromOutputLookup" {
 import {$PackOutput, $PackOutput$$Type} from "net.minecraft.data.PackOutput"
 import {$CompletableFuture, $CompletableFuture$$Type} from "java.util.concurrent.CompletableFuture"
@@ -57,6 +21,42 @@ export type $GatherDataEvent$DataProviderFromOutputLookup$$Type<T> = ((arg0: $Pa
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $GatherDataEvent$DataProviderFromOutputLookup$$Original<T> = $GatherDataEvent$DataProviderFromOutputLookup<(T)>;}
+declare module "net.neoforged.neoforge.data.event.GatherDataEvent$DataGeneratorConfig" {
+import {$Collection, $Collection$$Type} from "java.util.Collection"
+import {$CompletableFuture$$Type} from "java.util.concurrent.CompletableFuture"
+import {$File$$Type} from "java.io.File"
+import {$Function$$Type} from "java.util.function.Function"
+import {$Set, $Set$$Type} from "java.util.Set"
+import {$Path, $Path$$Type} from "java.nio.file.Path"
+import {$DataGenerator} from "net.minecraft.data.DataGenerator"
+import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
+
+export class $GatherDataEvent$DataGeneratorConfig {
+/**
+ * 
+ * @deprecated
+ */
+constructor(arg0: $Set$$Type<(StringJS)>, arg1: $Path$$Type, arg2: $Collection$$Type<($Path$$Type)>, arg3: $CompletableFuture$$Type<($HolderLookup$Provider$$Type)>, arg4: boolean, arg5: boolean, arg6: boolean, arg7: boolean, arg8: boolean, arg9: boolean)
+constructor(arg0: $Set$$Type<(StringJS)>, arg1: $Path$$Type, arg2: $Collection$$Type<($Path$$Type)>, arg3: $CompletableFuture$$Type<($HolderLookup$Provider$$Type)>, arg4: boolean, arg5: boolean, arg6: boolean, arg7: boolean, arg8: boolean, arg9: boolean, arg10: StringJS, arg11: $File$$Type, arg12: $Collection$$Type<($Path$$Type)>)
+
+public "getMods"(): $Set<(StringJS)>
+public "getInputs"(): $Collection<($Path)>
+public "isFlat"(): boolean
+public "runAll"(): void
+public "makeGenerator"(arg0: $Function$$Type<($Path), ($Path$$Type)>, arg1: boolean): $DataGenerator
+get "mods"(): $Set<(StringJS)>
+get "inputs"(): $Collection<($Path)>
+get "flat"(): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $GatherDataEvent$DataGeneratorConfig$$Type = ($GatherDataEvent$DataGeneratorConfig);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $GatherDataEvent$DataGeneratorConfig$$Original = $GatherDataEvent$DataGeneratorConfig;}
 declare module "net.neoforged.neoforge.data.event.GatherDataEvent$DataProviderFromOutput" {
 import {$PackOutput, $PackOutput$$Type} from "net.minecraft.data.PackOutput"
 import {$DataProvider, $DataProvider$$Type} from "net.minecraft.data.DataProvider"
@@ -82,8 +82,8 @@ declare module "net.neoforged.neoforge.data.event.GatherDataEvent$ItemTagsProvid
 import {$PackOutput, $PackOutput$$Type} from "net.minecraft.data.PackOutput"
 import {$TagsProvider$TagLookup, $TagsProvider$TagLookup$$Type} from "net.minecraft.data.tags.TagsProvider$TagLookup"
 import {$CompletableFuture, $CompletableFuture$$Type} from "java.util.concurrent.CompletableFuture"
-import {$TagsProvider, $TagsProvider$$Type} from "net.minecraft.data.tags.TagsProvider"
 import {$Block, $Block$$Type} from "net.minecraft.world.level.block.Block"
+import {$TagsProvider, $TagsProvider$$Type} from "net.minecraft.data.tags.TagsProvider"
 import {$Item, $Item$$Type} from "net.minecraft.world.item.Item"
 import {$HolderLookup$Provider, $HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
 
@@ -138,31 +138,31 @@ constructor(arg0: $ModContainer$$Type, arg1: $DataGenerator$$Type, arg2: $Gather
 public "validate"(): boolean
 public "addProvider"<T extends $DataProvider>(arg0: T): T
 public "getExistingFileHelper"(): $ExistingFileHelper
-public "getInputs"(): $Collection<($Path)>
-public "includeReports"(): boolean
-public "getModContainer"(): $ModContainer
-public "createProvider"<T extends $DataProvider>(arg0: $GatherDataEvent$DataProviderFromOutputLookup$$Type<(T)>): T
-public "createProvider"<T extends $DataProvider>(arg0: $GatherDataEvent$DataProviderFromOutput$$Type<(T)>): T
-public "includeDev"(): boolean
-public "getMods"(): $Set<(StringJS)>
 public "createBlockAndItemTags"(arg0: $GatherDataEvent$DataProviderFromOutputLookup$$Type<($TagsProvider$$Type<($Block$$Type)>)>, arg1: $GatherDataEvent$ItemTagsProvider$$Type): void
+public "getMods"(): $Set<(StringJS)>
+public "getInputs"(): $Collection<($Path)>
+public "getGenerator"(): $DataGenerator
+public "getResourceManager"(arg0: $PackType$$Type): $ResourceManager
+public "createDatapackRegistryObjects"(arg0: $RegistrySetBuilder$$Type, arg1: $Set$$Type<(StringJS)>): void
+public "createDatapackRegistryObjects"(arg0: $RegistrySetBuilder$$Type, arg1: $Map$$Type<($ResourceKey$$Type<(never)>), ($List$$Type<($ICondition$$Type)>)>): void
+public "createDatapackRegistryObjects"(arg0: $RegistrySetBuilder$$Type, arg1: $Map$$Type<($ResourceKey$$Type<(never)>), ($List$$Type<($ICondition$$Type)>)>, arg2: $Set$$Type<(StringJS)>): void
+public "createDatapackRegistryObjects"(arg0: $RegistrySetBuilder$$Type): void
+public "createDatapackRegistryObjects"(arg0: $RegistrySetBuilder$$Type, arg1: $Consumer$$Type<($BiConsumer<($ResourceKey<(never)>), ($ICondition)>)>, arg2: $Set$$Type<(StringJS)>): void
+public "createDatapackRegistryObjects"(arg0: $RegistrySetBuilder$$Type, arg1: $Consumer$$Type<($BiConsumer<($ResourceKey<(never)>), ($ICondition)>)>): void
+public "includeDev"(): boolean
 public "includeServer"(): boolean
 public "includeClient"(): boolean
 public "getLookupProvider"(): $CompletableFuture<($HolderLookup$Provider)>
-public "getGenerator"(): $DataGenerator
-public "createDatapackRegistryObjects"(arg0: $RegistrySetBuilder$$Type, arg1: $Map$$Type<($ResourceKey$$Type<(never)>), ($List$$Type<($ICondition$$Type)>)>, arg2: $Set$$Type<(StringJS)>): void
-public "createDatapackRegistryObjects"(arg0: $RegistrySetBuilder$$Type, arg1: $Consumer$$Type<($BiConsumer<($ResourceKey<(never)>), ($ICondition)>)>): void
-public "createDatapackRegistryObjects"(arg0: $RegistrySetBuilder$$Type, arg1: $Consumer$$Type<($BiConsumer<($ResourceKey<(never)>), ($ICondition)>)>, arg2: $Set$$Type<(StringJS)>): void
-public "createDatapackRegistryObjects"(arg0: $RegistrySetBuilder$$Type): void
-public "createDatapackRegistryObjects"(arg0: $RegistrySetBuilder$$Type, arg1: $Set$$Type<(StringJS)>): void
-public "createDatapackRegistryObjects"(arg0: $RegistrySetBuilder$$Type, arg1: $Map$$Type<($ResourceKey$$Type<(never)>), ($List$$Type<($ICondition$$Type)>)>): void
-public "getResourceManager"(arg0: $PackType$$Type): $ResourceManager
+public "createProvider"<T extends $DataProvider>(arg0: $GatherDataEvent$DataProviderFromOutput$$Type<(T)>): T
+public "createProvider"<T extends $DataProvider>(arg0: $GatherDataEvent$DataProviderFromOutputLookup$$Type<(T)>): T
+public "includeReports"(): boolean
+public "getModContainer"(): $ModContainer
 get "existingFileHelper"(): $ExistingFileHelper
-get "inputs"(): $Collection<($Path)>
-get "modContainer"(): $ModContainer
 get "mods"(): $Set<(StringJS)>
-get "lookupProvider"(): $CompletableFuture<($HolderLookup$Provider)>
+get "inputs"(): $Collection<($Path)>
 get "generator"(): $DataGenerator
+get "lookupProvider"(): $CompletableFuture<($HolderLookup$Provider)>
+get "modContainer"(): $ModContainer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

@@ -1,102 +1,3 @@
-declare module "net.neoforged.neoforge.server.command.EnumArgument$Info" {
-import {$ArgumentTypeInfo$Template, $ArgumentTypeInfo$Template$$Type} from "net.minecraft.commands.synchronization.ArgumentTypeInfo$Template"
-import {$ArgumentType$$Type} from "com.mojang.brigadier.arguments.ArgumentType"
-import {$EnumArgument, $EnumArgument$$Type} from "net.neoforged.neoforge.server.command.EnumArgument"
-import {$EnumArgument$Info$Template, $EnumArgument$Info$Template$$Type} from "net.neoforged.neoforge.server.command.EnumArgument$Info$Template"
-import {$Enum} from "java.lang.Enum"
-import {$FriendlyByteBuf$$Type} from "net.minecraft.network.FriendlyByteBuf"
-import {$JsonObject$$Type} from "com.google.gson.JsonObject"
-import {$ArgumentTypeInfo$$Interface} from "net.minecraft.commands.synchronization.ArgumentTypeInfo"
-
-export class $EnumArgument$Info<T extends $Enum<(object)>> implements $ArgumentTypeInfo$$Interface<($EnumArgument<(T)>), ($EnumArgument$Info$Template)> {
-constructor()
-
-public "unpack"(arg0: $ArgumentType$$Type): $ArgumentTypeInfo$Template
-public "unpack"(arg0: $EnumArgument$$Type<(T)>): $EnumArgument$Info$Template
-public "deserializeFromNetwork"(arg0: $FriendlyByteBuf$$Type): $ArgumentTypeInfo$Template
-public "serializeToJson"(arg0: $ArgumentTypeInfo$Template$$Type, arg1: $JsonObject$$Type): void
-public "serializeToJson"(arg0: $EnumArgument$Info$Template$$Type, arg1: $JsonObject$$Type): void
-public "serializeToNetwork"(arg0: $EnumArgument$Info$Template$$Type, arg1: $FriendlyByteBuf$$Type): void
-public "serializeToNetwork"(arg0: $ArgumentTypeInfo$Template$$Type, arg1: $FriendlyByteBuf$$Type): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $EnumArgument$Info$$Type<T> = ($EnumArgument$Info<(T)>);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $EnumArgument$Info$$Original<T> = $EnumArgument$Info<(T)>;}
-declare module "net.neoforged.neoforge.server.permission.nodes.PermissionNode$PermissionResolver" {
-import {$UUID, $UUID$$Type} from "java.util.UUID"
-import {$PermissionDynamicContext, $PermissionDynamicContext$$Type} from "net.neoforged.neoforge.server.permission.nodes.PermissionDynamicContext"
-import {$ServerPlayer, $ServerPlayer$$Type} from "net.minecraft.server.level.ServerPlayer"
-
-export interface $PermissionNode$PermissionResolver$$Interface<T> {
-
-(arg0: $ServerPlayer, arg1: $UUID, ...arg2: ($PermissionDynamicContext<(never)>)[]): T
-}
-
-export class $PermissionNode$PermissionResolver<T> implements $PermissionNode$PermissionResolver$$Interface {
- "resolve"(arg0: $ServerPlayer$$Type, arg1: $UUID$$Type, ...arg2: ($PermissionDynamicContext$$Type<(never)>)[]): T
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $PermissionNode$PermissionResolver$$Type<T> = ((arg0: $ServerPlayer, arg1: $UUID, arg2: ($PermissionDynamicContext<(never)>)[]) => T);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $PermissionNode$PermissionResolver$$Original<T> = $PermissionNode$PermissionResolver<(T)>;}
-declare module "net.neoforged.neoforge.server.permission.nodes.PermissionType" {
-import {$Class} from "java.lang.Class"
-
-export class $PermissionType<T> {
-public "equals"(arg0: any): boolean
-public "toString"(): StringJS
-public "hashCode"(): integer
-public "typeName"(): StringJS
-public "typeToken"(): $Class<(T)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $PermissionType$$Type<T> = ($PermissionType<(T)>);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $PermissionType$$Original<T> = $PermissionType<(T)>;}
-declare module "net.neoforged.neoforge.server.command.EnumArgument" {
-import {$CommandContext$$Type} from "com.mojang.brigadier.context.CommandContext"
-import {$ArgumentType$$Interface} from "com.mojang.brigadier.arguments.ArgumentType"
-import {$Collection} from "java.util.Collection"
-import {$Suggestions} from "com.mojang.brigadier.suggestion.Suggestions"
-import {$Enum} from "java.lang.Enum"
-import {$CompletableFuture} from "java.util.concurrent.CompletableFuture"
-import {$StringReader$$Type} from "com.mojang.brigadier.StringReader"
-import {$Class$$Type} from "java.lang.Class"
-import {$SuggestionsBuilder$$Type} from "com.mojang.brigadier.suggestion.SuggestionsBuilder"
-
-export class $EnumArgument<T extends $Enum<(object)>> implements $ArgumentType$$Interface<(T)> {
-public "parse"(arg0: $StringReader$$Type): any
-public "getExamples"(): $Collection<(StringJS)>
-public "listSuggestions"<S>(arg0: $CommandContext$$Type<(S)>, arg1: $SuggestionsBuilder$$Type): $CompletableFuture<($Suggestions)>
-public static "enumArgument"<R extends $Enum<(object)>>(arg0: $Class$$Type<(R)>): $EnumArgument<(R)>
-public "parse"<S>(arg0: $StringReader$$Type, arg1: S): T
-get "examples"(): $Collection<(StringJS)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $EnumArgument$$Type<T> = ($EnumArgument<(T)>);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $EnumArgument$$Original<T> = $EnumArgument<(T)>;}
 declare module "net.neoforged.neoforge.server.command.EnumArgument$Info$Template" {
 import {$ArgumentTypeInfo$Template$$Interface} from "net.minecraft.commands.synchronization.ArgumentTypeInfo$Template"
 import {$CommandBuildContext$$Type} from "net.minecraft.commands.CommandBuildContext"
@@ -120,20 +21,20 @@ declare module "net.neoforged.neoforge.server.permission.handler.IPermissionHand
 import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
 import {$UUID$$Type} from "java.util.UUID"
 import {$PermissionNode, $PermissionNode$$Type} from "net.neoforged.neoforge.server.permission.nodes.PermissionNode"
-import {$PermissionDynamicContext$$Type} from "net.neoforged.neoforge.server.permission.nodes.PermissionDynamicContext"
 import {$Set} from "java.util.Set"
+import {$PermissionDynamicContext$$Type} from "net.neoforged.neoforge.server.permission.nodes.PermissionDynamicContext"
 import {$ServerPlayer$$Type} from "net.minecraft.server.level.ServerPlayer"
 
 export interface $IPermissionHandler$$Interface {
-get "registeredNodes"(): $Set<($PermissionNode<(never)>)>
 get "identifier"(): $ResourceLocation
+get "registeredNodes"(): $Set<($PermissionNode<(never)>)>
 }
 
 export class $IPermissionHandler implements $IPermissionHandler$$Interface {
  "getPermission"<T>(arg0: $ServerPlayer$$Type, arg1: $PermissionNode$$Type<(T)>, ...arg2: ($PermissionDynamicContext$$Type<(never)>)[]): T
- "getRegisteredNodes"(): $Set<($PermissionNode<(never)>)>
  "getIdentifier"(): $ResourceLocation
  "getOfflinePermission"<T>(arg0: $UUID$$Type, arg1: $PermissionNode$$Type<(T)>, ...arg2: ($PermissionDynamicContext$$Type<(never)>)[]): T
+ "getRegisteredNodes"(): $Set<($PermissionNode<(never)>)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -144,6 +45,36 @@ export type $IPermissionHandler$$Type = ($IPermissionHandler);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $IPermissionHandler$$Original = $IPermissionHandler;}
+declare module "net.neoforged.neoforge.server.command.EnumArgument$Info" {
+import {$ArgumentTypeInfo$Template, $ArgumentTypeInfo$Template$$Type} from "net.minecraft.commands.synchronization.ArgumentTypeInfo$Template"
+import {$ArgumentType$$Type} from "com.mojang.brigadier.arguments.ArgumentType"
+import {$EnumArgument, $EnumArgument$$Type} from "net.neoforged.neoforge.server.command.EnumArgument"
+import {$EnumArgument$Info$Template, $EnumArgument$Info$Template$$Type} from "net.neoforged.neoforge.server.command.EnumArgument$Info$Template"
+import {$Enum} from "java.lang.Enum"
+import {$FriendlyByteBuf$$Type} from "net.minecraft.network.FriendlyByteBuf"
+import {$JsonObject$$Type} from "com.google.gson.JsonObject"
+import {$ArgumentTypeInfo$$Interface} from "net.minecraft.commands.synchronization.ArgumentTypeInfo"
+
+export class $EnumArgument$Info<T extends $Enum<(object)>> implements $ArgumentTypeInfo$$Interface<($EnumArgument<(T)>), ($EnumArgument$Info$Template)> {
+constructor()
+
+public "unpack"(arg0: $ArgumentType$$Type): $ArgumentTypeInfo$Template
+public "unpack"(arg0: $EnumArgument$$Type<(T)>): $EnumArgument$Info$Template
+public "serializeToNetwork"(arg0: $EnumArgument$Info$Template$$Type, arg1: $FriendlyByteBuf$$Type): void
+public "serializeToNetwork"(arg0: $ArgumentTypeInfo$Template$$Type, arg1: $FriendlyByteBuf$$Type): void
+public "serializeToJson"(arg0: $EnumArgument$Info$Template$$Type, arg1: $JsonObject$$Type): void
+public "serializeToJson"(arg0: $ArgumentTypeInfo$Template$$Type, arg1: $JsonObject$$Type): void
+public "deserializeFromNetwork"(arg0: $FriendlyByteBuf$$Type): $ArgumentTypeInfo$Template
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $EnumArgument$Info$$Type<T> = ($EnumArgument$Info<(T)>);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $EnumArgument$Info$$Original<T> = $EnumArgument$Info<(T)>;}
 declare module "net.neoforged.neoforge.server.permission.events.PermissionGatherEvent" {
 import {$Event} from "net.neoforged.bus.api.Event"
 
@@ -160,10 +91,32 @@ export type $PermissionGatherEvent$$Type = ($PermissionGatherEvent);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $PermissionGatherEvent$$Original = $PermissionGatherEvent;}
+declare module "net.neoforged.neoforge.server.permission.nodes.PermissionNode$PermissionResolver" {
+import {$UUID, $UUID$$Type} from "java.util.UUID"
+import {$PermissionDynamicContext, $PermissionDynamicContext$$Type} from "net.neoforged.neoforge.server.permission.nodes.PermissionDynamicContext"
+import {$ServerPlayer, $ServerPlayer$$Type} from "net.minecraft.server.level.ServerPlayer"
+
+export interface $PermissionNode$PermissionResolver$$Interface<T> {
+
+(arg0: $ServerPlayer, arg1: $UUID, ...arg2: ($PermissionDynamicContext<(never)>)[]): T
+}
+
+export class $PermissionNode$PermissionResolver<T> implements $PermissionNode$PermissionResolver$$Interface {
+ "resolve"(arg0: $ServerPlayer$$Type, arg1: $UUID$$Type, ...arg2: ($PermissionDynamicContext$$Type<(never)>)[]): T
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $PermissionNode$PermissionResolver$$Type<T> = ((arg0: $ServerPlayer, arg1: $UUID, arg2: ($PermissionDynamicContext<(never)>)[]) => T);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $PermissionNode$PermissionResolver$$Original<T> = $PermissionNode$PermissionResolver<(T)>;}
 declare module "net.neoforged.neoforge.server.permission.nodes.PermissionDynamicContextKey" {
 import {$Function, $Function$$Type} from "java.util.function.Function"
-import {$Class, $Class$$Type} from "java.lang.Class"
 import {$PermissionDynamicContext} from "net.neoforged.neoforge.server.permission.nodes.PermissionDynamicContext"
+import {$Class, $Class$$Type} from "java.lang.Class"
 import {$Record} from "java.lang.Record"
 
 export class $PermissionDynamicContextKey<T> extends $Record {
@@ -174,14 +127,14 @@ public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "createContext"(arg0: T): $PermissionDynamicContext<(T)>
-public "typeToken"(): $Class<(T)>
 public "serializer"(): $Function<(T), (StringJS)>
+public "typeToken"(): $Class<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $PermissionDynamicContextKey$$Type<T> = ({"name"?: StringJS, "typeToken"?: $Class$$Type<(T)>, "serializer"?: $Function$$Type<(T), (StringJS)>}) | ([name?: StringJS, typeToken?: $Class$$Type<(T)>, serializer?: $Function$$Type<(T), (StringJS)>]);
+export type $PermissionDynamicContextKey$$Type<T> = ({"serializer"?: $Function$$Type<(T), (StringJS)>, "name"?: StringJS, "typeToken"?: $Class$$Type<(T)>}) | ([serializer?: $Function$$Type<(T), (StringJS)>, name?: StringJS, typeToken?: $Class$$Type<(T)>]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -193,11 +146,11 @@ export class $PermissionDynamicContext<T> {
 public "equals"(arg0: any): boolean
 public "hashCode"(): integer
 public "getValue"(): T
-public "getDynamic"(): $PermissionDynamicContextKey<(T)>
 public "getSerializedValue"(): StringJS
+public "getDynamic"(): $PermissionDynamicContextKey<(T)>
 get "value"(): T
-get "dynamic"(): $PermissionDynamicContextKey<(T)>
 get "serializedValue"(): StringJS
+get "dynamic"(): $PermissionDynamicContextKey<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -208,6 +161,25 @@ export type $PermissionDynamicContext$$Type<T> = ($PermissionDynamicContext<(T)>
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $PermissionDynamicContext$$Original<T> = $PermissionDynamicContext<(T)>;}
+declare module "net.neoforged.neoforge.server.permission.nodes.PermissionType" {
+import {$Class} from "java.lang.Class"
+
+export class $PermissionType<T> {
+public "equals"(arg0: any): boolean
+public "toString"(): StringJS
+public "hashCode"(): integer
+public "typeName"(): StringJS
+public "typeToken"(): $Class<(T)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $PermissionType$$Type<T> = ($PermissionType<(T)>);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $PermissionType$$Original<T> = $PermissionType<(T)>;}
 declare module "net.neoforged.neoforge.server.permission.events.PermissionGatherEvent$Handler" {
 import {$Map} from "java.util.Map"
 import {$ResourceLocation, $ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
@@ -217,8 +189,8 @@ import {$PermissionGatherEvent} from "net.neoforged.neoforge.server.permission.e
 export class $PermissionGatherEvent$Handler extends $PermissionGatherEvent {
 constructor()
 
-public "getAvailablePermissionHandlerFactories"(): $Map<($ResourceLocation), ($IPermissionHandlerFactory)>
 public "addPermissionHandler"(arg0: $ResourceLocation$$Type, arg1: $IPermissionHandlerFactory$$Type): void
+public "getAvailablePermissionHandlerFactories"(): $Map<($ResourceLocation), ($IPermissionHandlerFactory)>
 get "availablePermissionHandlerFactories"(): $Map<($ResourceLocation), ($IPermissionHandlerFactory)>
 }
 /**
@@ -238,24 +210,24 @@ import {$Component, $Component$$Type} from "net.minecraft.network.chat.Component
 import {$PermissionType, $PermissionType$$Type} from "net.neoforged.neoforge.server.permission.nodes.PermissionType"
 
 export class $PermissionNode<T> {
-constructor(arg0: StringJS, arg1: StringJS, arg2: $PermissionType$$Type<(T)>, arg3: $PermissionNode$PermissionResolver$$Type<(T)>, ...arg4: ($PermissionDynamicContextKey$$Type)[])
 constructor(arg0: $ResourceLocation$$Type, arg1: $PermissionType$$Type<(T)>, arg2: $PermissionNode$PermissionResolver$$Type<(T)>, ...arg3: ($PermissionDynamicContextKey$$Type)[])
+constructor(arg0: StringJS, arg1: StringJS, arg2: $PermissionType$$Type<(T)>, arg3: $PermissionNode$PermissionResolver$$Type<(T)>, ...arg4: ($PermissionDynamicContextKey$$Type)[])
 
+public "getDescription"(): $Component
 public "equals"(arg0: any): boolean
 public "hashCode"(): integer
 public "getType"(): $PermissionType<(T)>
 public "getReadableName"(): $Component
+public "getNodeName"(): StringJS
 public "setInformation"(arg0: $Component$$Type, arg1: $Component$$Type): $PermissionNode
 public "getDynamics"(): ($PermissionDynamicContextKey<(never)>)[]
 public "getDefaultResolver"(): $PermissionNode$PermissionResolver<(T)>
-public "getNodeName"(): StringJS
-public "getDescription"(): $Component
+get "description"(): $Component
 get "type"(): $PermissionType<(T)>
 get "readableName"(): $Component
+get "nodeName"(): StringJS
 get "dynamics"(): ($PermissionDynamicContextKey<(never)>)[]
 get "defaultResolver"(): $PermissionNode$PermissionResolver<(T)>
-get "nodeName"(): StringJS
-get "description"(): $Component
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -297,9 +269,9 @@ import {$PermissionGatherEvent} from "net.neoforged.neoforge.server.permission.e
 export class $PermissionGatherEvent$Nodes extends $PermissionGatherEvent {
 constructor()
 
-public "getNodes"(): $Collection<($PermissionNode<(never)>)>
 public "addNodes"(arg0: $Iterable$$Type<($PermissionNode$$Type<(never)>)>): void
 public "addNodes"(...arg0: ($PermissionNode$$Type<(never)>)[]): void
+public "getNodes"(): $Collection<($PermissionNode<(never)>)>
 get "nodes"(): $Collection<($PermissionNode<(never)>)>
 }
 /**
@@ -311,3 +283,31 @@ export type $PermissionGatherEvent$Nodes$$Type = ($PermissionGatherEvent$Nodes);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $PermissionGatherEvent$Nodes$$Original = $PermissionGatherEvent$Nodes;}
+declare module "net.neoforged.neoforge.server.command.EnumArgument" {
+import {$CommandContext$$Type} from "com.mojang.brigadier.context.CommandContext"
+import {$ArgumentType$$Interface} from "com.mojang.brigadier.arguments.ArgumentType"
+import {$Suggestions} from "com.mojang.brigadier.suggestion.Suggestions"
+import {$Collection} from "java.util.Collection"
+import {$Enum} from "java.lang.Enum"
+import {$CompletableFuture} from "java.util.concurrent.CompletableFuture"
+import {$StringReader$$Type} from "com.mojang.brigadier.StringReader"
+import {$Class$$Type} from "java.lang.Class"
+import {$SuggestionsBuilder$$Type} from "com.mojang.brigadier.suggestion.SuggestionsBuilder"
+
+export class $EnumArgument<T extends $Enum<(object)>> implements $ArgumentType$$Interface<(T)> {
+public "parse"(arg0: $StringReader$$Type): any
+public "listSuggestions"<S>(arg0: $CommandContext$$Type<(S)>, arg1: $SuggestionsBuilder$$Type): $CompletableFuture<($Suggestions)>
+public "getExamples"(): $Collection<(StringJS)>
+public static "enumArgument"<R extends $Enum<(object)>>(arg0: $Class$$Type<(R)>): $EnumArgument<(R)>
+public "parse"<S>(arg0: $StringReader$$Type, arg1: S): T
+get "examples"(): $Collection<(StringJS)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $EnumArgument$$Type<T> = ($EnumArgument<(T)>);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $EnumArgument$$Original<T> = $EnumArgument<(T)>;}

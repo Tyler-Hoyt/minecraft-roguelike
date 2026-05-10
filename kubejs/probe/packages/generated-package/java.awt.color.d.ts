@@ -39,11 +39,11 @@ public "getType"(): integer
 public "getMinValue"(arg0: integer): float
 public "getMaxValue"(arg0: integer): float
 public "toRGB"(arg0: (float)[]): (float)[]
+public "fromRGB"(arg0: (float)[]): (float)[]
 public "toCIEXYZ"(arg0: (float)[]): (float)[]
 public "fromCIEXYZ"(arg0: (float)[]): (float)[]
-public "getNumComponents"(): integer
-public "fromRGB"(arg0: (float)[]): (float)[]
 public "isCS_sRGB"(): boolean
+public "getNumComponents"(): integer
 get "type"(): integer
 get "numComponents"(): integer
 }

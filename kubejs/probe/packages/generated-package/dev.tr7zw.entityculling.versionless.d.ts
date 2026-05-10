@@ -1,21 +1,21 @@
 declare module "dev.tr7zw.entityculling.versionless.access.Cullable" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $Cullable$$Interface {
-get "outOfCamera"(): boolean
-set "outOfCamera"(value: boolean)
-get "forcedVisible"(): boolean
-set "culled"(value: boolean)
-get "culled"(): boolean
 get "timeout"(): void
+get "culled"(): boolean
+set "culled"(value: boolean)
+get "forcedVisible"(): boolean
+set "outOfCamera"(value: boolean)
+get "outOfCamera"(): boolean
 }
 
 export class $Cullable implements $Cullable$$Interface {
- "isOutOfCamera"(): boolean
- "setOutOfCamera"(arg0: boolean): void
- "isForcedVisible"(): boolean
- "setCulled"(arg0: boolean): void
- "isCulled"(): boolean
  "setTimeout"(): void
+ "isCulled"(): boolean
+ "setCulled"(arg0: boolean): void
+ "isForcedVisible"(): boolean
+ "setOutOfCamera"(arg0: boolean): void
+ "isOutOfCamera"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

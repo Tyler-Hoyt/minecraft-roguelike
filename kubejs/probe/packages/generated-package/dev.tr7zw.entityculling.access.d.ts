@@ -9,9 +9,9 @@ export interface $EntityRendererInter$$Interface<T extends $Entity> {
 }
 
 export class $EntityRendererInter<T extends $Entity> implements $EntityRendererInter$$Interface {
- "shadowShouldShowName"(arg0: T): boolean
- "shadowRenderNameTag"(arg0: T, arg1: $Component$$Type, arg2: $PoseStack$$Type, arg3: $MultiBufferSource$$Type, arg4: integer, arg5: float): void
  "entityCullingIgnoresCulling"(arg0: T): boolean
+ "shadowRenderNameTag"(arg0: T, arg1: $Component$$Type, arg2: $PoseStack$$Type, arg3: $MultiBufferSource$$Type, arg4: integer, arg5: float): void
+ "shadowShouldShowName"(arg0: T): boolean
  "entityCullingGetCullingBox"(arg0: T): $AABB
 }
 /**

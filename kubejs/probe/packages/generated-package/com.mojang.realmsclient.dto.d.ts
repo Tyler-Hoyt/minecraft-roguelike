@@ -1,3 +1,25 @@
+declare module "com.mojang.realmsclient.dto.Subscription" {
+import {$ValueObject} from "com.mojang.realmsclient.dto.ValueObject"
+import {$Subscription$SubscriptionType} from "com.mojang.realmsclient.dto.Subscription$SubscriptionType"
+
+export class $Subscription extends $ValueObject {
+ "daysLeft": integer
+ "type": $Subscription$SubscriptionType
+ "startDate": long
+
+constructor()
+
+public static "parse"(arg0: StringJS): $Subscription
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Subscription$$Type = ($Subscription);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Subscription$$Original = $Subscription;}
 declare module "com.mojang.realmsclient.dto.ValueObject" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export class $ValueObject {
@@ -14,6 +36,27 @@ export type $ValueObject$$Type = ($ValueObject);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $ValueObject$$Original = $ValueObject;}
+declare module "com.mojang.realmsclient.dto.RealmsServerList" {
+import {$RealmsServer} from "com.mojang.realmsclient.dto.RealmsServer"
+import {$List} from "java.util.List"
+import {$ValueObject} from "com.mojang.realmsclient.dto.ValueObject"
+
+export class $RealmsServerList extends $ValueObject {
+ "servers": $List<($RealmsServer)>
+
+constructor()
+
+public static "parse"(arg0: StringJS): $RealmsServerList
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $RealmsServerList$$Type = ($RealmsServerList);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $RealmsServerList$$Original = $RealmsServerList;}
 declare module "com.mojang.realmsclient.dto.WorldTemplate" {
 import {$WorldTemplate$WorldTemplateType} from "com.mojang.realmsclient.dto.WorldTemplate$WorldTemplateType"
 import {$ValueObject} from "com.mojang.realmsclient.dto.ValueObject"
@@ -56,8 +99,8 @@ static readonly "RELEASE_TYPE_INCOMPATIBLE": $RealmsServer$Compatibility
 
 public static "values"(): ($RealmsServer$Compatibility)[]
 public static "valueOf"(arg0: StringJS): $RealmsServer$Compatibility
-public "needsUpgrade"(): boolean
 public "isCompatible"(): boolean
+public "needsUpgrade"(): boolean
 public "needsDowngrade"(): boolean
 get "compatible"(): boolean
 }
@@ -70,337 +113,6 @@ export type $RealmsServer$Compatibility$$Type = (("unverifiable") | ("incompatib
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $RealmsServer$Compatibility$$Original = $RealmsServer$Compatibility;}
-declare module "com.mojang.realmsclient.dto.Backup" {
-import {$Map} from "java.util.Map"
-import {$JsonElement$$Type} from "com.google.gson.JsonElement"
-import {$ValueObject} from "com.mojang.realmsclient.dto.ValueObject"
-import {$Date} from "java.util.Date"
-
-export class $Backup extends $ValueObject {
- "metadata": $Map<(StringJS), (StringJS)>
- "size": long
- "lastModifiedDate": $Date
- "backupId": StringJS
- "changeList": $Map<(StringJS), (StringJS)>
-
-constructor()
-
-public static "parse"(arg0: $JsonElement$$Type): $Backup
-public "isUploadedVersion"(): boolean
-public "setUploadedVersion"(arg0: boolean): void
-get "uploadedVersion"(): boolean
-set "uploadedVersion"(value: boolean)
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Backup$$Type = ($Backup);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Backup$$Original = $Backup;}
-declare module "com.mojang.realmsclient.dto.Ops" {
-import {$ValueObject} from "com.mojang.realmsclient.dto.ValueObject"
-import {$Set} from "java.util.Set"
-
-export class $Ops extends $ValueObject {
- "ops": $Set<(StringJS)>
-
-constructor()
-
-public static "parse"(arg0: StringJS): $Ops
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Ops$$Type = ($Ops);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Ops$$Original = $Ops;}
-declare module "com.mojang.realmsclient.dto.RealmsNotification" {
-import {$UUID} from "java.util.UUID"
-import {$List} from "java.util.List"
-
-export class $RealmsNotification {
-public "dismissable"(): boolean
-public static "parseList"(arg0: StringJS): $List<($RealmsNotification)>
-public "uuid"(): $UUID
-public "seen"(): boolean
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $RealmsNotification$$Type = ($RealmsNotification);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $RealmsNotification$$Original = $RealmsNotification;}
-declare module "com.mojang.realmsclient.dto.ServerActivity" {
-import {$ValueObject} from "com.mojang.realmsclient.dto.ValueObject"
-import {$JsonObject$$Type} from "com.google.gson.JsonObject"
-
-export class $ServerActivity extends $ValueObject {
- "leaveTime": long
- "profileUuid": StringJS
- "joinTime": long
-
-constructor()
-
-public static "parse"(arg0: $JsonObject$$Type): $ServerActivity
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ServerActivity$$Type = ($ServerActivity);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ServerActivity$$Original = $ServerActivity;}
-declare module "com.mojang.realmsclient.dto.PendingInvitesList" {
-import {$List} from "java.util.List"
-import {$ValueObject} from "com.mojang.realmsclient.dto.ValueObject"
-import {$PendingInvite} from "com.mojang.realmsclient.dto.PendingInvite"
-
-export class $PendingInvitesList extends $ValueObject {
- "pendingInvites": $List<($PendingInvite)>
-
-constructor()
-
-public static "parse"(arg0: StringJS): $PendingInvitesList
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $PendingInvitesList$$Type = ($PendingInvitesList);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $PendingInvitesList$$Original = $PendingInvitesList;}
-declare module "com.mojang.realmsclient.dto.ServerActivityList" {
-import {$ServerActivity} from "com.mojang.realmsclient.dto.ServerActivity"
-import {$List} from "java.util.List"
-import {$ValueObject} from "com.mojang.realmsclient.dto.ValueObject"
-
-export class $ServerActivityList extends $ValueObject {
- "periodInMillis": long
- "serverActivities": $List<($ServerActivity)>
-
-constructor()
-
-public static "parse"(arg0: StringJS): $ServerActivityList
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ServerActivityList$$Type = ($ServerActivityList);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ServerActivityList$$Original = $ServerActivityList;}
-declare module "com.mojang.realmsclient.dto.RegionPingResult" {
-import {$ValueObject} from "com.mojang.realmsclient.dto.ValueObject"
-import {$ReflectionBasedSerialization$$Interface} from "com.mojang.realmsclient.dto.ReflectionBasedSerialization"
-
-export class $RegionPingResult extends $ValueObject implements $ReflectionBasedSerialization$$Interface {
-constructor(arg0: StringJS, arg1: integer)
-
-public "toString"(): StringJS
-public "ping"(): integer
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $RegionPingResult$$Type = ($RegionPingResult);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $RegionPingResult$$Original = $RegionPingResult;}
-declare module "com.mojang.realmsclient.dto.RealmsServerAddress" {
-import {$ValueObject} from "com.mojang.realmsclient.dto.ValueObject"
-
-export class $RealmsServerAddress extends $ValueObject {
- "address": StringJS
- "resourcePackHash": StringJS
- "resourcePackUrl": StringJS
-
-constructor()
-
-public static "parse"(arg0: StringJS): $RealmsServerAddress
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $RealmsServerAddress$$Type = ($RealmsServerAddress);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $RealmsServerAddress$$Original = $RealmsServerAddress;}
-declare module "com.mojang.realmsclient.dto.RealmsServer" {
-import {$RealmsServer$State} from "com.mojang.realmsclient.dto.RealmsServer$State"
-import {$Map, $Map$$Type} from "java.util.Map"
-import {$RealmsWorldOptions, $RealmsWorldOptions$$Type} from "com.mojang.realmsclient.dto.RealmsWorldOptions"
-import {$RealmsServer$Compatibility} from "com.mojang.realmsclient.dto.RealmsServer$Compatibility"
-import {$UUID} from "java.util.UUID"
-import {$List} from "java.util.List"
-import {$PlayerInfo} from "com.mojang.realmsclient.dto.PlayerInfo"
-import {$ValueObject} from "com.mojang.realmsclient.dto.ValueObject"
-import {$JsonObject$$Type} from "com.google.gson.JsonObject"
-import {$RealmsServer$WorldType} from "com.mojang.realmsclient.dto.RealmsServer$WorldType"
-import {$ServerData} from "net.minecraft.client.multiplayer.ServerData"
-
-export class $RealmsServer extends $ValueObject {
- "owner": StringJS
- "motd": StringJS
- "worldType": $RealmsServer$WorldType
- "ownerUUID": $UUID
- "expiredTrial": boolean
- "parentRealmId": long
- "players": $List<($PlayerInfo)>
- "parentWorldName": StringJS
- "minigameName": StringJS
- "minigameImage": StringJS
- "slots": $Map<(integer), ($RealmsWorldOptions)>
- "expired": boolean
- "activeSlot": integer
- "minigameId": integer
- "name": StringJS
- "activeVersion": StringJS
- "id": long
- "state": $RealmsServer$State
- "daysLeft": integer
- "remoteSubscriptionId": StringJS
- "compatibility": $RealmsServer$Compatibility
-
-constructor()
-
-public "getName"(): StringJS
-public "equals"(arg0: any): boolean
-public "hashCode"(): integer
-public "clone"(): any
-public "setName"(arg0: StringJS): void
-public static "parse"(arg0: StringJS): $RealmsServer
-public static "parse"(arg0: $JsonObject$$Type): $RealmsServer
-public "isSnapshotRealm"(): boolean
-public "needsUpgrade"(): boolean
-public "isMinigameActive"(): boolean
-public "isCompatible"(): boolean
-public "needsDowngrade"(): boolean
-public static "getCompatibility"(arg0: StringJS): $RealmsServer$Compatibility
-public "getMinigameName"(): StringJS
-public "setDescription"(arg0: StringJS): void
-public "getDescription"(): StringJS
-public "cloneSlots"(arg0: $Map$$Type<(integer), ($RealmsWorldOptions$$Type)>): $Map<(integer), ($RealmsWorldOptions)>
-public "toServerData"(arg0: StringJS): $ServerData
-public "getWorldName"(arg0: integer): StringJS
-get "snapshotRealm"(): boolean
-get "minigameActive"(): boolean
-get "compatible"(): boolean
-set "description"(value: StringJS)
-get "description"(): StringJS
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $RealmsServer$$Type = ($RealmsServer);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $RealmsServer$$Original = $RealmsServer;}
-declare module "com.mojang.realmsclient.dto.WorldTemplate$WorldTemplateType" {
-import {$Enum} from "java.lang.Enum"
-
-export class $WorldTemplate$WorldTemplateType extends $Enum<($WorldTemplate$WorldTemplateType)> {
-static readonly "ADVENTUREMAP": $WorldTemplate$WorldTemplateType
-static readonly "WORLD_TEMPLATE": $WorldTemplate$WorldTemplateType
-static readonly "MINIGAME": $WorldTemplate$WorldTemplateType
-static readonly "EXPERIENCE": $WorldTemplate$WorldTemplateType
-static readonly "INSPIRATION": $WorldTemplate$WorldTemplateType
-
-public static "values"(): ($WorldTemplate$WorldTemplateType)[]
-public static "valueOf"(arg0: StringJS): $WorldTemplate$WorldTemplateType
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $WorldTemplate$WorldTemplateType$$Type = (("world_template") | ("minigame") | ("adventuremap") | ("experience") | ("inspiration"));
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $WorldTemplate$WorldTemplateType$$Original = $WorldTemplate$WorldTemplateType;}
-declare module "com.mojang.realmsclient.dto.RealmsServer$State" {
-import {$Enum} from "java.lang.Enum"
-
-export class $RealmsServer$State extends $Enum<($RealmsServer$State)> {
-static readonly "CLOSED": $RealmsServer$State
-static readonly "UNINITIALIZED": $RealmsServer$State
-static readonly "OPEN": $RealmsServer$State
-
-public static "values"(): ($RealmsServer$State)[]
-public static "valueOf"(arg0: StringJS): $RealmsServer$State
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $RealmsServer$State$$Type = (("closed") | ("open") | ("uninitialized"));
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $RealmsServer$State$$Original = $RealmsServer$State;}
-declare module "com.mojang.realmsclient.dto.Subscription" {
-import {$ValueObject} from "com.mojang.realmsclient.dto.ValueObject"
-import {$Subscription$SubscriptionType} from "com.mojang.realmsclient.dto.Subscription$SubscriptionType"
-
-export class $Subscription extends $ValueObject {
- "daysLeft": integer
- "type": $Subscription$SubscriptionType
- "startDate": long
-
-constructor()
-
-public static "parse"(arg0: StringJS): $Subscription
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Subscription$$Type = ($Subscription);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Subscription$$Original = $Subscription;}
-declare module "com.mojang.realmsclient.dto.RealmsServerList" {
-import {$RealmsServer} from "com.mojang.realmsclient.dto.RealmsServer"
-import {$List} from "java.util.List"
-import {$ValueObject} from "com.mojang.realmsclient.dto.ValueObject"
-
-export class $RealmsServerList extends $ValueObject {
- "servers": $List<($RealmsServer)>
-
-constructor()
-
-public static "parse"(arg0: StringJS): $RealmsServerList
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $RealmsServerList$$Type = ($RealmsServerList);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $RealmsServerList$$Original = $RealmsServerList;}
 declare module "com.mojang.realmsclient.dto.RealmsWorldOptions" {
 import {$RealmsServer$Compatibility, $RealmsServer$Compatibility$$Type} from "com.mojang.realmsclient.dto.RealmsServer$Compatibility"
 import {$ValueObject} from "com.mojang.realmsclient.dto.ValueObject"
@@ -424,14 +136,14 @@ readonly "compatibility": $RealmsServer$Compatibility
 
 constructor(arg0: boolean, arg1: boolean, arg2: boolean, arg3: boolean, arg4: integer, arg5: boolean, arg6: integer, arg7: integer, arg8: boolean, arg9: StringJS, arg10: StringJS, arg11: $RealmsServer$Compatibility$$Type)
 
-public "clone"(): any
+public "clone"(): $RealmsWorldOptions
 public static "parse"(arg0: $JsonObject$$Type): $RealmsWorldOptions
-public "toJson"(): StringJS
+public "setEmpty"(arg0: boolean): void
 public static "createEmptyDefaults"(): $RealmsWorldOptions
 public "getSlotName"(arg0: integer): StringJS
-public "setEmpty"(arg0: boolean): void
-public "getDefaultSlotName"(arg0: integer): StringJS
 public static "createDefaults"(): $RealmsWorldOptions
+public "toJson"(): StringJS
+public "getDefaultSlotName"(arg0: integer): StringJS
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -491,6 +203,97 @@ export type $PingResult$$Type = ($PingResult);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $PingResult$$Original = $PingResult;}
+declare module "com.mojang.realmsclient.dto.Backup" {
+import {$Map} from "java.util.Map"
+import {$JsonElement$$Type} from "com.google.gson.JsonElement"
+import {$ValueObject} from "com.mojang.realmsclient.dto.ValueObject"
+import {$Date} from "java.util.Date"
+
+export class $Backup extends $ValueObject {
+ "metadata": $Map<(StringJS), (StringJS)>
+ "size": long
+ "lastModifiedDate": $Date
+ "backupId": StringJS
+ "changeList": $Map<(StringJS), (StringJS)>
+
+constructor()
+
+public static "parse"(arg0: $JsonElement$$Type): $Backup
+public "isUploadedVersion"(): boolean
+public "setUploadedVersion"(arg0: boolean): void
+get "uploadedVersion"(): boolean
+set "uploadedVersion"(value: boolean)
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Backup$$Type = ($Backup);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Backup$$Original = $Backup;}
+declare module "com.mojang.realmsclient.dto.Ops" {
+import {$Set} from "java.util.Set"
+import {$ValueObject} from "com.mojang.realmsclient.dto.ValueObject"
+
+export class $Ops extends $ValueObject {
+ "ops": $Set<(StringJS)>
+
+constructor()
+
+public static "parse"(arg0: StringJS): $Ops
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Ops$$Type = ($Ops);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Ops$$Original = $Ops;}
+declare module "com.mojang.realmsclient.dto.RealmsNotification" {
+import {$UUID} from "java.util.UUID"
+import {$List} from "java.util.List"
+
+export class $RealmsNotification {
+public "seen"(): boolean
+public static "parseList"(arg0: StringJS): $List<($RealmsNotification)>
+public "uuid"(): $UUID
+public "dismissable"(): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $RealmsNotification$$Type = ($RealmsNotification);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $RealmsNotification$$Original = $RealmsNotification;}
+declare module "com.mojang.realmsclient.dto.ServerActivity" {
+import {$ValueObject} from "com.mojang.realmsclient.dto.ValueObject"
+import {$JsonObject$$Type} from "com.google.gson.JsonObject"
+
+export class $ServerActivity extends $ValueObject {
+ "leaveTime": long
+ "profileUuid": StringJS
+ "joinTime": long
+
+constructor()
+
+public static "parse"(arg0: $JsonObject$$Type): $ServerActivity
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ServerActivity$$Type = ($ServerActivity);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ServerActivity$$Original = $ServerActivity;}
 declare module "com.mojang.realmsclient.dto.PlayerInfo" {
 import {$UUID, $UUID$$Type} from "java.util.UUID"
 import {$ValueObject} from "com.mojang.realmsclient.dto.ValueObject"
@@ -501,24 +304,24 @@ constructor()
 
 public "getName"(): StringJS
 public "setName"(arg0: StringJS): void
-public "setUuid"(arg0: $UUID$$Type): void
-public "getUuid"(): $UUID
-public "setOperator"(arg0: boolean): void
-public "isOperator"(): boolean
-public "getOnline"(): boolean
-public "setOnline"(arg0: boolean): void
 public "getAccepted"(): boolean
 public "setAccepted"(arg0: boolean): void
+public "getUuid"(): $UUID
+public "isOperator"(): boolean
+public "getOnline"(): boolean
+public "setOperator"(arg0: boolean): void
+public "setOnline"(arg0: boolean): void
+public "setUuid"(arg0: $UUID$$Type): void
 get "name"(): StringJS
 set "name"(value: StringJS)
-set "uuid"(value: $UUID$$Type)
-get "uuid"(): $UUID
-set "operator"(value: boolean)
-get "operator"(): boolean
-get "online"(): boolean
-set "online"(value: boolean)
 get "accepted"(): boolean
 set "accepted"(value: boolean)
+get "uuid"(): $UUID
+get "operator"(): boolean
+get "online"(): boolean
+set "operator"(value: boolean)
+set "online"(value: boolean)
+set "uuid"(value: $UUID$$Type)
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -570,6 +373,68 @@ export type $Subscription$SubscriptionType$$Type = (("normal") | ("recurring"));
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $Subscription$SubscriptionType$$Original = $Subscription$SubscriptionType;}
+declare module "com.mojang.realmsclient.dto.PendingInvitesList" {
+import {$List} from "java.util.List"
+import {$ValueObject} from "com.mojang.realmsclient.dto.ValueObject"
+import {$PendingInvite} from "com.mojang.realmsclient.dto.PendingInvite"
+
+export class $PendingInvitesList extends $ValueObject {
+ "pendingInvites": $List<($PendingInvite)>
+
+constructor()
+
+public static "parse"(arg0: StringJS): $PendingInvitesList
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $PendingInvitesList$$Type = ($PendingInvitesList);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $PendingInvitesList$$Original = $PendingInvitesList;}
+declare module "com.mojang.realmsclient.dto.ServerActivityList" {
+import {$List} from "java.util.List"
+import {$ServerActivity} from "com.mojang.realmsclient.dto.ServerActivity"
+import {$ValueObject} from "com.mojang.realmsclient.dto.ValueObject"
+
+export class $ServerActivityList extends $ValueObject {
+ "periodInMillis": long
+ "serverActivities": $List<($ServerActivity)>
+
+constructor()
+
+public static "parse"(arg0: StringJS): $ServerActivityList
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ServerActivityList$$Type = ($ServerActivityList);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ServerActivityList$$Original = $ServerActivityList;}
+declare module "com.mojang.realmsclient.dto.RegionPingResult" {
+import {$ValueObject} from "com.mojang.realmsclient.dto.ValueObject"
+import {$ReflectionBasedSerialization$$Interface} from "com.mojang.realmsclient.dto.ReflectionBasedSerialization"
+
+export class $RegionPingResult extends $ValueObject implements $ReflectionBasedSerialization$$Interface {
+constructor(arg0: StringJS, arg1: integer)
+
+public "toString"(): StringJS
+public "ping"(): integer
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $RegionPingResult$$Type = ($RegionPingResult);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $RegionPingResult$$Original = $RegionPingResult;}
 declare module "com.mojang.realmsclient.dto.WorldDownload" {
 import {$ValueObject} from "com.mojang.realmsclient.dto.ValueObject"
 
@@ -591,6 +456,99 @@ export type $WorldDownload$$Type = ($WorldDownload);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $WorldDownload$$Original = $WorldDownload;}
+declare module "com.mojang.realmsclient.dto.RealmsServerAddress" {
+import {$ValueObject} from "com.mojang.realmsclient.dto.ValueObject"
+
+export class $RealmsServerAddress extends $ValueObject {
+ "address": StringJS
+ "resourcePackHash": StringJS
+ "resourcePackUrl": StringJS
+
+constructor()
+
+public static "parse"(arg0: StringJS): $RealmsServerAddress
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $RealmsServerAddress$$Type = ($RealmsServerAddress);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $RealmsServerAddress$$Original = $RealmsServerAddress;}
+declare module "com.mojang.realmsclient.dto.RealmsServer" {
+import {$RealmsServer$State} from "com.mojang.realmsclient.dto.RealmsServer$State"
+import {$Map, $Map$$Type} from "java.util.Map"
+import {$RealmsWorldOptions, $RealmsWorldOptions$$Type} from "com.mojang.realmsclient.dto.RealmsWorldOptions"
+import {$RealmsServer$Compatibility} from "com.mojang.realmsclient.dto.RealmsServer$Compatibility"
+import {$UUID} from "java.util.UUID"
+import {$List} from "java.util.List"
+import {$PlayerInfo} from "com.mojang.realmsclient.dto.PlayerInfo"
+import {$ValueObject} from "com.mojang.realmsclient.dto.ValueObject"
+import {$JsonObject$$Type} from "com.google.gson.JsonObject"
+import {$RealmsServer$WorldType} from "com.mojang.realmsclient.dto.RealmsServer$WorldType"
+import {$ServerData} from "net.minecraft.client.multiplayer.ServerData"
+
+export class $RealmsServer extends $ValueObject {
+ "owner": StringJS
+ "motd": StringJS
+ "worldType": $RealmsServer$WorldType
+ "ownerUUID": $UUID
+ "expiredTrial": boolean
+ "parentRealmId": long
+ "players": $List<($PlayerInfo)>
+ "parentWorldName": StringJS
+ "minigameName": StringJS
+ "minigameImage": StringJS
+ "slots": $Map<(integer), ($RealmsWorldOptions)>
+ "expired": boolean
+ "activeSlot": integer
+ "minigameId": integer
+ "name": StringJS
+ "activeVersion": StringJS
+ "id": long
+ "state": $RealmsServer$State
+ "daysLeft": integer
+ "remoteSubscriptionId": StringJS
+ "compatibility": $RealmsServer$Compatibility
+
+constructor()
+
+public "getDescription"(): StringJS
+public "getName"(): StringJS
+public "equals"(arg0: any): boolean
+public "hashCode"(): integer
+public "clone"(): any
+public "setName"(arg0: StringJS): void
+public static "parse"(arg0: $JsonObject$$Type): $RealmsServer
+public static "parse"(arg0: StringJS): $RealmsServer
+public "toServerData"(arg0: StringJS): $ServerData
+public "getWorldName"(arg0: integer): StringJS
+public "isCompatible"(): boolean
+public static "getCompatibility"(arg0: StringJS): $RealmsServer$Compatibility
+public "needsUpgrade"(): boolean
+public "isSnapshotRealm"(): boolean
+public "isMinigameActive"(): boolean
+public "getMinigameName"(): StringJS
+public "needsDowngrade"(): boolean
+public "setDescription"(arg0: StringJS): void
+public "cloneSlots"(arg0: $Map$$Type<(integer), ($RealmsWorldOptions$$Type)>): $Map<(integer), ($RealmsWorldOptions)>
+get "description"(): StringJS
+get "compatible"(): boolean
+get "snapshotRealm"(): boolean
+get "minigameActive"(): boolean
+set "description"(value: StringJS)
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $RealmsServer$$Type = ($RealmsServer);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $RealmsServer$$Original = $RealmsServer;}
 declare module "com.mojang.realmsclient.dto.RealmsNews" {
 import {$ValueObject} from "com.mojang.realmsclient.dto.ValueObject"
 
@@ -610,6 +568,28 @@ export type $RealmsNews$$Type = ($RealmsNews);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $RealmsNews$$Original = $RealmsNews;}
+declare module "com.mojang.realmsclient.dto.WorldTemplate$WorldTemplateType" {
+import {$Enum} from "java.lang.Enum"
+
+export class $WorldTemplate$WorldTemplateType extends $Enum<($WorldTemplate$WorldTemplateType)> {
+static readonly "ADVENTUREMAP": $WorldTemplate$WorldTemplateType
+static readonly "WORLD_TEMPLATE": $WorldTemplate$WorldTemplateType
+static readonly "MINIGAME": $WorldTemplate$WorldTemplateType
+static readonly "EXPERIENCE": $WorldTemplate$WorldTemplateType
+static readonly "INSPIRATION": $WorldTemplate$WorldTemplateType
+
+public static "values"(): ($WorldTemplate$WorldTemplateType)[]
+public static "valueOf"(arg0: StringJS): $WorldTemplate$WorldTemplateType
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $WorldTemplate$WorldTemplateType$$Type = (("world_template") | ("minigame") | ("adventuremap") | ("experience") | ("inspiration"));
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $WorldTemplate$WorldTemplateType$$Original = $WorldTemplate$WorldTemplateType;}
 declare module "com.mojang.realmsclient.dto.BackupList" {
 import {$Backup} from "com.mojang.realmsclient.dto.Backup"
 import {$List} from "java.util.List"
@@ -631,14 +611,34 @@ export type $BackupList$$Type = ($BackupList);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $BackupList$$Original = $BackupList;}
+declare module "com.mojang.realmsclient.dto.RealmsServer$State" {
+import {$Enum} from "java.lang.Enum"
+
+export class $RealmsServer$State extends $Enum<($RealmsServer$State)> {
+static readonly "CLOSED": $RealmsServer$State
+static readonly "UNINITIALIZED": $RealmsServer$State
+static readonly "OPEN": $RealmsServer$State
+
+public static "values"(): ($RealmsServer$State)[]
+public static "valueOf"(arg0: StringJS): $RealmsServer$State
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $RealmsServer$State$$Type = (("closed") | ("open") | ("uninitialized"));
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $RealmsServer$State$$Original = $RealmsServer$State;}
 declare module "com.mojang.realmsclient.dto.UploadInfo" {
 import {$URI} from "java.net.URI"
 import {$ValueObject} from "com.mojang.realmsclient.dto.ValueObject"
 
 export class $UploadInfo extends $ValueObject {
 public static "parse"(arg0: StringJS): $UploadInfo
-public static "createRequest"(arg0: StringJS): StringJS
 public "getToken"(): StringJS
+public static "createRequest"(arg0: StringJS): StringJS
 public "getUploadEndpoint"(): $URI
 public "isWorldClosed"(): boolean
 public static "assembleUri"(arg0: StringJS, arg1: integer): $URI

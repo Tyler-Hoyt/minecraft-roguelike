@@ -62,8 +62,8 @@ public static "getConstructorDescriptor"(arg0: $Constructor$$Type<(never)>): Str
 public "getDimensions"(): integer
 public "getElementType"(): $Type
 public "getOpcode"(arg0: integer): integer
-public "getArgumentCount"(): integer
 public static "getArgumentCount"(arg0: StringJS): integer
+public "getArgumentCount"(): integer
 get "descriptor"(): StringJS
 get "returnType"(): $Type
 get "size"(): integer

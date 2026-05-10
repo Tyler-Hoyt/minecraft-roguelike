@@ -1,18 +1,3 @@
-declare module "net.minecraft.world.flag.FeatureFlag" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-export class $FeatureFlag {
-public "isModded"(): boolean
-get "modded"(): boolean
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $FeatureFlag$$Type = ($FeatureFlag);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $FeatureFlag$$Original = $FeatureFlag;}
 declare module "net.minecraft.world.flag.FeatureElement" {
 import {$FeatureFlagSet, $FeatureFlagSet$$Type} from "net.minecraft.world.flag.FeatureFlagSet"
 import {$Registry} from "net.minecraft.core.Registry"
@@ -67,3 +52,18 @@ export type $FeatureFlagSet$$Type = ($FeatureFlagSet);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $FeatureFlagSet$$Original = $FeatureFlagSet;}
+declare module "net.minecraft.world.flag.FeatureFlag" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+export class $FeatureFlag {
+public "isModded"(): boolean
+get "modded"(): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $FeatureFlag$$Type = ($FeatureFlag);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $FeatureFlag$$Original = $FeatureFlag;}

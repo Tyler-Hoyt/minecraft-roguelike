@@ -1,3 +1,97 @@
+declare module "com.mojang.blaze3d.platform.MonitorCreator" {
+import {$Monitor, $Monitor$$Type} from "com.mojang.blaze3d.platform.Monitor"
+
+export interface $MonitorCreator$$Interface {
+
+(arg0: long): $Monitor$$Type
+}
+
+export class $MonitorCreator implements $MonitorCreator$$Interface {
+ "createMonitor"(arg0: long): $Monitor
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $MonitorCreator$$Type = ((arg0: long) => $Monitor$$Type);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $MonitorCreator$$Original = $MonitorCreator;}
+declare module "com.mojang.blaze3d.platform.NativeImage" {
+import {$NativeImageAccessor$$Interface} from "net.caffeinemc.mods.sodium.mixin.features.textures.NativeImageAccessor"
+import {$IntUnaryOperator$$Type} from "java.util.function.IntUnaryOperator"
+import {$File$$Type} from "java.io.File"
+import {$AutoCloseable$$Interface} from "java.lang.AutoCloseable"
+import {$NativeImage$Format, $NativeImage$Format$$Type} from "com.mojang.blaze3d.platform.NativeImage$Format"
+import {$InputStream$$Type} from "java.io.InputStream"
+import {$Path$$Type} from "java.nio.file.Path"
+import {$FT_Face$$Type} from "org.lwjgl.util.freetype.FT_Face"
+import {$ByteBuffer$$Type} from "java.nio.ByteBuffer"
+
+export class $NativeImage implements $AutoCloseable$$Interface, $NativeImageAccessor$$Interface {
+ "pixels": long
+
+constructor(arg0: $NativeImage$Format$$Type, arg1: integer, arg2: integer, arg3: boolean)
+constructor(arg0: integer, arg1: integer, arg2: boolean)
+
+public "toString"(): StringJS
+public "format"(): $NativeImage$Format
+public static "read"(arg0: (byte)[]): $NativeImage
+public static "read"(arg0: $NativeImage$Format$$Type, arg1: $ByteBuffer$$Type): $NativeImage
+public static "read"(arg0: $InputStream$$Type): $NativeImage
+public static "read"(arg0: $NativeImage$Format$$Type, arg1: $InputStream$$Type): $NativeImage
+public static "read"(arg0: $ByteBuffer$$Type): $NativeImage
+public "close"(): void
+public "copyFrom"(arg0: $NativeImage$$Type): void
+public "writeToFile"(arg0: $File$$Type): void
+public "writeToFile"(arg0: $Path$$Type): void
+public "getLuminanceOrAlpha"(arg0: integer, arg1: integer): byte
+public "getGreenOrLuminance"(arg0: integer, arg1: integer): byte
+public "downloadDepthBuffer"(arg0: float): void
+public "getPixelsRGBA"(): (integer)[]
+public "getWidth"(): integer
+public "mappedCopy"(arg0: $IntUnaryOperator$$Type): $NativeImage
+public "drawPixels"(): void
+public "blendPixel"(arg0: integer, arg1: integer, arg2: integer): void
+public "untrack"(): void
+public "upload"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: boolean, arg8: boolean): void
+public "upload"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: boolean, arg8: boolean, arg9: boolean, arg10: boolean): void
+public "upload"(arg0: integer, arg1: integer, arg2: integer, arg3: boolean): void
+public "fillRect"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer): void
+public "copyRect"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: boolean, arg7: boolean): void
+public "copyRect"(arg0: $NativeImage$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: boolean, arg8: boolean): void
+public "getHeight"(): integer
+public "getPixels"(): long
+public "flipY"(): void
+public "getRedOrLuminance"(arg0: integer, arg1: integer): byte
+/**
+ * 
+ * @deprecated
+ */
+public "makePixelArray"(): (integer)[]
+public "downloadTexture"(arg0: integer, arg1: boolean): void
+public "copyFromFont"(arg0: $FT_Face$$Type, arg1: integer): boolean
+public "setPixelRGBA"(arg0: integer, arg1: integer, arg2: integer): void
+public "getBlueOrLuminance"(arg0: integer, arg1: integer): byte
+public "getPixelRGBA"(arg0: integer, arg1: integer): integer
+public "resizeSubRectTo"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: $NativeImage$$Type): void
+public "setPixelLuminance"(arg0: integer, arg1: integer, arg2: byte): void
+public "applyToAllPixels"(arg0: $IntUnaryOperator$$Type): void
+public "asByteArray"(): (byte)[]
+get "pixelsRGBA"(): (integer)[]
+get "width"(): integer
+get "height"(): integer
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $NativeImage$$Type = ($NativeImage);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $NativeImage$$Original = $NativeImage;}
 declare module "com.mojang.blaze3d.platform.ScreenManager" {
 import {$MonitorCreator$$Type} from "com.mojang.blaze3d.platform.MonitorCreator"
 import {$Window$$Type} from "com.mojang.blaze3d.platform.Window"
@@ -8,8 +102,8 @@ constructor(arg0: $MonitorCreator$$Type)
 
 public "shutdown"(): void
 public static "clamp"(arg0: integer, arg1: integer, arg2: integer): integer
-public "getMonitor"(arg0: long): $Monitor
 public "findBestMonitor"(arg0: $Window$$Type): $Monitor
+public "getMonitor"(arg0: long): $Monitor
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -28,19 +122,19 @@ export class $Monitor {
 constructor(arg0: long)
 
 public "toString"(): StringJS
+public "refreshVideoModes"(): void
+public "getCurrentMode"(): $VideoMode
+public "getVideoModeIndex"(arg0: $VideoMode$$Type): integer
+public "getModeCount"(): integer
+public "getY"(): integer
 public "getMonitor"(): long
 public "getMode"(arg0: integer): $VideoMode
-public "getY"(): integer
-public "getCurrentMode"(): $VideoMode
-public "refreshVideoModes"(): void
-public "getModeCount"(): integer
-public "getVideoModeIndex"(arg0: $VideoMode$$Type): integer
-public "getPreferredVidMode"(arg0: ($VideoMode$$Type)?): $VideoMode
 public "getX"(): integer
-get "monitor"(): long
-get "y"(): integer
+public "getPreferredVidMode"(arg0: ($VideoMode$$Type)?): $VideoMode
 get "currentMode"(): $VideoMode
 get "modeCount"(): integer
+get "y"(): integer
+get "monitor"(): long
 get "x"(): integer
 }
 /**
@@ -92,31 +186,31 @@ static readonly "RGB": $NativeImage$Format
 
 public static "values"(): ($NativeImage$Format)[]
 public static "valueOf"(arg0: StringJS): $NativeImage$Format
-public "glFormat"(): integer
-public "components"(): integer
+public "luminanceOrBlueOffset"(): integer
+public "hasLuminanceOrGreen"(): boolean
+public "luminanceOrAlphaOffset"(): integer
+public "setPackPixelStoreState"(): void
+public "luminanceOrGreenOffset"(): integer
+public "luminanceOrRedOffset"(): integer
+public "hasLuminanceOrAlpha"(): boolean
 public "hasAlpha"(): boolean
+public "glFormat"(): integer
+public "setUnpackPixelStoreState"(): void
+public "components"(): integer
 public "hasGreen"(): boolean
-public "hasBlue"(): boolean
 public "hasRed"(): boolean
 public "redOffset"(): integer
 public "blueOffset"(): integer
+public "hasBlue"(): boolean
+public "hasLuminanceOrBlue"(): boolean
+public "hasLuminance"(): boolean
 public "luminanceOffset"(): integer
 public "hasLuminanceOrRed"(): boolean
-public "hasLuminanceOrBlue"(): boolean
 public "alphaOffset"(): integer
-public "supportedByStb"(): boolean
-public "hasLuminance"(): boolean
 public "greenOffset"(): integer
-public "hasLuminanceOrAlpha"(): boolean
-public "setUnpackPixelStoreState"(): void
-public "luminanceOrRedOffset"(): integer
-public "luminanceOrGreenOffset"(): integer
-public "luminanceOrBlueOffset"(): integer
-public "hasLuminanceOrGreen"(): boolean
-public "setPackPixelStoreState"(): void
-public "luminanceOrAlphaOffset"(): integer
-get "unpackPixelStoreState"(): void
+public "supportedByStb"(): boolean
 get "packPixelStoreState"(): void
+get "unpackPixelStoreState"(): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -149,101 +243,6 @@ export type $DisplayData$$Type = ($DisplayData);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $DisplayData$$Original = $DisplayData;}
-declare module "com.mojang.blaze3d.platform.MonitorCreator" {
-import {$Monitor, $Monitor$$Type} from "com.mojang.blaze3d.platform.Monitor"
-
-export interface $MonitorCreator$$Interface {
-
-(arg0: long): $Monitor$$Type
-}
-
-export class $MonitorCreator implements $MonitorCreator$$Interface {
- "createMonitor"(arg0: long): $Monitor
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $MonitorCreator$$Type = ((arg0: long) => $Monitor$$Type);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $MonitorCreator$$Original = $MonitorCreator;}
-declare module "com.mojang.blaze3d.platform.NativeImage" {
-import {$IntUnaryOperator$$Type} from "java.util.function.IntUnaryOperator"
-import {$NativeImageAccessor$$Interface} from "org.embeddedt.embeddium.impl.mixin.features.textures.NativeImageAccessor"
-import {$File$$Type} from "java.io.File"
-import {$AutoCloseable$$Interface} from "java.lang.AutoCloseable"
-import {$NativeImage$Format, $NativeImage$Format$$Type} from "com.mojang.blaze3d.platform.NativeImage$Format"
-import {$Path$$Type} from "java.nio.file.Path"
-import {$InputStream$$Type} from "java.io.InputStream"
-import {$FT_Face$$Type} from "org.lwjgl.util.freetype.FT_Face"
-import {$ByteBuffer$$Type} from "java.nio.ByteBuffer"
-
-export class $NativeImage implements $AutoCloseable$$Interface, $NativeImageAccessor$$Interface {
- "pixels": long
-
-constructor(arg0: $NativeImage$Format$$Type, arg1: integer, arg2: integer, arg3: boolean)
-constructor(arg0: integer, arg1: integer, arg2: boolean)
-
-public "toString"(): StringJS
-public "format"(): $NativeImage$Format
-public static "read"(arg0: (byte)[]): $NativeImage
-public static "read"(arg0: $NativeImage$Format$$Type, arg1: $ByteBuffer$$Type): $NativeImage
-public static "read"(arg0: $InputStream$$Type): $NativeImage
-public static "read"(arg0: $NativeImage$Format$$Type, arg1: $InputStream$$Type): $NativeImage
-public static "read"(arg0: $ByteBuffer$$Type): $NativeImage
-public "close"(): void
-public "copyFrom"(arg0: $NativeImage$$Type): void
-public "untrack"(): void
-public "getPointer"(): long
-public "getPixelsRGBA"(): (integer)[]
-public "asByteArray"(): (byte)[]
-public "resizeSubRectTo"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: $NativeImage$$Type): void
-public "getHeight"(): integer
-public "upload"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: boolean, arg8: boolean): void
-public "upload"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: boolean, arg8: boolean, arg9: boolean, arg10: boolean): void
-public "upload"(arg0: integer, arg1: integer, arg2: integer, arg3: boolean): void
-public "blendPixel"(arg0: integer, arg1: integer, arg2: integer): void
-public "mappedCopy"(arg0: $IntUnaryOperator$$Type): $NativeImage
-public "fillRect"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer): void
-public "drawPixels"(): void
-public "flipY"(): void
-public "copyRect"(arg0: integer, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: boolean, arg7: boolean): void
-public "copyRect"(arg0: $NativeImage$$Type, arg1: integer, arg2: integer, arg3: integer, arg4: integer, arg5: integer, arg6: integer, arg7: boolean, arg8: boolean): void
-public "getPixelRGBA"(arg0: integer, arg1: integer): integer
-public "setPixelLuminance"(arg0: integer, arg1: integer, arg2: byte): void
-public "applyToAllPixels"(arg0: $IntUnaryOperator$$Type): void
-public "copyFromFont"(arg0: $FT_Face$$Type, arg1: integer): boolean
-/**
- * 
- * @deprecated
- */
-public "makePixelArray"(): (integer)[]
-public "downloadTexture"(arg0: integer, arg1: boolean): void
-public "getRedOrLuminance"(arg0: integer, arg1: integer): byte
-public "setPixelRGBA"(arg0: integer, arg1: integer, arg2: integer): void
-public "getBlueOrLuminance"(arg0: integer, arg1: integer): byte
-public "getLuminanceOrAlpha"(arg0: integer, arg1: integer): byte
-public "getGreenOrLuminance"(arg0: integer, arg1: integer): byte
-public "downloadDepthBuffer"(arg0: float): void
-public "writeToFile"(arg0: $File$$Type): void
-public "writeToFile"(arg0: $Path$$Type): void
-public "getWidth"(): integer
-get "pointer"(): long
-get "pixelsRGBA"(): (integer)[]
-get "height"(): integer
-get "width"(): integer
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $NativeImage$$Type = ($NativeImage);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $NativeImage$$Original = $NativeImage;}
 declare module "com.mojang.blaze3d.platform.VideoMode" {
 import {$GLFWVidMode$Buffer$$Type} from "org.lwjgl.glfw.GLFWVidMode$Buffer"
 import {$Optional} from "java.util.Optional"
@@ -259,18 +258,18 @@ public "toString"(): StringJS
 public "hashCode"(): integer
 public "write"(): StringJS
 public static "read"(arg0: StringJS): $Optional<($VideoMode)>
-public "getRedBits"(): integer
-public "getRefreshRate"(): integer
 public "getGreenBits"(): integer
 public "getBlueBits"(): integer
-public "getHeight"(): integer
+public "getRefreshRate"(): integer
 public "getWidth"(): integer
-get "redBits"(): integer
-get "refreshRate"(): integer
+public "getRedBits"(): integer
+public "getHeight"(): integer
 get "greenBits"(): integer
 get "blueBits"(): integer
-get "height"(): integer
+get "refreshRate"(): integer
 get "width"(): integer
+get "redBits"(): integer
+get "height"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -288,9 +287,9 @@ set "windowActive"(value: boolean)
 }
 
 export class $WindowEventHandler implements $WindowEventHandler$$Interface {
- "cursorEntered"(): void
- "setWindowActive"(arg0: boolean): void
  "resizeDisplay"(): void
+ "setWindowActive"(arg0: boolean): void
+ "cursorEntered"(): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -306,82 +305,87 @@ import {$Optional, $Optional$$Type} from "java.util.Optional"
 import {$AutoCloseable$$Interface} from "java.lang.AutoCloseable"
 import {$WindowEventHandler$$Type} from "com.mojang.blaze3d.platform.WindowEventHandler"
 import {$List, $List$$Type} from "java.util.List"
-import {$IconSet$$Type} from "com.mojang.blaze3d.platform.IconSet"
 import {$PackResources$$Type} from "net.minecraft.server.packs.PackResources"
+import {$IconSet$$Type} from "com.mojang.blaze3d.platform.IconSet"
 import {$IoSupplier, $IoSupplier$$Type} from "net.minecraft.server.packs.resources.IoSupplier"
 import {$Monitor} from "com.mojang.blaze3d.platform.Monitor"
 import {$DisplayData$$Type} from "com.mojang.blaze3d.platform.DisplayData"
+import {$Operation$$Type} from "com.llamalad7.mixinextras.injector.wrapoperation.Operation"
 import {$ScreenManager$$Type} from "com.mojang.blaze3d.platform.ScreenManager"
 import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
+import {$NativeWindowHandle$$Interface} from "net.caffeinemc.mods.sodium.client.platform.NativeWindowHandle"
 import {$VideoMode, $VideoMode$$Type} from "com.mojang.blaze3d.platform.VideoMode"
 import {$WindowKJS$$Interface} from "dev.latvian.mods.kubejs.core.WindowKJS"
 import {$InputStream, $InputStream$$Type} from "java.io.InputStream"
 
-export class $Window implements $AutoCloseable$$Interface, $WindowKJS$$Interface {
+export class $Window implements $AutoCloseable$$Interface, $NativeWindowHandle$$Interface, $WindowKJS$$Interface {
 static readonly "BASE_HEIGHT": integer
 static readonly "BASE_WIDTH": integer
 
 constructor(arg0: $WindowEventHandler$$Type, arg1: $ScreenManager$$Type, arg2: $DisplayData$$Type, arg3: StringJS, arg4: StringJS)
 
-public "close"(): void
 public static "checkGlfwError"(arg0: $BiConsumer$$Type<(integer), (StringJS)>): void
-public "setTitle"(arg0: StringJS): void
-public "setIcon"(arg0: $PackResources$$Type, arg1: $IconSet$$Type): void
-public "setWidth"(arg0: integer): void
-public "setHeight"(arg0: integer): void
-public "setPreferredFullscreenVideoMode"(arg0: ($VideoMode$$Type)?): void
+public "close"(): void
 public "getY"(): integer
-public "updateDisplay"(): void
-public "getFramerateLimit"(): integer
-public "calculateScale"(arg0: integer, arg1: boolean): integer
-public "setGuiScale"(arg0: double): void
-public static "getPlatform"(): StringJS
-public "isFullscreen"(): boolean
-public "toggleFullScreen"(): void
-public "setErrorSection"(arg0: StringJS): void
-public "setWindowed"(arg0: integer, arg1: integer): void
-public "setFramerateLimit"(arg0: integer): void
-public "updateVsync"(arg0: boolean): void
-public "shouldClose"(): boolean
 public "getRefreshRate"(): integer
-public "findBestMonitor"(): $Monitor
-public "getPreferredFullscreenVideoMode"(): $Optional<($VideoMode)>
-public "updateRawMouseInput"(arg0: boolean): void
-public "setDefaultErrorCallback"(): void
 public "getScreenWidth"(): integer
 public "getScreenHeight"(): integer
+public "getWin32Handle"(): long
+public "findBestMonitor"(): $Monitor
+public "getWidth"(): integer
+public static "getPlatform"(): StringJS
+public "setPreferredFullscreenVideoMode"(arg0: ($VideoMode$$Type)?): void
+public "setWindowed"(arg0: integer, arg1: integer): void
+public "updateVsync"(arg0: boolean): void
+public "toggleFullScreen"(): void
+public "setFramerateLimit"(arg0: integer): void
+public "setErrorSection"(arg0: StringJS): void
+public "setIcon"(arg0: $PackResources$$Type, arg1: $IconSet$$Type): void
+public "setTitle"(arg0: StringJS): void
+public "getX"(): integer
 public "getGuiScale"(): double
+public "setWidth"(arg0: integer): void
+public "setHeight"(arg0: integer): void
+public "updateRawMouseInput"(arg0: boolean): void
+public "setDefaultErrorCallback"(): void
 public "defaultErrorCallback"(arg0: integer, arg1: long): void
 public "changeFullscreenVideoMode"(): void
-public "getX"(): integer
+public "getGuiScaledHeight"(): integer
+public "getGuiScaledWidth"(): integer
+public "getPreferredFullscreenVideoMode"(): $Optional<($VideoMode)>
 public "getHeight"(): integer
 public "getWindow"(): long
-public "getGuiScaledWidth"(): integer
-public "getGuiScaledHeight"(): integer
-public "getWidth"(): integer
+public "isFullscreen"(): boolean
+public "updateDisplay"(): void
+public "setGuiScale"(arg0: double): void
+public "getFramerateLimit"(): integer
+public "calculateScale"(arg0: integer, arg1: boolean): integer
+public "shouldClose"(): boolean
+public "wrapOperation$zfo000$sodium$setAdditionalWindowHints"(arg0: integer, arg1: integer, arg2: charseq, arg3: long, arg4: long, arg5: $Operation$$Type): long
 public "kjs$loadIcons"(original: $List$$Type<($IoSupplier$$Type<($InputStream$$Type)>)>): $List<($IoSupplier<($InputStream)>)>
-set "title"(value: StringJS)
-set "width"(value: integer)
-set "height"(value: integer)
-set "preferredFullscreenVideoMode"(value: ($VideoMode$$Type)?)
 get "y"(): integer
-get "framerateLimit"(): integer
-set "guiScale"(value: double)
-public static get "platform"(): StringJS
-get "fullscreen"(): boolean
-set "errorSection"(value: StringJS)
-set "framerateLimit"(value: integer)
 get "refreshRate"(): integer
-get "preferredFullscreenVideoMode"(): $Optional<($VideoMode)>
 get "screenWidth"(): integer
 get "screenHeight"(): integer
-get "guiScale"(): double
+get "win32Handle"(): long
+get "width"(): integer
+public static get "platform"(): StringJS
+set "preferredFullscreenVideoMode"(value: ($VideoMode$$Type)?)
+set "framerateLimit"(value: integer)
+set "errorSection"(value: StringJS)
+set "title"(value: StringJS)
 get "x"(): integer
+get "guiScale"(): double
+set "width"(value: integer)
+set "height"(value: integer)
+get "guiScaledHeight"(): integer
+get "guiScaledWidth"(): integer
+get "preferredFullscreenVideoMode"(): $Optional<($VideoMode)>
 get "height"(): integer
 get "window"(): long
-get "guiScaledWidth"(): integer
-get "guiScaledHeight"(): integer
-get "width"(): integer
+get "fullscreen"(): boolean
+set "guiScale"(value: double)
+get "framerateLimit"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -401,9 +405,9 @@ static readonly "SCANCODE": $InputConstants$Type
 static readonly "MOUSE": $InputConstants$Type
 static readonly "KEYSYM": $InputConstants$Type
 
+public "getOrCreate"(arg0: integer): $InputConstants$Key
 public static "values"(): ($InputConstants$Type)[]
 public static "valueOf"(arg0: StringJS): $InputConstants$Type
-public "getOrCreate"(arg0: integer): $InputConstants$Key
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -427,8 +431,8 @@ static readonly "RELEASE": $IconSet
 
 public static "values"(): ($IconSet)[]
 public static "valueOf"(arg0: StringJS): $IconSet
-public "getMacIcon"(arg0: $PackResources$$Type): $IoSupplier<($InputStream)>
 public "getStandardIcons"(arg0: $PackResources$$Type): $List<($IoSupplier<($InputStream)>)>
+public "getMacIcon"(arg0: $PackResources$$Type): $IoSupplier<($InputStream)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

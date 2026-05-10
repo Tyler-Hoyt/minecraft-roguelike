@@ -1,129 +1,3 @@
-declare module "net.minecraft.WorldVersion" {
-import {$PackType$$Type} from "net.minecraft.server.packs.PackType"
-import {$Date} from "java.util.Date"
-import {$DataVersion} from "net.minecraft.world.level.storage.DataVersion"
-
-export interface $WorldVersion$$Interface {
-get "name"(): StringJS
-get "id"(): StringJS
-get "stable"(): boolean
-get "buildTime"(): $Date
-get "dataVersion"(): $DataVersion
-get "protocolVersion"(): integer
-}
-
-export class $WorldVersion implements $WorldVersion$$Interface {
- "getName"(): StringJS
- "getId"(): StringJS
- "isStable"(): boolean
- "getBuildTime"(): $Date
- "getPackVersion"(arg0: $PackType$$Type): integer
- "getDataVersion"(): $DataVersion
- "getProtocolVersion"(): integer
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $WorldVersion$$Type = ($WorldVersion);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $WorldVersion$$Original = $WorldVersion;}
-declare module "net.minecraft.ReportType" {
-import {$StringBuilder$$Type} from "java.lang.StringBuilder"
-import {$List, $List$$Type} from "java.util.List"
-import {$Record} from "java.lang.Record"
-
-export class $ReportType extends $Record {
-static readonly "CRASH": $ReportType
-static readonly "PROFILE": $ReportType
-static readonly "TEST": $ReportType
-static readonly "CHUNK_IO_ERROR": $ReportType
-static readonly "NETWORK_PROTOCOL_ERROR": $ReportType
-
-constructor(header: StringJS, nuggets: $List$$Type<(StringJS)>)
-
-public "equals"(arg0: any): boolean
-public "toString"(): StringJS
-public "hashCode"(): integer
-public "header"(): StringJS
-public "appendHeader"(arg0: $StringBuilder$$Type, arg1: $List$$Type<(StringJS)>): void
-public "getErrorComment"(): StringJS
-public "nuggets"(): $List<(StringJS)>
-get "errorComment"(): StringJS
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ReportType$$Type = ({"nuggets"?: $List$$Type<(StringJS)>, "header"?: StringJS}) | ([nuggets?: $List$$Type<(StringJS)>, header?: StringJS]);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ReportType$$Original = $ReportType;}
-declare module "net.minecraft.BlockUtil$FoundRectangle" {
-import {$BlockPos, $BlockPos$$Type} from "net.minecraft.core.BlockPos"
-
-export class $BlockUtil$FoundRectangle {
-readonly "axis1Size": integer
-readonly "minCorner": $BlockPos
-readonly "axis2Size": integer
-
-constructor(arg0: $BlockPos$$Type, arg1: integer, arg2: integer)
-
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $BlockUtil$FoundRectangle$$Type = ($BlockUtil$FoundRectangle);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $BlockUtil$FoundRectangle$$Original = $BlockUtil$FoundRectangle;}
-declare module "net.minecraft.CrashReportCategory" {
-import {$LevelHeightAccessor$$Type} from "net.minecraft.world.level.LevelHeightAccessor"
-import {$StringBuilder$$Type} from "java.lang.StringBuilder"
-import {$StackTraceElement, $StackTraceElement$$Type} from "java.lang.StackTraceElement"
-import {$CrashReportDetail$$Type} from "net.minecraft.CrashReportDetail"
-import {$Throwable$$Type} from "java.lang.Throwable"
-import {$BlockPos$$Type} from "net.minecraft.core.BlockPos"
-import {$BlockState$$Type} from "net.minecraft.world.level.block.state.BlockState"
-
-export class $CrashReportCategory {
-constructor(arg0: StringJS)
-
-public "fillInStackTrace"(arg0: integer): integer
-public "setStackTrace"(arg0: ($StackTraceElement$$Type)[]): void
-public static "populateBlockDetails"(arg0: $CrashReportCategory$$Type, arg1: $LevelHeightAccessor$$Type, arg2: $BlockPos$$Type, arg3: $BlockState$$Type): void
-public static "formatLocation"(arg0: $LevelHeightAccessor$$Type, arg1: $BlockPos$$Type): StringJS
-public static "formatLocation"(arg0: $LevelHeightAccessor$$Type, arg1: double, arg2: double, arg3: double): StringJS
-public static "formatLocation"(arg0: $LevelHeightAccessor$$Type, arg1: integer, arg2: integer, arg3: integer): StringJS
-public "getStacktrace"(): ($StackTraceElement)[]
-public "validateStackTrace"(arg0: $StackTraceElement$$Type, arg1: $StackTraceElement$$Type): boolean
-public "setDetail"(arg0: StringJS, arg1: any): $CrashReportCategory
-public "setDetail"(arg0: StringJS, arg1: $CrashReportDetail$$Type<(StringJS)>): $CrashReportCategory
-public "setDetailError"(arg0: StringJS, arg1: $Throwable$$Type): void
-public "getDetails"(arg0: $StringBuilder$$Type): void
-/**
- * 
- * @deprecated
- */
-public "applyStackTrace"(arg0: $Throwable$$Type): void
-public "trimStacktrace"(arg0: integer): void
-set "stackTrace"(value: ($StackTraceElement$$Type)[])
-get "stacktrace"(): ($StackTraceElement)[]
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $CrashReportCategory$$Type = ($CrashReportCategory);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $CrashReportCategory$$Original = $CrashReportCategory;}
 declare module "net.minecraft.ReportedException" {
 import {$CrashReport, $CrashReport$$Type} from "net.minecraft.CrashReport"
 import {$Throwable} from "java.lang.Throwable"
@@ -157,11 +31,11 @@ static readonly "BYTES_PER_MEBIBYTE": long
 
 constructor()
 
-public "toLineSeparatedString"(): StringJS
 public "appendToCrashReportString"(arg0: $StringBuilder$$Type): void
+public "toLineSeparatedString"(): StringJS
+public static "sizeInMiB"(arg0: long): float
 public "setDetail"(arg0: StringJS, arg1: $Supplier$$Type<(StringJS)>): void
 public "setDetail"(arg0: StringJS, arg1: StringJS): void
-public static "sizeInMiB"(arg0: long): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -185,26 +59,26 @@ export class $CrashReport {
 constructor(arg0: StringJS, arg1: $Throwable$$Type)
 
 public "getException"(): $Throwable
-public "getExceptionMessage"(): StringJS
-public "getSystemReport"(): $SystemReport
-public static "preload"(): void
-public "getFriendlyReport"(arg0: $ReportType$$Type): StringJS
-public "getFriendlyReport"(arg0: $ReportType$$Type, arg1: $List$$Type<(StringJS)>): StringJS
-public "getSaveFile"(): $Path
-public "saveToFile"(arg0: $Path$$Type, arg1: $ReportType$$Type, arg2: $List$$Type<(StringJS)>): boolean
 public "saveToFile"(arg0: $Path$$Type, arg1: $ReportType$$Type): boolean
+public "saveToFile"(arg0: $Path$$Type, arg1: $ReportType$$Type, arg2: $List$$Type<(StringJS)>): boolean
 public "getTitle"(): StringJS
+public "getDetails"(): StringJS
+public "getDetails"(arg0: $StringBuilder$$Type): void
 public "addCategory"(arg0: StringJS, arg1: integer): $CrashReportCategory
 public "addCategory"(arg0: StringJS): $CrashReportCategory
 public static "forThrowable"(arg0: $Throwable$$Type, arg1: StringJS): $CrashReport
-public "getDetails"(arg0: $StringBuilder$$Type): void
-public "getDetails"(): StringJS
+public static "preload"(): void
+public "getSystemReport"(): $SystemReport
+public "getExceptionMessage"(): StringJS
+public "getSaveFile"(): $Path
+public "getFriendlyReport"(arg0: $ReportType$$Type): StringJS
+public "getFriendlyReport"(arg0: $ReportType$$Type, arg1: $List$$Type<(StringJS)>): StringJS
 get "exception"(): $Throwable
-get "exceptionMessage"(): StringJS
-get "systemReport"(): $SystemReport
-get "saveFile"(): $Path
 get "title"(): StringJS
 get "details"(): StringJS
+get "systemReport"(): $SystemReport
+get "exceptionMessage"(): StringJS
+get "saveFile"(): $Path
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -238,11 +112,11 @@ export type $CrashReportDetail$$Original<V> = $CrashReportDetail<(V)>;}
 declare module "net.minecraft.ChatFormatting" {
 import {$Keyable} from "com.mojang.serialization.Keyable"
 import {$Collection} from "java.util.Collection"
-import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Enum, $Enum$$Type} from "java.lang.Enum"
+import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Codec} from "com.mojang.serialization.Codec"
-import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$Function, $Function$$Type} from "java.util.function.Function"
+import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$KubeColor$$Interface} from "dev.latvian.mods.kubejs.color.KubeColor"
 import {$StringRepresentable, $StringRepresentable$$Type, $StringRepresentable$$Interface} from "net.minecraft.util.StringRepresentable"
 import {$TextColor} from "net.minecraft.network.chat.TextColor"
@@ -280,37 +154,37 @@ public "getChar"(): character
 public static "valueOf"(arg0: StringJS): $ChatFormatting
 public "getId"(): integer
 public static "getByName"(arg0: StringJS): $ChatFormatting
-public "getColor"(): integer
-public "getRgb"(): integer
+public "getArgb"(): integer
+public static "getNames"(arg0: boolean, arg1: boolean): $Collection<(StringJS)>
 public "isFormat"(): boolean
 public "isColor"(): boolean
-public static "getByCode"(arg0: character): $ChatFormatting
 public static "getById"(arg0: integer): $ChatFormatting
-public "getSerializedName"(): StringJS
-public static "getNames"(arg0: boolean, arg1: boolean): $Collection<(StringJS)>
-public "getArgb"(): integer
+public static "getByCode"(arg0: character): $ChatFormatting
+public "getRgb"(): integer
 public static "stripFormatting"(arg0: StringJS): StringJS
+public "getSerializedName"(): StringJS
+public "getColor"(): integer
 public static "keys"(arg0: ($StringRepresentable$$Type)[]): $Keyable
-public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
 public "getRemappedEnumConstantName"(): StringJS
 public static "fromEnum"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
 public static "fromValues"<T extends $StringRepresentable>(arg0: $Supplier$$Type<((T)[])>): $Codec<(T)>
-public "specialEquals"(o: any, shallow: boolean): boolean
-public "createTextColor"(): $TextColor
-public "getFireworkRGB"(): integer
-public "serialize"(): StringJS
+public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 public "toHexString"(): StringJS
+public "serialize"(): StringJS
+public "getFireworkRGB"(): integer
+public "createTextColor"(): $TextColor
+public "specialEquals"(o: any, shallow: boolean): boolean
 public static "checkSpecialEquality"(arg1: any, arg2: any, arg3: boolean): boolean
 get "name"(): StringJS
 get "char"(): character
 get "id"(): integer
-get "color"(): integer
-get "rgb"(): integer
+get "argb"(): integer
 get "format"(): boolean
 get "color"(): boolean
+get "rgb"(): integer
 get "serializedName"(): StringJS
-get "argb"(): integer
+get "color"(): integer
 get "remappedEnumConstantName"(): StringJS
 get "fireworkRGB"(): integer
 }
@@ -323,3 +197,129 @@ export type $ChatFormatting$$Type = (("black") | ("dark_blue") | ("dark_green") 
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $ChatFormatting$$Original = $ChatFormatting;}
+declare module "net.minecraft.WorldVersion" {
+import {$PackType$$Type} from "net.minecraft.server.packs.PackType"
+import {$Date} from "java.util.Date"
+import {$DataVersion} from "net.minecraft.world.level.storage.DataVersion"
+
+export interface $WorldVersion$$Interface {
+get "name"(): StringJS
+get "id"(): StringJS
+get "buildTime"(): $Date
+get "protocolVersion"(): integer
+get "dataVersion"(): $DataVersion
+get "stable"(): boolean
+}
+
+export class $WorldVersion implements $WorldVersion$$Interface {
+ "getName"(): StringJS
+ "getId"(): StringJS
+ "getPackVersion"(arg0: $PackType$$Type): integer
+ "getBuildTime"(): $Date
+ "getProtocolVersion"(): integer
+ "getDataVersion"(): $DataVersion
+ "isStable"(): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $WorldVersion$$Type = ($WorldVersion);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $WorldVersion$$Original = $WorldVersion;}
+declare module "net.minecraft.ReportType" {
+import {$StringBuilder$$Type} from "java.lang.StringBuilder"
+import {$List, $List$$Type} from "java.util.List"
+import {$Record} from "java.lang.Record"
+
+export class $ReportType extends $Record {
+static readonly "CRASH": $ReportType
+static readonly "PROFILE": $ReportType
+static readonly "TEST": $ReportType
+static readonly "CHUNK_IO_ERROR": $ReportType
+static readonly "NETWORK_PROTOCOL_ERROR": $ReportType
+
+constructor(header: StringJS, nuggets: $List$$Type<(StringJS)>)
+
+public "equals"(arg0: any): boolean
+public "toString"(): StringJS
+public "hashCode"(): integer
+public "header"(): StringJS
+public "getErrorComment"(): StringJS
+public "appendHeader"(arg0: $StringBuilder$$Type, arg1: $List$$Type<(StringJS)>): void
+public "nuggets"(): $List<(StringJS)>
+get "errorComment"(): StringJS
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ReportType$$Type = ({"nuggets"?: $List$$Type<(StringJS)>, "header"?: StringJS}) | ([nuggets?: $List$$Type<(StringJS)>, header?: StringJS]);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ReportType$$Original = $ReportType;}
+declare module "net.minecraft.BlockUtil$FoundRectangle" {
+import {$BlockPos, $BlockPos$$Type} from "net.minecraft.core.BlockPos"
+
+export class $BlockUtil$FoundRectangle {
+readonly "axis1Size": integer
+readonly "minCorner": $BlockPos
+readonly "axis2Size": integer
+
+constructor(arg0: $BlockPos$$Type, arg1: integer, arg2: integer)
+
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $BlockUtil$FoundRectangle$$Type = ($BlockUtil$FoundRectangle);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $BlockUtil$FoundRectangle$$Original = $BlockUtil$FoundRectangle;}
+declare module "net.minecraft.CrashReportCategory" {
+import {$LevelHeightAccessor$$Type} from "net.minecraft.world.level.LevelHeightAccessor"
+import {$StringBuilder$$Type} from "java.lang.StringBuilder"
+import {$CrashReportDetail$$Type} from "net.minecraft.CrashReportDetail"
+import {$StackTraceElement, $StackTraceElement$$Type} from "java.lang.StackTraceElement"
+import {$Throwable$$Type} from "java.lang.Throwable"
+import {$BlockPos$$Type} from "net.minecraft.core.BlockPos"
+import {$BlockState$$Type} from "net.minecraft.world.level.block.state.BlockState"
+
+export class $CrashReportCategory {
+constructor(arg0: StringJS)
+
+public "fillInStackTrace"(arg0: integer): integer
+public "setStackTrace"(arg0: ($StackTraceElement$$Type)[]): void
+public "setDetailError"(arg0: StringJS, arg1: $Throwable$$Type): void
+public "validateStackTrace"(arg0: $StackTraceElement$$Type, arg1: $StackTraceElement$$Type): boolean
+public "getStacktrace"(): ($StackTraceElement)[]
+public static "formatLocation"(arg0: $LevelHeightAccessor$$Type, arg1: $BlockPos$$Type): StringJS
+public static "formatLocation"(arg0: $LevelHeightAccessor$$Type, arg1: integer, arg2: integer, arg3: integer): StringJS
+public static "formatLocation"(arg0: $LevelHeightAccessor$$Type, arg1: double, arg2: double, arg3: double): StringJS
+public "getDetails"(arg0: $StringBuilder$$Type): void
+public "trimStacktrace"(arg0: integer): void
+/**
+ * 
+ * @deprecated
+ */
+public "applyStackTrace"(arg0: $Throwable$$Type): void
+public "setDetail"(arg0: StringJS, arg1: any): $CrashReportCategory
+public "setDetail"(arg0: StringJS, arg1: $CrashReportDetail$$Type<(StringJS)>): $CrashReportCategory
+public static "populateBlockDetails"(arg0: $CrashReportCategory$$Type, arg1: $LevelHeightAccessor$$Type, arg2: $BlockPos$$Type, arg3: $BlockState$$Type): void
+set "stackTrace"(value: ($StackTraceElement$$Type)[])
+get "stacktrace"(): ($StackTraceElement)[]
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $CrashReportCategory$$Type = ($CrashReportCategory);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $CrashReportCategory$$Original = $CrashReportCategory;}

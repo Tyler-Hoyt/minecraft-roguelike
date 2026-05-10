@@ -1,10 +1,7 @@
 declare module "net.minecraft.data.tags.TagsProvider" {
-import {$Map} from "java.util.Map"
-import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
-import {$TagBuilder} from "net.minecraft.tags.TagBuilder"
 import {$TagsProvider$TagLookup} from "net.minecraft.data.tags.TagsProvider$TagLookup"
-import {$CompletableFuture} from "java.util.concurrent.CompletableFuture"
 import {$Codec$$Type} from "com.mojang.serialization.Codec"
+import {$CompletableFuture} from "java.util.concurrent.CompletableFuture"
 import {$DataProvider$$Interface} from "net.minecraft.data.DataProvider"
 import {$JsonElement$$Type} from "com.google.gson.JsonElement"
 import {$CachedOutput$$Type} from "net.minecraft.data.CachedOutput"
@@ -12,12 +9,10 @@ import {$Path$$Type} from "java.nio.file.Path"
 import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
 
 export class $TagsProvider<T> implements $DataProvider$$Interface {
-readonly "builders": $Map<($ResourceLocation), ($TagBuilder)>
-
 public "getName"(): StringJS
 public "run"(arg0: $CachedOutput$$Type): $CompletableFuture<(never)>
 public "contentsGetter"(): $CompletableFuture<($TagsProvider$TagLookup<(T)>)>
-public static "saveStable"(arg0: $CachedOutput$$Type, arg1: $JsonElement$$Type, arg2: $Path$$Type): $CompletableFuture
+public static "saveStable"(arg0: $CachedOutput$$Type, arg1: $JsonElement$$Type, arg2: $Path$$Type): $CompletableFuture<(never)>
 public static "saveStable"<T>(arg0: $CachedOutput$$Type, arg1: $HolderLookup$Provider$$Type, arg2: $Codec$$Type<(T)>, arg3: T, arg4: $Path$$Type): $CompletableFuture<(never)>
 get "name"(): StringJS
 }
@@ -33,8 +28,8 @@ export type $TagsProvider$$Original<T> = $TagsProvider<(T)>;}
 declare module "net.minecraft.data.tags.TagsProvider$TagLookup" {
 import {$TagBuilder, $TagBuilder$$Type} from "net.minecraft.tags.TagBuilder"
 import {$Optional, $Optional$$Type} from "java.util.Optional"
-import {$TagKey, $TagKey$$Type} from "net.minecraft.tags.TagKey"
 import {$Function, $Function$$Type, $Function$$Interface} from "java.util.function.Function"
+import {$TagKey, $TagKey$$Type} from "net.minecraft.tags.TagKey"
 
 export interface $TagsProvider$TagLookup$$Interface<T> extends $Function$$Interface<($TagKey<(T)>), ($Optional<($TagBuilder)>)> {
 

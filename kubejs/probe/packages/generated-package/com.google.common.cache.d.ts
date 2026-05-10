@@ -13,6 +13,7 @@ export interface $LoadingCache$$Interface<K, V> extends $Cache$$Interface<(K), (
 }
 
 export class $LoadingCache<K, V> implements $LoadingCache$$Interface {
+ "refresh"(key: K): void
  "get"(key: K): V
 /**
  * 
@@ -22,18 +23,17 @@ export class $LoadingCache<K, V> implements $LoadingCache$$Interface {
  "getAll"(keys: $Iterable$$Type<(K)>): $ImmutableMap<(K), (V)>
  "getUnchecked"(key: K): V
  "asMap"(): $ConcurrentMap<(K), (V)>
- "refresh"(key: K): void
+ "invalidate"(key: any): void
  "size"(): long
  "get"(key: K, loader: $Callable$$Type<(V)>): V
  "put"(key: K, value: V): void
  "putAll"(m: $Map$$Type<(K), (V)>): void
  "stats"(): $CacheStats
- "getAllPresent"(keys: $Iterable$$Type<(never)>): $ImmutableMap<(K), (V)>
- "getIfPresent"(key: any): V
- "invalidateAll"(): void
- "invalidateAll"(keys: $Iterable$$Type<(never)>): void
  "cleanUp"(): void
- "invalidate"(key: any): void
+ "getIfPresent"(key: any): V
+ "invalidateAll"(keys: $Iterable$$Type<(never)>): void
+ "invalidateAll"(): void
+ "getAllPresent"(keys: $Iterable$$Type<(never)>): $ImmutableMap<(K), (V)>
  "equals"(object: any): boolean
 static "identity"<T>(): $Function$0<(K), (K)>
  "compose"<V>(arg0: $Function$0$$Type<(V), (K)>): $Function$0<(V), (V)>
@@ -58,18 +58,18 @@ public "toString"(): StringJS
 public "hashCode"(): integer
 public "minus"(other: $CacheStats$$Type): $CacheStats
 public "plus"(other: $CacheStats$$Type): $CacheStats
-public "hitCount"(): long
-public "missCount"(): long
-public "loadSuccessCount"(): long
-public "loadExceptionRate"(): double
-public "averageLoadPenalty"(): double
-public "loadExceptionCount"(): long
-public "requestCount"(): long
-public "totalLoadTime"(): long
-public "evictionCount"(): long
-public "missRate"(): double
 public "loadCount"(): long
 public "hitRate"(): double
+public "missCount"(): long
+public "missRate"(): double
+public "hitCount"(): long
+public "evictionCount"(): long
+public "loadExceptionRate"(): double
+public "requestCount"(): long
+public "loadExceptionCount"(): long
+public "loadSuccessCount"(): long
+public "averageLoadPenalty"(): double
+public "totalLoadTime"(): long
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -92,18 +92,18 @@ export interface $Cache$$Interface<K, V> {
 }
 
 export class $Cache<K, V> implements $Cache$$Interface {
+ "invalidate"(key: any): void
  "size"(): long
  "get"(key: K, loader: $Callable$$Type<(V)>): V
  "put"(key: K, value: V): void
  "putAll"(m: $Map$$Type<(K), (V)>): void
- "stats"(): $CacheStats
- "getAllPresent"(keys: $Iterable$$Type<(never)>): $ImmutableMap<(K), (V)>
- "getIfPresent"(key: any): V
  "asMap"(): $ConcurrentMap<(K), (V)>
- "invalidateAll"(): void
- "invalidateAll"(keys: $Iterable$$Type<(never)>): void
+ "stats"(): $CacheStats
  "cleanUp"(): void
- "invalidate"(key: any): void
+ "getIfPresent"(key: any): V
+ "invalidateAll"(keys: $Iterable$$Type<(never)>): void
+ "invalidateAll"(): void
+ "getAllPresent"(keys: $Iterable$$Type<(never)>): $ImmutableMap<(K), (V)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

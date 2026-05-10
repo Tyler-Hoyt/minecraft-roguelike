@@ -1,18 +1,18 @@
 declare module "org.lwjgl.glfw.GLFWVidMode$Buffer" {
 import {$StructBuffer} from "org.lwjgl.system.StructBuffer"
-import {$ByteBuffer$$Type} from "java.nio.ByteBuffer"
 import {$GLFWVidMode} from "org.lwjgl.glfw.GLFWVidMode"
+import {$ByteBuffer$$Type} from "java.nio.ByteBuffer"
 
 export class $GLFWVidMode$Buffer extends $StructBuffer<($GLFWVidMode), ($GLFWVidMode$Buffer)> {
 constructor(arg0: long, arg1: integer)
 constructor(arg0: $ByteBuffer$$Type)
 
 public "width"(): integer
-public "greenBits"(): integer
-public "blueBits"(): integer
-public "refreshRate"(): integer
 public "height"(): integer
+public "refreshRate"(): integer
 public "redBits"(): integer
+public "blueBits"(): integer
+public "greenBits"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -43,20 +43,20 @@ constructor(arg0: $ByteBuffer$$Type)
 public static "create"(arg0: long): $GLFWVidMode
 public static "create"(arg0: long, arg1: integer): $GLFWVidMode$Buffer
 public "width"(): integer
-public "greenBits"(): integer
-public "blueBits"(): integer
-public "refreshRate"(): integer
-public static "nredBits"(arg0: long): integer
-public "sizeof"(): integer
-public static "nheight"(arg0: long): integer
-public static "createSafe"(arg0: long): $GLFWVidMode
-public static "createSafe"(arg0: long, arg1: integer): $GLFWVidMode$Buffer
-public static "nwidth"(arg0: long): integer
 public "height"(): integer
-public "redBits"(): integer
+public static "createSafe"(arg0: long, arg1: integer): $GLFWVidMode$Buffer
+public static "createSafe"(arg0: long): $GLFWVidMode
 public static "nrefreshRate"(arg0: long): integer
-public static "ngreenBits"(arg0: long): integer
+public static "nwidth"(arg0: long): integer
+public static "nheight"(arg0: long): integer
+public "refreshRate"(): integer
 public static "nblueBits"(arg0: long): integer
+public "redBits"(): integer
+public static "ngreenBits"(arg0: long): integer
+public "blueBits"(): integer
+public static "nredBits"(arg0: long): integer
+public "greenBits"(): integer
+public "sizeof"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

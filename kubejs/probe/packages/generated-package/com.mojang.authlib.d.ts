@@ -1,3 +1,23 @@
+declare module "com.mojang.authlib.ProfileLookupCallback" {
+import {$Exception$$Type} from "java.lang.Exception"
+import {$GameProfile$$Type} from "com.mojang.authlib.GameProfile"
+
+export interface $ProfileLookupCallback$$Interface {
+}
+
+export class $ProfileLookupCallback implements $ProfileLookupCallback$$Interface {
+ "onProfileLookupSucceeded"(arg0: $GameProfile$$Type): void
+ "onProfileLookupFailed"(arg0: StringJS, arg1: $Exception$$Type): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ProfileLookupCallback$$Type = ($ProfileLookupCallback);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ProfileLookupCallback$$Original = $ProfileLookupCallback;}
 declare module "com.mojang.authlib.HttpAuthenticationService" {
 import {$Proxy} from "java.net.Proxy"
 import {$Map$$Type} from "java.util.Map"
@@ -7,9 +27,9 @@ import {$MinecraftSessionService} from "com.mojang.authlib.minecraft.MinecraftSe
 import {$GameProfileRepository} from "com.mojang.authlib.GameProfileRepository"
 
 export class $HttpAuthenticationService implements $AuthenticationService$$Interface {
-public static "concatenateURL"(arg0: $URL$$Type, arg1: StringJS): $URL
-public static "constantURL"(arg0: StringJS): $URL
 public static "buildQuery"(arg0: $Map$$Type<(StringJS), (any)>): StringJS
+public static "constantURL"(arg0: StringJS): $URL
+public static "concatenateURL"(arg0: $URL$$Type, arg1: StringJS): $URL
 public "getProxy"(): $Proxy
 public "createProfileRepository"(): $GameProfileRepository
 public "createMinecraftSessionService"(): $MinecraftSessionService
@@ -44,48 +64,6 @@ export type $GameProfileRepository$$Type = ((arg0: (StringJS)[], arg1: $ProfileL
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $GameProfileRepository$$Original = $GameProfileRepository;}
-declare module "com.mojang.authlib.Environment" {
-import {$Record} from "java.lang.Record"
-
-export class $Environment extends $Record {
-constructor(sessionHost: StringJS, servicesHost: StringJS, name: StringJS)
-
-public "name"(): StringJS
-public "equals"(arg0: any): boolean
-public "toString"(): StringJS
-public "hashCode"(): integer
-public "sessionHost"(): StringJS
-public "servicesHost"(): StringJS
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Environment$$Type = ({"servicesHost"?: StringJS, "name"?: StringJS, "sessionHost"?: StringJS}) | ([servicesHost?: StringJS, name?: StringJS, sessionHost?: StringJS]);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Environment$$Original = $Environment;}
-declare module "com.mojang.authlib.ProfileLookupCallback" {
-import {$Exception$$Type} from "java.lang.Exception"
-import {$GameProfile$$Type} from "com.mojang.authlib.GameProfile"
-
-export interface $ProfileLookupCallback$$Interface {
-}
-
-export class $ProfileLookupCallback implements $ProfileLookupCallback$$Interface {
- "onProfileLookupSucceeded"(arg0: $GameProfile$$Type): void
- "onProfileLookupFailed"(arg0: StringJS, arg1: $Exception$$Type): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ProfileLookupCallback$$Type = ($ProfileLookupCallback);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ProfileLookupCallback$$Original = $ProfileLookupCallback;}
 declare module "com.mojang.authlib.AuthenticationService" {
 import {$MinecraftSessionService} from "com.mojang.authlib.minecraft.MinecraftSessionService"
 import {$GameProfileRepository} from "com.mojang.authlib.GameProfileRepository"
@@ -152,3 +130,25 @@ export type $GameProfile$$Type = ($GameProfile);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $GameProfile$$Original = $GameProfile;}
+declare module "com.mojang.authlib.Environment" {
+import {$Record} from "java.lang.Record"
+
+export class $Environment extends $Record {
+constructor(sessionHost: StringJS, servicesHost: StringJS, name: StringJS)
+
+public "name"(): StringJS
+public "equals"(arg0: any): boolean
+public "toString"(): StringJS
+public "hashCode"(): integer
+public "servicesHost"(): StringJS
+public "sessionHost"(): StringJS
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Environment$$Type = ({"sessionHost"?: StringJS, "servicesHost"?: StringJS, "name"?: StringJS}) | ([sessionHost?: StringJS, servicesHost?: StringJS, name?: StringJS]);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Environment$$Original = $Environment;}

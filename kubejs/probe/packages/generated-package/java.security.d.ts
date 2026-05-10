@@ -1,3 +1,32 @@
+declare module "java.security.Key" {
+import {$Serializable$$Interface} from "java.io.Serializable"
+
+export interface $Key$$Interface extends $Serializable$$Interface {
+get "encoded"(): (byte)[]
+get "format"(): StringJS
+get "algorithm"(): StringJS
+}
+
+export class $Key implements $Key$$Interface {
+/**
+ * 
+ * @deprecated
+ */
+static readonly "serialVersionUID": long
+
+ "getEncoded"(): (byte)[]
+ "getFormat"(): StringJS
+ "getAlgorithm"(): StringJS
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Key$$Type = ($Key);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Key$$Original = $Key;}
 declare module "java.security.Principal" {
 import {$Subject$$Type} from "javax.security.auth.Subject"
 
@@ -54,13 +83,221 @@ export type $PrivateKey$$Type = ($PrivateKey);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $PrivateKey$$Original = $PrivateKey;}
+declare module "java.security.AlgorithmParameters" {
+import {$Provider, $Provider$$Type} from "java.security.Provider"
+import {$Class$$Type} from "java.lang.Class"
+import {$AlgorithmParameterSpec, $AlgorithmParameterSpec$$Type} from "java.security.spec.AlgorithmParameterSpec"
+
+export class $AlgorithmParameters {
+public "toString"(): StringJS
+public static "getInstance"(arg0: StringJS, arg1: $Provider$$Type): $AlgorithmParameters
+public static "getInstance"(arg0: StringJS, arg1: StringJS): $AlgorithmParameters
+public static "getInstance"(arg0: StringJS): $AlgorithmParameters
+public "init"(arg0: (byte)[]): void
+public "init"(arg0: (byte)[], arg1: StringJS): void
+public "init"(arg0: $AlgorithmParameterSpec$$Type): void
+public "getEncoded"(): (byte)[]
+public "getEncoded"(arg0: StringJS): (byte)[]
+public "getProvider"(): $Provider
+public "getAlgorithm"(): StringJS
+public "getParameterSpec"<T extends $AlgorithmParameterSpec>(arg0: $Class$$Type<(T)>): T
+get "encoded"(): (byte)[]
+get "provider"(): $Provider
+get "algorithm"(): StringJS
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $AlgorithmParameters$$Type = ($AlgorithmParameters);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $AlgorithmParameters$$Original = $AlgorithmParameters;}
+declare module "java.security.Guard" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+export interface $Guard$$Interface {
+
+(arg0: any): void
+}
+
+export class $Guard implements $Guard$$Interface {
+ "checkGuard"(arg0: any): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Guard$$Type = ((arg0: any) => void);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Guard$$Original = $Guard;}
+declare module "java.security.Provider" {
+import {$BiFunction$$Type} from "java.util.function.BiFunction"
+import {$Provider$Service} from "java.security.Provider$Service"
+import {$Map, $Map$$Type} from "java.util.Map"
+import {$Collection} from "java.util.Collection"
+import {$Properties} from "java.util.Properties"
+import {$Function$$Type} from "java.util.function.Function"
+import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
+import {$Set} from "java.util.Set"
+import {$InputStream$$Type} from "java.io.InputStream"
+import {$Enumeration} from "java.util.Enumeration"
+import {$Map$Entry, $Map$Entry$$Type} from "java.util.Map$Entry"
+
+export class $Provider extends $Properties {
+public "getName"(): StringJS
+public "remove"(arg0: any): any
+public "remove"(arg0: any, arg1: any): boolean
+public "get"(arg0: any): any
+public "put"(arg0: any, arg1: any): any
+public "getProperty"(arg0: StringJS): StringJS
+public "toString"(): StringJS
+public "values"(): $Collection<(any)>
+public "load"(arg0: $InputStream$$Type): void
+public "clear"(): void
+public "replace"(arg0: any, arg1: any): any
+public "replace"(arg0: any, arg1: any, arg2: any): boolean
+public "replaceAll"(arg0: $BiFunction$$Type<(any), (any), (never)>): void
+public "elements"(): $Enumeration<(any)>
+public "merge"(arg0: any, arg1: any, arg2: $BiFunction$$Type<(any), (any), (never)>): any
+public "entrySet"(): $Set<($Map$Entry<(any), (any)>)>
+public "putAll"(arg0: $Map$$Type<(never), (never)>): void
+public "putIfAbsent"(arg0: any, arg1: any): any
+public "compute"(arg0: any, arg1: $BiFunction$$Type<(any), (any), (never)>): any
+public "forEach"(arg0: $BiConsumer$$Type<(any), (any)>): void
+public "computeIfAbsent"(arg0: any, arg1: $Function$$Type<(any), (never)>): any
+public "keys"(): $Enumeration<(any)>
+public "keySet"(): $Set<(any)>
+public "getOrDefault"(arg0: any, arg1: any): any
+public "computeIfPresent"(arg0: any, arg1: $BiFunction$$Type<(any), (any), (never)>): any
+/**
+ * 
+ * @deprecated
+ */
+public "getVersion"(): double
+public "getService"(arg0: StringJS, arg1: StringJS): $Provider$Service
+public "configure"(arg0: StringJS): $Provider
+public "isConfigured"(): boolean
+public "getVersionStr"(): StringJS
+public "getInfo"(): StringJS
+public "getServices"(): $Set<($Provider$Service)>
+public static "copyOf"<K, V>(arg0: $Map$$Type<(K), (V)>): $Map<(K), (V)>
+public static "of"<K, V>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V, arg6: K, arg7: V): $Map<(K), (V)>
+public static "of"<K, V>(): $Map<(K), (V)>
+public static "of"<K, V>(arg0: K, arg1: V): $Map<(K), (V)>
+public static "of"<K, V>(arg0: K, arg1: V, arg2: K, arg3: V): $Map<(K), (V)>
+public static "of"<K, V>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V): $Map<(K), (V)>
+public static "of"<K, V>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V, arg6: K, arg7: V, arg8: K, arg9: V, arg10: K, arg11: V, arg12: K, arg13: V, arg14: K, arg15: V, arg16: K, arg17: V, arg18: K, arg19: V): $Map<(K), (V)>
+public static "of"<K, V>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V, arg6: K, arg7: V, arg8: K, arg9: V, arg10: K, arg11: V, arg12: K, arg13: V, arg14: K, arg15: V, arg16: K, arg17: V): $Map<(K), (V)>
+public static "of"<K, V>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V, arg6: K, arg7: V, arg8: K, arg9: V, arg10: K, arg11: V, arg12: K, arg13: V, arg14: K, arg15: V): $Map<(K), (V)>
+public static "of"<K, V>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V, arg6: K, arg7: V, arg8: K, arg9: V, arg10: K, arg11: V, arg12: K, arg13: V): $Map<(K), (V)>
+public static "of"<K, V>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V, arg6: K, arg7: V, arg8: K, arg9: V, arg10: K, arg11: V): $Map<(K), (V)>
+public static "of"<K, V>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V, arg6: K, arg7: V, arg8: K, arg9: V): $Map<(K), (V)>
+public static "entry"<K, V>(arg0: K, arg1: V): $Map$Entry<(K), (V)>
+public static "ofEntries"<K, V>(...arg0: ($Map$Entry$$Type<(K), (V)>)[]): $Map<(K), (V)>
+get "name"(): StringJS
+get "version"(): double
+get "configured"(): boolean
+get "versionStr"(): StringJS
+get "info"(): StringJS
+get "services"(): $Set<($Provider$Service)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Provider$$Type = ($Provider);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Provider$$Original = $Provider;}
+declare module "java.security.SecureRandom" {
+import {$RandomGenerator} from "java.util.random.RandomGenerator"
+import {$Provider, $Provider$$Type} from "java.security.Provider"
+import {$Random} from "java.util.Random"
+import {$SecureRandomParameters, $SecureRandomParameters$$Type} from "java.security.SecureRandomParameters"
+
+export class $SecureRandom extends $Random {
+constructor(arg0: (byte)[])
+constructor()
+
+public "toString"(): StringJS
+public static "getInstance"(arg0: StringJS, arg1: $SecureRandomParameters$$Type, arg2: StringJS): $SecureRandom
+public static "getInstance"(arg0: StringJS, arg1: $SecureRandomParameters$$Type): $SecureRandom
+public static "getInstance"(arg0: StringJS, arg1: $SecureRandomParameters$$Type, arg2: $Provider$$Type): $SecureRandom
+public static "getInstance"(arg0: StringJS): $SecureRandom
+public static "getInstance"(arg0: StringJS, arg1: StringJS): $SecureRandom
+public static "getInstance"(arg0: StringJS, arg1: $Provider$$Type): $SecureRandom
+public "getParameters"(): $SecureRandomParameters
+public "nextBytes"(arg0: (byte)[]): void
+public "nextBytes"(arg0: (byte)[], arg1: $SecureRandomParameters$$Type): void
+public "getProvider"(): $Provider
+public "setSeed"(arg0: long): void
+public "setSeed"(arg0: (byte)[]): void
+public static "getSeed"(arg0: integer): (byte)[]
+public "getAlgorithm"(): StringJS
+public "generateSeed"(arg0: integer): (byte)[]
+public static "getInstanceStrong"(): $SecureRandom
+public "reseed"(arg0: $SecureRandomParameters$$Type): void
+public "reseed"(): void
+public static "getDefault"(): $RandomGenerator
+public static "of"(arg0: StringJS): $RandomGenerator
+get "parameters"(): $SecureRandomParameters
+get "provider"(): $Provider
+set "seed"(value: long)
+set "seed"(value: (byte)[])
+get "algorithm"(): StringJS
+public static get "instanceStrong"(): $SecureRandom
+public static get "default"(): $RandomGenerator
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $SecureRandom$$Type = ($SecureRandom);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $SecureRandom$$Original = $SecureRandom;}
+declare module "java.security.Provider$Service" {
+import {$Map$$Type} from "java.util.Map"
+import {$List$$Type} from "java.util.List"
+import {$Provider, $Provider$$Type} from "java.security.Provider"
+
+export class $Provider$Service {
+constructor(arg0: $Provider$$Type, arg1: StringJS, arg2: StringJS, arg3: StringJS, arg4: $List$$Type<(StringJS)>, arg5: $Map$$Type<(StringJS), (StringJS)>)
+
+public "toString"(): StringJS
+public "newInstance"(arg0: any): any
+public "getType"(): StringJS
+public "getClassName"(): StringJS
+public "getAttribute"(arg0: StringJS): StringJS
+public "getProvider"(): $Provider
+public "getAlgorithm"(): StringJS
+public "supportsParameter"(arg0: any): boolean
+get "type"(): StringJS
+get "className"(): StringJS
+get "provider"(): $Provider
+get "algorithm"(): StringJS
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Provider$Service$$Type = ($Provider$Service);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Provider$Service$$Original = $Provider$Service;}
 declare module "java.security.Signature" {
 import {$Certificate$$Type} from "java.security.cert.Certificate"
 import {$PrivateKey$$Type} from "java.security.PrivateKey"
 import {$Provider, $Provider$$Type} from "java.security.Provider"
 import {$AlgorithmParameters} from "java.security.AlgorithmParameters"
-import {$SecureRandom$$Type} from "java.security.SecureRandom"
 import {$PublicKey$$Type} from "java.security.PublicKey"
+import {$SecureRandom$$Type} from "java.security.SecureRandom"
 import {$ByteBuffer$$Type} from "java.nio.ByteBuffer"
 import {$SignatureSpi} from "java.security.SignatureSpi"
 import {$AlgorithmParameterSpec$$Type} from "java.security.spec.AlgorithmParameterSpec"
@@ -78,12 +315,17 @@ public static "getInstance"(arg0: StringJS, arg1: $Provider$$Type): $Signature
 public "getParameters"(): $AlgorithmParameters
 public "sign"(arg0: (byte)[], arg1: integer, arg2: integer): integer
 public "sign"(): (byte)[]
-public "verify"(arg0: (byte)[], arg1: integer, arg2: integer): boolean
 public "verify"(arg0: (byte)[]): boolean
+public "verify"(arg0: (byte)[], arg1: integer, arg2: integer): boolean
 public "getProvider"(): $Provider
 public "getAlgorithm"(): StringJS
-public "initVerify"(arg0: $PublicKey$$Type): void
+/**
+ * 
+ * @deprecated
+ */
+public "getParameter"(arg0: StringJS): any
 public "initVerify"(arg0: $Certificate$$Type): void
+public "initVerify"(arg0: $PublicKey$$Type): void
 public "initSign"(arg0: $PrivateKey$$Type, arg1: $SecureRandom$$Type): void
 public "initSign"(arg0: $PrivateKey$$Type): void
 public "setParameter"(arg0: $AlgorithmParameterSpec$$Type): void
@@ -92,11 +334,6 @@ public "setParameter"(arg0: $AlgorithmParameterSpec$$Type): void
  * @deprecated
  */
 public "setParameter"(arg0: StringJS, arg1: any): void
-/**
- * 
- * @deprecated
- */
-public "getParameter"(arg0: StringJS): any
 get "parameters"(): $AlgorithmParameters
 get "provider"(): $Provider
 get "algorithm"(): StringJS
@@ -165,6 +402,22 @@ export type $KeyPair$$Type = ($KeyPair);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $KeyPair$$Original = $KeyPair;}
+declare module "java.security.SignatureSpi" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+export class $SignatureSpi {
+constructor()
+
+public "clone"(): any
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $SignatureSpi$$Type = ($SignatureSpi);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $SignatureSpi$$Original = $SignatureSpi;}
 declare module "java.security.CodeSource" {
 import {$Certificate, $Certificate$$Type} from "java.security.cert.Certificate"
 import {$Serializable$$Interface} from "java.io.Serializable"
@@ -223,6 +476,25 @@ export type $PermissionCollection$$Type = ($PermissionCollection);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $PermissionCollection$$Original = $PermissionCollection;}
+declare module "java.security.PrivilegedAction" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+export interface $PrivilegedAction$$Interface<T> {
+
+(): T
+}
+
+export class $PrivilegedAction<T> implements $PrivilegedAction$$Interface {
+ "run"(): T
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $PrivilegedAction$$Type<T> = (() => T);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $PrivilegedAction$$Original<T> = $PrivilegedAction<(T)>;}
 declare module "java.security.Timestamp" {
 import {$Serializable$$Interface} from "java.io.Serializable"
 import {$CertPath, $CertPath$$Type} from "java.security.cert.CertPath"
@@ -248,6 +520,35 @@ export type $Timestamp$$Type = ($Timestamp);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $Timestamp$$Original = $Timestamp;}
+declare module "java.security.PublicKey" {
+import {$Key$$Interface} from "java.security.Key"
+
+export interface $PublicKey$$Interface extends $Key$$Interface {
+get "encoded"(): (byte)[]
+get "format"(): StringJS
+get "algorithm"(): StringJS
+}
+
+export class $PublicKey implements $PublicKey$$Interface {
+/**
+ * 
+ * @deprecated
+ */
+static readonly "serialVersionUID": long
+
+ "getEncoded"(): (byte)[]
+ "getFormat"(): StringJS
+ "getAlgorithm"(): StringJS
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $PublicKey$$Type = ($PublicKey);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $PublicKey$$Original = $PublicKey;}
 declare module "java.security.Permission" {
 import {$Serializable$$Interface} from "java.io.Serializable"
 import {$PermissionCollection} from "java.security.PermissionCollection"
@@ -364,304 +665,3 @@ export type $AccessControlContext$$Type = ($AccessControlContext);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $AccessControlContext$$Original = $AccessControlContext;}
-declare module "java.security.Key" {
-import {$Serializable$$Interface} from "java.io.Serializable"
-
-export interface $Key$$Interface extends $Serializable$$Interface {
-get "encoded"(): (byte)[]
-get "format"(): StringJS
-get "algorithm"(): StringJS
-}
-
-export class $Key implements $Key$$Interface {
-/**
- * 
- * @deprecated
- */
-static readonly "serialVersionUID": long
-
- "getEncoded"(): (byte)[]
- "getFormat"(): StringJS
- "getAlgorithm"(): StringJS
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Key$$Type = ($Key);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Key$$Original = $Key;}
-declare module "java.security.AlgorithmParameters" {
-import {$Provider, $Provider$$Type} from "java.security.Provider"
-import {$Class$$Type} from "java.lang.Class"
-import {$AlgorithmParameterSpec, $AlgorithmParameterSpec$$Type} from "java.security.spec.AlgorithmParameterSpec"
-
-export class $AlgorithmParameters {
-public "toString"(): StringJS
-public static "getInstance"(arg0: StringJS, arg1: $Provider$$Type): $AlgorithmParameters
-public static "getInstance"(arg0: StringJS, arg1: StringJS): $AlgorithmParameters
-public static "getInstance"(arg0: StringJS): $AlgorithmParameters
-public "init"(arg0: (byte)[]): void
-public "init"(arg0: (byte)[], arg1: StringJS): void
-public "init"(arg0: $AlgorithmParameterSpec$$Type): void
-public "getEncoded"(): (byte)[]
-public "getEncoded"(arg0: StringJS): (byte)[]
-public "getProvider"(): $Provider
-public "getAlgorithm"(): StringJS
-public "getParameterSpec"<T extends $AlgorithmParameterSpec>(arg0: $Class$$Type<(T)>): T
-get "encoded"(): (byte)[]
-get "provider"(): $Provider
-get "algorithm"(): StringJS
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $AlgorithmParameters$$Type = ($AlgorithmParameters);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $AlgorithmParameters$$Original = $AlgorithmParameters;}
-declare module "java.security.Guard" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-export interface $Guard$$Interface {
-
-(arg0: any): void
-}
-
-export class $Guard implements $Guard$$Interface {
- "checkGuard"(arg0: any): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Guard$$Type = ((arg0: any) => void);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Guard$$Original = $Guard;}
-declare module "java.security.Provider" {
-import {$BiFunction$$Type} from "java.util.function.BiFunction"
-import {$Provider$Service} from "java.security.Provider$Service"
-import {$Collection} from "java.util.Collection"
-import {$Map, $Map$$Type} from "java.util.Map"
-import {$Properties} from "java.util.Properties"
-import {$Function$$Type} from "java.util.function.Function"
-import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
-import {$Set} from "java.util.Set"
-import {$InputStream$$Type} from "java.io.InputStream"
-import {$Enumeration} from "java.util.Enumeration"
-import {$Map$Entry, $Map$Entry$$Type} from "java.util.Map$Entry"
-
-export class $Provider extends $Properties {
-public "getName"(): StringJS
-public "remove"(arg0: any): any
-public "remove"(arg0: any, arg1: any): boolean
-public "get"(arg0: any): any
-public "put"(arg0: any, arg1: any): any
-public "getProperty"(arg0: StringJS): StringJS
-public "toString"(): StringJS
-public "values"(): $Collection<(any)>
-public "load"(arg0: $InputStream$$Type): void
-public "clear"(): void
-public "replace"(arg0: any, arg1: any): any
-public "replace"(arg0: any, arg1: any, arg2: any): boolean
-public "replaceAll"(arg0: $BiFunction$$Type<(any), (any), (never)>): void
-public "elements"(): $Enumeration<(any)>
-public "merge"(arg0: any, arg1: any, arg2: $BiFunction$$Type<(any), (any), (never)>): any
-public "entrySet"(): $Set<($Map$Entry<(any), (any)>)>
-public "putAll"(arg0: $Map$$Type<(never), (never)>): void
-public "putIfAbsent"(arg0: any, arg1: any): any
-public "compute"(arg0: any, arg1: $BiFunction$$Type<(any), (any), (never)>): any
-public "forEach"(arg0: $BiConsumer$$Type<(any), (any)>): void
-public "computeIfAbsent"(arg0: any, arg1: $Function$$Type<(any), (never)>): any
-public "keys"(): $Enumeration<(any)>
-public "keySet"(): $Set<(any)>
-public "getOrDefault"(arg0: any, arg1: any): any
-public "computeIfPresent"(arg0: any, arg1: $BiFunction$$Type<(any), (any), (never)>): any
-/**
- * 
- * @deprecated
- */
-public "getVersion"(): double
-public "getService"(arg0: StringJS, arg1: StringJS): $Provider$Service
-public "configure"(arg0: StringJS): $Provider
-public "isConfigured"(): boolean
-public "getVersionStr"(): StringJS
-public "getInfo"(): StringJS
-public "getServices"(): $Set<($Provider$Service)>
-public static "copyOf"<K, V>(arg0: $Map$$Type<(K), (V)>): $Map<(K), (V)>
-public static "of"<K, V>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V, arg6: K, arg7: V): $Map<(K), (V)>
-public static "of"<K, V>(): $Map<(K), (V)>
-public static "of"<K, V>(arg0: K, arg1: V): $Map<(K), (V)>
-public static "of"<K, V>(arg0: K, arg1: V, arg2: K, arg3: V): $Map<(K), (V)>
-public static "of"<K, V>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V): $Map<(K), (V)>
-public static "of"<K, V>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V, arg6: K, arg7: V, arg8: K, arg9: V, arg10: K, arg11: V, arg12: K, arg13: V, arg14: K, arg15: V, arg16: K, arg17: V, arg18: K, arg19: V): $Map<(K), (V)>
-public static "of"<K, V>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V, arg6: K, arg7: V, arg8: K, arg9: V, arg10: K, arg11: V, arg12: K, arg13: V, arg14: K, arg15: V, arg16: K, arg17: V): $Map<(K), (V)>
-public static "of"<K, V>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V, arg6: K, arg7: V, arg8: K, arg9: V, arg10: K, arg11: V, arg12: K, arg13: V, arg14: K, arg15: V): $Map<(K), (V)>
-public static "of"<K, V>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V, arg6: K, arg7: V, arg8: K, arg9: V, arg10: K, arg11: V, arg12: K, arg13: V): $Map<(K), (V)>
-public static "of"<K, V>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V, arg6: K, arg7: V, arg8: K, arg9: V, arg10: K, arg11: V): $Map<(K), (V)>
-public static "of"<K, V>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V, arg6: K, arg7: V, arg8: K, arg9: V): $Map<(K), (V)>
-public static "entry"<K, V>(arg0: K, arg1: V): $Map$Entry<(K), (V)>
-public static "ofEntries"<K, V>(...arg0: ($Map$Entry$$Type<(K), (V)>)[]): $Map<(K), (V)>
-get "name"(): StringJS
-get "version"(): double
-get "configured"(): boolean
-get "versionStr"(): StringJS
-get "info"(): StringJS
-get "services"(): $Set<($Provider$Service)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Provider$$Type = ($Provider);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Provider$$Original = $Provider;}
-declare module "java.security.SecureRandom" {
-import {$RandomGenerator} from "java.util.random.RandomGenerator"
-import {$Provider, $Provider$$Type} from "java.security.Provider"
-import {$Random} from "java.util.Random"
-import {$SecureRandomParameters, $SecureRandomParameters$$Type} from "java.security.SecureRandomParameters"
-
-export class $SecureRandom extends $Random {
-constructor(arg0: (byte)[])
-constructor()
-
-public "toString"(): StringJS
-public static "getInstance"(arg0: StringJS, arg1: $SecureRandomParameters$$Type, arg2: StringJS): $SecureRandom
-public static "getInstance"(arg0: StringJS, arg1: $SecureRandomParameters$$Type): $SecureRandom
-public static "getInstance"(arg0: StringJS, arg1: $SecureRandomParameters$$Type, arg2: $Provider$$Type): $SecureRandom
-public static "getInstance"(arg0: StringJS): $SecureRandom
-public static "getInstance"(arg0: StringJS, arg1: StringJS): $SecureRandom
-public static "getInstance"(arg0: StringJS, arg1: $Provider$$Type): $SecureRandom
-public "getParameters"(): $SecureRandomParameters
-public "nextBytes"(arg0: (byte)[]): void
-public "nextBytes"(arg0: (byte)[], arg1: $SecureRandomParameters$$Type): void
-public "getProvider"(): $Provider
-public "setSeed"(arg0: long): void
-public "setSeed"(arg0: (byte)[]): void
-public static "getSeed"(arg0: integer): (byte)[]
-public "getAlgorithm"(): StringJS
-public "generateSeed"(arg0: integer): (byte)[]
-public static "getInstanceStrong"(): $SecureRandom
-public "reseed"(): void
-public "reseed"(arg0: $SecureRandomParameters$$Type): void
-public static "getDefault"(): $RandomGenerator
-public static "of"(arg0: StringJS): $RandomGenerator
-get "parameters"(): $SecureRandomParameters
-get "provider"(): $Provider
-set "seed"(value: long)
-set "seed"(value: (byte)[])
-get "algorithm"(): StringJS
-public static get "instanceStrong"(): $SecureRandom
-public static get "default"(): $RandomGenerator
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $SecureRandom$$Type = ($SecureRandom);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $SecureRandom$$Original = $SecureRandom;}
-declare module "java.security.Provider$Service" {
-import {$Map$$Type} from "java.util.Map"
-import {$List$$Type} from "java.util.List"
-import {$Provider, $Provider$$Type} from "java.security.Provider"
-
-export class $Provider$Service {
-constructor(arg0: $Provider$$Type, arg1: StringJS, arg2: StringJS, arg3: StringJS, arg4: $List$$Type<(StringJS)>, arg5: $Map$$Type<(StringJS), (StringJS)>)
-
-public "toString"(): StringJS
-public "newInstance"(arg0: any): any
-public "getType"(): StringJS
-public "getClassName"(): StringJS
-public "getAttribute"(arg0: StringJS): StringJS
-public "getProvider"(): $Provider
-public "getAlgorithm"(): StringJS
-public "supportsParameter"(arg0: any): boolean
-get "type"(): StringJS
-get "className"(): StringJS
-get "provider"(): $Provider
-get "algorithm"(): StringJS
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Provider$Service$$Type = ($Provider$Service);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Provider$Service$$Original = $Provider$Service;}
-declare module "java.security.SignatureSpi" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-export class $SignatureSpi {
-constructor()
-
-public "clone"(): any
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $SignatureSpi$$Type = ($SignatureSpi);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $SignatureSpi$$Original = $SignatureSpi;}
-declare module "java.security.PrivilegedAction" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-export interface $PrivilegedAction$$Interface<T> {
-
-(): T
-}
-
-export class $PrivilegedAction<T> implements $PrivilegedAction$$Interface {
- "run"(): T
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $PrivilegedAction$$Type<T> = (() => T);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $PrivilegedAction$$Original<T> = $PrivilegedAction<(T)>;}
-declare module "java.security.PublicKey" {
-import {$Key$$Interface} from "java.security.Key"
-
-export interface $PublicKey$$Interface extends $Key$$Interface {
-get "encoded"(): (byte)[]
-get "format"(): StringJS
-get "algorithm"(): StringJS
-}
-
-export class $PublicKey implements $PublicKey$$Interface {
-/**
- * 
- * @deprecated
- */
-static readonly "serialVersionUID": long
-
- "getEncoded"(): (byte)[]
- "getFormat"(): StringJS
- "getAlgorithm"(): StringJS
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $PublicKey$$Type = ($PublicKey);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $PublicKey$$Original = $PublicKey;}

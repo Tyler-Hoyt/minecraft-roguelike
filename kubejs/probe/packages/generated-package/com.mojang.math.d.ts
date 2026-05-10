@@ -19,27 +19,27 @@ public "equals"(arg0: any): boolean
 public "hashCode"(): integer
 public static "identity"(): $Transformation
 public "compose"(arg0: $Transformation$$Type): $Transformation
-public "getNormalMatrix"(): $Matrix3f
-public "getScale"(): $Vector3f
-public "getMatrix"(): $Matrix4f
 public "inverse"(): $Transformation
+public "getNormalMatrix"(): $Matrix3f
 public "getTranslation"(): $Vector3f
+public "getMatrix"(): $Matrix4f
 public "slerp"(arg0: $Transformation$$Type, arg1: float): $Transformation
 public "getLeftRotation"(): $Quaternionf
 public "getRightRotation"(): $Quaternionf
+public "getScale"(): $Vector3f
 public "isIdentity"(): boolean
 public "applyOrigin"(arg0: $Vector3f$$Type): $Transformation
 public "rotateTransform"(arg0: $Direction$$Type): $Direction
 public "blockCornerToCenter"(): $Transformation
 public "blockCenterToCorner"(): $Transformation
-public "transformPosition"(arg0: $Vector4f$$Type): void
 public "transformNormal"(arg0: $Vector3f$$Type): void
+public "transformPosition"(arg0: $Vector4f$$Type): void
 get "normalMatrix"(): $Matrix3f
-get "scale"(): $Vector3f
-get "matrix"(): $Matrix4f
 get "translation"(): $Vector3f
+get "matrix"(): $Matrix4f
 get "leftRotation"(): $Quaternionf
 get "rightRotation"(): $Quaternionf
+get "scale"(): $Vector3f
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -54,11 +54,11 @@ declare module "com.mojang.math.OctahedralGroup" {
 import {$Keyable} from "com.mojang.serialization.Keyable"
 import {$Direction$Axis$$Type} from "net.minecraft.core.Direction$Axis"
 import {$FrontAndTop, $FrontAndTop$$Type} from "net.minecraft.core.FrontAndTop"
-import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Enum, $Enum$$Type} from "java.lang.Enum"
+import {$StringRepresentable$EnumCodec} from "net.minecraft.util.StringRepresentable$EnumCodec"
 import {$Codec} from "com.mojang.serialization.Codec"
-import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$Function, $Function$$Type} from "java.util.function.Function"
+import {$Supplier$$Type} from "java.util.function.Supplier"
 import {$Direction, $Direction$$Type} from "net.minecraft.core.Direction"
 import {$StringRepresentable, $StringRepresentable$$Type, $StringRepresentable$$Interface} from "net.minecraft.util.StringRepresentable"
 import {$Matrix3f} from "org.joml.Matrix3f"
@@ -117,18 +117,18 @@ public "toString"(): StringJS
 public static "values"(): ($OctahedralGroup)[]
 public static "valueOf"(arg0: StringJS): $OctahedralGroup
 public "compose"(arg0: $OctahedralGroup$$Type): $OctahedralGroup
-public "rotate"(arg0: $FrontAndTop$$Type): $FrontAndTop
 public "rotate"(arg0: $Direction$$Type): $Direction
-public "getSerializedName"(): StringJS
-public "inverse"(): $OctahedralGroup
+public "rotate"(arg0: $FrontAndTop$$Type): $FrontAndTop
 public "transformation"(): $Matrix3f
+public "inverse"(): $OctahedralGroup
+public "getSerializedName"(): StringJS
 public "inverts"(arg0: $Direction$Axis$$Type): boolean
 public static "keys"(arg0: ($StringRepresentable$$Type)[]): $Keyable
-public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 public static "fromEnumWithMapping"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>, arg1: $Function$$Type<(StringJS), (StringJS)>): $StringRepresentable$EnumCodec<(E)>
 public "getRemappedEnumConstantName"(): StringJS
 public static "fromEnum"<E extends $Enum<(object)>>(arg0: $Supplier$$Type<((E)[])>): $StringRepresentable$EnumCodec<(E)>
 public static "fromValues"<T extends $StringRepresentable>(arg0: $Supplier$$Type<((T)[])>): $Codec<(T)>
+public static "createNameLookup"<T extends $StringRepresentable>(arg0: (T)[], arg1: $Function$$Type<(StringJS), (StringJS)>): $Function<(StringJS), (T)>
 get "serializedName"(): StringJS
 get "remappedEnumConstantName"(): StringJS
 }

@@ -5,8 +5,8 @@ export interface $EntityAccessor$$Interface {
 }
 
 export class $EntityAccessor implements $EntityAccessor$$Interface {
- "transition$getRawPosition"(): $Vec3
  "transition$setRawPosition"(arg0: $Vec3$$Type): void
+ "transition$getRawPosition"(): $Vec3
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

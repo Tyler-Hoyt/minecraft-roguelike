@@ -1,28 +1,3 @@
-declare module "io.netty.util.Constant" {
-import {$Comparable$$Interface} from "java.lang.Comparable"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export interface $Constant$$Interface<T extends $Constant<(object)>> extends $Comparable$$Interface<(T)> {
-}
-
-export class $Constant<T extends $Constant<(object)>> implements $Constant$$Interface {
- "name"(): StringJS
- "id"(): integer
- "compareTo"(arg0: T): integer
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Constant$$Type<T> = ($Constant<(T)>);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Constant$$Original<T> = $Constant<(T)>;}
 declare module "io.netty.util.AttributeKey" {
 import {$AbstractConstant} from "io.netty.util.AbstractConstant"
 import {$Class$$Type} from "java.lang.Class"
@@ -47,6 +22,46 @@ export type $AttributeKey$$Type<T> = ($AttributeKey<(T)>);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $AttributeKey$$Original<T> = $AttributeKey<(T)>;}
+declare module "io.netty.util.Attribute" {
+import {$AttributeKey} from "io.netty.util.AttributeKey"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export interface $Attribute$$Interface<T> {
+set "ifAbsent"(value: T)
+get "andRemove"(): T
+}
+
+export class $Attribute<T> implements $Attribute$$Interface {
+/**
+ * 
+ * @deprecated
+ */
+ "remove"(): void
+ "get"(): T
+ "set"(arg0: T): void
+ "key"(): $AttributeKey<(T)>
+ "compareAndSet"(arg0: T, arg1: T): boolean
+ "getAndSet"(arg0: T): T
+ "setIfAbsent"(arg0: T): T
+/**
+ * 
+ * @deprecated
+ */
+ "getAndRemove"(): T
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Attribute$$Type<T> = ($Attribute<(T)>);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Attribute$$Original<T> = $Attribute<(T)>;}
 declare module "io.netty.util.AttributeMap" {
 import {$AttributeKey$$Type} from "io.netty.util.AttributeKey"
 import {$Attribute} from "io.netty.util.Attribute"
@@ -123,11 +138,11 @@ export interface $ReferenceCounted$$Interface {
 export class $ReferenceCounted implements $ReferenceCounted$$Interface {
  "release"(arg0: integer): boolean
  "release"(): boolean
- "touch"(): $ReferenceCounted
- "touch"(arg0: any): $ReferenceCounted
- "retain"(arg0: integer): $ReferenceCounted
- "retain"(): $ReferenceCounted
  "refCnt"(): integer
+ "retain"(): $ReferenceCounted
+ "retain"(arg0: integer): $ReferenceCounted
+ "touch"(arg0: any): $ReferenceCounted
+ "touch"(): $ReferenceCounted
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -164,67 +179,3 @@ export type $AbstractConstant$$Type<T> = ($AbstractConstant<(T)>);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $AbstractConstant$$Original<T> = $AbstractConstant<(T)>;}
-declare module "io.netty.util.IntSupplier" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export interface $IntSupplier$$Interface {
-
-(): integer
-}
-
-export class $IntSupplier implements $IntSupplier$$Interface {
- "get"(): integer
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $IntSupplier$$Type = (() => integer);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $IntSupplier$$Original = $IntSupplier;}
-declare module "io.netty.util.Attribute" {
-import {$AttributeKey} from "io.netty.util.AttributeKey"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export interface $Attribute$$Interface<T> {
-set "ifAbsent"(value: T)
-get "andRemove"(): T
-}
-
-export class $Attribute<T> implements $Attribute$$Interface {
-/**
- * 
- * @deprecated
- */
- "remove"(): void
- "get"(): T
- "set"(arg0: T): void
- "key"(): $AttributeKey<(T)>
- "compareAndSet"(arg0: T, arg1: T): boolean
- "getAndSet"(arg0: T): T
- "setIfAbsent"(arg0: T): T
-/**
- * 
- * @deprecated
- */
- "getAndRemove"(): T
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Attribute$$Type<T> = ($Attribute<(T)>);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Attribute$$Original<T> = $Attribute<(T)>;}

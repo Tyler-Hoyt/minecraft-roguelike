@@ -1,44 +1,3 @@
-declare module "com.mojang.brigadier.exceptions.Dynamic3CommandExceptionType" {
-import {$ImmutableStringReader$$Type} from "com.mojang.brigadier.ImmutableStringReader"
-import {$Dynamic3CommandExceptionType$Function$$Type} from "com.mojang.brigadier.exceptions.Dynamic3CommandExceptionType$Function"
-import {$CommandExceptionType$$Interface} from "com.mojang.brigadier.exceptions.CommandExceptionType"
-import {$CommandSyntaxException} from "com.mojang.brigadier.exceptions.CommandSyntaxException"
-
-export class $Dynamic3CommandExceptionType implements $CommandExceptionType$$Interface {
-constructor(arg0: $Dynamic3CommandExceptionType$Function$$Type)
-
-public "create"(arg0: any, arg1: any, arg2: any): $CommandSyntaxException
-public "createWithContext"(arg0: $ImmutableStringReader$$Type, arg1: any, arg2: any, arg3: any): $CommandSyntaxException
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Dynamic3CommandExceptionType$$Type = ($Dynamic3CommandExceptionType);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Dynamic3CommandExceptionType$$Original = $Dynamic3CommandExceptionType;}
-declare module "com.mojang.brigadier.exceptions.Dynamic3CommandExceptionType$Function" {
-import {$Message, $Message$$Type} from "com.mojang.brigadier.Message"
-
-export interface $Dynamic3CommandExceptionType$Function$$Interface {
-
-(arg0: any, arg1: any, arg2: any): $Message$$Type
-}
-
-export class $Dynamic3CommandExceptionType$Function implements $Dynamic3CommandExceptionType$Function$$Interface {
- "apply"(arg0: any, arg1: any, arg2: any): $Message
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Dynamic3CommandExceptionType$Function$$Type = ((arg0: any, arg1: any, arg2: any) => $Message$$Type);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Dynamic3CommandExceptionType$Function$$Original = $Dynamic3CommandExceptionType$Function;}
 declare module "com.mojang.brigadier.exceptions.Dynamic2CommandExceptionType$Function" {
 import {$Message, $Message$$Type} from "com.mojang.brigadier.Message"
 
@@ -62,8 +21,8 @@ export type $Dynamic2CommandExceptionType$Function$$Original = $Dynamic2CommandE
 declare module "com.mojang.brigadier.exceptions.CommandSyntaxException" {
 import {$Exception} from "java.lang.Exception"
 import {$CommandExceptionType, $CommandExceptionType$$Type} from "com.mojang.brigadier.exceptions.CommandExceptionType"
-import {$Message, $Message$$Type} from "com.mojang.brigadier.Message"
 import {$BuiltInExceptionProvider} from "com.mojang.brigadier.exceptions.BuiltInExceptionProvider"
+import {$Message, $Message$$Type} from "com.mojang.brigadier.Message"
 
 export class $CommandSyntaxException extends $Exception {
 static "BUILT_IN_EXCEPTIONS": $BuiltInExceptionProvider
@@ -73,18 +32,18 @@ static readonly "CONTEXT_AMOUNT": integer
 constructor(arg0: $CommandExceptionType$$Type, arg1: $Message$$Type)
 constructor(arg0: $CommandExceptionType$$Type, arg1: $Message$$Type, arg2: StringJS, arg3: integer)
 
+public "getInput"(): StringJS
 public "getMessage"(): StringJS
 public "getContext"(): StringJS
 public "getType"(): $CommandExceptionType
-public "getRawMessage"(): $Message
 public "getCursor"(): integer
-public "getInput"(): StringJS
+public "getRawMessage"(): $Message
+get "input"(): StringJS
 get "message"(): StringJS
 get "context"(): StringJS
 get "type"(): $CommandExceptionType
-get "rawMessage"(): $Message
 get "cursor"(): integer
-get "input"(): StringJS
+get "rawMessage"(): $Message
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -117,10 +76,31 @@ export type $DynamicCommandExceptionType$$Type = ($DynamicCommandExceptionType);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $DynamicCommandExceptionType$$Original = $DynamicCommandExceptionType;}
+declare module "com.mojang.brigadier.exceptions.Dynamic3CommandExceptionType" {
+import {$ImmutableStringReader$$Type} from "com.mojang.brigadier.ImmutableStringReader"
+import {$Dynamic3CommandExceptionType$Function$$Type} from "com.mojang.brigadier.exceptions.Dynamic3CommandExceptionType$Function"
+import {$CommandExceptionType$$Interface} from "com.mojang.brigadier.exceptions.CommandExceptionType"
+import {$CommandSyntaxException} from "com.mojang.brigadier.exceptions.CommandSyntaxException"
+
+export class $Dynamic3CommandExceptionType implements $CommandExceptionType$$Interface {
+constructor(arg0: $Dynamic3CommandExceptionType$Function$$Type)
+
+public "create"(arg0: any, arg1: any, arg2: any): $CommandSyntaxException
+public "createWithContext"(arg0: $ImmutableStringReader$$Type, arg1: any, arg2: any, arg3: any): $CommandSyntaxException
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Dynamic3CommandExceptionType$$Type = ($Dynamic3CommandExceptionType);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Dynamic3CommandExceptionType$$Original = $Dynamic3CommandExceptionType;}
 declare module "com.mojang.brigadier.exceptions.Dynamic2CommandExceptionType" {
 import {$ImmutableStringReader$$Type} from "com.mojang.brigadier.ImmutableStringReader"
-import {$CommandExceptionType$$Interface} from "com.mojang.brigadier.exceptions.CommandExceptionType"
 import {$Dynamic2CommandExceptionType$Function$$Type} from "com.mojang.brigadier.exceptions.Dynamic2CommandExceptionType$Function"
+import {$CommandExceptionType$$Interface} from "com.mojang.brigadier.exceptions.CommandExceptionType"
 import {$CommandSyntaxException} from "com.mojang.brigadier.exceptions.CommandSyntaxException"
 
 export class $Dynamic2CommandExceptionType implements $CommandExceptionType$$Interface {
@@ -138,6 +118,26 @@ export type $Dynamic2CommandExceptionType$$Type = ($Dynamic2CommandExceptionType
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $Dynamic2CommandExceptionType$$Original = $Dynamic2CommandExceptionType;}
+declare module "com.mojang.brigadier.exceptions.Dynamic3CommandExceptionType$Function" {
+import {$Message, $Message$$Type} from "com.mojang.brigadier.Message"
+
+export interface $Dynamic3CommandExceptionType$Function$$Interface {
+
+(arg0: any, arg1: any, arg2: any): $Message$$Type
+}
+
+export class $Dynamic3CommandExceptionType$Function implements $Dynamic3CommandExceptionType$Function$$Interface {
+ "apply"(arg0: any, arg1: any, arg2: any): $Message
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Dynamic3CommandExceptionType$Function$$Type = ((arg0: any, arg1: any, arg2: any) => $Message$$Type);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Dynamic3CommandExceptionType$Function$$Original = $Dynamic3CommandExceptionType$Function;}
 declare module "com.mojang.brigadier.exceptions.CommandExceptionType" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $CommandExceptionType$$Interface {
@@ -163,33 +163,33 @@ export interface $BuiltInExceptionProvider$$Interface {
 }
 
 export class $BuiltInExceptionProvider implements $BuiltInExceptionProvider$$Interface {
- "readerExpectedBool"(): $SimpleCommandExceptionType
- "readerInvalidLong"(): $DynamicCommandExceptionType
- "readerInvalidInt"(): $DynamicCommandExceptionType
- "doubleTooLow"(): $Dynamic2CommandExceptionType
- "integerTooLow"(): $Dynamic2CommandExceptionType
- "floatTooLow"(): $Dynamic2CommandExceptionType
- "doubleTooHigh"(): $Dynamic2CommandExceptionType
- "floatTooHigh"(): $Dynamic2CommandExceptionType
- "literalIncorrect"(): $DynamicCommandExceptionType
- "readerInvalidBool"(): $DynamicCommandExceptionType
- "readerInvalidFloat"(): $DynamicCommandExceptionType
- "readerExpectedInt"(): $SimpleCommandExceptionType
- "readerExpectedLong"(): $SimpleCommandExceptionType
- "longTooHigh"(): $Dynamic2CommandExceptionType
- "integerTooHigh"(): $Dynamic2CommandExceptionType
- "longTooLow"(): $Dynamic2CommandExceptionType
- "dispatcherExpectedArgumentSeparator"(): $SimpleCommandExceptionType
+ "readerInvalidEscape"(): $DynamicCommandExceptionType
  "readerExpectedSymbol"(): $DynamicCommandExceptionType
  "dispatcherUnknownCommand"(): $SimpleCommandExceptionType
+ "readerExpectedEndOfQuote"(): $SimpleCommandExceptionType
+ "readerExpectedStartOfQuote"(): $SimpleCommandExceptionType
+ "readerInvalidDouble"(): $DynamicCommandExceptionType
+ "readerExpectedDouble"(): $SimpleCommandExceptionType
  "dispatcherUnknownArgument"(): $SimpleCommandExceptionType
  "dispatcherParseException"(): $DynamicCommandExceptionType
- "readerInvalidEscape"(): $DynamicCommandExceptionType
- "readerExpectedDouble"(): $SimpleCommandExceptionType
  "readerExpectedFloat"(): $SimpleCommandExceptionType
- "readerExpectedEndOfQuote"(): $SimpleCommandExceptionType
- "readerInvalidDouble"(): $DynamicCommandExceptionType
- "readerExpectedStartOfQuote"(): $SimpleCommandExceptionType
+ "literalIncorrect"(): $DynamicCommandExceptionType
+ "readerInvalidLong"(): $DynamicCommandExceptionType
+ "longTooHigh"(): $Dynamic2CommandExceptionType
+ "readerInvalidFloat"(): $DynamicCommandExceptionType
+ "readerInvalidInt"(): $DynamicCommandExceptionType
+ "readerExpectedBool"(): $SimpleCommandExceptionType
+ "floatTooLow"(): $Dynamic2CommandExceptionType
+ "doubleTooLow"(): $Dynamic2CommandExceptionType
+ "integerTooHigh"(): $Dynamic2CommandExceptionType
+ "readerInvalidBool"(): $DynamicCommandExceptionType
+ "doubleTooHigh"(): $Dynamic2CommandExceptionType
+ "floatTooHigh"(): $Dynamic2CommandExceptionType
+ "readerExpectedLong"(): $SimpleCommandExceptionType
+ "integerTooLow"(): $Dynamic2CommandExceptionType
+ "readerExpectedInt"(): $SimpleCommandExceptionType
+ "longTooLow"(): $Dynamic2CommandExceptionType
+ "dispatcherExpectedArgumentSeparator"(): $SimpleCommandExceptionType
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

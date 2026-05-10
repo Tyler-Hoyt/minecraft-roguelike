@@ -1,3 +1,40 @@
+declare module "com.mojang.blaze3d.font.SheetGlyphInfo" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+export interface $SheetGlyphInfo$$Interface {
+get "top"(): float
+get "left"(): float
+get "right"(): float
+get "colored"(): boolean
+get "bottom"(): float
+get "oversample"(): float
+get "bearingLeft"(): float
+get "bearingTop"(): float
+get "pixelHeight"(): integer
+get "pixelWidth"(): integer
+}
+
+export class $SheetGlyphInfo implements $SheetGlyphInfo$$Interface {
+ "getTop"(): float
+ "getLeft"(): float
+ "getRight"(): float
+ "isColored"(): boolean
+ "upload"(arg0: integer, arg1: integer): void
+ "getBottom"(): float
+ "getOversample"(): float
+ "getBearingLeft"(): float
+ "getBearingTop"(): float
+ "getPixelHeight"(): integer
+ "getPixelWidth"(): integer
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $SheetGlyphInfo$$Type = ($SheetGlyphInfo);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $SheetGlyphInfo$$Original = $SheetGlyphInfo;}
 declare module "com.mojang.blaze3d.font.GlyphProvider$Conditional" {
 import {$FontOption$Filter, $FontOption$Filter$$Type} from "net.minecraft.client.gui.font.FontOption$Filter"
 import {$AutoCloseable$$Interface} from "java.lang.AutoCloseable"
@@ -18,11 +55,38 @@ public "close"(): void
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $GlyphProvider$Conditional$$Type = ({"provider"?: $GlyphProvider$$Type, "filter"?: $FontOption$Filter$$Type}) | ([provider?: $GlyphProvider$$Type, filter?: $FontOption$Filter$$Type]);
+export type $GlyphProvider$Conditional$$Type = ({"filter"?: $FontOption$Filter$$Type, "provider"?: $GlyphProvider$$Type}) | ([filter?: $FontOption$Filter$$Type, provider?: $GlyphProvider$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $GlyphProvider$Conditional$$Original = $GlyphProvider$Conditional;}
+declare module "com.mojang.blaze3d.font.GlyphInfo" {
+import {$SheetGlyphInfo$$Type} from "com.mojang.blaze3d.font.SheetGlyphInfo"
+import {$BakedGlyph, $BakedGlyph$$Type} from "net.minecraft.client.gui.font.glyphs.BakedGlyph"
+import {$Function$$Type} from "java.util.function.Function"
+
+export interface $GlyphInfo$$Interface {
+get "advance"(): float
+get "shadowOffset"(): float
+get "boldOffset"(): float
+}
+
+export class $GlyphInfo implements $GlyphInfo$$Interface {
+ "getAdvance"(): float
+ "getAdvance"(arg0: boolean): float
+ "bake"(arg0: $Function$$Type<($SheetGlyphInfo), ($BakedGlyph$$Type)>): $BakedGlyph
+ "getShadowOffset"(): float
+ "getBoldOffset"(): float
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $GlyphInfo$$Type = ($GlyphInfo);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $GlyphInfo$$Original = $GlyphInfo;}
 declare module "com.mojang.blaze3d.font.GlyphProvider" {
 import {$IntSet, $IntSet$$Type} from "it.unimi.dsi.fastutil.ints.IntSet"
 import {$AutoCloseable$$Interface} from "java.lang.AutoCloseable"
@@ -50,67 +114,3 @@ export type $GlyphProvider$$Type = (() => $IntSet$$Type);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $GlyphProvider$$Original = $GlyphProvider;}
-declare module "com.mojang.blaze3d.font.SheetGlyphInfo" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-export interface $SheetGlyphInfo$$Interface {
-get "bottom"(): float
-get "left"(): float
-get "right"(): float
-get "colored"(): boolean
-get "pixelWidth"(): integer
-get "pixelHeight"(): integer
-get "bearingLeft"(): float
-get "oversample"(): float
-get "bearingTop"(): float
-get "top"(): float
-}
-
-export class $SheetGlyphInfo implements $SheetGlyphInfo$$Interface {
- "getBottom"(): float
- "getLeft"(): float
- "getRight"(): float
- "isColored"(): boolean
- "getPixelWidth"(): integer
- "getPixelHeight"(): integer
- "getBearingLeft"(): float
- "getOversample"(): float
- "getBearingTop"(): float
- "upload"(arg0: integer, arg1: integer): void
- "getTop"(): float
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $SheetGlyphInfo$$Type = ($SheetGlyphInfo);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $SheetGlyphInfo$$Original = $SheetGlyphInfo;}
-declare module "com.mojang.blaze3d.font.GlyphInfo" {
-import {$SheetGlyphInfo$$Type} from "com.mojang.blaze3d.font.SheetGlyphInfo"
-import {$BakedGlyph, $BakedGlyph$$Type} from "net.minecraft.client.gui.font.glyphs.BakedGlyph"
-import {$Function$$Type} from "java.util.function.Function"
-
-export interface $GlyphInfo$$Interface {
-get "boldOffset"(): float
-get "advance"(): float
-get "shadowOffset"(): float
-}
-
-export class $GlyphInfo implements $GlyphInfo$$Interface {
- "bake"(arg0: $Function$$Type<($SheetGlyphInfo), ($BakedGlyph$$Type)>): $BakedGlyph
- "getBoldOffset"(): float
- "getAdvance"(arg0: boolean): float
- "getAdvance"(): float
- "getShadowOffset"(): float
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $GlyphInfo$$Type = ($GlyphInfo);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $GlyphInfo$$Original = $GlyphInfo;}

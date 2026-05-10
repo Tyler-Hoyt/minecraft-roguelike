@@ -1,68 +1,3 @@
-declare module "java.util.concurrent.atomic.AtomicInteger" {
-import {$IntUnaryOperator$$Type} from "java.util.function.IntUnaryOperator"
-import {$Serializable$$Interface} from "java.io.Serializable"
-import {$IntBinaryOperator$$Type} from "java.util.function.IntBinaryOperator"
-
-export class $AtomicInteger extends number implements $Serializable$$Interface {
-constructor(arg0: integer)
-constructor()
-
-public "get"(): integer
-public "toString"(): StringJS
-public "intValue"(): integer
-public "longValue"(): long
-public "floatValue"(): float
-public "doubleValue"(): double
-public "set"(arg0: integer): void
-public "getOpaque"(): integer
-public "setOpaque"(arg0: integer): void
-public "getAcquire"(): integer
-public "setRelease"(arg0: integer): void
-public "compareAndSet"(arg0: integer, arg1: integer): boolean
-public "compareAndExchange"(arg0: integer, arg1: integer): integer
-public "compareAndExchangeAcquire"(arg0: integer, arg1: integer): integer
-public "compareAndExchangeRelease"(arg0: integer, arg1: integer): integer
-public "weakCompareAndSetPlain"(arg0: integer, arg1: integer): boolean
-/**
- * 
- * @deprecated
- */
-public "weakCompareAndSet"(arg0: integer, arg1: integer): boolean
-public "weakCompareAndSetAcquire"(arg0: integer, arg1: integer): boolean
-public "weakCompareAndSetRelease"(arg0: integer, arg1: integer): boolean
-public "getAndSet"(arg0: integer): integer
-public "getAndAdd"(arg0: integer): integer
-public "lazySet"(arg0: integer): void
-public "incrementAndGet"(): integer
-public "weakCompareAndSetVolatile"(arg0: integer, arg1: integer): boolean
-public "getAndIncrement"(): integer
-public "getAndDecrement"(): integer
-public "decrementAndGet"(): integer
-public "addAndGet"(arg0: integer): integer
-public "getAndUpdate"(arg0: $IntUnaryOperator$$Type): integer
-public "updateAndGet"(arg0: $IntUnaryOperator$$Type): integer
-public "getAndAccumulate"(arg0: integer, arg1: $IntBinaryOperator$$Type): integer
-public "accumulateAndGet"(arg0: integer, arg1: $IntBinaryOperator$$Type): integer
-public "getPlain"(): integer
-public "setPlain"(arg0: integer): void
-get "opaque"(): integer
-set "opaque"(value: integer)
-get "acquire"(): integer
-set "release"(value: integer)
-get "andIncrement"(): integer
-get "andDecrement"(): integer
-get "plain"(): integer
-set "plain"(value: integer)
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $AtomicInteger$$Type = ($AtomicInteger);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $AtomicInteger$$Original = $AtomicInteger;}
 declare module "java.util.concurrent.atomic.AtomicReference" {
 import {$UnaryOperator$$Type} from "java.util.function.UnaryOperator"
 import {$Serializable$$Interface} from "java.io.Serializable"
@@ -164,3 +99,115 @@ export type $AtomicReferenceArray$$Type<E> = ($AtomicReferenceArray<(E)>);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $AtomicReferenceArray$$Original<E> = $AtomicReferenceArray<(E)>;}
+declare module "java.util.concurrent.atomic.AtomicInteger" {
+import {$IntUnaryOperator$$Type} from "java.util.function.IntUnaryOperator"
+import {$Serializable$$Interface} from "java.io.Serializable"
+import {$IntBinaryOperator$$Type} from "java.util.function.IntBinaryOperator"
+
+export class $AtomicInteger extends number implements $Serializable$$Interface {
+constructor(arg0: integer)
+constructor()
+
+public "get"(): integer
+public "toString"(): StringJS
+public "intValue"(): integer
+public "longValue"(): long
+public "floatValue"(): float
+public "doubleValue"(): double
+public "set"(arg0: integer): void
+public "getOpaque"(): integer
+public "setOpaque"(arg0: integer): void
+public "getAcquire"(): integer
+public "setRelease"(arg0: integer): void
+public "compareAndSet"(arg0: integer, arg1: integer): boolean
+public "compareAndExchange"(arg0: integer, arg1: integer): integer
+public "compareAndExchangeAcquire"(arg0: integer, arg1: integer): integer
+public "compareAndExchangeRelease"(arg0: integer, arg1: integer): integer
+public "weakCompareAndSetPlain"(arg0: integer, arg1: integer): boolean
+/**
+ * 
+ * @deprecated
+ */
+public "weakCompareAndSet"(arg0: integer, arg1: integer): boolean
+public "weakCompareAndSetAcquire"(arg0: integer, arg1: integer): boolean
+public "weakCompareAndSetRelease"(arg0: integer, arg1: integer): boolean
+public "getAndSet"(arg0: integer): integer
+public "getAndAdd"(arg0: integer): integer
+public "lazySet"(arg0: integer): void
+public "incrementAndGet"(): integer
+public "weakCompareAndSetVolatile"(arg0: integer, arg1: integer): boolean
+public "getAndIncrement"(): integer
+public "getAndDecrement"(): integer
+public "decrementAndGet"(): integer
+public "addAndGet"(arg0: integer): integer
+public "getAndUpdate"(arg0: $IntUnaryOperator$$Type): integer
+public "updateAndGet"(arg0: $IntUnaryOperator$$Type): integer
+public "getAndAccumulate"(arg0: integer, arg1: $IntBinaryOperator$$Type): integer
+public "accumulateAndGet"(arg0: integer, arg1: $IntBinaryOperator$$Type): integer
+public "getPlain"(): integer
+public "setPlain"(arg0: integer): void
+get "opaque"(): integer
+set "opaque"(value: integer)
+get "acquire"(): integer
+set "release"(value: integer)
+get "andIncrement"(): integer
+get "andDecrement"(): integer
+get "plain"(): integer
+set "plain"(value: integer)
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $AtomicInteger$$Type = ($AtomicInteger);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $AtomicInteger$$Original = $AtomicInteger;}
+declare module "java.util.concurrent.atomic.AtomicBoolean" {
+import {$Serializable$$Interface} from "java.io.Serializable"
+
+export class $AtomicBoolean implements $Serializable$$Interface {
+constructor(arg0: boolean)
+constructor()
+
+public "get"(): boolean
+public "toString"(): StringJS
+public "set"(arg0: boolean): void
+public "getOpaque"(): boolean
+public "setOpaque"(arg0: boolean): void
+public "getAcquire"(): boolean
+public "setRelease"(arg0: boolean): void
+public "compareAndSet"(arg0: boolean, arg1: boolean): boolean
+public "compareAndExchange"(arg0: boolean, arg1: boolean): boolean
+public "compareAndExchangeAcquire"(arg0: boolean, arg1: boolean): boolean
+public "compareAndExchangeRelease"(arg0: boolean, arg1: boolean): boolean
+public "weakCompareAndSetPlain"(arg0: boolean, arg1: boolean): boolean
+/**
+ * 
+ * @deprecated
+ */
+public "weakCompareAndSet"(arg0: boolean, arg1: boolean): boolean
+public "weakCompareAndSetAcquire"(arg0: boolean, arg1: boolean): boolean
+public "weakCompareAndSetRelease"(arg0: boolean, arg1: boolean): boolean
+public "getAndSet"(arg0: boolean): boolean
+public "lazySet"(arg0: boolean): void
+public "weakCompareAndSetVolatile"(arg0: boolean, arg1: boolean): boolean
+public "getPlain"(): boolean
+public "setPlain"(arg0: boolean): void
+get "opaque"(): boolean
+set "opaque"(value: boolean)
+get "acquire"(): boolean
+set "release"(value: boolean)
+get "plain"(): boolean
+set "plain"(value: boolean)
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $AtomicBoolean$$Type = ($AtomicBoolean);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $AtomicBoolean$$Original = $AtomicBoolean;}

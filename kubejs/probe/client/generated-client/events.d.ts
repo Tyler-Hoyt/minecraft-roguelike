@@ -1,6 +1,5 @@
 import {$BlockRightClickedKubeEvent} from "dev.latvian.mods.kubejs.block.BlockRightClickedKubeEvent"
 import {$ParticleProviderRegistryKubeEvent} from "dev.latvian.mods.kubejs.client.ParticleProviderRegistryKubeEvent"
-import {$KubeJSCuriosEventJS$CurioCanEquip} from "net.zhaiji.kubejscurios.kubejs.KubeJSCuriosEventJS$CurioCanEquip"
 import {$BlockStoppedFallingKubeEvent} from "dev.latvian.mods.kubejs.block.BlockStoppedFallingKubeEvent"
 import {$KubeJSKeybinds$TickingKeyEvent} from "dev.latvian.mods.kubejs.client.KubeJSKeybinds$TickingKeyEvent"
 import {$ExplosionKubeEvent$After} from "dev.latvian.mods.kubejs.level.ExplosionKubeEvent$After"
@@ -14,8 +13,8 @@ import {$AddEntriesKubeEvent} from "dev.latvian.mods.kubejs.recipe.viewer.AddEnt
 import {$BlockLeftClickedKubeEvent} from "dev.latvian.mods.kubejs.block.BlockLeftClickedKubeEvent"
 import {$AfterLivingEntityHurtKubeEvent} from "dev.latvian.mods.kubejs.entity.AfterLivingEntityHurtKubeEvent"
 import {$LivingEntityDeathKubeEvent} from "dev.latvian.mods.kubejs.entity.LivingEntityDeathKubeEvent"
-import {$RemoveEntriesKubeEvent} from "dev.latvian.mods.kubejs.recipe.viewer.RemoveEntriesKubeEvent"
 import {$EntityType} from "net.minecraft.world.entity.EntityType"
+import {$RemoveEntriesKubeEvent} from "dev.latvian.mods.kubejs.recipe.viewer.RemoveEntriesKubeEvent"
 import {$ItemCraftedKubeEvent} from "dev.latvian.mods.kubejs.item.ItemCraftedKubeEvent"
 import {$BeforeLivingEntityHurtKubeEvent} from "dev.latvian.mods.kubejs.entity.BeforeLivingEntityHurtKubeEvent"
 import {$AddInformationKubeEvent} from "dev.latvian.mods.kubejs.recipe.viewer.AddInformationKubeEvent"
@@ -27,42 +26,38 @@ import {$DetectorBlockKubeEvent} from "dev.latvian.mods.kubejs.block.DetectorBlo
 import {$ItemDestroyedKubeEvent} from "dev.latvian.mods.kubejs.item.ItemDestroyedKubeEvent"
 import {$NetworkKubeEvent} from "dev.latvian.mods.kubejs.net.NetworkKubeEvent"
 import {$SnippetGenerationEventJS} from "moe.wolfgirl.probejs.events.SnippetGenerationEventJS"
-import {$BlockBrokenKubeEvent} from "dev.latvian.mods.kubejs.block.BlockBrokenKubeEvent"
 import {$KubeAssetGenerator} from "dev.latvian.mods.kubejs.generator.KubeAssetGenerator"
+import {$BlockBrokenKubeEvent} from "dev.latvian.mods.kubejs.block.BlockBrokenKubeEvent"
 import {$ItemPickedUpKubeEvent} from "dev.latvian.mods.kubejs.item.ItemPickedUpKubeEvent"
 import {$Level} from "net.minecraft.world.level.Level"
 import {$HighlightKubeEvent} from "dev.latvian.mods.kubejs.client.highlight.HighlightKubeEvent"
-import {$KubeJSCuriosEventJS$CurioCanUnequip} from "net.zhaiji.kubejscurios.kubejs.KubeJSCuriosEventJS$CurioCanUnequip"
 import {$BlockEntityTickKubeEvent} from "dev.latvian.mods.kubejs.block.entity.BlockEntityTickKubeEvent"
 import {$String} from "java.lang.String"
 import {$ClientPlayerKubeEvent} from "dev.latvian.mods.kubejs.client.ClientPlayerKubeEvent"
 import {$RemoveRecipesKubeEvent} from "dev.latvian.mods.kubejs.recipe.viewer.RemoveRecipesKubeEvent"
 import {$TypingModificationEventJS} from "moe.wolfgirl.probejs.events.TypingModificationEventJS"
 import {$ResourceLocation} from "net.minecraft.resources.ResourceLocation"
-import {$KubeJSCuriosEventJS$SlotModifiersUpdated} from "net.zhaiji.kubejscurios.kubejs.KubeJSCuriosEventJS$SlotModifiersUpdated"
 import {$EntitySpawnedKubeEvent} from "dev.latvian.mods.kubejs.entity.EntitySpawnedKubeEvent"
 import {$Item} from "net.minecraft.world.item.Item"
 import {$RemoveCategoriesKubeEvent} from "dev.latvian.mods.kubejs.recipe.viewer.RemoveCategoriesKubeEvent"
 import {$ResourceKey$$Type} from "net.minecraft.resources.ResourceKey"
-import {$StageChangedEvent} from "dev.latvian.mods.kubejs.player.StageChangedEvent"
 import {$AtlasSpriteRegistryKubeEvent} from "dev.latvian.mods.kubejs.client.AtlasSpriteRegistryKubeEvent"
+import {$StageChangedEvent} from "dev.latvian.mods.kubejs.player.StageChangedEvent"
 import {$ModifyItemTooltipsKubeEvent} from "dev.latvian.mods.kubejs.item.ModifyItemTooltipsKubeEvent"
 import {$InventoryChangedKubeEvent} from "dev.latvian.mods.kubejs.player.InventoryChangedKubeEvent"
-import {$KubeJSKeybinds$KeyEvent} from "dev.latvian.mods.kubejs.client.KubeJSKeybinds$KeyEvent"
 import {$LivingEntityDropsKubeEvent} from "dev.latvian.mods.kubejs.entity.LivingEntityDropsKubeEvent"
+import {$KubeJSKeybinds$KeyEvent} from "dev.latvian.mods.kubejs.client.KubeJSKeybinds$KeyEvent"
 import {$DebugInfoKubeEvent} from "dev.latvian.mods.kubejs.client.DebugInfoKubeEvent"
 import {$BlockStartedFallingKubeEvent} from "dev.latvian.mods.kubejs.block.BlockStartedFallingKubeEvent"
 import {$SimplePlayerKubeEvent} from "dev.latvian.mods.kubejs.player.SimplePlayerKubeEvent"
 import {$BlockPlacedKubeEvent} from "dev.latvian.mods.kubejs.block.BlockPlacedKubeEvent"
-import {$Block} from "net.minecraft.world.level.block.Block"
 import {$GeneratedDataStage} from "dev.latvian.mods.kubejs.script.data.GeneratedDataStage"
-import {$KubeJSCuriosEventJS$CurioAttributeModifier} from "net.zhaiji.kubejscurios.kubejs.KubeJSCuriosEventJS$CurioAttributeModifier"
+import {$Block} from "net.minecraft.world.level.block.Block"
 import {$LangKubeEvent} from "dev.latvian.mods.kubejs.client.LangKubeEvent"
-import {$ItemEntityInteractedKubeEvent} from "dev.latvian.mods.kubejs.item.ItemEntityInteractedKubeEvent"
 import {$ItemDroppedKubeEvent} from "dev.latvian.mods.kubejs.item.ItemDroppedKubeEvent"
+import {$ItemEntityInteractedKubeEvent} from "dev.latvian.mods.kubejs.item.ItemEntityInteractedKubeEvent"
 import {$ItemClickedKubeEvent} from "dev.latvian.mods.kubejs.item.ItemClickedKubeEvent"
 import {$MenuType} from "net.minecraft.world.inventory.MenuType"
-import {$KubeJSCuriosEventJS$registerRenderer} from "net.zhaiji.kubejscurios.kubejs.KubeJSCuriosEventJS$registerRenderer"
 import {$GroupEntriesKubeEvent} from "dev.latvian.mods.kubejs.recipe.viewer.GroupEntriesKubeEvent"
 import {$ExplosionKubeEvent$Before} from "dev.latvian.mods.kubejs.level.ExplosionKubeEvent$Before"
 import {$BlockPickedKubeEvent} from "dev.latvian.mods.kubejs.block.BlockPickedKubeEvent"
@@ -275,13 +270,6 @@ export namespace KeyBindEvents {
 function pressed(extra: $String$$Type, handler: (event: $KubeJSKeybinds$KeyEvent) => void): void
 function tick(extra: $String$$Type, handler: (event: $KubeJSKeybinds$TickingKeyEvent) => void): void
 function released(extra: $String$$Type, handler: (event: $KubeJSKeybinds$TickingKeyEvent) => void): void
-}
-export namespace CuriosJSEvents {
-function canUnequip(handler: (event: $KubeJSCuriosEventJS$CurioCanUnequip) => void): void
-function canEquip(handler: (event: $KubeJSCuriosEventJS$CurioCanEquip) => void): void
-function attributeModifier(handler: (event: $KubeJSCuriosEventJS$CurioAttributeModifier) => void): void
-function registerRenderer(handler: (event: $KubeJSCuriosEventJS$registerRenderer) => void): void
-function slotModifiersUpdated(handler: (event: $KubeJSCuriosEventJS$SlotModifiersUpdated) => void): void
 }
 export namespace ClientEvents {
 /**

@@ -17,19 +17,19 @@ constructor(nutrition: integer, saturation: float, canAlwaysEat: boolean, eatSec
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
+public "usingConvertsTo"(): $Optional<($ItemStack)>
+public "eatDurationTicks"(): integer
+public "canAlwaysEat"(): boolean
+public "saturation"(): float
 public "nutrition"(): integer
 public "effects"(): $List<($FoodProperties$PossibleEffect)>
-public "usingConvertsTo"(): $Optional<($ItemStack)>
-public "canAlwaysEat"(): boolean
 public "eatSeconds"(): float
-public "saturation"(): float
-public "eatDurationTicks"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $FoodProperties$$Type = ({"effects"?: $List$$Type<($FoodProperties$PossibleEffect$$Type)>, "saturation"?: float, "nutrition"?: integer, "canAlwaysEat"?: boolean, "usingConvertsTo"?: ($ItemStack$$Type)?, "eatSeconds"?: float}) | ([effects?: $List$$Type<($FoodProperties$PossibleEffect$$Type)>, saturation?: float, nutrition?: integer, canAlwaysEat?: boolean, usingConvertsTo?: ($ItemStack$$Type)?, eatSeconds?: float]);
+export type $FoodProperties$$Type = ({"canAlwaysEat"?: boolean, "usingConvertsTo"?: ($ItemStack$$Type)?, "eatSeconds"?: float, "effects"?: $List$$Type<($FoodProperties$PossibleEffect$$Type)>, "saturation"?: float, "nutrition"?: integer}) | ([canAlwaysEat?: boolean, usingConvertsTo?: ($ItemStack$$Type)?, eatSeconds?: float, effects?: $List$$Type<($FoodProperties$PossibleEffect$$Type)>, saturation?: float, nutrition?: integer]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -40,31 +40,29 @@ import {$CompoundTag$$Type} from "net.minecraft.nbt.CompoundTag"
 import {$FoodProperties$$Type} from "net.minecraft.world.food.FoodProperties"
 
 export class $FoodData {
- "saturationLevel": float
-
 constructor()
 
-public "add"(arg0: integer, arg1: float): void
 public "tick"(arg0: $Player$$Type): void
+public "addExhaustion"(arg0: float): void
+public "needsFood"(): boolean
+public "eat"(arg0: $FoodProperties$$Type): void
+public "eat"(arg0: integer, arg1: float): void
+public "setSaturation"(arg0: float): void
+public "setFoodLevel"(arg0: integer): void
 public "getSaturationLevel"(): float
 public "getFoodLevel"(): integer
-public "setFoodLevel"(arg0: integer): void
-public "setSaturation"(arg0: float): void
-public "addExhaustion"(arg0: float): void
-public "eat"(arg0: integer, arg1: float): void
-public "eat"(arg0: $FoodProperties$$Type): void
-public "needsFood"(): boolean
-public "getLastFoodLevel"(): integer
+public "addAdditionalSaveData"(arg0: $CompoundTag$$Type): void
+public "readAdditionalSaveData"(arg0: $CompoundTag$$Type): void
 public "getExhaustionLevel"(): float
 public "setExhaustion"(arg0: float): void
-public "readAdditionalSaveData"(arg0: $CompoundTag$$Type): void
-public "addAdditionalSaveData"(arg0: $CompoundTag$$Type): void
-get "foodLevel"(): integer
-set "foodLevel"(value: integer)
+public "getLastFoodLevel"(): integer
 set "saturation"(value: float)
-get "lastFoodLevel"(): integer
+set "foodLevel"(value: integer)
+get "saturationLevel"(): float
+get "foodLevel"(): integer
 get "exhaustionLevel"(): float
 set "exhaustion"(value: float)
+get "lastFoodLevel"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

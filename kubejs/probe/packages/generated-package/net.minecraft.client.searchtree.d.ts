@@ -1,6 +1,6 @@
 declare module "net.minecraft.client.searchtree.SearchTree" {
-import {$Function$$Type} from "java.util.function.Function"
 import {$List, $List$$Type} from "java.util.List"
+import {$Function$$Type} from "java.util.function.Function"
 import {$Stream$$Type} from "java.util.stream.Stream"
 
 export interface $SearchTree$$Interface<T> {

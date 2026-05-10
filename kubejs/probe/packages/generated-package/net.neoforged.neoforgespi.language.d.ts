@@ -100,27 +100,27 @@ import {$VersionRange} from "org.apache.maven.artifact.versioning.VersionRange"
 import {$IModInfo, $IModInfo$$Type} from "net.neoforged.neoforgespi.language.IModInfo"
 
 export interface $IModInfo$ModVersion$$Interface {
+get "reason"(): $Optional<(StringJS)>
 get "type"(): $IModInfo$DependencyType
 get "owner"(): $IModInfo
 set "owner"(value: $IModInfo$$Type)
-get "modId"(): StringJS
 get "side"(): $IModInfo$DependencySide
+get "modId"(): StringJS
 get "referralURL"(): $Optional<($URL)>
 get "versionRange"(): $VersionRange
 get "ordering"(): $IModInfo$Ordering
-get "reason"(): $Optional<(StringJS)>
 }
 
 export class $IModInfo$ModVersion implements $IModInfo$ModVersion$$Interface {
+ "getReason"(): $Optional<(StringJS)>
  "getType"(): $IModInfo$DependencyType
  "getOwner"(): $IModInfo
  "setOwner"(arg0: $IModInfo$$Type): void
- "getModId"(): StringJS
  "getSide"(): $IModInfo$DependencySide
+ "getModId"(): StringJS
  "getReferralURL"(): $Optional<($URL)>
  "getVersionRange"(): $VersionRange
  "getOrdering"(): $IModInfo$Ordering
- "getReason"(): $Optional<(StringJS)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -153,7 +153,7 @@ public "memberName"(): StringJS
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $ModFileScanData$AnnotationData$$Type = ({"memberName"?: StringJS, "targetType"?: $ElementType$$Type, "annotationType"?: $Type$$Type, "annotationData"?: $Map$$Type<(StringJS), (any)>, "clazz"?: $Type$$Type}) | ([memberName?: StringJS, targetType?: $ElementType$$Type, annotationType?: $Type$$Type, annotationData?: $Map$$Type<(StringJS), (any)>, clazz?: $Type$$Type]);
+export type $ModFileScanData$AnnotationData$$Type = ({"clazz"?: $Type$$Type, "memberName"?: StringJS, "targetType"?: $ElementType$$Type, "annotationType"?: $Type$$Type, "annotationData"?: $Map$$Type<(StringJS), (any)>}) | ([clazz?: $Type$$Type, memberName?: StringJS, targetType?: $ElementType$$Type, annotationType?: $Type$$Type, annotationData?: $Map$$Type<(StringJS), (any)>]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -178,110 +178,19 @@ export type $IModInfo$Ordering$$Type = (("before") | ("after") | ("none"));
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $IModInfo$Ordering$$Original = $IModInfo$Ordering;}
-declare module "net.neoforged.neoforgespi.language.IModInfo" {
-import {$ArtifactVersion} from "org.apache.maven.artifact.versioning.ArtifactVersion"
-import {$Map} from "java.util.Map"
-import {$IModFileInfo} from "net.neoforged.neoforgespi.language.IModFileInfo"
-import {$Optional} from "java.util.Optional"
-import {$IModInfo$ModVersion} from "net.neoforged.neoforgespi.language.IModInfo$ModVersion"
-import {$IConfigurable} from "net.neoforged.neoforgespi.language.IConfigurable"
-import {$List} from "java.util.List"
-import {$URL} from "java.net.URL"
-import {$ForgeFeature$Bound} from "net.neoforged.neoforgespi.locating.ForgeFeature$Bound"
-import {$VersionRange} from "org.apache.maven.artifact.versioning.VersionRange"
-import {$IModLanguageLoader} from "net.neoforged.neoforgespi.language.IModLanguageLoader"
-
-export interface $IModInfo$$Interface {
-get "loader"(): $IModLanguageLoader
-get "displayName"(): StringJS
-get "version"(): $ArtifactVersion
-get "modProperties"(): $Map<(StringJS), (any)>
-get "updateURL"(): $Optional<($URL)>
-get "logoBlur"(): boolean
-get "owningFile"(): $IModFileInfo
-get "forgeFeatures"(): $List<($ForgeFeature$Bound)>
-get "dependencies"(): $List<($IModInfo$ModVersion)>
-get "logoFile"(): $Optional<(StringJS)>
-get "namespace"(): StringJS
-get "modId"(): StringJS
-get "modURL"(): $Optional<($URL)>
-get "config"(): $IConfigurable
-get "description"(): StringJS
-}
-
-export class $IModInfo implements $IModInfo$$Interface {
-static readonly "UNBOUNDED": $VersionRange
-
- "getLoader"(): $IModLanguageLoader
- "getDisplayName"(): StringJS
- "getVersion"(): $ArtifactVersion
- "getModProperties"(): $Map<(StringJS), (any)>
- "getUpdateURL"(): $Optional<($URL)>
- "getLogoBlur"(): boolean
- "getOwningFile"(): $IModFileInfo
- "getForgeFeatures"(): $List<($ForgeFeature$Bound)>
- "getDependencies"(): $List<($IModInfo$ModVersion)>
- "getLogoFile"(): $Optional<(StringJS)>
- "getNamespace"(): StringJS
- "getModId"(): StringJS
- "getModURL"(): $Optional<($URL)>
- "getConfig"(): $IConfigurable
- "getDescription"(): StringJS
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $IModInfo$$Type = ($IModInfo);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $IModInfo$$Original = $IModInfo;}
-declare module "net.neoforged.neoforgespi.language.ModFileScanData" {
-import {$IModFileInfo, $IModFileInfo$$Type} from "net.neoforged.neoforgespi.language.IModFileInfo"
-import {$Annotation$$Type} from "java.lang.annotation.Annotation"
-import {$List} from "java.util.List"
-import {$Class$$Type} from "java.lang.Class"
-import {$Set} from "java.util.Set"
-import {$ModFileScanData$ClassData} from "net.neoforged.neoforgespi.language.ModFileScanData$ClassData"
-import {$Stream} from "java.util.stream.Stream"
-import {$ModFileScanData$AnnotationData} from "net.neoforged.neoforgespi.language.ModFileScanData$AnnotationData"
-import {$ElementType$$Type} from "java.lang.annotation.ElementType"
-
-export class $ModFileScanData {
-constructor()
-
-public "getClasses"(): $Set<($ModFileScanData$ClassData)>
-public "getAnnotations"(): $Set<($ModFileScanData$AnnotationData)>
-public "getAnnotatedBy"(arg0: $Class$$Type<($Annotation$$Type)>, arg1: $ElementType$$Type): $Stream<($ModFileScanData$AnnotationData)>
-public "addModFileInfo"(arg0: $IModFileInfo$$Type): void
-public "getIModInfoData"(): $List<($IModFileInfo)>
-get "classes"(): $Set<($ModFileScanData$ClassData)>
-get "annotations"(): $Set<($ModFileScanData$AnnotationData)>
-get "IModInfoData"(): $List<($IModFileInfo)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ModFileScanData$$Type = ($ModFileScanData);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ModFileScanData$$Original = $ModFileScanData;}
 declare module "net.neoforged.neoforgespi.language.IModFileInfo" {
 import {$Map} from "java.util.Map"
 import {$IModFileInfo$LanguageSpec} from "net.neoforged.neoforgespi.language.IModFileInfo$LanguageSpec"
 import {$IModFile} from "net.neoforged.neoforgespi.locating.IModFile"
-import {$IConfigurable} from "net.neoforged.neoforgespi.language.IConfigurable"
 import {$List} from "java.util.List"
+import {$IConfigurable} from "net.neoforged.neoforgespi.language.IConfigurable"
 import {$IModInfo} from "net.neoforged.neoforgespi.language.IModInfo"
 
 export interface $IModFileInfo$$Interface {
 get "file"(): $IModFile
 get "fileProperties"(): $Map<(StringJS), (any)>
-get "license"(): StringJS
 get "mods"(): $List<($IModInfo)>
+get "license"(): StringJS
 get "config"(): $IConfigurable
 }
 
@@ -292,10 +201,10 @@ export class $IModFileInfo implements $IModFileInfo$$Interface {
  "showAsDataPack"(): boolean
  "getFileProperties"(): $Map<(StringJS), (any)>
  "usesServices"(): $List<(StringJS)>
- "getLicense"(): StringJS
  "getMods"(): $List<($IModInfo)>
- "requiredLanguageLoaders"(): $List<($IModFileInfo$LanguageSpec)>
+ "getLicense"(): StringJS
  "getConfig"(): $IConfigurable
+ "requiredLanguageLoaders"(): $List<($IModFileInfo$LanguageSpec)>
  "versionString"(): StringJS
 }
 /**
@@ -348,8 +257,99 @@ public "acceptedVersions"(): $VersionRange
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $IModFileInfo$LanguageSpec$$Type = ({"acceptedVersions"?: $VersionRange$$Type, "languageName"?: StringJS}) | ([acceptedVersions?: $VersionRange$$Type, languageName?: StringJS]);
+export type $IModFileInfo$LanguageSpec$$Type = ({"languageName"?: StringJS, "acceptedVersions"?: $VersionRange$$Type}) | ([languageName?: StringJS, acceptedVersions?: $VersionRange$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $IModFileInfo$LanguageSpec$$Original = $IModFileInfo$LanguageSpec;}
+declare module "net.neoforged.neoforgespi.language.IModInfo" {
+import {$ArtifactVersion} from "org.apache.maven.artifact.versioning.ArtifactVersion"
+import {$Map} from "java.util.Map"
+import {$IModFileInfo} from "net.neoforged.neoforgespi.language.IModFileInfo"
+import {$Optional} from "java.util.Optional"
+import {$IModInfo$ModVersion} from "net.neoforged.neoforgespi.language.IModInfo$ModVersion"
+import {$List} from "java.util.List"
+import {$IConfigurable} from "net.neoforged.neoforgespi.language.IConfigurable"
+import {$URL} from "java.net.URL"
+import {$VersionRange} from "org.apache.maven.artifact.versioning.VersionRange"
+import {$ForgeFeature$Bound} from "net.neoforged.neoforgespi.locating.ForgeFeature$Bound"
+import {$IModLanguageLoader} from "net.neoforged.neoforgespi.language.IModLanguageLoader"
+
+export interface $IModInfo$$Interface {
+get "description"(): StringJS
+get "loader"(): $IModLanguageLoader
+get "displayName"(): StringJS
+get "version"(): $ArtifactVersion
+get "namespace"(): StringJS
+get "modId"(): StringJS
+get "config"(): $IConfigurable
+get "owningFile"(): $IModFileInfo
+get "dependencies"(): $List<($IModInfo$ModVersion)>
+get "logoFile"(): $Optional<(StringJS)>
+get "forgeFeatures"(): $List<($ForgeFeature$Bound)>
+get "logoBlur"(): boolean
+get "modProperties"(): $Map<(StringJS), (any)>
+get "updateURL"(): $Optional<($URL)>
+get "modURL"(): $Optional<($URL)>
+}
+
+export class $IModInfo implements $IModInfo$$Interface {
+static readonly "UNBOUNDED": $VersionRange
+
+ "getDescription"(): StringJS
+ "getLoader"(): $IModLanguageLoader
+ "getDisplayName"(): StringJS
+ "getVersion"(): $ArtifactVersion
+ "getNamespace"(): StringJS
+ "getModId"(): StringJS
+ "getConfig"(): $IConfigurable
+ "getOwningFile"(): $IModFileInfo
+ "getDependencies"(): $List<($IModInfo$ModVersion)>
+ "getLogoFile"(): $Optional<(StringJS)>
+ "getForgeFeatures"(): $List<($ForgeFeature$Bound)>
+ "getLogoBlur"(): boolean
+ "getModProperties"(): $Map<(StringJS), (any)>
+ "getUpdateURL"(): $Optional<($URL)>
+ "getModURL"(): $Optional<($URL)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $IModInfo$$Type = ($IModInfo);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $IModInfo$$Original = $IModInfo;}
+declare module "net.neoforged.neoforgespi.language.ModFileScanData" {
+import {$IModFileInfo, $IModFileInfo$$Type} from "net.neoforged.neoforgespi.language.IModFileInfo"
+import {$Annotation$$Type} from "java.lang.annotation.Annotation"
+import {$List} from "java.util.List"
+import {$Set} from "java.util.Set"
+import {$Class$$Type} from "java.lang.Class"
+import {$Stream} from "java.util.stream.Stream"
+import {$ModFileScanData$ClassData} from "net.neoforged.neoforgespi.language.ModFileScanData$ClassData"
+import {$ModFileScanData$AnnotationData} from "net.neoforged.neoforgespi.language.ModFileScanData$AnnotationData"
+import {$ElementType$$Type} from "java.lang.annotation.ElementType"
+
+export class $ModFileScanData {
+constructor()
+
+public "getClasses"(): $Set<($ModFileScanData$ClassData)>
+public "getAnnotations"(): $Set<($ModFileScanData$AnnotationData)>
+public "getAnnotatedBy"(arg0: $Class$$Type<($Annotation$$Type)>, arg1: $ElementType$$Type): $Stream<($ModFileScanData$AnnotationData)>
+public "addModFileInfo"(arg0: $IModFileInfo$$Type): void
+public "getIModInfoData"(): $List<($IModFileInfo)>
+get "classes"(): $Set<($ModFileScanData$ClassData)>
+get "annotations"(): $Set<($ModFileScanData$AnnotationData)>
+get "IModInfoData"(): $List<($IModFileInfo)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ModFileScanData$$Type = ($ModFileScanData);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ModFileScanData$$Original = $ModFileScanData;}

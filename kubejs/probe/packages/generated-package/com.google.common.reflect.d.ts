@@ -35,23 +35,6 @@ export type $Parameter$$Type = ($Parameter);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $Parameter$$Original = $Parameter;}
-declare module "com.google.common.reflect.TypeParameter" {
-import {$TypeCapture} from "com.google.common.reflect.TypeCapture"
-
-export class $TypeParameter<T> extends $TypeCapture<(T)> {
-public "equals"(o: any): boolean
-public "toString"(): StringJS
-public "hashCode"(): integer
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $TypeParameter$$Type<T> = ($TypeParameter<(T)>);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $TypeParameter$$Original<T> = $TypeParameter<(T)>;}
 declare module "com.google.common.reflect.TypeCapture" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export class $TypeCapture<T> {
@@ -115,6 +98,23 @@ export type $TypeToken$TypeSet$$Type = ($TypeToken$TypeSet);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $TypeToken$TypeSet$$Original = $TypeToken$TypeSet;}
+declare module "com.google.common.reflect.TypeParameter" {
+import {$TypeCapture} from "com.google.common.reflect.TypeCapture"
+
+export class $TypeParameter<T> extends $TypeCapture<(T)> {
+public "equals"(o: any): boolean
+public "toString"(): StringJS
+public "hashCode"(): integer
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $TypeParameter$$Type<T> = ($TypeParameter<(T)>);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $TypeParameter$$Original<T> = $TypeParameter<(T)>;}
 declare module "com.google.common.reflect.Invokable" {
 import {$ImmutableList} from "com.google.common.collect.ImmutableList"
 import {$AccessFlag} from "java.lang.reflect.AccessFlag"
@@ -163,11 +163,11 @@ public "isAbstract"(): boolean
 public "isPrivate"(): boolean
 public "isNative"(): boolean
 public "isSynchronized"(): boolean
+public "getOwnerType"(): $TypeToken<(T)>
 public "returning"<R1>(returnType: $TypeToken$$Type<(R1)>): $Invokable<(T), (R1)>
 public "returning"<R1>(returnType: $Class$$Type<(R1)>): $Invokable<(T), (R1)>
 public "isPackagePrivate"(): boolean
 public "isOverridable"(): boolean
-public "getOwnerType"(): $TypeToken<(T)>
 public "getAnnotationsByType"<T extends $Annotation>(arg0: $Class$$Type<(T)>): (T)[]
 public "getDeclaredAnnotation"<T extends $Annotation>(arg0: $Class$$Type<(T)>): T
 public "getDeclaredAnnotationsByType"<T extends $Annotation>(arg0: $Class$$Type<(T)>): (T)[]
@@ -194,9 +194,9 @@ get "abstract"(): boolean
 get "private"(): boolean
 get "native"(): boolean
 get "synchronized"(): boolean
+get "ownerType"(): $TypeToken<(T)>
 get "packagePrivate"(): boolean
 get "overridable"(): boolean
-get "ownerType"(): $TypeToken<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -212,8 +212,8 @@ import {$TypeCapture} from "com.google.common.reflect.TypeCapture"
 import {$Serializable$$Interface} from "java.io.Serializable"
 import {$Type, $Type$$Type} from "java.lang.reflect.Type"
 import {$Class, $Class$$Type} from "java.lang.Class"
-import {$Constructor$$Type} from "java.lang.reflect.Constructor"
 import {$TypeParameter$$Type} from "com.google.common.reflect.TypeParameter"
+import {$Constructor$$Type} from "java.lang.reflect.Constructor"
 import {$Invokable} from "com.google.common.reflect.Invokable"
 import {$TypeToken$TypeSet} from "com.google.common.reflect.TypeToken$TypeSet"
 import {$Method$$Type} from "java.lang.reflect.Method"
@@ -233,16 +233,16 @@ public "constructor"(arg0: $Constructor$$Type<(never)>): $Invokable<(T), (T)>
 public "getType"(): $Type
 public "unwrap"(): $TypeToken<(T)>
 public "getRawType"(): $Class<(T)>
-public "isSupertypeOf"(type: $TypeToken$$Type<(never)>): boolean
-public "isSupertypeOf"(type: $Type$$Type): boolean
-public "getSupertype"(superclass: $Class$$Type<(T)>): $TypeToken<(T)>
-public "isSubtypeOf"(type: $TypeToken$$Type<(never)>): boolean
-public "isSubtypeOf"(supertype: $Type$$Type): boolean
-public "resolveType"(type: $Type$$Type): $TypeToken<(never)>
-public "getSubtype"(subclass: $Class$$Type<(never)>): $TypeToken<(T)>
-public "getTypes"(): $TypeToken$TypeSet
 public "where"<X>(typeParam: $TypeParameter$$Type<(X)>, typeArg: $TypeToken$$Type<(X)>): $TypeToken<(T)>
 public "where"<X>(typeParam: $TypeParameter$$Type<(X)>, typeArg: $Class$$Type<(X)>): $TypeToken<(T)>
+public "getTypes"(): $TypeToken$TypeSet
+public "getSupertype"(superclass: $Class$$Type<(T)>): $TypeToken<(T)>
+public "isSupertypeOf"(type: $TypeToken$$Type<(never)>): boolean
+public "isSupertypeOf"(type: $Type$$Type): boolean
+public "getSubtype"(subclass: $Class$$Type<(never)>): $TypeToken<(T)>
+public "resolveType"(type: $Type$$Type): $TypeToken<(never)>
+public "isSubtypeOf"(supertype: $Type$$Type): boolean
+public "isSubtypeOf"(type: $TypeToken$$Type<(never)>): boolean
 get "array"(): boolean
 get "primitive"(): boolean
 get "componentType"(): $TypeToken<(never)>

@@ -1,9 +1,0 @@
-{
-	id: "20364C062030869B"
-	loot_size: 1
-	order_index: 0
-	rewards: [
-		{ id: "21E43E829E76349C", item: { count: 1, id: "paraglider:heart_container" } }
-		{ id: "38EA0E20B40BFB65", item: { count: 1, id: "paraglider:stamina_vessel" } }
-	]
-}

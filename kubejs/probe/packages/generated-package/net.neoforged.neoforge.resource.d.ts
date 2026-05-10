@@ -1,13 +1,13 @@
 declare module "net.neoforged.neoforge.resource.ContextAwareReloadListener" {
 import {$CompletableFuture} from "java.util.concurrent.CompletableFuture"
-import {$ICondition$IContext, $ICondition$IContext$$Type} from "net.neoforged.neoforge.common.conditions.ICondition$IContext"
+import {$ContextAwareReloadListenerAccessor$$Interface} from "net.mehvahdjukaar.moonlight.core.mixins.platform.ContextAwareReloadListenerAccessor"
 import {$Executor$$Type} from "java.util.concurrent.Executor"
+import {$ICondition$IContext, $ICondition$IContext$$Type} from "net.neoforged.neoforge.common.conditions.ICondition$IContext"
 import {$PreparableReloadListener$$Interface} from "net.minecraft.server.packs.resources.PreparableReloadListener"
-import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
 import {$PreparableReloadListener$PreparationBarrier$$Type} from "net.minecraft.server.packs.resources.PreparableReloadListener$PreparationBarrier"
-import {$ContextAwareReloadListenerAccessor$$Interface} from "net.mehvahdjukaar.moonlight.core.mixins.neoforge.ContextAwareReloadListenerAccessor"
-import {$ResourceManager$$Type} from "net.minecraft.server.packs.resources.ResourceManager"
+import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
 import {$ProfilerFiller$$Type} from "net.minecraft.util.profiling.ProfilerFiller"
+import {$ResourceManager$$Type} from "net.minecraft.server.packs.resources.ResourceManager"
 
 export class $ContextAwareReloadListener implements $PreparableReloadListener$$Interface, $ContextAwareReloadListenerAccessor$$Interface {
 constructor()

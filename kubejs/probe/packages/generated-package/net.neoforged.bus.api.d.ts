@@ -1,23 +1,3 @@
-declare module "net.neoforged.bus.api.ICancellableEvent" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-export interface $ICancellableEvent$$Interface {
-set "canceled"(value: boolean)
-get "canceled"(): boolean
-}
-
-export class $ICancellableEvent implements $ICancellableEvent$$Interface {
- "setCanceled"(arg0: boolean): void
- "isCanceled"(): boolean
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ICancellableEvent$$Type = ($ICancellableEvent);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ICancellableEvent$$Original = $ICancellableEvent;}
 declare module "net.neoforged.bus.api.IEventBus" {
 import {$EventPriority$$Type} from "net.neoforged.bus.api.EventPriority"
 import {$Event, $Event$$Type} from "net.neoforged.bus.api.Event"
@@ -51,6 +31,26 @@ export type $IEventBus$$Type = ($IEventBus);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $IEventBus$$Original = $IEventBus;}
+declare module "net.neoforged.bus.api.ICancellableEvent" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+export interface $ICancellableEvent$$Interface {
+set "canceled"(value: boolean)
+get "canceled"(): boolean
+}
+
+export class $ICancellableEvent implements $ICancellableEvent$$Interface {
+ "setCanceled"(arg0: boolean): void
+ "isCanceled"(): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ICancellableEvent$$Type = ($ICancellableEvent);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ICancellableEvent$$Original = $ICancellableEvent;}
 declare module "net.neoforged.bus.api.EventPriority" {
 import {$Enum} from "java.lang.Enum"
 

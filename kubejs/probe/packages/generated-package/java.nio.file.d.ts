@@ -1,3 +1,28 @@
+declare module "java.nio.file.AccessMode" {
+import {$Enum} from "java.lang.Enum"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $AccessMode extends $Enum<($AccessMode)> {
+static readonly "READ": $AccessMode
+static readonly "EXECUTE": $AccessMode
+static readonly "WRITE": $AccessMode
+
+public static "values"(): ($AccessMode)[]
+public static "valueOf"(arg0: StringJS): $AccessMode
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $AccessMode$$Type = (("read") | ("write") | ("execute"));
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $AccessMode$$Original = $AccessMode;}
 declare module "java.nio.file.OpenOption" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /**
@@ -46,149 +71,6 @@ export type $Watchable$$Type = ($Watchable);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $Watchable$$Original = $Watchable;}
-declare module "java.nio.file.DirectoryStream" {
-import {$Iterator} from "java.util.Iterator"
-import {$Iterable$$Interface} from "java.lang.Iterable"
-import {$Spliterator} from "java.util.Spliterator"
-import {$Closeable$$Interface} from "java.io.Closeable"
-import {$Consumer$$Type} from "java.util.function.Consumer"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export interface $DirectoryStream$$Interface<T> extends $Closeable$$Interface, $Iterable$$Interface<(T)> {
-[Symbol.iterator](): IterableIterator<T>;
-}
-
-export class $DirectoryStream<T> implements $DirectoryStream$$Interface {
- "iterator"(): $Iterator<(T)>
- "close"(): void
- "spliterator"(): $Spliterator<(T)>
- "forEach"(arg0: $Consumer$$Type<(T)>): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $DirectoryStream$$Type<T> = ($DirectoryStream<(T)>);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $DirectoryStream$$Original<T> = $DirectoryStream<(T)>;}
-declare module "java.nio.file.FileStore" {
-import {$FileStoreAttributeView} from "java.nio.file.attribute.FileStoreAttributeView"
-import {$Class$$Type} from "java.lang.Class"
-import {$FileAttributeView$$Type} from "java.nio.file.attribute.FileAttributeView"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export class $FileStore {
-public "name"(): StringJS
-public "type"(): StringJS
-public "isReadOnly"(): boolean
-public "getTotalSpace"(): long
-public "getUsableSpace"(): long
-public "getAttribute"(arg0: StringJS): any
-public "getUnallocatedSpace"(): long
-public "getBlockSize"(): long
-public "supportsFileAttributeView"(arg0: $Class$$Type<($FileAttributeView$$Type)>): boolean
-public "supportsFileAttributeView"(arg0: StringJS): boolean
-public "getFileStoreAttributeView"<V extends $FileStoreAttributeView>(arg0: $Class$$Type<(V)>): V
-get "readOnly"(): boolean
-get "totalSpace"(): long
-get "usableSpace"(): long
-get "unallocatedSpace"(): long
-get "blockSize"(): long
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $FileStore$$Type = ($FileStore);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $FileStore$$Original = $FileStore;}
-declare module "java.nio.file.WatchEvent" {
-import {$WatchEvent$Kind} from "java.nio.file.WatchEvent$Kind"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export interface $WatchEvent$$Interface<T> {
-}
-
-export class $WatchEvent<T> implements $WatchEvent$$Interface {
- "context"(): T
- "count"(): integer
- "kind"(): $WatchEvent$Kind<(T)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $WatchEvent$$Type<T> = ($WatchEvent<(T)>);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $WatchEvent$$Original<T> = $WatchEvent<(T)>;}
-declare module "java.nio.file.PathMatcher" {
-import {$Path, $Path$$Type} from "java.nio.file.Path"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export interface $PathMatcher$$Interface {
-
-(arg0: $Path): boolean
-}
-
-export class $PathMatcher implements $PathMatcher$$Interface {
- "matches"(arg0: $Path$$Type): boolean
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $PathMatcher$$Type = ((arg0: $Path) => boolean);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $PathMatcher$$Original = $PathMatcher;}
-declare module "java.nio.file.AccessMode" {
-import {$Enum} from "java.lang.Enum"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export class $AccessMode extends $Enum<($AccessMode)> {
-static readonly "READ": $AccessMode
-static readonly "EXECUTE": $AccessMode
-static readonly "WRITE": $AccessMode
-
-public static "values"(): ($AccessMode)[]
-public static "valueOf"(arg0: StringJS): $AccessMode
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $AccessMode$$Type = (("read") | ("write") | ("execute"));
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $AccessMode$$Original = $AccessMode;}
 declare module "java.nio.file.LinkOption" {
 import {$Enum} from "java.lang.Enum"
 import {$OpenOption$$Interface} from "java.nio.file.OpenOption"
@@ -232,8 +114,8 @@ export class $WatchKey implements $WatchKey$$Interface {
  "reset"(): boolean
  "cancel"(): void
  "isValid"(): boolean
- "watchable"(): $Watchable
  "pollEvents"(): $List<($WatchEvent<(never)>)>
+ "watchable"(): $Watchable
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -272,16 +154,84 @@ export type $WatchService$$Type = ($WatchService);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $WatchService$$Original = $WatchService;}
+declare module "java.nio.file.DirectoryStream" {
+import {$Iterable$$Interface} from "java.lang.Iterable"
+import {$Iterator} from "java.util.Iterator"
+import {$Spliterator} from "java.util.Spliterator"
+import {$Closeable$$Interface} from "java.io.Closeable"
+import {$Consumer$$Type} from "java.util.function.Consumer"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export interface $DirectoryStream$$Interface<T> extends $Closeable$$Interface, $Iterable$$Interface<(T)> {
+[Symbol.iterator](): IterableIterator<T>;
+}
+
+export class $DirectoryStream<T> implements $DirectoryStream$$Interface {
+ "iterator"(): $Iterator<(T)>
+ "close"(): void
+ "spliterator"(): $Spliterator<(T)>
+ "forEach"(arg0: $Consumer$$Type<(T)>): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $DirectoryStream$$Type<T> = ($DirectoryStream<(T)>);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $DirectoryStream$$Original<T> = $DirectoryStream<(T)>;}
+declare module "java.nio.file.FileStore" {
+import {$FileStoreAttributeView} from "java.nio.file.attribute.FileStoreAttributeView"
+import {$Class$$Type} from "java.lang.Class"
+import {$FileAttributeView$$Type} from "java.nio.file.attribute.FileAttributeView"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $FileStore {
+public "getUnallocatedSpace"(): long
+public "getBlockSize"(): long
+public "supportsFileAttributeView"(arg0: $Class$$Type<($FileAttributeView$$Type)>): boolean
+public "supportsFileAttributeView"(arg0: StringJS): boolean
+public "getFileStoreAttributeView"<V extends $FileStoreAttributeView>(arg0: $Class$$Type<(V)>): V
+public "name"(): StringJS
+public "type"(): StringJS
+public "isReadOnly"(): boolean
+public "getTotalSpace"(): long
+public "getUsableSpace"(): long
+public "getAttribute"(arg0: StringJS): any
+get "unallocatedSpace"(): long
+get "blockSize"(): long
+get "readOnly"(): boolean
+get "totalSpace"(): long
+get "usableSpace"(): long
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $FileStore$$Type = ($FileStore);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $FileStore$$Original = $FileStore;}
 declare module "java.nio.file.FileSystem" {
-import {$Iterable} from "java.lang.Iterable"
 import {$WatchService} from "java.nio.file.WatchService"
+import {$Iterable} from "java.lang.Iterable"
 import {$FileSystemProvider} from "java.nio.file.spi.FileSystemProvider"
 import {$PathMatcher} from "java.nio.file.PathMatcher"
 import {$Set} from "java.util.Set"
-import {$Closeable$$Interface} from "java.io.Closeable"
 import {$FileStore} from "java.nio.file.FileStore"
-import {$UserPrincipalLookupService} from "java.nio.file.attribute.UserPrincipalLookupService"
+import {$Closeable$$Interface} from "java.io.Closeable"
 import {$Path} from "java.nio.file.Path"
+import {$UserPrincipalLookupService} from "java.nio.file.attribute.UserPrincipalLookupService"
 
 /**
  * This class is not allowed By KubeJS!
@@ -342,9 +292,9 @@ export type $WatchEvent$Modifier$$Type = (() => StringJS);
  */
 export type $WatchEvent$Modifier$$Original = $WatchEvent$Modifier;}
 declare module "java.nio.file.Path" {
-import {$Iterator} from "java.util.Iterator"
 import {$WatchService$$Type} from "java.nio.file.WatchService"
 import {$Iterable$$Interface} from "java.lang.Iterable"
+import {$Iterator} from "java.util.Iterator"
 import {$File} from "java.io.File"
 import {$Comparable$$Interface} from "java.lang.Comparable"
 import {$Spliterator} from "java.util.Spliterator"
@@ -441,6 +391,56 @@ export type $WatchEvent$Kind$$Type<T> = ($WatchEvent$Kind<(T)>);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $WatchEvent$Kind$$Original<T> = $WatchEvent$Kind<(T)>;}
+declare module "java.nio.file.WatchEvent" {
+import {$WatchEvent$Kind} from "java.nio.file.WatchEvent$Kind"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export interface $WatchEvent$$Interface<T> {
+}
+
+export class $WatchEvent<T> implements $WatchEvent$$Interface {
+ "context"(): T
+ "count"(): integer
+ "kind"(): $WatchEvent$Kind<(T)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $WatchEvent$$Type<T> = ($WatchEvent<(T)>);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $WatchEvent$$Original<T> = $WatchEvent<(T)>;}
+declare module "java.nio.file.PathMatcher" {
+import {$Path, $Path$$Type} from "java.nio.file.Path"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export interface $PathMatcher$$Interface {
+
+(arg0: $Path): boolean
+}
+
+export class $PathMatcher implements $PathMatcher$$Interface {
+ "matches"(arg0: $Path$$Type): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $PathMatcher$$Type = ((arg0: $Path) => boolean);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $PathMatcher$$Original = $PathMatcher;}
 declare module "java.nio.file.CopyOption" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 /**

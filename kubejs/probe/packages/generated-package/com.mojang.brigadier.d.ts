@@ -3,10 +3,10 @@ export {} // Mark the file as a module, do not remove unless there are other imp
 export interface $ImmutableStringReader$$Interface {
 get "string"(): StringJS
 get "remaining"(): StringJS
+get "cursor"(): integer
 get "remainingLength"(): integer
 get "totalLength"(): integer
 get "read"(): StringJS
-get "cursor"(): integer
 }
 
 export class $ImmutableStringReader implements $ImmutableStringReader$$Interface {
@@ -16,10 +16,10 @@ export class $ImmutableStringReader implements $ImmutableStringReader$$Interface
  "peek"(): character
  "getString"(): StringJS
  "getRemaining"(): StringJS
+ "getCursor"(): integer
  "getRemainingLength"(): integer
  "getTotalLength"(): integer
  "getRead"(): StringJS
- "getCursor"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -30,116 +30,6 @@ export type $ImmutableStringReader$$Type = ($ImmutableStringReader);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $ImmutableStringReader$$Original = $ImmutableStringReader;}
-declare module "com.mojang.brigadier.ResultConsumer" {
-import {$CommandContext, $CommandContext$$Type} from "com.mojang.brigadier.context.CommandContext"
-
-export interface $ResultConsumer$$Interface<S> {
-
-(arg0: $CommandContext<(S)>, arg1: boolean, arg2: integer): void
-}
-
-export class $ResultConsumer<S> implements $ResultConsumer$$Interface {
- "onCommandComplete"(arg0: $CommandContext$$Type<(S)>, arg1: boolean, arg2: integer): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ResultConsumer$$Type<S> = ((arg0: $CommandContext<(S)>, arg1: boolean, arg2: integer) => void);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ResultConsumer$$Original<S> = $ResultConsumer<(S)>;}
-declare module "com.mojang.brigadier.Message" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-export interface $Message$$Interface {
-
-(): StringJS
-get "string"(): StringJS
-}
-
-export class $Message implements $Message$$Interface {
- "getString"(): StringJS
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Message$$Type = (() => StringJS);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Message$$Original = $Message;}
-declare module "com.mojang.brigadier.StringReader" {
-import {$ImmutableStringReader$$Interface} from "com.mojang.brigadier.ImmutableStringReader"
-
-export class $StringReader implements $ImmutableStringReader$$Interface {
-constructor(arg0: $StringReader$$Type)
-constructor(arg0: StringJS)
-
-public "read"(): character
-public "readInt"(): integer
-public "canRead"(): boolean
-public "canRead"(arg0: integer): boolean
-public "skip"(): void
-public "peek"(): character
-public "peek"(arg0: integer): character
-public "expect"(arg0: character): void
-public "readFloat"(): float
-public "readBoolean"(): boolean
-public "readLong"(): long
-public "readDouble"(): double
-public "readString"(): StringJS
-public "getString"(): StringJS
-public "getRemaining"(): StringJS
-public "getRemainingLength"(): integer
-public "getTotalLength"(): integer
-public "readStringUntil"(arg0: character): StringJS
-public static "isAllowedNumber"(arg0: character): boolean
-public "readUnquotedString"(): StringJS
-public "readQuotedString"(): StringJS
-public "getRead"(): StringJS
-public "setCursor"(arg0: integer): void
-public "getCursor"(): integer
-public static "isAllowedInUnquotedString"(arg0: character): boolean
-public static "isQuotedStringStart"(arg0: character): boolean
-public "skipWhitespace"(): void
-get "string"(): StringJS
-get "remaining"(): StringJS
-get "remainingLength"(): integer
-get "totalLength"(): integer
-set "cursor"(value: integer)
-get "cursor"(): integer
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $StringReader$$Type = ($StringReader);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $StringReader$$Original = $StringReader;}
-declare module "com.mojang.brigadier.SingleRedirectModifier" {
-import {$CommandContext, $CommandContext$$Type} from "com.mojang.brigadier.context.CommandContext"
-
-export interface $SingleRedirectModifier$$Interface<S> {
-
-(arg0: $CommandContext<(S)>): S
-}
-
-export class $SingleRedirectModifier<S> implements $SingleRedirectModifier$$Interface {
- "apply"(arg0: $CommandContext$$Type<(S)>): S
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $SingleRedirectModifier$$Type<S> = ((arg0: $CommandContext<(S)>) => S);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $SingleRedirectModifier$$Original<S> = $SingleRedirectModifier<(S)>;}
 declare module "com.mojang.brigadier.AmbiguityConsumer" {
 import {$Collection, $Collection$$Type} from "java.util.Collection"
 import {$CommandNode, $CommandNode$$Type} from "com.mojang.brigadier.tree.CommandNode"
@@ -186,8 +76,8 @@ declare module "com.mojang.brigadier.CommandDispatcher" {
 import {$ParseResults, $ParseResults$$Type} from "com.mojang.brigadier.ParseResults"
 import {$LiteralArgumentBuilder$$Type} from "com.mojang.brigadier.builder.LiteralArgumentBuilder"
 import {$Map} from "java.util.Map"
-import {$Collection, $Collection$$Type} from "java.util.Collection"
 import {$Suggestions} from "com.mojang.brigadier.suggestion.Suggestions"
+import {$Collection, $Collection$$Type} from "java.util.Collection"
 import {$StringReader$$Type} from "com.mojang.brigadier.StringReader"
 import {$ResultConsumer$$Type} from "com.mojang.brigadier.ResultConsumer"
 import {$CommandNode, $CommandNode$$Type} from "com.mojang.brigadier.tree.CommandNode"
@@ -204,20 +94,20 @@ constructor(arg0: $RootCommandNode$$Type<(S)>)
 constructor()
 
 public "register"(arg0: $LiteralArgumentBuilder$$Type<(S)>): $LiteralCommandNode<(S)>
-public "execute"(arg0: $ParseResults$$Type<(S)>): integer
 public "execute"(arg0: $StringReader$$Type, arg1: S): integer
+public "execute"(arg0: $ParseResults$$Type<(S)>): integer
 public "execute"(arg0: StringJS, arg1: S): integer
 public "parse"(arg0: $StringReader$$Type, arg1: S): $ParseResults<(S)>
 public "parse"(arg0: StringJS, arg1: S): $ParseResults<(S)>
 public "getRoot"(): $RootCommandNode<(S)>
 public "getPath"(arg0: $CommandNode$$Type<(S)>): $Collection<(StringJS)>
 public "findNode"(arg0: $Collection$$Type<(StringJS)>): $CommandNode<(S)>
-public "getCompletionSuggestions"(arg0: $ParseResults$$Type<(S)>, arg1: integer): $CompletableFuture<($Suggestions)>
-public "getCompletionSuggestions"(arg0: $ParseResults$$Type<(S)>): $CompletableFuture<($Suggestions)>
+public "setConsumer"(arg0: $ResultConsumer$$Type<(S)>): void
 public "findAmbiguities"(arg0: $AmbiguityConsumer$$Type<(S)>): void
 public "getAllUsage"(arg0: $CommandNode$$Type<(S)>, arg1: S, arg2: boolean): (StringJS)[]
 public "getSmartUsage"(arg0: $CommandNode$$Type<(S)>, arg1: S): $Map<($CommandNode<(S)>), (StringJS)>
-public "setConsumer"(arg0: $ResultConsumer$$Type<(S)>): void
+public "getCompletionSuggestions"(arg0: $ParseResults$$Type<(S)>): $CompletableFuture<($Suggestions)>
+public "getCompletionSuggestions"(arg0: $ParseResults$$Type<(S)>, arg1: integer): $CompletableFuture<($Suggestions)>
 get "root"(): $RootCommandNode<(S)>
 set "consumer"(value: $ResultConsumer$$Type<(S)>)
 }
@@ -252,6 +142,26 @@ export type $Command$$Type<S> = ((arg0: $CommandContext<(S)>) => integer);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $Command$$Original<S> = $Command<(S)>;}
+declare module "com.mojang.brigadier.ResultConsumer" {
+import {$CommandContext, $CommandContext$$Type} from "com.mojang.brigadier.context.CommandContext"
+
+export interface $ResultConsumer$$Interface<S> {
+
+(arg0: $CommandContext<(S)>, arg1: boolean, arg2: integer): void
+}
+
+export class $ResultConsumer<S> implements $ResultConsumer$$Interface {
+ "onCommandComplete"(arg0: $CommandContext$$Type<(S)>, arg1: boolean, arg2: integer): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ResultConsumer$$Type<S> = ((arg0: $CommandContext<(S)>, arg1: boolean, arg2: integer) => void);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ResultConsumer$$Original<S> = $ResultConsumer<(S)>;}
 declare module "com.mojang.brigadier.ParseResults" {
 import {$ImmutableStringReader, $ImmutableStringReader$$Type} from "com.mojang.brigadier.ImmutableStringReader"
 import {$CommandContextBuilder, $CommandContextBuilder$$Type} from "com.mojang.brigadier.context.CommandContextBuilder"
@@ -279,3 +189,93 @@ export type $ParseResults$$Type<S> = ($ParseResults<(S)>);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $ParseResults$$Original<S> = $ParseResults<(S)>;}
+declare module "com.mojang.brigadier.Message" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+export interface $Message$$Interface {
+
+(): StringJS
+get "string"(): StringJS
+}
+
+export class $Message implements $Message$$Interface {
+ "getString"(): StringJS
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Message$$Type = (() => StringJS);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Message$$Original = $Message;}
+declare module "com.mojang.brigadier.StringReader" {
+import {$ImmutableStringReader$$Interface} from "com.mojang.brigadier.ImmutableStringReader"
+
+export class $StringReader implements $ImmutableStringReader$$Interface {
+constructor(arg0: $StringReader$$Type)
+constructor(arg0: StringJS)
+
+public "read"(): character
+public "readInt"(): integer
+public "canRead"(): boolean
+public "canRead"(arg0: integer): boolean
+public "skip"(): void
+public "peek"(): character
+public "peek"(arg0: integer): character
+public "expect"(arg0: character): void
+public "readFloat"(): float
+public "readBoolean"(): boolean
+public "readLong"(): long
+public "readDouble"(): double
+public "readString"(): StringJS
+public "getString"(): StringJS
+public "getRemaining"(): StringJS
+public "skipWhitespace"(): void
+public "getCursor"(): integer
+public "getRemainingLength"(): integer
+public "getTotalLength"(): integer
+public "readUnquotedString"(): StringJS
+public "readQuotedString"(): StringJS
+public static "isAllowedNumber"(arg0: character): boolean
+public "readStringUntil"(arg0: character): StringJS
+public "setCursor"(arg0: integer): void
+public "getRead"(): StringJS
+public static "isQuotedStringStart"(arg0: character): boolean
+public static "isAllowedInUnquotedString"(arg0: character): boolean
+get "string"(): StringJS
+get "remaining"(): StringJS
+get "cursor"(): integer
+get "remainingLength"(): integer
+get "totalLength"(): integer
+set "cursor"(value: integer)
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $StringReader$$Type = ($StringReader);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $StringReader$$Original = $StringReader;}
+declare module "com.mojang.brigadier.SingleRedirectModifier" {
+import {$CommandContext, $CommandContext$$Type} from "com.mojang.brigadier.context.CommandContext"
+
+export interface $SingleRedirectModifier$$Interface<S> {
+
+(arg0: $CommandContext<(S)>): S
+}
+
+export class $SingleRedirectModifier<S> implements $SingleRedirectModifier$$Interface {
+ "apply"(arg0: $CommandContext$$Type<(S)>): S
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $SingleRedirectModifier$$Type<S> = ((arg0: $CommandContext<(S)>) => S);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $SingleRedirectModifier$$Original<S> = $SingleRedirectModifier<(S)>;}

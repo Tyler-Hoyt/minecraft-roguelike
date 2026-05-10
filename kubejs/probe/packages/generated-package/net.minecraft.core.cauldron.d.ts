@@ -32,12 +32,12 @@ static readonly "INTERACTIONS": $Map<(StringJS), ($CauldronInteraction$Interacti
 static readonly "EMPTY": $CauldronInteraction$InteractionMap
 static readonly "WATER": $CauldronInteraction$InteractionMap
 
- "interact"(arg0: $BlockState$$Type, arg1: $Level$$Type, arg2: $BlockPos$$Type, arg3: $Player$$Type, arg4: $InteractionHand$$Type, arg5: $ItemStack$$Type): $ItemInteractionResult
 static "fillBucket"(arg0: $BlockState$$Type, arg1: $Level$$Type, arg2: $BlockPos$$Type, arg3: $Player$$Type, arg4: $InteractionHand$$Type, arg5: $ItemStack$$Type, arg6: $ItemStack$$Type, arg7: $Predicate$$Type<($BlockState)>, arg8: $SoundEvent$$Type): $ItemInteractionResult
-static "bootStrap"(): void
 static "addDefaultInteractions"(arg0: $Map$$Type<($Item$$Type), ($CauldronInteraction$$Type)>): void
 static "newInteractionMap"(arg0: StringJS): $CauldronInteraction$InteractionMap
 static "emptyBucket"(arg0: $Level$$Type, arg1: $BlockPos$$Type, arg2: $Player$$Type, arg3: $InteractionHand$$Type, arg4: $ItemStack$$Type, arg5: $BlockState$$Type, arg6: $SoundEvent$$Type): $ItemInteractionResult
+ "interact"(arg0: $BlockState$$Type, arg1: $Level$$Type, arg2: $BlockPos$$Type, arg3: $Player$$Type, arg4: $InteractionHand$$Type, arg5: $ItemStack$$Type): $ItemInteractionResult
+static "bootStrap"(): void
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

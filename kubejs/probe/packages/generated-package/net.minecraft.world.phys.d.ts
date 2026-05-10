@@ -1,139 +1,3 @@
-declare module "net.minecraft.world.phys.EntityHitResult" {
-import {$Vec3$$Type} from "net.minecraft.world.phys.Vec3"
-import {$HitResult$Type} from "net.minecraft.world.phys.HitResult$Type"
-import {$HitResult} from "net.minecraft.world.phys.HitResult"
-import {$Entity, $Entity$$Type} from "net.minecraft.world.entity.Entity"
-
-export class $EntityHitResult extends $HitResult {
-constructor(arg0: $Entity$$Type)
-constructor(arg0: $Entity$$Type, arg1: $Vec3$$Type)
-
-public "getType"(): $HitResult$Type
-public "getEntity"(): $Entity
-get "type"(): $HitResult$Type
-get "entity"(): $Entity
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $EntityHitResult$$Type = ($EntityHitResult);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $EntityHitResult$$Original = $EntityHitResult;}
-declare module "net.minecraft.world.phys.HitResult" {
-import {$Vec3} from "net.minecraft.world.phys.Vec3"
-import {$HitResult$Type} from "net.minecraft.world.phys.HitResult$Type"
-import {$Entity$$Type} from "net.minecraft.world.entity.Entity"
-
-export class $HitResult {
-public "getLocation"(): $Vec3
-public "getType"(): $HitResult$Type
-public "distanceTo"(arg0: $Entity$$Type): double
-get "location"(): $Vec3
-get "type"(): $HitResult$Type
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $HitResult$$Type = ($HitResult);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $HitResult$$Original = $HitResult;}
-declare module "net.minecraft.world.phys.shapes.DiscreteVoxelShape" {
-import {$Direction$Axis$$Type} from "net.minecraft.core.Direction$Axis"
-import {$AxisCycle$$Type} from "net.minecraft.core.AxisCycle"
-import {$DiscreteVSAccess$$Interface} from "malte0811.ferritecore.mixin.accessors.DiscreteVSAccess"
-import {$DiscreteVoxelShape$IntFaceConsumer$$Type} from "net.minecraft.world.phys.shapes.DiscreteVoxelShape$IntFaceConsumer"
-import {$DiscreteVoxelShape$IntLineConsumer$$Type} from "net.minecraft.world.phys.shapes.DiscreteVoxelShape$IntLineConsumer"
-
-export class $DiscreteVoxelShape implements $DiscreteVSAccess$$Interface {
-public "isEmpty"(): boolean
-public "fill"(arg0: integer, arg1: integer, arg2: integer): void
-public "getSize"(arg0: $Direction$Axis$$Type): integer
-public "isFull"(arg0: $AxisCycle$$Type, arg1: integer, arg2: integer, arg3: integer): boolean
-public "isFull"(arg0: integer, arg1: integer, arg2: integer): boolean
-public "forAllEdges"(arg0: $DiscreteVoxelShape$IntLineConsumer$$Type, arg1: boolean): void
-public "forAllFaces"(arg0: $DiscreteVoxelShape$IntFaceConsumer$$Type): void
-public "forAllBoxes"(arg0: $DiscreteVoxelShape$IntLineConsumer$$Type, arg1: boolean): void
-public "lastFull"(arg0: $Direction$Axis$$Type): integer
-public "lastFull"(arg0: $Direction$Axis$$Type, arg1: integer, arg2: integer): integer
-public "firstFull"(arg0: $Direction$Axis$$Type): integer
-public "firstFull"(arg0: $Direction$Axis$$Type, arg1: integer, arg2: integer): integer
-public "isFullWide"(arg0: $AxisCycle$$Type, arg1: integer, arg2: integer, arg3: integer): boolean
-public "isFullWide"(arg0: integer, arg1: integer, arg2: integer): boolean
-public "getZSize"(): integer
-public "getYSize"(): integer
-public "getXSize"(): integer
-get "empty"(): boolean
-get "ZSize"(): integer
-get "YSize"(): integer
-get "XSize"(): integer
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $DiscreteVoxelShape$$Type = ($DiscreteVoxelShape);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $DiscreteVoxelShape$$Original = $DiscreteVoxelShape;}
-declare module "net.minecraft.world.phys.shapes.VoxelShape" {
-import {$BlockHitResult} from "net.minecraft.world.phys.BlockHitResult"
-import {$Shapes$DoubleLineConsumer$$Type} from "net.minecraft.world.phys.shapes.Shapes$DoubleLineConsumer"
-import {$Optional} from "java.util.Optional"
-import {$List} from "java.util.List"
-import {$DoubleList} from "it.unimi.dsi.fastutil.doubles.DoubleList"
-import {$Direction$$Type} from "net.minecraft.core.Direction"
-import {$VoxelShapeAccess$$Interface} from "malte0811.ferritecore.mixin.accessors.VoxelShapeAccess"
-import {$Direction$Axis$$Type} from "net.minecraft.core.Direction$Axis"
-import {$Vec3, $Vec3$$Type} from "net.minecraft.world.phys.Vec3"
-import {$DiscreteVoxelShape, $DiscreteVoxelShape$$Type} from "net.minecraft.world.phys.shapes.DiscreteVoxelShape"
-import {$BlockPos$$Type} from "net.minecraft.core.BlockPos"
-import {$AABB, $AABB$$Type} from "net.minecraft.world.phys.AABB"
-
-export class $VoxelShape implements $VoxelShapeAccess$$Interface {
-public "toString"(): StringJS
-public "min"(arg0: $Direction$Axis$$Type, arg1: double, arg2: double): double
-public "min"(arg0: $Direction$Axis$$Type): double
-public "max"(arg0: $Direction$Axis$$Type, arg1: double, arg2: double): double
-public "max"(arg0: $Direction$Axis$$Type): double
-public "isEmpty"(): boolean
-public "bounds"(): $AABB
-public "optimize"(): $VoxelShape
-public "collide"(arg0: $Direction$Axis$$Type, arg1: $AABB$$Type, arg2: double): double
-public "move"(arg0: double, arg1: double, arg2: double): $VoxelShape
-public "getShape"(): $DiscreteVoxelShape
-public "toAabbs"(): $List<($AABB)>
-public "clip"(arg0: $Vec3$$Type, arg1: $Vec3$$Type, arg2: $BlockPos$$Type): $BlockHitResult
-public "getCoords"(arg0: $Direction$Axis$$Type): $DoubleList
-public "getFaceShape"(arg0: $Direction$$Type): $VoxelShape
-public "singleEncompassing"(): $VoxelShape
-public "forAllEdges"(arg0: $Shapes$DoubleLineConsumer$$Type): void
-public "forAllBoxes"(arg0: $Shapes$DoubleLineConsumer$$Type): void
-public "getFaces"(): ($VoxelShape)[]
-public "setShape"(arg0: $DiscreteVoxelShape$$Type): void
-public "setFaces"(arg0: ($VoxelShape$$Type)[]): void
-public "closestPointTo"(arg0: $Vec3$$Type): $Optional<($Vec3)>
-get "empty"(): boolean
-get "shape"(): $DiscreteVoxelShape
-get "faces"(): ($VoxelShape)[]
-set "shape"(value: $DiscreteVoxelShape$$Type)
-set "faces"(value: ($VoxelShape$$Type)[])
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $VoxelShape$$Type = ($VoxelShape);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $VoxelShape$$Original = $VoxelShape;}
 declare module "net.minecraft.world.phys.shapes.CollisionContext" {
 import {$VoxelShape$$Type} from "net.minecraft.world.phys.shapes.VoxelShape"
 import {$Item$$Type} from "net.minecraft.world.item.Item"
@@ -148,10 +12,10 @@ get "descending"(): boolean
 export class $CollisionContext implements $CollisionContext$$Interface {
 static "of"(arg0: $Entity$$Type): $CollisionContext
 static "empty"(): $CollisionContext
+ "canStandOnFluid"(arg0: $FluidState$$Type, arg1: $FluidState$$Type): boolean
+ "isAbove"(arg0: $VoxelShape$$Type, arg1: $BlockPos$$Type, arg2: boolean): boolean
  "isHoldingItem"(arg0: $Item$$Type): boolean
  "isDescending"(): boolean
- "isAbove"(arg0: $VoxelShape$$Type, arg1: $BlockPos$$Type, arg2: boolean): boolean
- "canStandOnFluid"(arg0: $FluidState$$Type, arg1: $FluidState$$Type): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -164,25 +28,25 @@ export type $CollisionContext$$Type = ($CollisionContext);
 export type $CollisionContext$$Original = $CollisionContext;}
 declare module "net.minecraft.world.phys.BlockHitResult" {
 import {$Vec3$$Type} from "net.minecraft.world.phys.Vec3"
-import {$Direction, $Direction$$Type} from "net.minecraft.core.Direction"
 import {$HitResult$Type} from "net.minecraft.world.phys.HitResult$Type"
-import {$HitResult} from "net.minecraft.world.phys.HitResult"
+import {$Direction, $Direction$$Type} from "net.minecraft.core.Direction"
 import {$BlockPos, $BlockPos$$Type} from "net.minecraft.core.BlockPos"
+import {$HitResult} from "net.minecraft.world.phys.HitResult"
 
 export class $BlockHitResult extends $HitResult {
 constructor(arg0: $Vec3$$Type, arg1: $Direction$$Type, arg2: $BlockPos$$Type, arg3: boolean)
 
 public "getType"(): $HitResult$Type
 public "withPosition"(arg0: $BlockPos$$Type): $BlockHitResult
-public "getBlockPos"(): $BlockPos
-public static "miss"(arg0: $Vec3$$Type, arg1: $Direction$$Type, arg2: $BlockPos$$Type): $BlockHitResult
-public "isInside"(): boolean
 public "withDirection"(arg0: $Direction$$Type): $BlockHitResult
+public "isInside"(): boolean
+public static "miss"(arg0: $Vec3$$Type, arg1: $Direction$$Type, arg2: $BlockPos$$Type): $BlockHitResult
 public "getDirection"(): $Direction
+public "getBlockPos"(): $BlockPos
 get "type"(): $HitResult$Type
-get "blockPos"(): $BlockPos
 get "inside"(): boolean
 get "direction"(): $Direction
+get "blockPos"(): $BlockPos
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -234,8 +98,8 @@ export type $DiscreteVoxelShape$IntLineConsumer$$Type = ((arg0: integer, arg1: i
 export type $DiscreteVoxelShape$IntLineConsumer$$Original = $DiscreteVoxelShape$IntLineConsumer;}
 declare module "net.minecraft.world.phys.AABB" {
 import {$Iterable$$Type} from "java.lang.Iterable"
-import {$Direction$Axis$$Type} from "net.minecraft.core.Direction$Axis"
 import {$BlockHitResult} from "net.minecraft.world.phys.BlockHitResult"
+import {$Direction$Axis$$Type} from "net.minecraft.core.Direction$Axis"
 import {$Vec3, $Vec3$$Type} from "net.minecraft.world.phys.Vec3"
 import {$BoundingBox$$Type} from "net.minecraft.world.level.levelgen.structure.BoundingBox"
 import {$Optional} from "java.util.Optional"
@@ -251,10 +115,12 @@ readonly "maxX": double
 readonly "minZ": double
 static readonly "INFINITE": $AABB
 
-constructor(arg0: $Vec3$$Type, arg1: $Vec3$$Type)
-constructor(arg0: $BlockPos$$Type)
 constructor(arg0: double, arg1: double, arg2: double, arg3: double, arg4: double, arg5: double)
+constructor(arg0: $BlockPos$$Type)
+constructor(arg0: $Vec3$$Type, arg1: $Vec3$$Type)
 
+public "deflate"(arg0: double): $AABB
+public "deflate"(arg0: double, arg1: double, arg2: double): $AABB
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
@@ -267,49 +133,47 @@ public static "of"(arg0: $BoundingBox$$Type): $AABB
 public "contains"(arg0: double, arg1: double, arg2: double): boolean
 public "contains"(arg0: $Vec3$$Type): boolean
 public "getSize"(): double
-public "move"(arg0: $Vec3$$Type): $AABB
 public "move"(arg0: $BlockPos$$Type): $AABB
 public "move"(arg0: double, arg1: double, arg2: double): $AABB
 public "move"(arg0: $Vector3f$$Type): $AABB
+public "move"(arg0: $Vec3$$Type): $AABB
 public "intersects"(arg0: $Vec3$$Type, arg1: $Vec3$$Type): boolean
-public "intersects"(arg0: double, arg1: double, arg2: double, arg3: double, arg4: double, arg5: double): boolean
 public "intersects"(arg0: $AABB$$Type): boolean
-public "intersect"(arg0: $AABB$$Type): $AABB
-public "setMinX"(arg0: double): $AABB
-public "getXsize"(): double
-public "getZsize"(): double
-public "setMaxX"(arg0: double): $AABB
+public "intersects"(arg0: double, arg1: double, arg2: double, arg3: double, arg4: double, arg5: double): boolean
+public static "encapsulatingFullBlocks"(arg0: $BlockPos$$Type, arg1: $BlockPos$$Type): $AABB
+public "minmax"(arg0: $AABB$$Type): $AABB
+public "setMinY"(arg0: double): $AABB
+public "getBottomCenter"(): $Vec3
+public "distanceToSqr"(arg0: $Vec3$$Type): double
+public static "ofSize"(arg0: $Vec3$$Type, arg1: double, arg2: double, arg3: double): $AABB
 public "contract"(arg0: double, arg1: double, arg2: double): $AABB
-public "setMinZ"(arg0: double): $AABB
+public "setMaxX"(arg0: double): $AABB
 public "setMaxY"(arg0: double): $AABB
+public "setMinX"(arg0: double): $AABB
+public "setMinZ"(arg0: double): $AABB
 public "setMaxZ"(arg0: double): $AABB
 public "hasNaN"(): boolean
-public "distanceToSqr"(arg0: $Vec3$$Type): double
-public "expandTowards"(arg0: double, arg1: double, arg2: double): $AABB
-public "expandTowards"(arg0: $Vec3$$Type): $AABB
-public "getBottomCenter"(): $Vec3
-public "getCenter"(): $Vec3
-public "setMinY"(arg0: double): $AABB
-public static "clip"(arg0: $Iterable$$Type<($AABB$$Type)>, arg1: $Vec3$$Type, arg2: $Vec3$$Type, arg3: $BlockPos$$Type): $BlockHitResult
-public "clip"(arg0: $Vec3$$Type, arg1: $Vec3$$Type): $Optional<($Vec3)>
-public "minmax"(arg0: $AABB$$Type): $AABB
-public static "ofSize"(arg0: $Vec3$$Type, arg1: double, arg2: double, arg3: double): $AABB
-public "getYsize"(): double
 public static "unitCubeFromLowerCorner"(arg0: $Vec3$$Type): $AABB
-public static "encapsulatingFullBlocks"(arg0: $BlockPos$$Type, arg1: $BlockPos$$Type): $AABB
 public "getMaxPosition"(): $Vec3
 public "getMinPosition"(): $Vec3
-public "deflate"(arg0: double, arg1: double, arg2: double): $AABB
-public "deflate"(arg0: double): $AABB
+public "intersect"(arg0: $AABB$$Type): $AABB
+public "getCenter"(): $Vec3
+public "clip"(arg0: $Vec3$$Type, arg1: $Vec3$$Type): $Optional<($Vec3)>
+public static "clip"(arg0: $Iterable$$Type<($AABB$$Type)>, arg1: $Vec3$$Type, arg2: $Vec3$$Type, arg3: $BlockPos$$Type): $BlockHitResult
+public "getYsize"(): double
+public "getXsize"(): double
+public "getZsize"(): double
+public "expandTowards"(arg0: double, arg1: double, arg2: double): $AABB
+public "expandTowards"(arg0: $Vec3$$Type): $AABB
 get "infinite"(): boolean
 get "size"(): double
-get "xsize"(): double
-get "zsize"(): double
 get "bottomCenter"(): $Vec3
-get "center"(): $Vec3
-get "ysize"(): double
 get "maxPosition"(): $Vec3
 get "minPosition"(): $Vec3
+get "center"(): $Vec3
+get "ysize"(): double
+get "xsize"(): double
+get "zsize"(): double
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -320,6 +184,30 @@ export type $AABB$$Type = ([]) | ([x: double, y: double, z: double]) | ([x1: dou
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $AABB$$Original = $AABB;}
+declare module "net.minecraft.world.phys.EntityHitResult" {
+import {$Vec3$$Type} from "net.minecraft.world.phys.Vec3"
+import {$HitResult$Type} from "net.minecraft.world.phys.HitResult$Type"
+import {$HitResult} from "net.minecraft.world.phys.HitResult"
+import {$Entity, $Entity$$Type} from "net.minecraft.world.entity.Entity"
+
+export class $EntityHitResult extends $HitResult {
+constructor(arg0: $Entity$$Type)
+constructor(arg0: $Entity$$Type, arg1: $Vec3$$Type)
+
+public "getType"(): $HitResult$Type
+public "getEntity"(): $Entity
+get "type"(): $HitResult$Type
+get "entity"(): $Entity
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $EntityHitResult$$Type = ($EntityHitResult);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $EntityHitResult$$Original = $EntityHitResult;}
 declare module "net.minecraft.world.phys.shapes.Shapes$DoubleLineConsumer" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export interface $Shapes$DoubleLineConsumer$$Interface {
@@ -339,6 +227,124 @@ export type $Shapes$DoubleLineConsumer$$Type = ((arg0: double, arg1: double, arg
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $Shapes$DoubleLineConsumer$$Original = $Shapes$DoubleLineConsumer;}
+declare module "net.minecraft.world.phys.HitResult" {
+import {$Vec3} from "net.minecraft.world.phys.Vec3"
+import {$HitResult$Type} from "net.minecraft.world.phys.HitResult$Type"
+import {$Entity$$Type} from "net.minecraft.world.entity.Entity"
+
+export class $HitResult {
+public "getLocation"(): $Vec3
+public "getType"(): $HitResult$Type
+public "distanceTo"(arg0: $Entity$$Type): double
+get "location"(): $Vec3
+get "type"(): $HitResult$Type
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $HitResult$$Type = ($HitResult);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $HitResult$$Original = $HitResult;}
+declare module "net.minecraft.world.phys.shapes.DiscreteVoxelShape" {
+import {$Direction$Axis$$Type} from "net.minecraft.core.Direction$Axis"
+import {$AxisCycle$$Type} from "net.minecraft.core.AxisCycle"
+import {$DiscreteVSAccess$$Interface} from "malte0811.ferritecore.mixin.accessors.DiscreteVSAccess"
+import {$DiscreteVoxelShape$IntFaceConsumer$$Type} from "net.minecraft.world.phys.shapes.DiscreteVoxelShape$IntFaceConsumer"
+import {$DiscreteVoxelShape$IntLineConsumer$$Type} from "net.minecraft.world.phys.shapes.DiscreteVoxelShape$IntLineConsumer"
+
+export class $DiscreteVoxelShape implements $DiscreteVSAccess$$Interface {
+public "isEmpty"(): boolean
+public "fill"(arg0: integer, arg1: integer, arg2: integer): void
+public "getSize"(arg0: $Direction$Axis$$Type): integer
+public "isFull"(arg0: $AxisCycle$$Type, arg1: integer, arg2: integer, arg3: integer): boolean
+public "isFull"(arg0: integer, arg1: integer, arg2: integer): boolean
+public "forAllEdges"(arg0: $DiscreteVoxelShape$IntLineConsumer$$Type, arg1: boolean): void
+public "forAllBoxes"(arg0: $DiscreteVoxelShape$IntLineConsumer$$Type, arg1: boolean): void
+public "forAllFaces"(arg0: $DiscreteVoxelShape$IntFaceConsumer$$Type): void
+public "getXSize"(): integer
+public "getYSize"(): integer
+public "getZSize"(): integer
+public "lastFull"(arg0: $Direction$Axis$$Type, arg1: integer, arg2: integer): integer
+public "lastFull"(arg0: $Direction$Axis$$Type): integer
+public "isFullWide"(arg0: $AxisCycle$$Type, arg1: integer, arg2: integer, arg3: integer): boolean
+public "isFullWide"(arg0: integer, arg1: integer, arg2: integer): boolean
+public "firstFull"(arg0: $Direction$Axis$$Type): integer
+public "firstFull"(arg0: $Direction$Axis$$Type, arg1: integer, arg2: integer): integer
+get "empty"(): boolean
+get "XSize"(): integer
+get "YSize"(): integer
+get "ZSize"(): integer
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $DiscreteVoxelShape$$Type = ($DiscreteVoxelShape);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $DiscreteVoxelShape$$Original = $DiscreteVoxelShape;}
+declare module "net.minecraft.world.phys.shapes.VoxelShape" {
+import {$BlockHitResult} from "net.minecraft.world.phys.BlockHitResult"
+import {$Shapes$DoubleLineConsumer$$Type} from "net.minecraft.world.phys.shapes.Shapes$DoubleLineConsumer"
+import {$Optional} from "java.util.Optional"
+import {$List} from "java.util.List"
+import {$DoubleList} from "it.unimi.dsi.fastutil.doubles.DoubleList"
+import {$Direction$$Type} from "net.minecraft.core.Direction"
+import {$OffsetVoxelShapeCache$$Interface} from "net.caffeinemc.mods.lithium.common.shapes.OffsetVoxelShapeCache"
+import {$VoxelShapeAccess$$Interface} from "malte0811.ferritecore.mixin.accessors.VoxelShapeAccess"
+import {$Direction$Axis$$Type} from "net.minecraft.core.Direction$Axis"
+import {$AxisCycle$$Type} from "net.minecraft.core.AxisCycle"
+import {$Vec3, $Vec3$$Type} from "net.minecraft.world.phys.Vec3"
+import {$DiscreteVoxelShape, $DiscreteVoxelShape$$Type} from "net.minecraft.world.phys.shapes.DiscreteVoxelShape"
+import {$BlockPos$$Type} from "net.minecraft.core.BlockPos"
+import {$AABB, $AABB$$Type} from "net.minecraft.world.phys.AABB"
+
+export class $VoxelShape implements $VoxelShapeAccess$$Interface, $OffsetVoxelShapeCache$$Interface {
+ "shape": $DiscreteVoxelShape
+
+public "toString"(): StringJS
+public "min"(arg0: $Direction$Axis$$Type): double
+public "min"(arg0: $Direction$Axis$$Type, arg1: double, arg2: double): double
+public "max"(arg0: $Direction$Axis$$Type, arg1: double, arg2: double): double
+public "max"(arg0: $Direction$Axis$$Type): double
+public "isEmpty"(): boolean
+public "bounds"(): $AABB
+public "optimize"(): $VoxelShape
+public "collide"(arg0: $Direction$Axis$$Type, arg1: $AABB$$Type, arg2: double): double
+public "move"(arg0: double, arg1: double, arg2: double): $VoxelShape
+public "getShape"(): $DiscreteVoxelShape
+public "getCoords"(arg0: $Direction$Axis$$Type): $DoubleList
+public "lithium$getOffsetSimplifiedShape"(arg0: float, arg1: $Direction$$Type): $VoxelShape
+public "getFaceShape"(arg0: $Direction$$Type): $VoxelShape
+public "closestPointTo"(arg0: $Vec3$$Type): $Optional<($Vec3)>
+public "forAllEdges"(arg0: $Shapes$DoubleLineConsumer$$Type): void
+public "singleEncompassing"(): $VoxelShape
+public "forAllBoxes"(arg0: $Shapes$DoubleLineConsumer$$Type): void
+public "lithium$setShape"(arg0: float, arg1: $Direction$$Type, arg2: $VoxelShape$$Type): void
+public "findIndex"(arg0: $Direction$Axis$$Type, arg1: double): integer
+public "collideX"(arg0: $AxisCycle$$Type, arg1: $AABB$$Type, arg2: double): double
+public "setFaces"(arg0: ($VoxelShape$$Type)[]): void
+public "getFaces"(): ($VoxelShape)[]
+public "setShape"(arg0: $DiscreteVoxelShape$$Type): void
+public "clip"(arg0: $Vec3$$Type, arg1: $Vec3$$Type, arg2: $BlockPos$$Type): $BlockHitResult
+public "toAabbs"(): $List<($AABB)>
+get "empty"(): boolean
+set "faces"(value: ($VoxelShape$$Type)[])
+get "faces"(): ($VoxelShape)[]
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $VoxelShape$$Type = ($VoxelShape);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $VoxelShape$$Original = $VoxelShape;}
 declare module "net.minecraft.world.phys.Vec2" {
 export {} // Mark the file as a module, do not remove unless there are other import/exports!
 export class $Vec2 {
@@ -363,8 +369,8 @@ public "add"(arg0: $Vec2$$Type): $Vec2
 public "dot"(arg0: $Vec2$$Type): float
 public "normalized"(): $Vec2
 public "negated"(): $Vec2
-public "lengthSquared"(): float
 public "distanceToSqr"(arg0: $Vec2$$Type): float
+public "lengthSquared"(): float
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -377,8 +383,8 @@ export type $Vec2$$Type = ($Vec2);
 export type $Vec2$$Original = $Vec2;}
 declare module "net.minecraft.world.phys.Vec3" {
 import {$Direction$Axis$$Type} from "net.minecraft.core.Direction$Axis"
-import {$RandomSource$$Type} from "net.minecraft.util.RandomSource"
 import {$Vec2$$Type} from "net.minecraft.world.phys.Vec2"
+import {$RandomSource$$Type} from "net.minecraft.util.RandomSource"
 import {$Vec3i$$Type} from "net.minecraft.core.Vec3i"
 import {$Codec} from "com.mojang.serialization.Codec"
 import {$Direction$$Type} from "net.minecraft.core.Direction"
@@ -400,8 +406,8 @@ public "toString"(): StringJS
 public "hashCode"(): integer
 public "reverse"(): $Vec3
 public "scale"(arg0: double): $Vec3
-public "add"(arg0: $Vec3$$Type): $Vec3
 public "add"(arg0: double, arg1: double, arg2: double): $Vec3
+public "add"(arg0: $Vec3$$Type): $Vec3
 public "x"(): double
 public "dot"(arg0: $Vec3$$Type): double
 public "with"(arg0: $Direction$Axis$$Type, arg1: double): $Vec3
@@ -413,31 +419,31 @@ public "normalize"(): $Vec3
 public "subtract"(arg0: $Vec3$$Type): $Vec3
 public "subtract"(arg0: double, arg1: double, arg2: double): $Vec3
 public "relative"(arg0: $Direction$$Type, arg1: double): $Vec3
-public "horizontalDistanceSqr"(): double
-public static "directionFromRotation"(arg0: $Vec2$$Type): $Vec3
-public static "directionFromRotation"(arg0: float, arg1: float): $Vec3
-public static "fromRGB24"(arg0: integer): $Vec3
-public "horizontalDistance"(): double
-public "offsetRandom"(arg0: $RandomSource$$Type, arg1: float): $Vec3
-public static "atLowerCornerOf"(arg0: $Vec3i$$Type): $Vec3
-public static "atBottomCenterOf"(arg0: $Vec3i$$Type): $Vec3
-public "distanceToSqr"(arg0: $Vec3$$Type): double
-public "distanceToSqr"(arg0: double, arg1: double, arg2: double): double
-public "vectorTo"(arg0: $Vec3$$Type): $Vec3
-public "yRot"(arg0: float): $Vec3
+public static "atCenterOf"(arg0: $Vec3i$$Type): $Vec3
 public "distanceTo"(arg0: $Vec3$$Type): double
-public "xRot"(arg0: float): $Vec3
-public "lengthSqr"(): double
-public "closerThan"(arg0: $Position$$Type, arg1: double): boolean
-public "closerThan"(arg0: $Vec3$$Type, arg1: double, arg2: double): boolean
-public static "atLowerCornerWithOffset"(arg0: $Vec3i$$Type, arg1: double, arg2: double, arg3: double): $Vec3
-public static "upFromBottomCenterOf"(arg0: $Vec3i$$Type, arg1: double): $Vec3
 public "align"(arg0: $EnumSet$$Type<($Direction$Axis$$Type)>): $Vec3
 public "zRot"(arg0: float): $Vec3
-public static "atCenterOf"(arg0: $Vec3i$$Type): $Vec3
+public "vectorTo"(arg0: $Vec3$$Type): $Vec3
+public static "atBottomCenterOf"(arg0: $Vec3i$$Type): $Vec3
+public "distanceToSqr"(arg0: double, arg1: double, arg2: double): double
+public "distanceToSqr"(arg0: $Vec3$$Type): double
+public static "atLowerCornerWithOffset"(arg0: $Vec3i$$Type, arg1: double, arg2: double, arg3: double): $Vec3
+public static "upFromBottomCenterOf"(arg0: $Vec3i$$Type, arg1: double): $Vec3
 public "toVector3f"(): $Vector3f
+public static "fromRGB24"(arg0: integer): $Vec3
 public "cross"(arg0: $Vec3$$Type): $Vec3
 public "lerp"(arg0: $Vec3$$Type, arg1: double): $Vec3
+public "offsetRandom"(arg0: $RandomSource$$Type, arg1: float): $Vec3
+public static "atLowerCornerOf"(arg0: $Vec3i$$Type): $Vec3
+public "closerThan"(arg0: $Position$$Type, arg1: double): boolean
+public "closerThan"(arg0: $Vec3$$Type, arg1: double, arg2: double): boolean
+public "lengthSqr"(): double
+public "horizontalDistanceSqr"(): double
+public static "directionFromRotation"(arg0: float, arg1: float): $Vec3
+public static "directionFromRotation"(arg0: $Vec2$$Type): $Vec3
+public "horizontalDistance"(): double
+public "yRot"(arg0: float): $Vec3
+public "xRot"(arg0: float): $Vec3
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

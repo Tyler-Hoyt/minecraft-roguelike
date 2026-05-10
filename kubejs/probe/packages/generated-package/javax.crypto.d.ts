@@ -17,16 +17,17 @@ static readonly "PRIVATE_KEY": integer
 static readonly "SECRET_KEY": integer
 static readonly "DECRYPT_MODE": integer
 
+public "getBlockSize"(): integer
 public "toString"(): StringJS
-public "update"(arg0: (byte)[], arg1: integer, arg2: integer, arg3: (byte)[], arg4: integer): integer
 public "update"(arg0: (byte)[], arg1: integer, arg2: integer, arg3: (byte)[]): integer
+public "update"(arg0: (byte)[], arg1: integer, arg2: integer, arg3: (byte)[], arg4: integer): integer
+public "update"(arg0: $ByteBuffer$$Type, arg1: $ByteBuffer$$Type): integer
 public "update"(arg0: (byte)[], arg1: integer, arg2: integer): (byte)[]
 public "update"(arg0: (byte)[]): (byte)[]
-public "update"(arg0: $ByteBuffer$$Type, arg1: $ByteBuffer$$Type): integer
 public "wrap"(arg0: $Key$$Type): (byte)[]
 public static "getInstance"(arg0: StringJS): $Cipher
-public static "getInstance"(arg0: StringJS, arg1: $Provider$$Type): $Cipher
 public static "getInstance"(arg0: StringJS, arg1: StringJS): $Cipher
+public static "getInstance"(arg0: StringJS, arg1: $Provider$$Type): $Cipher
 public "init"(arg0: integer, arg1: $Key$$Type, arg2: $AlgorithmParameters$$Type): void
 public "init"(arg0: integer, arg1: $Key$$Type, arg2: $AlgorithmParameterSpec$$Type): void
 public "init"(arg0: integer, arg1: $Key$$Type, arg2: $SecureRandom$$Type): void
@@ -39,28 +40,27 @@ public "getParameters"(): $AlgorithmParameters
 public "unwrap"(arg0: (byte)[], arg1: StringJS, arg2: integer): $Key
 public "getProvider"(): $Provider
 public "getAlgorithm"(): StringJS
+public static "getMaxAllowedKeyLength"(arg0: StringJS): integer
 public "getExemptionMechanism"(): $ExemptionMechanism
 public "updateAAD"(arg0: (byte)[]): void
 public "updateAAD"(arg0: (byte)[], arg1: integer, arg2: integer): void
 public "updateAAD"(arg0: $ByteBuffer$$Type): void
 public "getOutputSize"(arg0: integer): integer
 public "getIV"(): (byte)[]
+public "doFinal"(): (byte)[]
+public "doFinal"(arg0: (byte)[], arg1: integer, arg2: integer, arg3: (byte)[], arg4: integer): integer
+public "doFinal"(arg0: (byte)[], arg1: integer, arg2: integer, arg3: (byte)[]): integer
 public "doFinal"(arg0: (byte)[], arg1: integer, arg2: integer): (byte)[]
 public "doFinal"(arg0: (byte)[]): (byte)[]
-public "doFinal"(arg0: (byte)[], arg1: integer): integer
-public "doFinal"(): (byte)[]
-public "doFinal"(arg0: (byte)[], arg1: integer, arg2: integer, arg3: (byte)[]): integer
 public "doFinal"(arg0: $ByteBuffer$$Type, arg1: $ByteBuffer$$Type): integer
-public "doFinal"(arg0: (byte)[], arg1: integer, arg2: integer, arg3: (byte)[], arg4: integer): integer
+public "doFinal"(arg0: (byte)[], arg1: integer): integer
 public static "getMaxAllowedParameterSpec"(arg0: StringJS): $AlgorithmParameterSpec
-public "getBlockSize"(): integer
-public static "getMaxAllowedKeyLength"(arg0: StringJS): integer
+get "blockSize"(): integer
 get "parameters"(): $AlgorithmParameters
 get "provider"(): $Provider
 get "algorithm"(): StringJS
 get "exemptionMechanism"(): $ExemptionMechanism
 get "IV"(): (byte)[]
-get "blockSize"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

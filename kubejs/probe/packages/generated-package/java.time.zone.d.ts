@@ -50,6 +50,8 @@ import {$Duration} from "java.time.Duration"
 import {$Instant} from "java.time.Instant"
 
 export class $ZoneOffsetTransition implements $Comparable$$Interface<($ZoneOffsetTransition)>, $Serializable$$Interface {
+public "getInstant"(): $Instant
+public "isOverlap"(): boolean
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
@@ -64,16 +66,14 @@ public "getOffsetBefore"(): $ZoneOffset
 public "getOffsetAfter"(): $ZoneOffset
 public "getDateTimeBefore"(): $LocalDateTime
 public "isValidOffset"(arg0: $ZoneOffset$$Type): boolean
-public "getInstant"(): $Instant
-public "isOverlap"(): boolean
+get "instant"(): $Instant
+get "overlap"(): boolean
 get "duration"(): $Duration
 get "gap"(): boolean
 get "dateTimeAfter"(): $LocalDateTime
 get "offsetBefore"(): $ZoneOffset
 get "offsetAfter"(): $ZoneOffset
 get "dateTimeBefore"(): $LocalDateTime
-get "instant"(): $Instant
-get "overlap"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -87,8 +87,8 @@ export type $ZoneOffsetTransition$$Original = $ZoneOffsetTransition;}
 declare module "java.time.zone.ZoneRules" {
 import {$LocalDateTime$$Type} from "java.time.LocalDateTime"
 import {$Serializable$$Interface} from "java.io.Serializable"
-import {$List, $List$$Type} from "java.util.List"
 import {$ZoneOffset, $ZoneOffset$$Type} from "java.time.ZoneOffset"
+import {$List, $List$$Type} from "java.util.List"
 import {$ZoneOffsetTransition, $ZoneOffsetTransition$$Type} from "java.time.zone.ZoneOffsetTransition"
 import {$Duration} from "java.time.Duration"
 import {$ZoneOffsetTransitionRule, $ZoneOffsetTransitionRule$$Type} from "java.time.zone.ZoneOffsetTransitionRule"

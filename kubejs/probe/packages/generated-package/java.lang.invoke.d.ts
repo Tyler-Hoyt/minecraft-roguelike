@@ -86,6 +86,61 @@ export type $MethodType$$Type = ($MethodType);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $MethodType$$Original = $MethodType;}
+declare module "java.lang.invoke.VarHandle$AccessMode" {
+import {$Enum} from "java.lang.Enum"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $VarHandle$AccessMode extends $Enum<($VarHandle$AccessMode)> {
+static readonly "WEAK_COMPARE_AND_SET": $VarHandle$AccessMode
+static readonly "GET_VOLATILE": $VarHandle$AccessMode
+static readonly "SET": $VarHandle$AccessMode
+static readonly "GET_AND_BITWISE_OR_ACQUIRE": $VarHandle$AccessMode
+static readonly "GET_AND_ADD": $VarHandle$AccessMode
+static readonly "GET_AND_SET": $VarHandle$AccessMode
+static readonly "GET_ACQUIRE": $VarHandle$AccessMode
+static readonly "GET_AND_ADD_RELEASE": $VarHandle$AccessMode
+static readonly "GET_AND_BITWISE_AND_ACQUIRE": $VarHandle$AccessMode
+static readonly "GET_AND_BITWISE_XOR_ACQUIRE": $VarHandle$AccessMode
+static readonly "GET_AND_ADD_ACQUIRE": $VarHandle$AccessMode
+static readonly "GET_AND_BITWISE_OR_RELEASE": $VarHandle$AccessMode
+static readonly "SET_OPAQUE": $VarHandle$AccessMode
+static readonly "WEAK_COMPARE_AND_SET_ACQUIRE": $VarHandle$AccessMode
+static readonly "COMPARE_AND_SET": $VarHandle$AccessMode
+static readonly "COMPARE_AND_EXCHANGE_ACQUIRE": $VarHandle$AccessMode
+static readonly "GET_AND_BITWISE_AND": $VarHandle$AccessMode
+static readonly "SET_VOLATILE": $VarHandle$AccessMode
+static readonly "COMPARE_AND_EXCHANGE_RELEASE": $VarHandle$AccessMode
+static readonly "GET_AND_BITWISE_XOR": $VarHandle$AccessMode
+static readonly "WEAK_COMPARE_AND_SET_PLAIN": $VarHandle$AccessMode
+static readonly "SET_RELEASE": $VarHandle$AccessMode
+static readonly "COMPARE_AND_EXCHANGE": $VarHandle$AccessMode
+static readonly "GET_AND_BITWISE_OR": $VarHandle$AccessMode
+static readonly "GET_AND_BITWISE_AND_RELEASE": $VarHandle$AccessMode
+static readonly "WEAK_COMPARE_AND_SET_RELEASE": $VarHandle$AccessMode
+static readonly "GET_AND_SET_RELEASE": $VarHandle$AccessMode
+static readonly "GET": $VarHandle$AccessMode
+static readonly "GET_AND_SET_ACQUIRE": $VarHandle$AccessMode
+static readonly "GET_AND_BITWISE_XOR_RELEASE": $VarHandle$AccessMode
+static readonly "GET_OPAQUE": $VarHandle$AccessMode
+
+public static "values"(): ($VarHandle$AccessMode)[]
+public "methodName"(): StringJS
+public static "valueOf"(arg0: StringJS): $VarHandle$AccessMode
+public static "valueFromMethodName"(arg0: StringJS): $VarHandle$AccessMode
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $VarHandle$AccessMode$$Type = (("get") | ("set") | ("get_volatile") | ("set_volatile") | ("get_acquire") | ("set_release") | ("get_opaque") | ("set_opaque") | ("compare_and_set") | ("compare_and_exchange") | ("compare_and_exchange_acquire") | ("compare_and_exchange_release") | ("weak_compare_and_set_plain") | ("weak_compare_and_set") | ("weak_compare_and_set_acquire") | ("weak_compare_and_set_release") | ("get_and_set") | ("get_and_set_acquire") | ("get_and_set_release") | ("get_and_add") | ("get_and_add_acquire") | ("get_and_add_release") | ("get_and_bitwise_or") | ("get_and_bitwise_or_release") | ("get_and_bitwise_or_acquire") | ("get_and_bitwise_and") | ("get_and_bitwise_and_release") | ("get_and_bitwise_and_acquire") | ("get_and_bitwise_xor") | ("get_and_bitwise_xor_release") | ("get_and_bitwise_xor_acquire"));
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $VarHandle$AccessMode$$Original = $VarHandle$AccessMode;}
 declare module "java.lang.invoke.VarHandle" {
 import {$Constable$$Interface} from "java.lang.constant.Constable"
 import {$Optional} from "java.util.Optional"
@@ -161,148 +216,15 @@ export type $VarHandle$$Type = ($VarHandle);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $VarHandle$$Original = $VarHandle;}
-declare module "java.lang.invoke.MethodHandleInfo" {
-import {$Member} from "java.lang.reflect.Member"
-import {$MethodHandles$Lookup$$Type} from "java.lang.invoke.MethodHandles$Lookup"
-import {$Class, $Class$$Type} from "java.lang.Class"
-import {$MethodType, $MethodType$$Type} from "java.lang.invoke.MethodType"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export interface $MethodHandleInfo$$Interface {
-get "name"(): StringJS
-get "modifiers"(): integer
-get "declaringClass"(): $Class<(never)>
-get "varArgs"(): boolean
-get "referenceKind"(): integer
-get "methodType"(): $MethodType
-}
-
-export class $MethodHandleInfo implements $MethodHandleInfo$$Interface {
-static readonly "REF_getStatic": integer
-static readonly "REF_getField": integer
-static readonly "REF_putStatic": integer
-static readonly "REF_newInvokeSpecial": integer
-static readonly "REF_putField": integer
-static readonly "REF_invokeVirtual": integer
-static readonly "REF_invokeSpecial": integer
-static readonly "REF_invokeStatic": integer
-static readonly "REF_invokeInterface": integer
-
- "getName"(): StringJS
-static "toString"(arg0: integer, arg1: $Class$$Type<(never)>, arg2: StringJS, arg3: $MethodType$$Type): StringJS
- "getModifiers"(): integer
- "getDeclaringClass"(): $Class<(never)>
- "isVarArgs"(): boolean
- "getReferenceKind"(): integer
- "getMethodType"(): $MethodType
- "reflectAs"<T extends $Member>(arg0: $Class$$Type<(T)>, arg1: $MethodHandles$Lookup$$Type): T
-static "referenceKindToString"(arg0: integer): StringJS
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $MethodHandleInfo$$Type = ($MethodHandleInfo);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $MethodHandleInfo$$Original = $MethodHandleInfo;}
-declare module "java.lang.invoke.VarHandle$VarHandleDesc" {
-import {$MethodHandles$Lookup$$Type} from "java.lang.invoke.MethodHandles$Lookup"
-import {$ClassDesc, $ClassDesc$$Type} from "java.lang.constant.ClassDesc"
-import {$VarHandle} from "java.lang.invoke.VarHandle"
-import {$DynamicConstantDesc} from "java.lang.constant.DynamicConstantDesc"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export class $VarHandle$VarHandleDesc extends $DynamicConstantDesc<($VarHandle)> {
-public "toString"(): StringJS
-public "resolveConstantDesc"(arg0: $MethodHandles$Lookup$$Type): any
-public static "ofField"(arg0: $ClassDesc$$Type, arg1: StringJS, arg2: $ClassDesc$$Type): $VarHandle$VarHandleDesc
-public "varType"(): $ClassDesc
-public static "ofArray"(arg0: $ClassDesc$$Type): $VarHandle$VarHandleDesc
-public static "ofStaticField"(arg0: $ClassDesc$$Type, arg1: StringJS, arg2: $ClassDesc$$Type): $VarHandle$VarHandleDesc
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $VarHandle$VarHandleDesc$$Type = ($VarHandle$VarHandleDesc);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $VarHandle$VarHandleDesc$$Original = $VarHandle$VarHandleDesc;}
-declare module "java.lang.invoke.VarHandle$AccessMode" {
-import {$Enum} from "java.lang.Enum"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export class $VarHandle$AccessMode extends $Enum<($VarHandle$AccessMode)> {
-static readonly "WEAK_COMPARE_AND_SET": $VarHandle$AccessMode
-static readonly "GET_VOLATILE": $VarHandle$AccessMode
-static readonly "SET": $VarHandle$AccessMode
-static readonly "GET_AND_BITWISE_OR_ACQUIRE": $VarHandle$AccessMode
-static readonly "GET_AND_ADD": $VarHandle$AccessMode
-static readonly "GET_AND_SET": $VarHandle$AccessMode
-static readonly "GET_ACQUIRE": $VarHandle$AccessMode
-static readonly "GET_AND_ADD_RELEASE": $VarHandle$AccessMode
-static readonly "GET_AND_BITWISE_AND_ACQUIRE": $VarHandle$AccessMode
-static readonly "GET_AND_BITWISE_XOR_ACQUIRE": $VarHandle$AccessMode
-static readonly "GET_AND_ADD_ACQUIRE": $VarHandle$AccessMode
-static readonly "GET_AND_BITWISE_OR_RELEASE": $VarHandle$AccessMode
-static readonly "SET_OPAQUE": $VarHandle$AccessMode
-static readonly "WEAK_COMPARE_AND_SET_ACQUIRE": $VarHandle$AccessMode
-static readonly "COMPARE_AND_SET": $VarHandle$AccessMode
-static readonly "COMPARE_AND_EXCHANGE_ACQUIRE": $VarHandle$AccessMode
-static readonly "GET_AND_BITWISE_AND": $VarHandle$AccessMode
-static readonly "SET_VOLATILE": $VarHandle$AccessMode
-static readonly "COMPARE_AND_EXCHANGE_RELEASE": $VarHandle$AccessMode
-static readonly "GET_AND_BITWISE_XOR": $VarHandle$AccessMode
-static readonly "WEAK_COMPARE_AND_SET_PLAIN": $VarHandle$AccessMode
-static readonly "SET_RELEASE": $VarHandle$AccessMode
-static readonly "COMPARE_AND_EXCHANGE": $VarHandle$AccessMode
-static readonly "GET_AND_BITWISE_OR": $VarHandle$AccessMode
-static readonly "GET_AND_BITWISE_AND_RELEASE": $VarHandle$AccessMode
-static readonly "WEAK_COMPARE_AND_SET_RELEASE": $VarHandle$AccessMode
-static readonly "GET_AND_SET_RELEASE": $VarHandle$AccessMode
-static readonly "GET": $VarHandle$AccessMode
-static readonly "GET_AND_SET_ACQUIRE": $VarHandle$AccessMode
-static readonly "GET_AND_BITWISE_XOR_RELEASE": $VarHandle$AccessMode
-static readonly "GET_OPAQUE": $VarHandle$AccessMode
-
-public static "values"(): ($VarHandle$AccessMode)[]
-public "methodName"(): StringJS
-public static "valueOf"(arg0: StringJS): $VarHandle$AccessMode
-public static "valueFromMethodName"(arg0: StringJS): $VarHandle$AccessMode
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $VarHandle$AccessMode$$Type = (("get") | ("set") | ("get_volatile") | ("set_volatile") | ("get_acquire") | ("set_release") | ("get_opaque") | ("set_opaque") | ("compare_and_set") | ("compare_and_exchange") | ("compare_and_exchange_acquire") | ("compare_and_exchange_release") | ("weak_compare_and_set_plain") | ("weak_compare_and_set") | ("weak_compare_and_set_acquire") | ("weak_compare_and_set_release") | ("get_and_set") | ("get_and_set_acquire") | ("get_and_set_release") | ("get_and_add") | ("get_and_add_acquire") | ("get_and_add_release") | ("get_and_bitwise_or") | ("get_and_bitwise_or_release") | ("get_and_bitwise_or_acquire") | ("get_and_bitwise_and") | ("get_and_bitwise_and_release") | ("get_and_bitwise_and_acquire") | ("get_and_bitwise_xor") | ("get_and_bitwise_xor_release") | ("get_and_bitwise_xor_acquire"));
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $VarHandle$AccessMode$$Original = $VarHandle$AccessMode;}
 declare module "java.lang.invoke.MethodHandles$Lookup" {
 import {$MethodHandleInfo} from "java.lang.invoke.MethodHandleInfo"
 import {$VarHandle} from "java.lang.invoke.VarHandle"
 import {$MethodHandle, $MethodHandle$$Type} from "java.lang.invoke.MethodHandle"
-import {$Class, $Class$$Type} from "java.lang.Class"
 import {$MethodHandles$Lookup$ClassOption$$Type} from "java.lang.invoke.MethodHandles$Lookup$ClassOption"
-import {$Constructor$$Type} from "java.lang.reflect.Constructor"
+import {$Class, $Class$$Type} from "java.lang.Class"
 import {$MethodType$$Type} from "java.lang.invoke.MethodType"
 import {$Field$$Type} from "java.lang.reflect.Field"
+import {$Constructor$$Type} from "java.lang.reflect.Constructor"
 import {$Method$$Type} from "java.lang.reflect.Method"
 
 /**
@@ -365,6 +287,84 @@ export type $MethodHandles$Lookup$$Type = ($MethodHandles$Lookup);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $MethodHandles$Lookup$$Original = $MethodHandles$Lookup;}
+declare module "java.lang.invoke.MethodHandleInfo" {
+import {$Member} from "java.lang.reflect.Member"
+import {$MethodHandles$Lookup$$Type} from "java.lang.invoke.MethodHandles$Lookup"
+import {$Class, $Class$$Type} from "java.lang.Class"
+import {$MethodType, $MethodType$$Type} from "java.lang.invoke.MethodType"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export interface $MethodHandleInfo$$Interface {
+get "name"(): StringJS
+get "modifiers"(): integer
+get "declaringClass"(): $Class<(never)>
+get "varArgs"(): boolean
+get "referenceKind"(): integer
+get "methodType"(): $MethodType
+}
+
+export class $MethodHandleInfo implements $MethodHandleInfo$$Interface {
+static readonly "REF_getStatic": integer
+static readonly "REF_getField": integer
+static readonly "REF_putStatic": integer
+static readonly "REF_newInvokeSpecial": integer
+static readonly "REF_putField": integer
+static readonly "REF_invokeVirtual": integer
+static readonly "REF_invokeSpecial": integer
+static readonly "REF_invokeStatic": integer
+static readonly "REF_invokeInterface": integer
+
+ "getName"(): StringJS
+static "toString"(arg0: integer, arg1: $Class$$Type<(never)>, arg2: StringJS, arg3: $MethodType$$Type): StringJS
+ "getModifiers"(): integer
+ "getDeclaringClass"(): $Class<(never)>
+ "isVarArgs"(): boolean
+ "getReferenceKind"(): integer
+ "getMethodType"(): $MethodType
+ "reflectAs"<T extends $Member>(arg0: $Class$$Type<(T)>, arg1: $MethodHandles$Lookup$$Type): T
+static "referenceKindToString"(arg0: integer): StringJS
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $MethodHandleInfo$$Type = ($MethodHandleInfo);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $MethodHandleInfo$$Original = $MethodHandleInfo;}
+declare module "java.lang.invoke.VarHandle$VarHandleDesc" {
+import {$MethodHandles$Lookup$$Type} from "java.lang.invoke.MethodHandles$Lookup"
+import {$ClassDesc, $ClassDesc$$Type} from "java.lang.constant.ClassDesc"
+import {$VarHandle} from "java.lang.invoke.VarHandle"
+import {$DynamicConstantDesc} from "java.lang.constant.DynamicConstantDesc"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $VarHandle$VarHandleDesc extends $DynamicConstantDesc<($VarHandle)> {
+public static "ofArray"(arg0: $ClassDesc$$Type): $VarHandle$VarHandleDesc
+public "toString"(): StringJS
+public "resolveConstantDesc"(arg0: $MethodHandles$Lookup$$Type): any
+public static "ofField"(arg0: $ClassDesc$$Type, arg1: StringJS, arg2: $ClassDesc$$Type): $VarHandle$VarHandleDesc
+public "varType"(): $ClassDesc
+public static "ofStaticField"(arg0: $ClassDesc$$Type, arg1: StringJS, arg2: $ClassDesc$$Type): $VarHandle$VarHandleDesc
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $VarHandle$VarHandleDesc$$Type = ($VarHandle$VarHandleDesc);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $VarHandle$VarHandleDesc$$Original = $VarHandle$VarHandleDesc;}
 declare module "java.lang.invoke.TypeDescriptor$OfField" {
 import {$TypeDescriptor$$Interface} from "java.lang.invoke.TypeDescriptor"
 

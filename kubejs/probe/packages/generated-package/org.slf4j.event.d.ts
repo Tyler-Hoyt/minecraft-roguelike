@@ -11,8 +11,8 @@ static readonly "WARN": $Level
 public "toString"(): StringJS
 public static "values"(): ($Level)[]
 public static "valueOf"(arg0: StringJS): $Level
-public "toInt"(): integer
 public static "intToLevel"(arg0: integer): $Level
+public "toInt"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

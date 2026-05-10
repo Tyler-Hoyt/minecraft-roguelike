@@ -6,6 +6,7 @@ import {$DoubleStream} from "java.util.stream.DoubleStream"
 export interface $RandomGenerator$$Interface {
 
 (): long
+public static get "default"(): $RandomGenerator
 get "deprecated"(): boolean
 }
 

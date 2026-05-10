@@ -21,16 +21,16 @@ declare module "com.ordana.spelunkery.utils.IParachuteEntity" {
 import {$ItemStack, $ItemStack$$Type} from "net.minecraft.world.item.ItemStack"
 
 export interface $IParachuteEntity$$Interface {
-get "parachute"(): $ItemStack
-set "parachute"(value: $ItemStack$$Type)
 get "parachuteTicks"(): integer
+set "parachute"(value: $ItemStack$$Type)
+get "parachute"(): $ItemStack
 }
 
 export class $IParachuteEntity implements $IParachuteEntity$$Interface {
- "getParachute"(): $ItemStack
  "hasParachute"(): boolean
- "setParachute"(arg0: $ItemStack$$Type): void
  "getParachuteTicks"(): integer
+ "setParachute"(arg0: $ItemStack$$Type): void
+ "getParachute"(): $ItemStack
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

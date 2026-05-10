@@ -6,24 +6,24 @@ import {$FastMap, $FastMap$$Type} from "malte0811.ferritecore.fastmap.FastMap"
 import {$Property, $Property$$Type} from "net.minecraft.world.level.block.state.properties.Property"
 
 export interface $FastMapStateHolder$$Interface<S> {
+get "vanillaPropertyMap"(): $Reference2ObjectMap<($Property<(never)>), ($Comparable<(never)>)>
+set "neighborTable"(value: $Table$$Type<($Property$$Type<(never)>), ($Comparable$$Type<(never)>), (S)>)
 get "stateIndex"(): integer
-set "stateMap"(value: $FastMap$$Type<(S)>)
 get "stateMap"(): $FastMap<(S)>
 set "stateIndex"(value: integer)
-set "neighborTable"(value: $Table$$Type<($Property$$Type<(never)>), ($Comparable$$Type<(never)>), (S)>)
+set "stateMap"(value: $FastMap$$Type<(S)>)
 get "neighborTable"(): $Table<($Property<(never)>), ($Comparable<(never)>), (S)>
-get "vanillaPropertyMap"(): $Reference2ObjectMap<($Property<(never)>), ($Comparable<(never)>)>
 }
 
 export class $FastMapStateHolder<S> implements $FastMapStateHolder$$Interface {
+ "getVanillaPropertyMap"(): $Reference2ObjectMap<($Property<(never)>), ($Comparable<(never)>)>
+ "setNeighborTable"(arg0: $Table$$Type<($Property$$Type<(never)>), ($Comparable$$Type<(never)>), (S)>): void
  "getStateIndex"(): integer
- "setStateMap"(arg0: $FastMap$$Type<(S)>): void
  "getStateMap"(): $FastMap<(S)>
  "setStateIndex"(arg0: integer): void
- "setNeighborTable"(arg0: $Table$$Type<($Property$$Type<(never)>), ($Comparable$$Type<(never)>), (S)>): void
+ "setStateMap"(arg0: $FastMap$$Type<(S)>): void
  "getNeighborTable"(): $Table<($Property<(never)>), ($Comparable<(never)>), (S)>
  "replacePropertyMap"(arg0: $Reference2ObjectMap$$Type<($Property$$Type<(never)>), ($Comparable$$Type<(never)>)>): void
- "getVanillaPropertyMap"(): $Reference2ObjectMap<($Property<(never)>), ($Comparable<(never)>)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

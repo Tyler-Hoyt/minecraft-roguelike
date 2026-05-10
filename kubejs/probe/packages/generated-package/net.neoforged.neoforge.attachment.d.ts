@@ -1,3 +1,66 @@
+declare module "net.neoforged.neoforge.attachment.AttachmentHolder" {
+import {$CompoundTag} from "net.minecraft.nbt.CompoundTag"
+import {$AttachmentType$$Type} from "net.neoforged.neoforge.attachment.AttachmentType"
+import {$Optional} from "java.util.Optional"
+import {$IAttachmentHolder$$Interface} from "net.neoforged.neoforge.attachment.IAttachmentHolder"
+import {$Supplier$$Type} from "java.util.function.Supplier"
+import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
+
+export class $AttachmentHolder implements $IAttachmentHolder$$Interface {
+static readonly "ATTACHMENTS_NBT_KEY": StringJS
+
+constructor()
+
+public "getData"<T>(arg0: $AttachmentType$$Type<(T)>): T
+public "getExistingDataOrNull"<T>(arg0: $AttachmentType$$Type<(T)>): T
+public "hasAttachments"(): boolean
+public "setData"<T>(arg0: $AttachmentType$$Type<(T)>, arg1: T): T
+public "removeData"<T>(arg0: $AttachmentType$$Type<(T)>): T
+public "hasData"(arg0: $AttachmentType$$Type<(never)>): boolean
+public "serializeAttachments"(arg0: $HolderLookup$Provider$$Type): $CompoundTag
+public "getData"<T>(arg0: $Supplier$$Type<($AttachmentType$$Type<(T)>)>): T
+public "getExistingDataOrNull"<T>(arg0: $Supplier$$Type<($AttachmentType$$Type<(T)>)>): T
+public "getExistingData"<T>(arg0: $Supplier$$Type<($AttachmentType$$Type<(T)>)>): $Optional<(T)>
+public "getExistingData"<T>(arg0: $AttachmentType$$Type<(T)>): $Optional<(T)>
+public "setData"<T>(arg0: $Supplier$$Type<($AttachmentType$$Type<(T)>)>, arg1: T): T
+public "removeData"<T>(arg0: $Supplier$$Type<($AttachmentType$$Type<(T)>)>): T
+public "syncData"(arg0: $AttachmentType$$Type<(never)>): void
+public "syncData"(arg0: $Supplier$$Type<($AttachmentType$$Type<(never)>)>): void
+public "hasData"<T>(arg0: $Supplier$$Type<($AttachmentType$$Type<(T)>)>): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $AttachmentHolder$$Type = ($AttachmentHolder);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $AttachmentHolder$$Original = $AttachmentHolder;}
+declare module "net.neoforged.neoforge.attachment.AttachmentHolder$AsField" {
+import {$CompoundTag$$Type} from "net.minecraft.nbt.CompoundTag"
+import {$AttachmentType$$Type} from "net.neoforged.neoforge.attachment.AttachmentType"
+import {$IAttachmentHolder$$Type} from "net.neoforged.neoforge.attachment.IAttachmentHolder"
+import {$AttachmentHolder} from "net.neoforged.neoforge.attachment.AttachmentHolder"
+import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
+
+export class $AttachmentHolder$AsField extends $AttachmentHolder {
+static readonly "ATTACHMENTS_NBT_KEY": StringJS
+
+constructor(arg0: $IAttachmentHolder$$Type)
+
+public "deserializeInternal"(arg0: $HolderLookup$Provider$$Type, arg1: $CompoundTag$$Type): void
+public "syncData"(arg0: $AttachmentType$$Type<(never)>): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $AttachmentHolder$AsField$$Type = ($AttachmentHolder$AsField);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $AttachmentHolder$AsField$$Original = $AttachmentHolder$AsField;}
 declare module "net.neoforged.neoforge.attachment.IAttachmentSerializer" {
 import {$IAttachmentHolder$$Type} from "net.neoforged.neoforge.attachment.IAttachmentHolder"
 import {$Tag, $Tag$$Type} from "net.minecraft.nbt.Tag"
@@ -22,12 +85,12 @@ export type $IAttachmentSerializer$$Original<S, T> = $IAttachmentSerializer<(S),
 declare module "net.neoforged.neoforge.attachment.AttachmentType$Builder" {
 import {$StreamCodec$$Type} from "net.minecraft.network.codec.StreamCodec"
 import {$IAttachmentCopyHandler$$Type} from "net.neoforged.neoforge.attachment.IAttachmentCopyHandler"
-import {$AttachmentType} from "net.neoforged.neoforge.attachment.AttachmentType"
 import {$BiPredicate$$Type} from "java.util.function.BiPredicate"
+import {$AttachmentType} from "net.neoforged.neoforge.attachment.AttachmentType"
 import {$IAttachmentSerializer$$Type} from "net.neoforged.neoforge.attachment.IAttachmentSerializer"
 import {$Codec$$Type} from "com.mojang.serialization.Codec"
-import {$IAttachmentHolder$$Type} from "net.neoforged.neoforge.attachment.IAttachmentHolder"
 import {$RegistryFriendlyByteBuf$$Type} from "net.minecraft.network.RegistryFriendlyByteBuf"
+import {$IAttachmentHolder$$Type} from "net.neoforged.neoforge.attachment.IAttachmentHolder"
 import {$Predicate$$Type} from "java.util.function.Predicate"
 import {$ServerPlayer$$Type} from "net.minecraft.server.level.ServerPlayer"
 import {$AttachmentSyncHandler$$Type} from "net.neoforged.neoforge.attachment.AttachmentSyncHandler"
@@ -104,72 +167,9 @@ export type $IAttachmentCopyHandler$$Type<T> = ((arg0: T, arg1: $IAttachmentHold
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $IAttachmentCopyHandler$$Original<T> = $IAttachmentCopyHandler<(T)>;}
-declare module "net.neoforged.neoforge.attachment.AttachmentHolder" {
-import {$AttachmentType$$Type} from "net.neoforged.neoforge.attachment.AttachmentType"
-import {$CompoundTag} from "net.minecraft.nbt.CompoundTag"
-import {$Optional} from "java.util.Optional"
-import {$IAttachmentHolder$$Interface} from "net.neoforged.neoforge.attachment.IAttachmentHolder"
-import {$Supplier$$Type} from "java.util.function.Supplier"
-import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
-
-export class $AttachmentHolder implements $IAttachmentHolder$$Interface {
-static readonly "ATTACHMENTS_NBT_KEY": StringJS
-
-constructor()
-
-public "getData"<T>(arg0: $AttachmentType$$Type<(T)>): T
-public "getExistingDataOrNull"<T>(arg0: $AttachmentType$$Type<(T)>): T
-public "serializeAttachments"(arg0: $HolderLookup$Provider$$Type): $CompoundTag
-public "hasAttachments"(): boolean
-public "hasData"(arg0: $AttachmentType$$Type<(never)>): boolean
-public "removeData"<T>(arg0: $AttachmentType$$Type<(T)>): T
-public "setData"<T>(arg0: $AttachmentType$$Type<(T)>, arg1: T): T
-public "getData"<T>(arg0: $Supplier$$Type<($AttachmentType$$Type<(T)>)>): T
-public "getExistingDataOrNull"<T>(arg0: $Supplier$$Type<($AttachmentType$$Type<(T)>)>): T
-public "getExistingData"<T>(arg0: $Supplier$$Type<($AttachmentType$$Type<(T)>)>): $Optional<(T)>
-public "getExistingData"<T>(arg0: $AttachmentType$$Type<(T)>): $Optional<(T)>
-public "syncData"(arg0: $Supplier$$Type<($AttachmentType$$Type<(never)>)>): void
-public "syncData"(arg0: $AttachmentType$$Type<(never)>): void
-public "hasData"<T>(arg0: $Supplier$$Type<($AttachmentType$$Type<(T)>)>): boolean
-public "removeData"<T>(arg0: $Supplier$$Type<($AttachmentType$$Type<(T)>)>): T
-public "setData"<T>(arg0: $Supplier$$Type<($AttachmentType$$Type<(T)>)>, arg1: T): T
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $AttachmentHolder$$Type = ($AttachmentHolder);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $AttachmentHolder$$Original = $AttachmentHolder;}
-declare module "net.neoforged.neoforge.attachment.AttachmentHolder$AsField" {
-import {$AttachmentType$$Type} from "net.neoforged.neoforge.attachment.AttachmentType"
-import {$CompoundTag$$Type} from "net.minecraft.nbt.CompoundTag"
-import {$IAttachmentHolder$$Type} from "net.neoforged.neoforge.attachment.IAttachmentHolder"
-import {$AttachmentHolder} from "net.neoforged.neoforge.attachment.AttachmentHolder"
-import {$HolderLookup$Provider$$Type} from "net.minecraft.core.HolderLookup$Provider"
-
-export class $AttachmentHolder$AsField extends $AttachmentHolder {
-static readonly "ATTACHMENTS_NBT_KEY": StringJS
-
-constructor(arg0: $IAttachmentHolder$$Type)
-
-public "syncData"(arg0: $AttachmentType$$Type<(never)>): void
-public "deserializeInternal"(arg0: $HolderLookup$Provider$$Type, arg1: $CompoundTag$$Type): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $AttachmentHolder$AsField$$Type = ($AttachmentHolder$AsField);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $AttachmentHolder$AsField$$Original = $AttachmentHolder$AsField;}
 declare module "net.neoforged.neoforge.attachment.AttachmentSyncHandler" {
-import {$IAttachmentHolder$$Type} from "net.neoforged.neoforge.attachment.IAttachmentHolder"
 import {$RegistryFriendlyByteBuf$$Type} from "net.minecraft.network.RegistryFriendlyByteBuf"
+import {$IAttachmentHolder$$Type} from "net.neoforged.neoforge.attachment.IAttachmentHolder"
 import {$ServerPlayer$$Type} from "net.minecraft.server.level.ServerPlayer"
 
 export interface $AttachmentSyncHandler$$Interface<T> {
@@ -205,14 +205,14 @@ export class $IAttachmentHolder implements $IAttachmentHolder$$Interface {
  "getExistingData"<T>(arg0: $Supplier$$Type<($AttachmentType$$Type<(T)>)>): $Optional<(T)>
  "getExistingData"<T>(arg0: $AttachmentType$$Type<(T)>): $Optional<(T)>
  "hasAttachments"(): boolean
- "syncData"(arg0: $Supplier$$Type<($AttachmentType$$Type<(never)>)>): void
- "syncData"(arg0: $AttachmentType$$Type<(never)>): void
- "hasData"<T>(arg0: $Supplier$$Type<($AttachmentType$$Type<(T)>)>): boolean
- "hasData"(arg0: $AttachmentType$$Type<(never)>): boolean
- "removeData"<T>(arg0: $AttachmentType$$Type<(T)>): T
- "removeData"<T>(arg0: $Supplier$$Type<($AttachmentType$$Type<(T)>)>): T
  "setData"<T>(arg0: $AttachmentType$$Type<(T)>, arg1: T): T
  "setData"<T>(arg0: $Supplier$$Type<($AttachmentType$$Type<(T)>)>, arg1: T): T
+ "removeData"<T>(arg0: $Supplier$$Type<($AttachmentType$$Type<(T)>)>): T
+ "removeData"<T>(arg0: $AttachmentType$$Type<(T)>): T
+ "syncData"(arg0: $AttachmentType$$Type<(never)>): void
+ "syncData"(arg0: $Supplier$$Type<($AttachmentType$$Type<(never)>)>): void
+ "hasData"(arg0: $AttachmentType$$Type<(never)>): boolean
+ "hasData"<T>(arg0: $Supplier$$Type<($AttachmentType$$Type<(T)>)>): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

@@ -21,16 +21,16 @@ public "serializer"(): $EntityDataSerializer<(T)>
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $SynchedEntityData$DataValue$$Type<T> = ({"value"?: T, "id"?: integer, "serializer"?: $EntityDataSerializer$$Type<(T)>}) | ([value?: T, id?: integer, serializer?: $EntityDataSerializer$$Type<(T)>]);
+export type $SynchedEntityData$DataValue$$Type<T> = ({"serializer"?: $EntityDataSerializer$$Type<(T)>, "value"?: T, "id"?: integer}) | ([serializer?: $EntityDataSerializer$$Type<(T)>, value?: T, id?: integer]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $SynchedEntityData$DataValue$$Original<T> = $SynchedEntityData$DataValue<(T)>;}
 declare module "net.minecraft.network.syncher.SynchedEntityData" {
-import {$EntityDataSerializer$$Type} from "net.minecraft.network.syncher.EntityDataSerializer"
 import {$SynchedEntityData$DataValue, $SynchedEntityData$DataValue$$Type} from "net.minecraft.network.syncher.SynchedEntityData$DataValue"
-import {$List, $List$$Type} from "java.util.List"
+import {$EntityDataSerializer$$Type} from "net.minecraft.network.syncher.EntityDataSerializer"
 import {$EntityDataAccessor, $EntityDataAccessor$$Type} from "net.minecraft.network.syncher.EntityDataAccessor"
+import {$List, $List$$Type} from "java.util.List"
 import {$SyncedDataHolder$$Type} from "net.minecraft.network.syncher.SyncedDataHolder"
 import {$Class$$Type} from "java.lang.Class"
 
@@ -40,9 +40,9 @@ public "set"<T>(arg0: $EntityDataAccessor$$Type<(T)>, arg1: T): void
 public "set"<T>(arg0: $EntityDataAccessor$$Type<(T)>, arg1: T, arg2: boolean): void
 public "isDirty"(): boolean
 public static "defineId"<T>(arg0: $Class$$Type<($SyncedDataHolder$$Type)>, arg1: $EntityDataSerializer$$Type<(T)>): $EntityDataAccessor<(T)>
-public "getNonDefaultValues"(): $List<($SynchedEntityData$DataValue<(never)>)>
 public "packDirty"(): $List<($SynchedEntityData$DataValue<(never)>)>
 public "assignValues"(arg0: $List$$Type<($SynchedEntityData$DataValue$$Type<(never)>)>): void
+public "getNonDefaultValues"(): $List<($SynchedEntityData$DataValue<(never)>)>
 get "dirty"(): boolean
 get "nonDefaultValues"(): $List<($SynchedEntityData$DataValue<(never)>)>
 }
@@ -57,8 +57,8 @@ export type $SynchedEntityData$$Type = ($SynchedEntityData);
 export type $SynchedEntityData$$Original = $SynchedEntityData;}
 declare module "net.minecraft.network.syncher.SyncedDataHolder" {
 import {$SynchedEntityData$DataValue$$Type} from "net.minecraft.network.syncher.SynchedEntityData$DataValue"
-import {$List$$Type} from "java.util.List"
 import {$EntityDataAccessor$$Type} from "net.minecraft.network.syncher.EntityDataAccessor"
+import {$List$$Type} from "java.util.List"
 
 export interface $SyncedDataHolder$$Interface {
 }
@@ -93,7 +93,7 @@ public "serializer"(): $EntityDataSerializer<(T)>
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $EntityDataAccessor$$Type<T> = ({"serializer"?: $EntityDataSerializer$$Type<(T)>, "id"?: integer}) | ([serializer?: $EntityDataSerializer$$Type<(T)>, id?: integer]);
+export type $EntityDataAccessor$$Type<T> = ({"id"?: integer, "serializer"?: $EntityDataSerializer$$Type<(T)>}) | ([id?: integer, serializer?: $EntityDataSerializer$$Type<(T)>]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
@@ -117,8 +117,8 @@ export interface $EntityDataSerializer$$Interface<T> {
 export class $EntityDataSerializer<T> implements $EntityDataSerializer$$Interface {
  "copy"(arg0: T): T
  "codec"(): $StreamCodec<($RegistryFriendlyByteBuf), (T)>
-static "forValueType"<T>(arg0: $StreamCodec$$Type<($RegistryFriendlyByteBuf$$Type), (T)>): $EntityDataSerializer<(T)>
  "createAccessor"(arg0: integer): $EntityDataAccessor<(T)>
+static "forValueType"<T>(arg0: $StreamCodec$$Type<($RegistryFriendlyByteBuf$$Type), (T)>): $EntityDataSerializer<(T)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

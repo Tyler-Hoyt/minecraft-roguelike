@@ -1,8 +1,8 @@
 declare module "com.mojang.brigadier.arguments.StringArgumentType" {
 import {$CommandContext$$Type} from "com.mojang.brigadier.context.CommandContext"
 import {$ArgumentType$$Interface} from "com.mojang.brigadier.arguments.ArgumentType"
-import {$Collection} from "java.util.Collection"
 import {$Suggestions} from "com.mojang.brigadier.suggestion.Suggestions"
+import {$Collection} from "java.util.Collection"
 import {$CompletableFuture} from "java.util.concurrent.CompletableFuture"
 import {$StringReader$$Type} from "com.mojang.brigadier.StringReader"
 import {$StringArgumentType$StringType} from "com.mojang.brigadier.arguments.StringArgumentType$StringType"
@@ -15,9 +15,9 @@ public "getType"(): $StringArgumentType$StringType
 public static "string"(): $StringArgumentType
 public static "getString"(arg0: $CommandContext$$Type<(never)>, arg1: StringJS): StringJS
 public static "word"(): $StringArgumentType
-public "getExamples"(): $Collection<(StringJS)>
-public static "greedyString"(): $StringArgumentType
 public static "escapeIfRequired"(arg0: StringJS): StringJS
+public static "greedyString"(): $StringArgumentType
+public "getExamples"(): $Collection<(StringJS)>
 public "parse"<S>(arg0: $StringReader$$Type, arg1: S): StringJS
 public "listSuggestions"<S>(arg0: $CommandContext$$Type<(S)>, arg1: $SuggestionsBuilder$$Type): $CompletableFuture<($Suggestions)>
 get "type"(): $StringArgumentType$StringType
@@ -32,11 +32,34 @@ export type $StringArgumentType$$Type = ($StringArgumentType);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $StringArgumentType$$Original = $StringArgumentType;}
+declare module "com.mojang.brigadier.arguments.StringArgumentType$StringType" {
+import {$Collection} from "java.util.Collection"
+import {$Enum} from "java.lang.Enum"
+
+export class $StringArgumentType$StringType extends $Enum<($StringArgumentType$StringType)> {
+static readonly "QUOTABLE_PHRASE": $StringArgumentType$StringType
+static readonly "GREEDY_PHRASE": $StringArgumentType$StringType
+static readonly "SINGLE_WORD": $StringArgumentType$StringType
+
+public static "values"(): ($StringArgumentType$StringType)[]
+public static "valueOf"(arg0: StringJS): $StringArgumentType$StringType
+public "getExamples"(): $Collection<(StringJS)>
+get "examples"(): $Collection<(StringJS)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $StringArgumentType$StringType$$Type = (("single_word") | ("quotable_phrase") | ("greedy_phrase"));
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $StringArgumentType$StringType$$Original = $StringArgumentType$StringType;}
 declare module "com.mojang.brigadier.arguments.IntegerArgumentType" {
 import {$CommandContext$$Type} from "com.mojang.brigadier.context.CommandContext"
 import {$ArgumentType$$Interface} from "com.mojang.brigadier.arguments.ArgumentType"
-import {$Collection} from "java.util.Collection"
 import {$Suggestions} from "com.mojang.brigadier.suggestion.Suggestions"
+import {$Collection} from "java.util.Collection"
 import {$CompletableFuture} from "java.util.concurrent.CompletableFuture"
 import {$StringReader$$Type} from "com.mojang.brigadier.StringReader"
 import {$SuggestionsBuilder$$Type} from "com.mojang.brigadier.suggestion.SuggestionsBuilder"
@@ -71,8 +94,8 @@ export type $IntegerArgumentType$$Original = $IntegerArgumentType;}
 declare module "com.mojang.brigadier.arguments.DoubleArgumentType" {
 import {$CommandContext$$Type} from "com.mojang.brigadier.context.CommandContext"
 import {$ArgumentType$$Interface} from "com.mojang.brigadier.arguments.ArgumentType"
-import {$Collection} from "java.util.Collection"
 import {$Suggestions} from "com.mojang.brigadier.suggestion.Suggestions"
+import {$Collection} from "java.util.Collection"
 import {$CompletableFuture} from "java.util.concurrent.CompletableFuture"
 import {$StringReader$$Type} from "com.mojang.brigadier.StringReader"
 import {$SuggestionsBuilder$$Type} from "com.mojang.brigadier.suggestion.SuggestionsBuilder"
@@ -104,70 +127,11 @@ export type $DoubleArgumentType$$Type = ($DoubleArgumentType);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $DoubleArgumentType$$Original = $DoubleArgumentType;}
-declare module "com.mojang.brigadier.arguments.LongArgumentType" {
-import {$CommandContext$$Type} from "com.mojang.brigadier.context.CommandContext"
-import {$ArgumentType$$Interface} from "com.mojang.brigadier.arguments.ArgumentType"
-import {$Collection} from "java.util.Collection"
-import {$Suggestions} from "com.mojang.brigadier.suggestion.Suggestions"
-import {$CompletableFuture} from "java.util.concurrent.CompletableFuture"
-import {$StringReader$$Type} from "com.mojang.brigadier.StringReader"
-import {$SuggestionsBuilder$$Type} from "com.mojang.brigadier.suggestion.SuggestionsBuilder"
-
-export class $LongArgumentType implements $ArgumentType$$Interface<(long)> {
-public "equals"(arg0: any): boolean
-public "toString"(): StringJS
-public "hashCode"(): integer
-public static "getLong"(arg0: $CommandContext$$Type<(never)>, arg1: StringJS): long
-public "parse"(arg0: $StringReader$$Type): any
-public "getMaximum"(): long
-public "getMinimum"(): long
-public "getExamples"(): $Collection<(StringJS)>
-public static "longArg"(arg0: long): $LongArgumentType
-public static "longArg"(arg0: long, arg1: long): $LongArgumentType
-public static "longArg"(): $LongArgumentType
-public "parse"<S>(arg0: $StringReader$$Type, arg1: S): long
-public "listSuggestions"<S>(arg0: $CommandContext$$Type<(S)>, arg1: $SuggestionsBuilder$$Type): $CompletableFuture<($Suggestions)>
-get "maximum"(): long
-get "minimum"(): long
-get "examples"(): $Collection<(StringJS)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $LongArgumentType$$Type = ($LongArgumentType);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $LongArgumentType$$Original = $LongArgumentType;}
-declare module "com.mojang.brigadier.arguments.StringArgumentType$StringType" {
-import {$Collection} from "java.util.Collection"
-import {$Enum} from "java.lang.Enum"
-
-export class $StringArgumentType$StringType extends $Enum<($StringArgumentType$StringType)> {
-static readonly "QUOTABLE_PHRASE": $StringArgumentType$StringType
-static readonly "GREEDY_PHRASE": $StringArgumentType$StringType
-static readonly "SINGLE_WORD": $StringArgumentType$StringType
-
-public static "values"(): ($StringArgumentType$StringType)[]
-public static "valueOf"(arg0: StringJS): $StringArgumentType$StringType
-public "getExamples"(): $Collection<(StringJS)>
-get "examples"(): $Collection<(StringJS)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $StringArgumentType$StringType$$Type = (("single_word") | ("quotable_phrase") | ("greedy_phrase"));
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $StringArgumentType$StringType$$Original = $StringArgumentType$StringType;}
 declare module "com.mojang.brigadier.arguments.FloatArgumentType" {
 import {$CommandContext$$Type} from "com.mojang.brigadier.context.CommandContext"
 import {$ArgumentType$$Interface} from "com.mojang.brigadier.arguments.ArgumentType"
-import {$Collection} from "java.util.Collection"
 import {$Suggestions} from "com.mojang.brigadier.suggestion.Suggestions"
+import {$Collection} from "java.util.Collection"
 import {$CompletableFuture} from "java.util.concurrent.CompletableFuture"
 import {$StringReader$$Type} from "com.mojang.brigadier.StringReader"
 import {$SuggestionsBuilder$$Type} from "com.mojang.brigadier.suggestion.SuggestionsBuilder"
@@ -199,10 +163,46 @@ export type $FloatArgumentType$$Type = ($FloatArgumentType);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $FloatArgumentType$$Original = $FloatArgumentType;}
+declare module "com.mojang.brigadier.arguments.LongArgumentType" {
+import {$CommandContext$$Type} from "com.mojang.brigadier.context.CommandContext"
+import {$ArgumentType$$Interface} from "com.mojang.brigadier.arguments.ArgumentType"
+import {$Suggestions} from "com.mojang.brigadier.suggestion.Suggestions"
+import {$Collection} from "java.util.Collection"
+import {$CompletableFuture} from "java.util.concurrent.CompletableFuture"
+import {$StringReader$$Type} from "com.mojang.brigadier.StringReader"
+import {$SuggestionsBuilder$$Type} from "com.mojang.brigadier.suggestion.SuggestionsBuilder"
+
+export class $LongArgumentType implements $ArgumentType$$Interface<(long)> {
+public "equals"(arg0: any): boolean
+public "toString"(): StringJS
+public "hashCode"(): integer
+public static "getLong"(arg0: $CommandContext$$Type<(never)>, arg1: StringJS): long
+public "parse"(arg0: $StringReader$$Type): any
+public "getMaximum"(): long
+public "getMinimum"(): long
+public "getExamples"(): $Collection<(StringJS)>
+public static "longArg"(arg0: long): $LongArgumentType
+public static "longArg"(arg0: long, arg1: long): $LongArgumentType
+public static "longArg"(): $LongArgumentType
+public "parse"<S>(arg0: $StringReader$$Type, arg1: S): long
+public "listSuggestions"<S>(arg0: $CommandContext$$Type<(S)>, arg1: $SuggestionsBuilder$$Type): $CompletableFuture<($Suggestions)>
+get "maximum"(): long
+get "minimum"(): long
+get "examples"(): $Collection<(StringJS)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $LongArgumentType$$Type = ($LongArgumentType);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $LongArgumentType$$Original = $LongArgumentType;}
 declare module "com.mojang.brigadier.arguments.ArgumentType" {
 import {$CommandContext$$Type} from "com.mojang.brigadier.context.CommandContext"
-import {$Collection} from "java.util.Collection"
 import {$Suggestions} from "com.mojang.brigadier.suggestion.Suggestions"
+import {$Collection} from "java.util.Collection"
 import {$CompletableFuture} from "java.util.concurrent.CompletableFuture"
 import {$StringReader, $StringReader$$Type} from "com.mojang.brigadier.StringReader"
 import {$SuggestionsBuilder$$Type} from "com.mojang.brigadier.suggestion.SuggestionsBuilder"
@@ -216,8 +216,8 @@ get "examples"(): $Collection<(StringJS)>
 export class $ArgumentType<T> implements $ArgumentType$$Interface {
  "parse"(arg0: $StringReader$$Type): T
  "parse"<S>(arg0: $StringReader$$Type, arg1: S): T
- "getExamples"(): $Collection<(StringJS)>
  "listSuggestions"<S>(arg0: $CommandContext$$Type<(S)>, arg1: $SuggestionsBuilder$$Type): $CompletableFuture<($Suggestions)>
+ "getExamples"(): $Collection<(StringJS)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

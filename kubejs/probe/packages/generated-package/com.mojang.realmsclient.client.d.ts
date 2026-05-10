@@ -43,14 +43,14 @@ export type $RealmsClient$CompatibleVersionResponse$$Type = (("compatible") | ("
  */
 export type $RealmsClient$CompatibleVersionResponse$$Original = $RealmsClient$CompatibleVersionResponse;}
 declare module "com.mojang.realmsclient.client.RealmsClient" {
-import {$RealmsServerAddress} from "com.mojang.realmsclient.dto.RealmsServerAddress"
 import {$BackupList} from "com.mojang.realmsclient.dto.BackupList"
-import {$UploadInfo} from "com.mojang.realmsclient.dto.UploadInfo"
+import {$RealmsServerAddress} from "com.mojang.realmsclient.dto.RealmsServerAddress"
 import {$RealmsServer} from "com.mojang.realmsclient.dto.RealmsServer"
+import {$UploadInfo} from "com.mojang.realmsclient.dto.UploadInfo"
 import {$RealmsWorldOptions$$Type} from "com.mojang.realmsclient.dto.RealmsWorldOptions"
 import {$WorldTemplatePaginatedList} from "com.mojang.realmsclient.dto.WorldTemplatePaginatedList"
-import {$PendingInvitesList} from "com.mojang.realmsclient.dto.PendingInvitesList"
 import {$Subscription} from "com.mojang.realmsclient.dto.Subscription"
+import {$PendingInvitesList} from "com.mojang.realmsclient.dto.PendingInvitesList"
 import {$UUID$$Type} from "java.util.UUID"
 import {$List, $List$$Type} from "java.util.List"
 import {$RealmsClient$CompatibleVersionResponse} from "com.mojang.realmsclient.client.RealmsClient$CompatibleVersionResponse"
@@ -79,44 +79,44 @@ public "close"(arg0: long): boolean
 public "open"(arg0: long): boolean
 public static "create"(): $RealmsClient
 public static "create"(arg0: $Minecraft$$Type): $RealmsClient
-public "invite"(arg0: long, arg1: StringJS): $RealmsServer
-public "sendPingResults"(arg0: $PingResult$$Type): void
-public "notificationsSeen"(arg0: $List$$Type<($UUID$$Type)>): void
-public "trialAvailable"(): boolean
-public "getLiveStats"(): $RealmsServerPlayerLists
-public "getOwnRealm"(arg0: long): $RealmsServer
+public "getNotifications"(): $List<($RealmsNotification)>
+public "hasParentalConsent"(): boolean
 public "initializeRealm"(arg0: long, arg1: StringJS, arg2: StringJS): void
 public "clientCompatible"(): $RealmsClient$CompatibleVersionResponse
-public "hasParentalConsent"(): boolean
+public "getOwnRealm"(arg0: long): $RealmsServer
 public "uninviteMyselfFrom"(arg0: long): void
 public "restoreWorld"(arg0: long, arg1: StringJS): void
 public "rejectInvitation"(arg0: StringJS): void
-public "deleteRealm"(arg0: long): void
 public "subscriptionFor"(arg0: long): $Subscription
-public "acceptInvitation"(arg0: StringJS): void
-public "requestUploadInfo"(arg0: long, arg1: StringJS): $UploadInfo
 public "pendingInvites"(): $PendingInvitesList
 public "resetWorldWithSeed"(arg0: long, arg1: $WorldGenerationInfo$$Type): boolean
-public "createSnapshotRealm"(arg0: long): $RealmsServer
-public "resetWorldWithTemplate"(arg0: long, arg1: StringJS): boolean
+public "deleteRealm"(arg0: long): void
+public "requestUploadInfo"(arg0: long, arg1: StringJS): $UploadInfo
+public "acceptInvitation"(arg0: StringJS): void
+public "getActivity"(arg0: long): $ServerActivityList
 public "putIntoMinigameMode"(arg0: long, arg1: StringJS): boolean
 public "requestDownloadInfo"(arg0: long, arg1: integer): $WorldDownload
+public "resetWorldWithTemplate"(arg0: long, arg1: StringJS): boolean
 public "fetchWorldTemplates"(arg0: integer, arg1: integer, arg2: $RealmsServer$WorldType$$Type): $WorldTemplatePaginatedList
-public "backupsFor"(arg0: long): $BackupList
+public "createSnapshotRealm"(arg0: long): $RealmsServer
+public "notificationsSeen"(arg0: $List$$Type<($UUID$$Type)>): void
+public "sendPingResults"(arg0: $PingResult$$Type): void
+public "getLiveStats"(): $RealmsServerPlayerLists
+public "trialAvailable"(): boolean
 public "uninvite"(arg0: long, arg1: $UUID$$Type): void
-public "switchSlot"(arg0: long, arg1: integer): boolean
+public "invite"(arg0: long, arg1: StringJS): $RealmsServer
+public "backupsFor"(arg0: long): $BackupList
+public "updateSlot"(arg0: long, arg1: integer, arg2: $RealmsWorldOptions$$Type): void
 public "deop"(arg0: long, arg1: $UUID$$Type): $Ops
 public "agreeToTos"(): void
-public "updateSlot"(arg0: long, arg1: integer, arg2: $RealmsWorldOptions$$Type): void
+public "switchSlot"(arg0: long, arg1: integer): boolean
 public "pendingInvitesCount"(): integer
 public "listSnapshotEligibleRealms"(): $List<($RealmsServer)>
-public "getNotifications"(): $List<($RealmsNotification)>
-public "getActivity"(arg0: long): $ServerActivityList
-public "notificationsDismiss"(arg0: $List$$Type<($UUID$$Type)>): void
-public "listRealms"(): $RealmsServerList
 public "getNews"(): $RealmsNews
-get "liveStats"(): $RealmsServerPlayerLists
+public "listRealms"(): $RealmsServerList
+public "notificationsDismiss"(arg0: $List$$Type<($UUID$$Type)>): void
 get "notifications"(): $List<($RealmsNotification)>
+get "liveStats"(): $RealmsServerPlayerLists
 get "news"(): $RealmsNews
 }
 /**

@@ -1,43 +1,3 @@
-declare module "cpw.mods.jarhandling.SecureJar" {
-import {$Attributes} from "java.util.jar.Attributes"
-import {$JarContents$$Type} from "cpw.mods.jarhandling.JarContents"
-import {$SecureJar$ModuleDataProvider} from "cpw.mods.jarhandling.SecureJar$ModuleDataProvider"
-import {$SecureJar$Status} from "cpw.mods.jarhandling.SecureJar$Status"
-import {$Path, $Path$$Type} from "java.nio.file.Path"
-import {$JarMetadata$$Type} from "cpw.mods.jarhandling.JarMetadata"
-import {$CodeSigner} from "java.security.CodeSigner"
-
-export interface $SecureJar$$Interface {
-get "primaryPath"(): $Path
-get "manifestSigners"(): ($CodeSigner)[]
-get "rootPath"(): $Path
-}
-
-export class $SecureJar implements $SecureJar$$Interface {
- "name"(): StringJS
-static "from"(arg0: $JarContents$$Type, arg1: $JarMetadata$$Type): $SecureJar
-static "from"(arg0: $JarContents$$Type): $SecureJar
-static "from"(...arg0: ($Path$$Type)[]): $SecureJar
- "close"(): void
- "getPath"(arg0: StringJS, ...arg1: (StringJS)[]): $Path
- "getTrustedManifestEntries"(arg0: StringJS): $Attributes
- "moduleDataProvider"(): $SecureJar$ModuleDataProvider
- "verifyPath"(arg0: $Path$$Type): $SecureJar$Status
- "getPrimaryPath"(): $Path
- "getManifestSigners"(): ($CodeSigner)[]
- "getFileStatus"(arg0: StringJS): $SecureJar$Status
- "hasSecurityData"(): boolean
- "getRootPath"(): $Path
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $SecureJar$$Type = ($SecureJar);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $SecureJar$$Original = $SecureJar;}
 declare module "cpw.mods.jarhandling.SecureJar$Status" {
 import {$Enum} from "java.lang.Enum"
 
@@ -59,3 +19,43 @@ export type $SecureJar$Status$$Type = (("none") | ("invalid") | ("unverified") |
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $SecureJar$Status$$Original = $SecureJar$Status;}
+declare module "cpw.mods.jarhandling.SecureJar" {
+import {$Attributes} from "java.util.jar.Attributes"
+import {$JarContents$$Type} from "cpw.mods.jarhandling.JarContents"
+import {$SecureJar$ModuleDataProvider} from "cpw.mods.jarhandling.SecureJar$ModuleDataProvider"
+import {$SecureJar$Status} from "cpw.mods.jarhandling.SecureJar$Status"
+import {$JarMetadata$$Type} from "cpw.mods.jarhandling.JarMetadata"
+import {$Path, $Path$$Type} from "java.nio.file.Path"
+import {$CodeSigner} from "java.security.CodeSigner"
+
+export interface $SecureJar$$Interface {
+get "primaryPath"(): $Path
+get "manifestSigners"(): ($CodeSigner)[]
+get "rootPath"(): $Path
+}
+
+export class $SecureJar implements $SecureJar$$Interface {
+ "getTrustedManifestEntries"(arg0: StringJS): $Attributes
+ "moduleDataProvider"(): $SecureJar$ModuleDataProvider
+ "getPrimaryPath"(): $Path
+ "name"(): StringJS
+static "from"(...arg0: ($Path$$Type)[]): $SecureJar
+static "from"(arg0: $JarContents$$Type, arg1: $JarMetadata$$Type): $SecureJar
+static "from"(arg0: $JarContents$$Type): $SecureJar
+ "close"(): void
+ "getPath"(arg0: StringJS, ...arg1: (StringJS)[]): $Path
+ "getFileStatus"(arg0: StringJS): $SecureJar$Status
+ "getManifestSigners"(): ($CodeSigner)[]
+ "hasSecurityData"(): boolean
+ "verifyPath"(arg0: $Path$$Type): $SecureJar$Status
+ "getRootPath"(): $Path
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $SecureJar$$Type = ($SecureJar);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $SecureJar$$Original = $SecureJar;}

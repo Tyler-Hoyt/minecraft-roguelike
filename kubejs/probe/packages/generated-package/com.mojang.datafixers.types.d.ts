@@ -1,3 +1,156 @@
+declare module "com.mojang.datafixers.types.Type$TypeError" {
+export {} // Mark the file as a module, do not remove unless there are other import/exports!
+export class $Type$TypeError {
+constructor(arg0: StringJS)
+
+public "toString"(): StringJS
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Type$TypeError$$Type = ($Type$TypeError);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Type$TypeError$$Original = $Type$TypeError;}
+declare module "com.mojang.datafixers.types.templates.RecursivePoint$RecursivePointType" {
+import {$TypedOptic} from "com.mojang.datafixers.TypedOptic"
+import {$DynamicOps$$Type} from "com.mojang.serialization.DynamicOps"
+import {$Optional} from "java.util.Optional"
+import {$Type, $Type$$Type} from "com.mojang.datafixers.types.Type"
+import {$TypeRewriteRule$$Type} from "com.mojang.datafixers.TypeRewriteRule"
+import {$RecursiveTypeFamily, $RecursiveTypeFamily$$Type} from "com.mojang.datafixers.types.families.RecursiveTypeFamily"
+import {$TypeTemplate} from "com.mojang.datafixers.types.templates.TypeTemplate"
+import {$RewriteResult} from "com.mojang.datafixers.RewriteResult"
+import {$TaggedChoice$TaggedChoiceType} from "com.mojang.datafixers.types.templates.TaggedChoice$TaggedChoiceType"
+import {$Type$TypeMatcher$$Type} from "com.mojang.datafixers.types.Type$TypeMatcher"
+import {$Either} from "com.mojang.datafixers.util.Either"
+import {$Supplier$$Type} from "java.util.function.Supplier"
+import {$View} from "com.mojang.datafixers.View"
+import {$PointFreeRule$$Type} from "com.mojang.datafixers.functions.PointFreeRule"
+import {$Type$FieldNotFoundException} from "com.mojang.datafixers.types.Type$FieldNotFoundException"
+
+export class $RecursivePoint$RecursivePointType<A> extends $Type<(A)> {
+constructor(arg0: $RecursiveTypeFamily$$Type, arg1: integer, arg2: $Supplier$$Type<($Type$$Type<(A)>)>)
+
+public "index"(): integer
+public "equals"(arg0: any, arg1: boolean, arg2: boolean): boolean
+public "toString"(): StringJS
+public "hashCode"(): integer
+public "out"(): $View<(A), (A)>
+public "in"(): $View<(A), (A)>
+public "all"(arg0: $TypeRewriteRule$$Type, arg1: boolean, arg2: boolean): $RewriteResult<(A), (never)>
+public "family"(): $RecursiveTypeFamily
+public "one"(arg0: $TypeRewriteRule$$Type): $Optional<($RewriteResult<(A), (never)>)>
+public "buildTemplate"(): $TypeTemplate
+public "findFieldTypeOpt"(arg0: StringJS): $Optional<($Type<(never)>)>
+public "findCheckedType"(arg0: integer): $Optional<($Type<(never)>)>
+public "point"(arg0: $DynamicOps$$Type<(never)>): $Optional<(A)>
+public "findTypeInChildren"<FT, FR>(arg0: $Type$$Type<(FT)>, arg1: $Type$$Type<(FR)>, arg2: $Type$TypeMatcher$$Type<(FT), (FR)>, arg3: boolean): $Either<($TypedOptic<(A), (never), (FT), (FR)>), ($Type$FieldNotFoundException)>
+public "findChoiceType"(arg0: StringJS, arg1: integer): $Optional<($TaggedChoice$TaggedChoiceType<(never)>)>
+public "everywhere"(arg0: $TypeRewriteRule$$Type, arg1: $PointFreeRule$$Type, arg2: boolean, arg3: boolean): $Optional<($RewriteResult<(A), (never)>)>
+public "updateMu"(arg0: $RecursiveTypeFamily$$Type): $Type<(never)>
+public "unfold"(): $Type<(A)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $RecursivePoint$RecursivePointType$$Type<A> = ($RecursivePoint$RecursivePointType<(A)>);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $RecursivePoint$RecursivePointType$$Original<A> = $RecursivePoint$RecursivePointType<(A)>;}
+declare module "com.mojang.datafixers.types.families.Algebra" {
+import {$RewriteResult} from "com.mojang.datafixers.RewriteResult"
+
+export interface $Algebra$$Interface {
+}
+
+export class $Algebra implements $Algebra$$Interface {
+ "toString"(arg0: integer): StringJS
+ "apply"(arg0: integer): $RewriteResult<(never), (never)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Algebra$$Type = ($Algebra);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Algebra$$Original = $Algebra;}
+declare module "com.mojang.datafixers.types.Type" {
+import {$App$$Type, $App$$Interface} from "com.mojang.datafixers.kinds.App"
+import {$TypedOptic, $TypedOptic$$Type} from "com.mojang.datafixers.TypedOptic"
+import {$DynamicOps$$Type} from "com.mojang.serialization.DynamicOps"
+import {$Optional} from "java.util.Optional"
+import {$TypeRewriteRule$$Type} from "com.mojang.datafixers.TypeRewriteRule"
+import {$Pair} from "com.mojang.datafixers.util.Pair"
+import {$DataResult} from "com.mojang.serialization.DataResult"
+import {$Dynamic, $Dynamic$$Type} from "com.mojang.serialization.Dynamic"
+import {$Type$Mu, $Type$Mu$$Type} from "com.mojang.datafixers.types.Type$Mu"
+import {$RecursiveTypeFamily$$Type} from "com.mojang.datafixers.types.families.RecursiveTypeFamily"
+import {$OpticFinder, $OpticFinder$$Type} from "com.mojang.datafixers.OpticFinder"
+import {$TypeTemplate} from "com.mojang.datafixers.types.templates.TypeTemplate"
+import {$RewriteResult, $RewriteResult$$Type} from "com.mojang.datafixers.RewriteResult"
+import {$TaggedChoice$TaggedChoiceType} from "com.mojang.datafixers.types.templates.TaggedChoice$TaggedChoiceType"
+import {$Type$TypeMatcher$$Type} from "com.mojang.datafixers.types.Type$TypeMatcher"
+import {$Typed, $Typed$$Type} from "com.mojang.datafixers.Typed"
+import {$Codec} from "com.mojang.serialization.Codec"
+import {$Either} from "com.mojang.datafixers.util.Either"
+import {$PointFreeRule$$Type} from "com.mojang.datafixers.functions.PointFreeRule"
+import {$Type$FieldNotFoundException} from "com.mojang.datafixers.types.Type$FieldNotFoundException"
+
+export class $Type<A> implements $App$$Interface<($Type$Mu), (A)> {
+constructor()
+
+public "equals"(arg0: any): boolean
+public "equals"(arg0: any, arg1: boolean, arg2: boolean): boolean
+public "write"<T>(arg0: $DynamicOps$$Type<(T)>, arg1: A): $DataResult<(T)>
+public "read"<T>(arg0: $Dynamic$$Type<(T)>): $DataResult<($Pair<(A), ($Dynamic<(T)>)>)>
+public "read"<T>(arg0: $DynamicOps$$Type<(T)>, arg1: $TypeRewriteRule$$Type, arg2: $PointFreeRule$$Type, arg3: T): $DataResult<($Pair<($Optional<(never)>), (T)>)>
+public "finder"(): $OpticFinder<(A)>
+public "all"(arg0: $TypeRewriteRule$$Type, arg1: boolean, arg2: boolean): $RewriteResult<(A), (never)>
+public static "unbox"<A>(arg0: $App$$Type<($Type$Mu$$Type), (A)>): $Type<(A)>
+public "template"(): $TypeTemplate
+public "findField"(arg0: StringJS): $OpticFinder<(never)>
+public "one"(arg0: $TypeRewriteRule$$Type): $Optional<($RewriteResult<(A), (never)>)>
+public "buildTemplate"(): $TypeTemplate
+public "findFieldTypeOpt"(arg0: StringJS): $Optional<($Type<(never)>)>
+public "findCheckedType"(arg0: integer): $Optional<($Type<(never)>)>
+public "point"(arg0: $DynamicOps$$Type<(never)>): $Optional<(A)>
+public "rewrite"(arg0: $TypeRewriteRule$$Type, arg1: $PointFreeRule$$Type): $Optional<($RewriteResult<(A), (never)>)>
+public "findTypeCached"<FT, FR>(arg0: $Type$$Type<(FT)>, arg1: $Type$$Type<(FR)>, arg2: $Type$TypeMatcher$$Type<(FT), (FR)>, arg3: boolean): $Either<($TypedOptic<(A), (never), (FT), (FR)>), ($Type$FieldNotFoundException)>
+public "rewriteOrNop"(arg0: $TypeRewriteRule$$Type): $RewriteResult<(A), (never)>
+public "readAndWrite"<T>(arg0: $DynamicOps$$Type<(T)>, arg1: $Type$$Type<(never)>, arg2: $TypeRewriteRule$$Type, arg3: $PointFreeRule$$Type, arg4: T): $DataResult<(T)>
+public "findTypeInChildren"<FT, FR>(arg0: $Type$$Type<(FT)>, arg1: $Type$$Type<(FR)>, arg2: $Type$TypeMatcher$$Type<(FT), (FR)>, arg3: boolean): $Either<($TypedOptic<(A), (never), (FT), (FR)>), ($Type$FieldNotFoundException)>
+public "findChoiceType"(arg0: StringJS, arg1: integer): $Optional<($TaggedChoice$TaggedChoiceType<(never)>)>
+public "findFieldType"(arg0: StringJS): $Type<(never)>
+public "writeDynamic"<T>(arg0: $DynamicOps$$Type<(T)>, arg1: A): $DataResult<($Dynamic<(T)>)>
+public "ifSame"<B>(arg0: $Type$$Type<(B)>, arg1: $RewriteResult$$Type<(B), (never)>): $Optional<($RewriteResult<(A), (never)>)>
+public "ifSame"<B>(arg0: $Typed$$Type<(B)>): $Optional<(A)>
+public "ifSame"<B>(arg0: $Type$$Type<(B)>, arg1: B): $Optional<(A)>
+public "readTyped"<T>(arg0: $Dynamic$$Type<(T)>): $DataResult<($Pair<($Typed<(A)>), (T)>)>
+public "readTyped"<T>(arg0: $DynamicOps$$Type<(T)>, arg1: T): $DataResult<($Pair<($Typed<(A)>), (T)>)>
+public "everywhere"(arg0: $TypeRewriteRule$$Type, arg1: $PointFreeRule$$Type, arg2: boolean, arg3: boolean): $Optional<($RewriteResult<(A), (never)>)>
+public "pointTyped"(arg0: $DynamicOps$$Type<(never)>): $Optional<($Typed<(A)>)>
+public "updateMu"(arg0: $RecursiveTypeFamily$$Type): $Type<(never)>
+public "findType"<FT, FR>(arg0: $Type$$Type<(FT)>, arg1: $Type$$Type<(FR)>, arg2: $Type$TypeMatcher$$Type<(FT), (FR)>, arg3: boolean): $Either<($TypedOptic<(A), (never), (FT), (FR)>), ($Type$FieldNotFoundException)>
+public "getSetType"<FT, FR>(arg0: $OpticFinder$$Type<(FT)>, arg1: $Type$$Type<(FR)>): $Type<(never)>
+public static "opticView"<S, T, A, B>(arg0: $Type$$Type<(S)>, arg1: $RewriteResult$$Type<(A), (B)>, arg2: $TypedOptic$$Type<(S), (T), (A), (B)>): $RewriteResult<(S), (T)>
+public "codec"(): $Codec<(A)>
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Type$$Type<A> = ($Type<(A)>);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Type$$Original<A> = $Type<(A)>;}
 declare module "com.mojang.datafixers.types.Type$Mu" {
 import {$K1$$Interface} from "com.mojang.datafixers.kinds.K1"
 
@@ -29,10 +182,10 @@ export interface $TypeTemplate$$Interface {
 export class $TypeTemplate implements $TypeTemplate$$Interface {
  "size"(): integer
  "apply"(arg0: $TypeFamily$$Type): $TypeFamily
- "findFieldOrType"<A, B>(arg0: integer, arg1: StringJS, arg2: $Type$$Type<(A)>, arg3: $Type$$Type<(B)>): $Either<($TypeTemplate), ($Type$FieldNotFoundException)>
  "toSimpleType"(): $Type<(never)>
- "applyO"<A, B>(arg0: $FamilyOptic$$Type<(A), (B)>, arg1: $Type$$Type<(A)>, arg2: $Type$$Type<(B)>): $FamilyOptic<(A), (B)>
+ "findFieldOrType"<A, B>(arg0: integer, arg1: StringJS, arg2: $Type$$Type<(A)>, arg3: $Type$$Type<(B)>): $Either<($TypeTemplate), ($Type$FieldNotFoundException)>
  "hmap"(arg0: $TypeFamily$$Type, arg1: $IntFunction$$Type<($RewriteResult$$Type<(never), (never)>)>): $IntFunction<($RewriteResult<(never), (never)>)>
+ "applyO"<A, B>(arg0: $FamilyOptic$$Type<(A), (B)>, arg1: $Type$$Type<(A)>, arg2: $Type$$Type<(B)>): $FamilyOptic<(A), (B)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -51,8 +204,8 @@ import {$TypeFamily$$Interface} from "com.mojang.datafixers.types.families.TypeF
 import {$Type, $Type$$Type} from "com.mojang.datafixers.types.Type"
 import {$TypeRewriteRule$$Type} from "com.mojang.datafixers.TypeRewriteRule"
 import {$RecursivePoint$RecursivePointType} from "com.mojang.datafixers.types.templates.RecursivePoint$RecursivePointType"
-import {$TypeTemplate, $TypeTemplate$$Type} from "com.mojang.datafixers.types.templates.TypeTemplate"
 import {$Algebra$$Type} from "com.mojang.datafixers.types.families.Algebra"
+import {$TypeTemplate, $TypeTemplate$$Type} from "com.mojang.datafixers.types.templates.TypeTemplate"
 import {$IntFunction, $IntFunction$$Type} from "java.util.function.IntFunction"
 import {$RewriteResult} from "com.mojang.datafixers.RewriteResult"
 import {$Type$TypeMatcher$$Type} from "com.mojang.datafixers.types.Type$TypeMatcher"
@@ -69,10 +222,10 @@ public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "apply"(arg0: integer): $Type
+public "template"(): $TypeTemplate
 public "everywhere"(arg0: integer, arg1: $TypeRewriteRule$$Type, arg2: $PointFreeRule$$Type): $Optional<($RewriteResult<(never), (never)>)>
 public "buildMuType"<A>(arg0: $Type$$Type<(A)>, arg1: $RecursiveTypeFamily$$Type): $RecursivePoint$RecursivePointType<(A)>
 public "findType"<A, B>(arg0: integer, arg1: $Type$$Type<(A)>, arg2: $Type$$Type<(B)>, arg3: $Type$TypeMatcher$$Type<(A), (B)>, arg4: boolean): $Either<($TypedOptic<(never), (never), (A), (B)>), ($Type$FieldNotFoundException)>
-public "template"(): $TypeTemplate
 public "fold"(arg0: $Algebra$$Type, arg1: $RecursiveTypeFamily$$Type): $IntFunction<($RewriteResult<(never), (never)>)>
 public static "familyOptic"<A, B>(arg0: $IntFunction$$Type<($TypedOptic$$Type<(never), (never), (A), (B)>)>): $FamilyOptic<(A), (B)>
 }
@@ -108,167 +261,14 @@ export type $Type$TypeMatcher$$Type<FT, FR> = ((arg0: $Type<(S)>) => $Either$$Ty
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $Type$TypeMatcher$$Original<FT, FR> = $Type$TypeMatcher<(FT), (FR)>;}
-declare module "com.mojang.datafixers.types.Type$TypeError" {
-export {} // Mark the file as a module, do not remove unless there are other import/exports!
-export class $Type$TypeError {
-constructor(arg0: StringJS)
-
-public "toString"(): StringJS
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Type$TypeError$$Type = ($Type$TypeError);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Type$TypeError$$Original = $Type$TypeError;}
-declare module "com.mojang.datafixers.types.templates.RecursivePoint$RecursivePointType" {
-import {$DynamicOps$$Type} from "com.mojang.serialization.DynamicOps"
-import {$TypedOptic} from "com.mojang.datafixers.TypedOptic"
-import {$Optional} from "java.util.Optional"
-import {$Type, $Type$$Type} from "com.mojang.datafixers.types.Type"
-import {$TypeRewriteRule$$Type} from "com.mojang.datafixers.TypeRewriteRule"
-import {$RecursiveTypeFamily, $RecursiveTypeFamily$$Type} from "com.mojang.datafixers.types.families.RecursiveTypeFamily"
-import {$TypeTemplate} from "com.mojang.datafixers.types.templates.TypeTemplate"
-import {$RewriteResult} from "com.mojang.datafixers.RewriteResult"
-import {$TaggedChoice$TaggedChoiceType} from "com.mojang.datafixers.types.templates.TaggedChoice$TaggedChoiceType"
-import {$Type$TypeMatcher$$Type} from "com.mojang.datafixers.types.Type$TypeMatcher"
-import {$Supplier$$Type} from "java.util.function.Supplier"
-import {$Either} from "com.mojang.datafixers.util.Either"
-import {$View} from "com.mojang.datafixers.View"
-import {$PointFreeRule$$Type} from "com.mojang.datafixers.functions.PointFreeRule"
-import {$Type$FieldNotFoundException} from "com.mojang.datafixers.types.Type$FieldNotFoundException"
-
-export class $RecursivePoint$RecursivePointType<A> extends $Type<(A)> {
-constructor(arg0: $RecursiveTypeFamily$$Type, arg1: integer, arg2: $Supplier$$Type<($Type$$Type<(A)>)>)
-
-public "index"(): integer
-public "equals"(arg0: any, arg1: boolean, arg2: boolean): boolean
-public "toString"(): StringJS
-public "hashCode"(): integer
-public "out"(): $View<(A), (A)>
-public "in"(): $View<(A), (A)>
-public "all"(arg0: $TypeRewriteRule$$Type, arg1: boolean, arg2: boolean): $RewriteResult<(A), (never)>
-public "family"(): $RecursiveTypeFamily
-public "everywhere"(arg0: $TypeRewriteRule$$Type, arg1: $PointFreeRule$$Type, arg2: boolean, arg3: boolean): $Optional<($RewriteResult<(A), (never)>)>
-public "findCheckedType"(arg0: integer): $Optional<($Type<(never)>)>
-public "findFieldTypeOpt"(arg0: StringJS): $Optional<($Type<(never)>)>
-public "findTypeInChildren"<FT, FR>(arg0: $Type$$Type<(FT)>, arg1: $Type$$Type<(FR)>, arg2: $Type$TypeMatcher$$Type<(FT), (FR)>, arg3: boolean): $Either<($TypedOptic<(A), (never), (FT), (FR)>), ($Type$FieldNotFoundException)>
-public "buildTemplate"(): $TypeTemplate
-public "point"(arg0: $DynamicOps$$Type<(never)>): $Optional<(A)>
-public "updateMu"(arg0: $RecursiveTypeFamily$$Type): $Type<(never)>
-public "unfold"(): $Type<(A)>
-public "findChoiceType"(arg0: StringJS, arg1: integer): $Optional<($TaggedChoice$TaggedChoiceType<(never)>)>
-public "one"(arg0: $TypeRewriteRule$$Type): $Optional<($RewriteResult<(A), (never)>)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $RecursivePoint$RecursivePointType$$Type<A> = ($RecursivePoint$RecursivePointType<(A)>);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $RecursivePoint$RecursivePointType$$Original<A> = $RecursivePoint$RecursivePointType<(A)>;}
-declare module "com.mojang.datafixers.types.families.Algebra" {
-import {$RewriteResult} from "com.mojang.datafixers.RewriteResult"
-
-export interface $Algebra$$Interface {
-}
-
-export class $Algebra implements $Algebra$$Interface {
- "toString"(arg0: integer): StringJS
- "apply"(arg0: integer): $RewriteResult<(never), (never)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Algebra$$Type = ($Algebra);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Algebra$$Original = $Algebra;}
-declare module "com.mojang.datafixers.types.Type" {
-import {$App$$Type, $App$$Interface} from "com.mojang.datafixers.kinds.App"
-import {$TypedOptic, $TypedOptic$$Type} from "com.mojang.datafixers.TypedOptic"
-import {$DynamicOps$$Type} from "com.mojang.serialization.DynamicOps"
-import {$Optional} from "java.util.Optional"
-import {$Pair} from "com.mojang.datafixers.util.Pair"
-import {$TypeRewriteRule$$Type} from "com.mojang.datafixers.TypeRewriteRule"
-import {$DataResult} from "com.mojang.serialization.DataResult"
-import {$Type$Mu, $Type$Mu$$Type} from "com.mojang.datafixers.types.Type$Mu"
-import {$Dynamic, $Dynamic$$Type} from "com.mojang.serialization.Dynamic"
-import {$RecursiveTypeFamily$$Type} from "com.mojang.datafixers.types.families.RecursiveTypeFamily"
-import {$OpticFinder, $OpticFinder$$Type} from "com.mojang.datafixers.OpticFinder"
-import {$TypeTemplate} from "com.mojang.datafixers.types.templates.TypeTemplate"
-import {$RewriteResult, $RewriteResult$$Type} from "com.mojang.datafixers.RewriteResult"
-import {$TaggedChoice$TaggedChoiceType} from "com.mojang.datafixers.types.templates.TaggedChoice$TaggedChoiceType"
-import {$Type$TypeMatcher$$Type} from "com.mojang.datafixers.types.Type$TypeMatcher"
-import {$Typed, $Typed$$Type} from "com.mojang.datafixers.Typed"
-import {$Codec} from "com.mojang.serialization.Codec"
-import {$Either} from "com.mojang.datafixers.util.Either"
-import {$PointFreeRule$$Type} from "com.mojang.datafixers.functions.PointFreeRule"
-import {$Type$FieldNotFoundException} from "com.mojang.datafixers.types.Type$FieldNotFoundException"
-
-export class $Type<A> implements $App$$Interface<($Type$Mu), (A)> {
-constructor()
-
-public "equals"(arg0: any, arg1: boolean, arg2: boolean): boolean
-public "equals"(arg0: any): boolean
-public "write"<T>(arg0: $DynamicOps$$Type<(T)>, arg1: A): $DataResult<(T)>
-public "read"<T>(arg0: $Dynamic$$Type<(T)>): $DataResult<($Pair<(A), ($Dynamic<(T)>)>)>
-public "read"<T>(arg0: $DynamicOps$$Type<(T)>, arg1: $TypeRewriteRule$$Type, arg2: $PointFreeRule$$Type, arg3: T): $DataResult<($Pair<($Optional<(never)>), (T)>)>
-public "finder"(): $OpticFinder<(A)>
-public "all"(arg0: $TypeRewriteRule$$Type, arg1: boolean, arg2: boolean): $RewriteResult<(A), (never)>
-public static "unbox"<A>(arg0: $App$$Type<($Type$Mu$$Type), (A)>): $Type<(A)>
-public "pointTyped"(arg0: $DynamicOps$$Type<(never)>): $Optional<($Typed<(A)>)>
-public "everywhere"(arg0: $TypeRewriteRule$$Type, arg1: $PointFreeRule$$Type, arg2: boolean, arg3: boolean): $Optional<($RewriteResult<(A), (never)>)>
-public "ifSame"<B>(arg0: $Type$$Type<(B)>, arg1: B): $Optional<(A)>
-public "ifSame"<B>(arg0: $Typed$$Type<(B)>): $Optional<(A)>
-public "ifSame"<B>(arg0: $Type$$Type<(B)>, arg1: $RewriteResult$$Type<(B), (never)>): $Optional<($RewriteResult<(A), (never)>)>
-public "readTyped"<T>(arg0: $Dynamic$$Type<(T)>): $DataResult<($Pair<($Typed<(A)>), (T)>)>
-public "readTyped"<T>(arg0: $DynamicOps$$Type<(T)>, arg1: T): $DataResult<($Pair<($Typed<(A)>), (T)>)>
-public "findCheckedType"(arg0: integer): $Optional<($Type<(never)>)>
-public "findFieldTypeOpt"(arg0: StringJS): $Optional<($Type<(never)>)>
-public "readAndWrite"<T>(arg0: $DynamicOps$$Type<(T)>, arg1: $Type$$Type<(never)>, arg2: $TypeRewriteRule$$Type, arg3: $PointFreeRule$$Type, arg4: T): $DataResult<(T)>
-public "findTypeCached"<FT, FR>(arg0: $Type$$Type<(FT)>, arg1: $Type$$Type<(FR)>, arg2: $Type$TypeMatcher$$Type<(FT), (FR)>, arg3: boolean): $Either<($TypedOptic<(A), (never), (FT), (FR)>), ($Type$FieldNotFoundException)>
-public "findTypeInChildren"<FT, FR>(arg0: $Type$$Type<(FT)>, arg1: $Type$$Type<(FR)>, arg2: $Type$TypeMatcher$$Type<(FT), (FR)>, arg3: boolean): $Either<($TypedOptic<(A), (never), (FT), (FR)>), ($Type$FieldNotFoundException)>
-public "rewriteOrNop"(arg0: $TypeRewriteRule$$Type): $RewriteResult<(A), (never)>
-public "buildTemplate"(): $TypeTemplate
-public "point"(arg0: $DynamicOps$$Type<(never)>): $Optional<(A)>
-public "findType"<FT, FR>(arg0: $Type$$Type<(FT)>, arg1: $Type$$Type<(FR)>, arg2: $Type$TypeMatcher$$Type<(FT), (FR)>, arg3: boolean): $Either<($TypedOptic<(A), (never), (FT), (FR)>), ($Type$FieldNotFoundException)>
-public "updateMu"(arg0: $RecursiveTypeFamily$$Type): $Type<(never)>
-public "getSetType"<FT, FR>(arg0: $OpticFinder$$Type<(FT)>, arg1: $Type$$Type<(FR)>): $Type<(never)>
-public static "opticView"<S, T, A, B>(arg0: $Type$$Type<(S)>, arg1: $RewriteResult$$Type<(A), (B)>, arg2: $TypedOptic$$Type<(S), (T), (A), (B)>): $RewriteResult<(S), (T)>
-public "codec"(): $Codec<(A)>
-public "template"(): $TypeTemplate
-public "findField"(arg0: StringJS): $OpticFinder<(never)>
-public "rewrite"(arg0: $TypeRewriteRule$$Type, arg1: $PointFreeRule$$Type): $Optional<($RewriteResult<(A), (never)>)>
-public "writeDynamic"<T>(arg0: $DynamicOps$$Type<(T)>, arg1: A): $DataResult<($Dynamic<(T)>)>
-public "findChoiceType"(arg0: StringJS, arg1: integer): $Optional<($TaggedChoice$TaggedChoiceType<(never)>)>
-public "findFieldType"(arg0: StringJS): $Type<(never)>
-public "one"(arg0: $TypeRewriteRule$$Type): $Optional<($RewriteResult<(A), (never)>)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Type$$Type<A> = ($Type<(A)>);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Type$$Original<A> = $Type<(A)>;}
 declare module "com.mojang.datafixers.types.templates.TaggedChoice$TaggedChoiceType" {
 import {$Map} from "java.util.Map"
-import {$DynamicOps$$Type} from "com.mojang.serialization.DynamicOps"
 import {$TypedOptic} from "com.mojang.datafixers.TypedOptic"
+import {$DynamicOps$$Type} from "com.mojang.serialization.DynamicOps"
 import {$Optional} from "java.util.Optional"
 import {$Type, $Type$$Type} from "com.mojang.datafixers.types.Type"
-import {$TypeRewriteRule$$Type} from "com.mojang.datafixers.TypeRewriteRule"
 import {$Pair} from "com.mojang.datafixers.util.Pair"
+import {$TypeRewriteRule$$Type} from "com.mojang.datafixers.TypeRewriteRule"
 import {$RecursiveTypeFamily$$Type} from "com.mojang.datafixers.types.families.RecursiveTypeFamily"
 import {$Object2ObjectMap$$Type} from "it.unimi.dsi.fastutil.objects.Object2ObjectMap"
 import {$TypeTemplate} from "com.mojang.datafixers.types.templates.TypeTemplate"
@@ -287,18 +287,18 @@ public "toString"(): StringJS
 public "hashCode"(): integer
 public "types"(): $Map<(K), ($Type<(never)>)>
 public "all"(arg0: $TypeRewriteRule$$Type, arg1: boolean, arg2: boolean): $RewriteResult<($Pair<(K), (never)>), (never)>
-public static "elementResult"<K, FT, FR>(arg0: K, arg1: $TaggedChoice$TaggedChoiceType$$Type<(K)>, arg2: $RewriteResult$$Type<(FT), (FR)>): $RewriteResult<($Pair<(K), (never)>), ($Pair<(K), (never)>)>
-public "findCheckedType"(arg0: integer): $Optional<($Type<(never)>)>
-public "findFieldTypeOpt"(arg0: StringJS): $Optional<($Type<(never)>)>
-public "findTypeInChildren"<FT, FR>(arg0: $Type$$Type<(FT)>, arg1: $Type$$Type<(FR)>, arg2: $Type$TypeMatcher$$Type<(FT), (FR)>, arg3: boolean): $Either<($TypedOptic<($Pair<(K), (never)>), (never), (FT), (FR)>), ($Type$FieldNotFoundException)>
+public "one"(arg0: $TypeRewriteRule$$Type): $Optional<($RewriteResult<($Pair<(K), (never)>), (never)>)>
 public "buildTemplate"(): $TypeTemplate
-public "point"(arg0: $DynamicOps$$Type<(never)>): $Optional<($Pair<(K), (never)>)>
+public "findFieldTypeOpt"(arg0: StringJS): $Optional<($Type<(never)>)>
+public "findCheckedType"(arg0: integer): $Optional<($Type<(never)>)>
 public "point"(arg0: $DynamicOps$$Type<(never)>, arg1: K, arg2: any): $Optional<($Typed<($Pair<(K), (never)>)>)>
-public "updateMu"(arg0: $RecursiveTypeFamily$$Type): $Type<(never)>
+public "point"(arg0: $DynamicOps$$Type<(never)>): $Optional<($Pair<(K), (never)>)>
+public "findTypeInChildren"<FT, FR>(arg0: $Type$$Type<(FT)>, arg1: $Type$$Type<(FR)>, arg2: $Type$TypeMatcher$$Type<(FT), (FR)>, arg3: boolean): $Either<($TypedOptic<($Pair<(K), (never)>), (never), (FT), (FR)>), ($Type$FieldNotFoundException)>
+public "findChoiceType"(arg0: StringJS, arg1: integer): $Optional<($TaggedChoice$TaggedChoiceType<(never)>)>
+public static "elementResult"<K, FT, FR>(arg0: K, arg1: $TaggedChoice$TaggedChoiceType$$Type<(K)>, arg2: $RewriteResult$$Type<(FT), (FR)>): $RewriteResult<($Pair<(K), (never)>), ($Pair<(K), (never)>)>
 public "getKeyType"(): $Type<(K)>
 public "hasType"(arg0: K): boolean
-public "findChoiceType"(arg0: StringJS, arg1: integer): $Optional<($TaggedChoice$TaggedChoiceType<(never)>)>
-public "one"(arg0: $TypeRewriteRule$$Type): $Optional<($RewriteResult<($Pair<(K), (never)>), (never)>)>
+public "updateMu"(arg0: $RecursiveTypeFamily$$Type): $Type<(never)>
 get "name"(): StringJS
 get "keyType"(): $Type<(K)>
 }

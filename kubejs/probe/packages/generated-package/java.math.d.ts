@@ -105,29 +105,31 @@ public "min"(arg0: $BigDecimal$$Type): $BigDecimal
 public "max"(arg0: $BigDecimal$$Type): $BigDecimal
 public "round"(arg0: $MathContext$$Type): $BigDecimal
 public "signum"(): integer
-public "compareTo"(arg0: any): integer
 public "compareTo"(arg0: $BigDecimal$$Type): integer
+public "compareTo"(arg0: any): integer
 public "intValue"(): integer
 public "longValue"(): long
 public "floatValue"(): float
 public "doubleValue"(): double
 public static "valueOf"(arg0: long): $BigDecimal
-public static "valueOf"(arg0: long, arg1: integer): $BigDecimal
 public static "valueOf"(arg0: double): $BigDecimal
+public static "valueOf"(arg0: long, arg1: integer): $BigDecimal
 public "scale"(): integer
-public "add"(arg0: $BigDecimal$$Type, arg1: $MathContext$$Type): $BigDecimal
 public "add"(arg0: $BigDecimal$$Type): $BigDecimal
-public "multiply"(arg0: $BigDecimal$$Type, arg1: $MathContext$$Type): $BigDecimal
+public "add"(arg0: $BigDecimal$$Type, arg1: $MathContext$$Type): $BigDecimal
 public "multiply"(arg0: $BigDecimal$$Type): $BigDecimal
+public "multiply"(arg0: $BigDecimal$$Type, arg1: $MathContext$$Type): $BigDecimal
 public "ulp"(): $BigDecimal
 public "remainder"(arg0: $BigDecimal$$Type, arg1: $MathContext$$Type): $BigDecimal
 public "remainder"(arg0: $BigDecimal$$Type): $BigDecimal
-public "subtract"(arg0: $BigDecimal$$Type): $BigDecimal
 public "subtract"(arg0: $BigDecimal$$Type, arg1: $MathContext$$Type): $BigDecimal
+public "subtract"(arg0: $BigDecimal$$Type): $BigDecimal
 public "negate"(): $BigDecimal
 public "negate"(arg0: $MathContext$$Type): $BigDecimal
 public "toBigInteger"(): $BigInteger
+public "divide"(arg0: $BigDecimal$$Type): $BigDecimal
 public "divide"(arg0: $BigDecimal$$Type, arg1: $MathContext$$Type): $BigDecimal
+public "divide"(arg0: $BigDecimal$$Type, arg1: $RoundingMode$$Type): $BigDecimal
 /**
  * 
  * @deprecated
@@ -139,8 +141,6 @@ public "divide"(arg0: $BigDecimal$$Type, arg1: integer, arg2: $RoundingMode$$Typ
  * @deprecated
  */
 public "divide"(arg0: $BigDecimal$$Type, arg1: integer): $BigDecimal
-public "divide"(arg0: $BigDecimal$$Type): $BigDecimal
-public "divide"(arg0: $BigDecimal$$Type, arg1: $RoundingMode$$Type): $BigDecimal
 public "divideAndRemainder"(arg0: $BigDecimal$$Type, arg1: $MathContext$$Type): ($BigDecimal)[]
 public "divideAndRemainder"(arg0: $BigDecimal$$Type): ($BigDecimal)[]
 public "longValueExact"(): long
@@ -156,17 +156,17 @@ public "movePointRight"(arg0: integer): $BigDecimal
 public "toBigIntegerExact"(): $BigInteger
 public "precision"(): integer
 public "unscaledValue"(): $BigInteger
+public "setScale"(arg0: integer): $BigDecimal
 public "setScale"(arg0: integer, arg1: $RoundingMode$$Type): $BigDecimal
 /**
  * 
  * @deprecated
  */
 public "setScale"(arg0: integer, arg1: integer): $BigDecimal
-public "setScale"(arg0: integer): $BigDecimal
-public "stripTrailingZeros"(): $BigDecimal
 public "movePointLeft"(arg0: integer): $BigDecimal
 public "toEngineeringString"(): StringJS
 public "toPlainString"(): StringJS
+public "stripTrailingZeros"(): $BigDecimal
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

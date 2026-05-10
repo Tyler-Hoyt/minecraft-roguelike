@@ -17,8 +17,8 @@ export type $LiteralArgumentBuilder$$Type<S> = ($LiteralArgumentBuilder<(S)>);
  */
 export type $LiteralArgumentBuilder$$Original<S> = $LiteralArgumentBuilder<(S)>;}
 declare module "com.mojang.brigadier.builder.ArgumentBuilder" {
-import {$Collection} from "java.util.Collection"
 import {$SingleRedirectModifier$$Type} from "com.mojang.brigadier.SingleRedirectModifier"
+import {$Collection} from "java.util.Collection"
 import {$Predicate, $Predicate$$Type} from "java.util.function.Predicate"
 import {$CommandNode, $CommandNode$$Type} from "com.mojang.brigadier.tree.CommandNode"
 import {$RedirectModifier, $RedirectModifier$$Type} from "com.mojang.brigadier.RedirectModifier"
@@ -33,19 +33,19 @@ public "fork"(arg0: $CommandNode$$Type<(S)>, arg1: $RedirectModifier$$Type<(S)>)
 public "redirect"(arg0: $CommandNode$$Type<(S)>): T
 public "redirect"(arg0: $CommandNode$$Type<(S)>, arg1: $SingleRedirectModifier$$Type<(S)>): T
 public "getRedirectModifier"(): $RedirectModifier<(S)>
+public "getArguments"(): $Collection<($CommandNode<(S)>)>
+public "then"(arg0: $CommandNode$$Type<(S)>): T
+public "then"(arg0: $ArgumentBuilder$$Type<(S), (never)>): T
 public "executes"(arg0: $Command$$Type<(S)>): T
 public "getCommand"(): $Command<(S)>
-public "isFork"(): boolean
-public "getRequirement"(): $Predicate<(S)>
 public "forward"(arg0: $CommandNode$$Type<(S)>, arg1: $RedirectModifier$$Type<(S)>, arg2: boolean): T
+public "getRequirement"(): $Predicate<(S)>
 public "getRedirect"(): $CommandNode<(S)>
-public "then"(arg0: $ArgumentBuilder$$Type<(S), (never)>): T
-public "then"(arg0: $CommandNode$$Type<(S)>): T
-public "getArguments"(): $Collection<($CommandNode<(S)>)>
+public "isFork"(): boolean
 get "redirectModifier"(): $RedirectModifier<(S)>
+get "arguments"(): $Collection<($CommandNode<(S)>)>
 get "command"(): $Command<(S)>
 get "requirement"(): $Predicate<(S)>
-get "arguments"(): $Collection<($CommandNode<(S)>)>
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -67,8 +67,8 @@ public "getName"(): StringJS
 public "getType"(): $ArgumentType<(T)>
 public static "argument"<S, T>(arg0: StringJS, arg1: $ArgumentType$$Type<(T)>): $RequiredArgumentBuilder<(S), (T)>
 public "build"(): $ArgumentCommandNode<(S), (T)>
-public "getSuggestionsProvider"(): $SuggestionProvider<(S)>
 public "suggests"(arg0: $SuggestionProvider$$Type<(S)>): $RequiredArgumentBuilder<(S), (T)>
+public "getSuggestionsProvider"(): $SuggestionProvider<(S)>
 get "name"(): StringJS
 get "type"(): $ArgumentType<(T)>
 get "suggestionsProvider"(): $SuggestionProvider<(S)>

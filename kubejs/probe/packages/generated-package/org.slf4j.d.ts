@@ -6,10 +6,10 @@ import {$Marker$$Type} from "org.slf4j.Marker"
 
 export interface $Logger$$Interface {
 get "name"(): StringJS
-get "infoEnabled"(): boolean
 get "warnEnabled"(): boolean
 get "debugEnabled"(): boolean
 get "errorEnabled"(): boolean
+get "infoEnabled"(): boolean
 get "traceEnabled"(): boolean
 }
 
@@ -28,63 +28,63 @@ static readonly "ROOT_LOGGER_NAME": StringJS
  "info"(arg0: $Marker$$Type, arg1: StringJS, arg2: any): void
  "info"(arg0: $Marker$$Type, arg1: StringJS): void
  "trace"(arg0: $Marker$$Type, arg1: StringJS, arg2: $Throwable$$Type): void
- "trace"(arg0: StringJS): void
- "trace"(arg0: StringJS, arg1: any, arg2: any): void
- "trace"(arg0: StringJS, ...arg1: (any)[]): void
- "trace"(arg0: StringJS, arg1: $Throwable$$Type): void
  "trace"(arg0: StringJS, arg1: any): void
- "trace"(arg0: $Marker$$Type, arg1: StringJS): void
- "trace"(arg0: $Marker$$Type, arg1: StringJS, arg2: any): void
+ "trace"(arg0: StringJS): void
+ "trace"(arg0: StringJS, ...arg1: (any)[]): void
+ "trace"(arg0: StringJS, arg1: any, arg2: any): void
  "trace"(arg0: $Marker$$Type, arg1: StringJS, arg2: any, arg3: any): void
+ "trace"(arg0: $Marker$$Type, arg1: StringJS, arg2: any): void
+ "trace"(arg0: $Marker$$Type, arg1: StringJS): void
  "trace"(arg0: $Marker$$Type, arg1: StringJS, ...arg2: (any)[]): void
- "debug"(arg0: $Marker$$Type, arg1: StringJS, arg2: any, arg3: any): void
+ "trace"(arg0: StringJS, arg1: $Throwable$$Type): void
  "debug"(arg0: $Marker$$Type, arg1: StringJS, arg2: any): void
+ "debug"(arg0: $Marker$$Type, arg1: StringJS, arg2: any, arg3: any): void
  "debug"(arg0: $Marker$$Type, arg1: StringJS, ...arg2: (any)[]): void
  "debug"(arg0: $Marker$$Type, arg1: StringJS, arg2: $Throwable$$Type): void
- "debug"(arg0: StringJS, ...arg1: (any)[]): void
- "debug"(arg0: StringJS, arg1: any, arg2: any): void
  "debug"(arg0: StringJS, arg1: any): void
  "debug"(arg0: StringJS): void
- "debug"(arg0: StringJS, arg1: $Throwable$$Type): void
+ "debug"(arg0: StringJS, arg1: any, arg2: any): void
  "debug"(arg0: $Marker$$Type, arg1: StringJS): void
+ "debug"(arg0: StringJS, arg1: $Throwable$$Type): void
+ "debug"(arg0: StringJS, ...arg1: (any)[]): void
+ "error"(arg0: StringJS, arg1: any): void
+ "error"(arg0: StringJS): void
+ "error"(arg0: StringJS, arg1: $Throwable$$Type): void
+ "error"(arg0: StringJS, ...arg1: (any)[]): void
+ "error"(arg0: StringJS, arg1: any, arg2: any): void
  "error"(arg0: $Marker$$Type, arg1: StringJS, ...arg2: (any)[]): void
  "error"(arg0: $Marker$$Type, arg1: StringJS, arg2: $Throwable$$Type): void
- "error"(arg0: StringJS, arg1: $Throwable$$Type): void
- "error"(arg0: StringJS, arg1: any): void
- "error"(arg0: StringJS, ...arg1: (any)[]): void
- "error"(arg0: $Marker$$Type, arg1: StringJS, arg2: any, arg3: any): void
- "error"(arg0: StringJS): void
- "error"(arg0: StringJS, arg1: any, arg2: any): void
- "error"(arg0: $Marker$$Type, arg1: StringJS): void
  "error"(arg0: $Marker$$Type, arg1: StringJS, arg2: any): void
+ "error"(arg0: $Marker$$Type, arg1: StringJS): void
+ "error"(arg0: $Marker$$Type, arg1: StringJS, arg2: any, arg3: any): void
  "warn"(arg0: StringJS, arg1: any, arg2: any): void
+ "warn"(arg0: $Marker$$Type, arg1: StringJS, arg2: $Throwable$$Type): void
  "warn"(arg0: StringJS, arg1: $Throwable$$Type): void
- "warn"(arg0: $Marker$$Type, arg1: StringJS, arg2: any, arg3: any): void
- "warn"(arg0: $Marker$$Type, arg1: StringJS, ...arg2: (any)[]): void
  "warn"(arg0: $Marker$$Type, arg1: StringJS): void
  "warn"(arg0: $Marker$$Type, arg1: StringJS, arg2: any): void
- "warn"(arg0: StringJS, ...arg1: (any)[]): void
- "warn"(arg0: $Marker$$Type, arg1: StringJS, arg2: $Throwable$$Type): void
+ "warn"(arg0: $Marker$$Type, arg1: StringJS, arg2: any, arg3: any): void
+ "warn"(arg0: $Marker$$Type, arg1: StringJS, ...arg2: (any)[]): void
  "warn"(arg0: StringJS): void
  "warn"(arg0: StringJS, arg1: any): void
- "isInfoEnabled"(arg0: $Marker$$Type): boolean
- "isInfoEnabled"(): boolean
+ "warn"(arg0: StringJS, ...arg1: (any)[]): void
+ "makeLoggingEventBuilder"(arg0: $Level$$Type): $LoggingEventBuilder
+ "isEnabledForLevel"(arg0: $Level$$Type): boolean
+ "atTrace"(): $LoggingEventBuilder
+ "atError"(): $LoggingEventBuilder
+ "atDebug"(): $LoggingEventBuilder
+ "atWarn"(): $LoggingEventBuilder
+ "atLevel"(arg0: $Level$$Type): $LoggingEventBuilder
+ "atInfo"(): $LoggingEventBuilder
  "isWarnEnabled"(arg0: $Marker$$Type): boolean
  "isWarnEnabled"(): boolean
- "isDebugEnabled"(): boolean
  "isDebugEnabled"(arg0: $Marker$$Type): boolean
- "isErrorEnabled"(arg0: $Marker$$Type): boolean
+ "isDebugEnabled"(): boolean
  "isErrorEnabled"(): boolean
+ "isErrorEnabled"(arg0: $Marker$$Type): boolean
+ "isInfoEnabled"(): boolean
+ "isInfoEnabled"(arg0: $Marker$$Type): boolean
  "isTraceEnabled"(arg0: $Marker$$Type): boolean
  "isTraceEnabled"(): boolean
- "atTrace"(): $LoggingEventBuilder
- "atInfo"(): $LoggingEventBuilder
- "atWarn"(): $LoggingEventBuilder
- "atDebug"(): $LoggingEventBuilder
- "atError"(): $LoggingEventBuilder
- "atLevel"(arg0: $Level$$Type): $LoggingEventBuilder
- "isEnabledForLevel"(arg0: $Level$$Type): boolean
- "makeLoggingEventBuilder"(arg0: $Level$$Type): $LoggingEventBuilder
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

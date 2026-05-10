@@ -1,3 +1,22 @@
+declare module "com.mojang.blaze3d.vertex.VertexBuffer$Usage" {
+import {$Enum} from "java.lang.Enum"
+
+export class $VertexBuffer$Usage extends $Enum<($VertexBuffer$Usage)> {
+static readonly "STATIC": $VertexBuffer$Usage
+static readonly "DYNAMIC": $VertexBuffer$Usage
+
+public static "values"(): ($VertexBuffer$Usage)[]
+public static "valueOf"(arg0: StringJS): $VertexBuffer$Usage
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $VertexBuffer$Usage$$Type = (("static") | ("dynamic"));
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $VertexBuffer$Usage$$Original = $VertexBuffer$Usage;}
 declare module "com.mojang.blaze3d.vertex.VertexFormatElement" {
 import {$VertexFormatElement$Usage, $VertexFormatElement$Usage$$Type} from "com.mojang.blaze3d.vertex.VertexFormatElement$Usage"
 import {$VertexFormatElement$Type, $VertexFormatElement$Type$$Type} from "com.mojang.blaze3d.vertex.VertexFormatElement$Type"
@@ -16,6 +35,7 @@ static readonly "NORMAL": $VertexFormatElement
 
 constructor(id: integer, index: integer, type: $VertexFormatElement$Type$$Type, usage: $VertexFormatElement$Usage$$Type, count: integer)
 
+public "byteSize"(): integer
 public "index"(): integer
 public "type"(): $VertexFormatElement$Type
 public "equals"(arg0: any): boolean
@@ -25,30 +45,30 @@ public "count"(): integer
 public static "register"(arg0: integer, arg1: integer, arg2: $VertexFormatElement$Type$$Type, arg3: $VertexFormatElement$Usage$$Type, arg4: integer): $VertexFormatElement
 public "id"(): integer
 public "mask"(): integer
+public "setupBufferState"(arg0: integer, arg1: long, arg2: integer): void
+public static "elementsFromMask"(arg0: integer): $Stream<($VertexFormatElement)>
 public "usage"(): $VertexFormatElement$Usage
 public static "byId"(arg0: integer): $VertexFormatElement
 public static "findNextId"(): integer
-public "setupBufferState"(arg0: integer, arg1: long, arg2: integer): void
-public static "elementsFromMask"(arg0: integer): $Stream<($VertexFormatElement)>
-public "byteSize"(): integer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $VertexFormatElement$$Type = ({"index"?: integer, "id"?: integer, "count"?: integer, "usage"?: $VertexFormatElement$Usage$$Type, "type"?: $VertexFormatElement$Type$$Type}) | ([index?: integer, id?: integer, count?: integer, usage?: $VertexFormatElement$Usage$$Type, type?: $VertexFormatElement$Type$$Type]);
+export type $VertexFormatElement$$Type = ({"type"?: $VertexFormatElement$Type$$Type, "index"?: integer, "id"?: integer, "count"?: integer, "usage"?: $VertexFormatElement$Usage$$Type}) | ([type?: $VertexFormatElement$Type$$Type, index?: integer, id?: integer, count?: integer, usage?: $VertexFormatElement$Usage$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $VertexFormatElement$$Original = $VertexFormatElement;}
 declare module "com.mojang.blaze3d.vertex.VertexFormat" {
 import {$VertexBuffer} from "com.mojang.blaze3d.vertex.VertexBuffer"
-import {$VertexFormatElement, $VertexFormatElement$$Type} from "com.mojang.blaze3d.vertex.VertexFormatElement"
-import {$List} from "java.util.List"
 import {$VertexFormat$Builder} from "com.mojang.blaze3d.vertex.VertexFormat$Builder"
+import {$VertexFormatExtensions$$Interface} from "net.caffeinemc.mods.sodium.api.vertex.format.VertexFormatExtensions"
+import {$List} from "java.util.List"
+import {$VertexFormatElement, $VertexFormatElement$$Type} from "com.mojang.blaze3d.vertex.VertexFormatElement"
 import {$ImmutableMap} from "com.google.common.collect.ImmutableMap"
 
-export class $VertexFormat {
+export class $VertexFormat implements $VertexFormatExtensions$$Interface {
 static readonly "UNKNOWN_ELEMENT": integer
 
 public "equals"(arg0: any): boolean
@@ -57,28 +77,29 @@ public "hashCode"(): integer
 public static "builder"(): $VertexFormat$Builder
 public "contains"(arg0: $VertexFormatElement$$Type): boolean
 public "getOffset"(arg0: $VertexFormatElement$$Type): integer
-public "getElements"(): $List<($VertexFormatElement)>
+public "getElementMapping"(): $ImmutableMap<(StringJS), ($VertexFormatElement)>
+public "getElementsMask"(): integer
+public "hasPosition"(): boolean
+public "setupBufferState"(): void
+public "sodium$getGlobalId"(): integer
+public "clearBufferState"(): void
 public "getElementName"(arg0: $VertexFormatElement$$Type): StringJS
+public "getElements"(): $List<($VertexFormatElement)>
+public "hasNormal"(): boolean
 public "hasUV"(arg0: integer): boolean
 public "hasColor"(): boolean
-public "hasNormal"(): boolean
-public "getImmediateDrawVertexBuffer"(): $VertexBuffer
-public "getVertexSize"(): integer
-public "getOffsetsByElement"(): (integer)[]
-public "getElementMapping"(): $ImmutableMap<(StringJS), ($VertexFormatElement)>
-public "clearBufferState"(): void
-public "setupBufferState"(): void
-public "hasPosition"(): boolean
-public "getElementsMask"(): integer
 public "getElementAttributeNames"(): $List<(StringJS)>
-get "elements"(): $List<($VertexFormatElement)>
-get "immediateDrawVertexBuffer"(): $VertexBuffer
-get "vertexSize"(): integer
-get "offsetsByElement"(): (integer)[]
+public "getOffsetsByElement"(): (integer)[]
+public "getVertexSize"(): integer
+public "getImmediateDrawVertexBuffer"(): $VertexBuffer
 get "elementMapping"(): $ImmutableMap<(StringJS), ($VertexFormatElement)>
-get "upBufferState"(): void
 get "elementsMask"(): integer
+get "upBufferState"(): void
+get "elements"(): $List<($VertexFormatElement)>
 get "elementAttributeNames"(): $List<(StringJS)>
+get "offsetsByElement"(): (integer)[]
+get "vertexSize"(): integer
+get "immediateDrawVertexBuffer"(): $VertexBuffer
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -89,6 +110,30 @@ export type $VertexFormat$$Type = ($VertexFormat);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $VertexFormat$$Original = $VertexFormat;}
+declare module "com.mojang.blaze3d.vertex.Tesselator" {
+import {$BufferBuilder} from "com.mojang.blaze3d.vertex.BufferBuilder"
+import {$VertexFormat$Mode$$Type} from "com.mojang.blaze3d.vertex.VertexFormat$Mode"
+import {$VertexFormat$$Type} from "com.mojang.blaze3d.vertex.VertexFormat"
+
+export class $Tesselator {
+constructor()
+constructor(arg0: integer)
+
+public "clear"(): void
+public "begin"(arg0: $VertexFormat$Mode$$Type, arg1: $VertexFormat$$Type): $BufferBuilder
+public static "getInstance"(): $Tesselator
+public static "init"(): void
+public static get "instance"(): $Tesselator
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Tesselator$$Type = ($Tesselator);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Tesselator$$Original = $Tesselator;}
 declare module "com.mojang.blaze3d.vertex.PoseStack$Pose" {
 import {$Vector3f, $Vector3f$$Type} from "org.joml.Vector3f"
 import {$Matrix4f, $Matrix4f$$Type} from "org.joml.Matrix4f"
@@ -114,6 +159,28 @@ export type $PoseStack$Pose$$Type = ($PoseStack$Pose);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $PoseStack$Pose$$Original = $PoseStack$Pose;}
+declare module "com.mojang.blaze3d.vertex.VertexFormat$IndexType" {
+import {$Enum} from "java.lang.Enum"
+
+export class $VertexFormat$IndexType extends $Enum<($VertexFormat$IndexType)> {
+readonly "bytes": integer
+readonly "asGLType": integer
+static readonly "INT": $VertexFormat$IndexType
+static readonly "SHORT": $VertexFormat$IndexType
+
+public static "values"(): ($VertexFormat$IndexType)[]
+public static "valueOf"(arg0: StringJS): $VertexFormat$IndexType
+public static "least"(arg0: integer): $VertexFormat$IndexType
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $VertexFormat$IndexType$$Type = (("short") | ("int"));
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $VertexFormat$IndexType$$Original = $VertexFormat$IndexType;}
 declare module "com.mojang.blaze3d.vertex.VertexSorting$DistanceFunction" {
 import {$Vector3f, $Vector3f$$Type} from "org.joml.Vector3f"
 
@@ -193,15 +260,12 @@ export type $VertexFormat$Mode$$Type = (("lines") | ("line_strip") | ("debug_lin
 export type $VertexFormat$Mode$$Original = $VertexFormat$Mode;}
 declare module "com.mojang.blaze3d.vertex.PoseStack" {
 import {$PoseStack$Pose} from "com.mojang.blaze3d.vertex.PoseStack$Pose"
-import {$PoseStackAccessor$$Interface} from "org.embeddedt.modernfix.common.mixin.bugfix.entity_pose_stack.PoseStackAccessor"
 import {$IPoseStackExtension$$Interface} from "net.neoforged.neoforge.client.extensions.IPoseStackExtension"
-import {$CachingPoseStack$$Interface} from "org.embeddedt.embeddium.impl.render.matrix_stack.CachingPoseStack"
 import {$Transformation$$Type} from "com.mojang.math.Transformation"
-import {$Deque} from "java.util.Deque"
 import {$Quaternionf$$Type} from "org.joml.Quaternionf"
 import {$Matrix4f$$Type} from "org.joml.Matrix4f"
 
-export class $PoseStack implements $IPoseStackExtension$$Interface, $CachingPoseStack$$Interface, $PoseStackAccessor$$Interface {
+export class $PoseStack implements $IPoseStackExtension$$Interface {
 constructor()
 
 public "clear"(): boolean
@@ -209,16 +273,13 @@ public "scale"(arg0: float, arg1: float, arg2: float): void
 public "last"(): $PoseStack$Pose
 public "mulPose"(arg0: $Matrix4f$$Type): void
 public "mulPose"(arg0: $Quaternionf$$Type): void
-public "getPoseStack"(): $Deque
-public "translate"(arg0: float, arg1: float, arg2: float): void
-public "translate"(arg0: double, arg1: double, arg2: double): void
-public "popPose"(): void
-public "pushPose"(): void
 public "rotateAround"(arg0: $Quaternionf$$Type, arg1: float, arg2: float, arg3: float): void
 public "setIdentity"(): void
-public "embeddium$setCachingEnabled"(arg0: boolean): void
+public "popPose"(): void
+public "pushPose"(): void
+public "translate"(arg0: float, arg1: float, arg2: float): void
+public "translate"(arg0: double, arg1: double, arg2: double): void
 public "pushTransformation"(arg0: $Transformation$$Type): void
-get "poseStack"(): $Deque
 get "identity"(): void
 }
 /**
@@ -230,232 +291,27 @@ export type $PoseStack$$Type = ($PoseStack);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $PoseStack$$Original = $PoseStack;}
-declare module "com.mojang.blaze3d.vertex.VertexConsumer" {
-import {$IVertexConsumerExtension$$Interface} from "net.neoforged.neoforge.client.extensions.IVertexConsumerExtension"
-import {$PoseStack$Pose$$Type} from "com.mojang.blaze3d.vertex.PoseStack$Pose"
-import {$VertexFormatElement$$Type} from "com.mojang.blaze3d.vertex.VertexFormatElement"
-import {$Vector3f$$Type} from "org.joml.Vector3f"
-import {$ByteBuffer$$Type} from "java.nio.ByteBuffer"
-import {$Matrix4f$$Type} from "org.joml.Matrix4f"
-import {$BakedQuad$$Type} from "net.minecraft.client.renderer.block.model.BakedQuad"
-import {$Matrix3f$$Type} from "org.joml.Matrix3f"
-
-export interface $VertexConsumer$$Interface extends $IVertexConsumerExtension$$Interface {
-set "color"(value: integer)
-set "light"(value: integer)
-set "overlay"(value: integer)
-set "whiteAlpha"(value: integer)
-}
-
-export class $VertexConsumer implements $VertexConsumer$$Interface {
- "setColor"(arg0: float, arg1: float, arg2: float, arg3: float): $VertexConsumer
- "setColor"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): $VertexConsumer
- "setColor"(arg0: integer): $VertexConsumer
- "setUv1"(arg0: integer, arg1: integer): $VertexConsumer
- "setUv2"(arg0: integer, arg1: integer): $VertexConsumer
- "setNormal"(arg0: float, arg1: float, arg2: float): $VertexConsumer
- "setNormal"(arg0: $PoseStack$Pose$$Type, arg1: float, arg2: float, arg3: float): $VertexConsumer
- "setLight"(arg0: integer): $VertexConsumer
- "setOverlay"(arg0: integer): $VertexConsumer
- "addVertex"(arg0: $Vector3f$$Type): $VertexConsumer
- "addVertex"(arg0: $PoseStack$Pose$$Type, arg1: $Vector3f$$Type): $VertexConsumer
- "addVertex"(arg0: $PoseStack$Pose$$Type, arg1: float, arg2: float, arg3: float): $VertexConsumer
- "addVertex"(arg0: $Matrix4f$$Type, arg1: float, arg2: float, arg3: float): $VertexConsumer
- "addVertex"(arg0: float, arg1: float, arg2: float): $VertexConsumer
- "addVertex"(arg0: float, arg1: float, arg2: float, arg3: integer, arg4: float, arg5: float, arg6: integer, arg7: integer, arg8: float, arg9: float, arg10: float): void
- "setUv"(arg0: float, arg1: float): $VertexConsumer
- "setWhiteAlpha"(arg0: integer): $VertexConsumer
- "putBulkData"(arg0: $PoseStack$Pose$$Type, arg1: $BakedQuad$$Type, arg2: float, arg3: float, arg4: float, arg5: float, arg6: integer, arg7: integer): void
- "putBulkData"(arg0: $PoseStack$Pose$$Type, arg1: $BakedQuad$$Type, arg2: (float)[], arg3: float, arg4: float, arg5: float, arg6: float, arg7: (integer)[], arg8: integer, arg9: boolean): void
- "misc"(arg0: $VertexFormatElement$$Type, ...arg1: (integer)[]): $VertexConsumer
- "applyBakedLighting"(arg0: integer, arg1: $ByteBuffer$$Type): integer
- "putBulkData"(arg0: $PoseStack$Pose$$Type, arg1: $BakedQuad$$Type, arg2: float, arg3: float, arg4: float, arg5: float, arg6: integer, arg7: integer, arg8: boolean): void
- "applyBakedNormals"(arg0: $Vector3f$$Type, arg1: $ByteBuffer$$Type, arg2: $Matrix3f$$Type): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $VertexConsumer$$Type = ($VertexConsumer);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $VertexConsumer$$Original = $VertexConsumer;}
-declare module "com.mojang.blaze3d.vertex.MeshData$DrawState" {
-import {$VertexFormat$IndexType, $VertexFormat$IndexType$$Type} from "com.mojang.blaze3d.vertex.VertexFormat$IndexType"
-import {$VertexFormat$Mode, $VertexFormat$Mode$$Type} from "com.mojang.blaze3d.vertex.VertexFormat$Mode"
-import {$VertexFormat, $VertexFormat$$Type} from "com.mojang.blaze3d.vertex.VertexFormat"
-import {$Record} from "java.lang.Record"
-
-export class $MeshData$DrawState extends $Record {
-constructor(arg0: $VertexFormat$$Type, arg1: integer, arg2: integer, arg3: $VertexFormat$Mode$$Type, arg4: $VertexFormat$IndexType$$Type)
-
-public "mode"(): $VertexFormat$Mode
-public "equals"(arg0: any): boolean
-public "toString"(): StringJS
-public "hashCode"(): integer
-public "format"(): $VertexFormat
-public "indexType"(): $VertexFormat$IndexType
-public "indexCount"(): integer
-public "vertexCount"(): integer
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $MeshData$DrawState$$Type = ({"vertexCount"?: integer, "format"?: $VertexFormat$$Type, "indexCount"?: integer, "indexType"?: $VertexFormat$IndexType$$Type, "mode"?: $VertexFormat$Mode$$Type}) | ([vertexCount?: integer, format?: $VertexFormat$$Type, indexCount?: integer, indexType?: $VertexFormat$IndexType$$Type, mode?: $VertexFormat$Mode$$Type]);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $MeshData$DrawState$$Original = $MeshData$DrawState;}
-declare module "com.mojang.blaze3d.vertex.VertexFormatElement$Usage" {
-import {$Enum} from "java.lang.Enum"
-import {$ExtensionInfo} from "net.neoforged.fml.common.asm.enumextension.ExtensionInfo"
-import {$IExtensibleEnum$$Interface} from "net.neoforged.fml.common.asm.enumextension.IExtensibleEnum"
-
-export class $VertexFormatElement$Usage extends $Enum<($VertexFormatElement$Usage)> implements $IExtensibleEnum$$Interface {
-static readonly "POSITION": $VertexFormatElement$Usage
-static readonly "UV": $VertexFormatElement$Usage
-static readonly "GENERIC": $VertexFormatElement$Usage
-static readonly "COLOR": $VertexFormatElement$Usage
-static readonly "NORMAL": $VertexFormatElement$Usage
-
-public "toString"(): StringJS
-public static "values"(): ($VertexFormatElement$Usage)[]
-public static "valueOf"(arg0: StringJS): $VertexFormatElement$Usage
-public static "getExtensionInfo"(): $ExtensionInfo
-public static get "extensionInfo"(): $ExtensionInfo
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $VertexFormatElement$Usage$$Type = (("position") | ("normal") | ("color") | ("uv") | ("generic"));
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $VertexFormatElement$Usage$$Original = $VertexFormatElement$Usage;}
-declare module "com.mojang.blaze3d.vertex.VertexFormat$Builder" {
-import {$VertexFormatElement$$Type} from "com.mojang.blaze3d.vertex.VertexFormatElement"
-import {$VertexFormat} from "com.mojang.blaze3d.vertex.VertexFormat"
-
-export class $VertexFormat$Builder {
-public "add"(arg0: StringJS, arg1: $VertexFormatElement$$Type): $VertexFormat$Builder
-public "build"(): $VertexFormat
-public "padding"(arg0: integer): $VertexFormat$Builder
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $VertexFormat$Builder$$Type = ($VertexFormat$Builder);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $VertexFormat$Builder$$Original = $VertexFormat$Builder;}
-declare module "com.mojang.blaze3d.vertex.VertexBuffer$Usage" {
-import {$Enum} from "java.lang.Enum"
-
-export class $VertexBuffer$Usage extends $Enum<($VertexBuffer$Usage)> {
-readonly "id": integer
-static readonly "STATIC": $VertexBuffer$Usage
-static readonly "DYNAMIC": $VertexBuffer$Usage
-
-public static "values"(): ($VertexBuffer$Usage)[]
-public static "valueOf"(arg0: StringJS): $VertexBuffer$Usage
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $VertexBuffer$Usage$$Type = (("static") | ("dynamic"));
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $VertexBuffer$Usage$$Original = $VertexBuffer$Usage;}
-declare module "com.mojang.blaze3d.vertex.Tesselator" {
-import {$BufferBuilder, $BufferBuilder$$Type} from "com.mojang.blaze3d.vertex.BufferBuilder"
-import {$VertexFormat$Mode$$Type} from "com.mojang.blaze3d.vertex.VertexFormat$Mode"
-import {$OwoTessellatorExtension$$Interface} from "io.wispforest.owo.util.pond.OwoTessellatorExtension"
-import {$VertexFormat$$Type} from "com.mojang.blaze3d.vertex.VertexFormat"
-
-export class $Tesselator implements $OwoTessellatorExtension$$Interface {
-constructor()
-constructor(arg0: integer)
-
-public "clear"(): void
-public "begin"(arg0: $VertexFormat$Mode$$Type, arg1: $VertexFormat$$Type): $BufferBuilder
-public static "getInstance"(): $Tesselator
-public static "init"(): void
-public "owo$getStoredBuilder"(): $BufferBuilder
-public "owo$setStoredBuilder"(builder: $BufferBuilder$$Type): void
-public "owo$skipNextBegin"(): void
-public static get "instance"(): $Tesselator
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Tesselator$$Type = ($Tesselator);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Tesselator$$Original = $Tesselator;}
-declare module "com.mojang.blaze3d.vertex.VertexFormat$IndexType" {
-import {$Enum} from "java.lang.Enum"
-
-export class $VertexFormat$IndexType extends $Enum<($VertexFormat$IndexType)> {
-readonly "bytes": integer
-readonly "asGLType": integer
-static readonly "INT": $VertexFormat$IndexType
-static readonly "SHORT": $VertexFormat$IndexType
-
-public static "values"(): ($VertexFormat$IndexType)[]
-public static "valueOf"(arg0: StringJS): $VertexFormat$IndexType
-public static "least"(arg0: integer): $VertexFormat$IndexType
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $VertexFormat$IndexType$$Type = (("short") | ("int"));
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $VertexFormat$IndexType$$Original = $VertexFormat$IndexType;}
 declare module "com.mojang.blaze3d.vertex.VertexBuffer" {
-import {$FloatBuffer$$Type} from "java.nio.FloatBuffer"
 import {$MeshData$$Type} from "com.mojang.blaze3d.vertex.MeshData"
-import {$IVertexBuffer, $IVertexBuffer$$Interface} from "team.lodestar.lodestone.systems.rendering.IVertexBuffer"
-import {$CallbackInfo$$Type} from "org.spongepowered.asm.mixin.injection.callback.CallbackInfo"
-import {$VertexBuffer$Usage$$Type} from "com.mojang.blaze3d.vertex.VertexBuffer$Usage"
 import {$AutoCloseable$$Interface} from "java.lang.AutoCloseable"
+import {$VertexBuffer$Usage$$Type} from "com.mojang.blaze3d.vertex.VertexBuffer$Usage"
 import {$ShaderInstance$$Type} from "net.minecraft.client.renderer.ShaderInstance"
 import {$ByteBufferBuilder$Result$$Type} from "com.mojang.blaze3d.vertex.ByteBufferBuilder$Result"
 import {$VertexFormat} from "com.mojang.blaze3d.vertex.VertexFormat"
 import {$Matrix4f$$Type} from "org.joml.Matrix4f"
-import {$Consumer$$Type} from "java.util.function.Consumer"
 
-export class $VertexBuffer implements $AutoCloseable$$Interface, $IVertexBuffer$$Interface {
- "indexBufferId": integer
- "vertexBufferId": integer
-
+export class $VertexBuffer implements $AutoCloseable$$Interface {
 constructor(arg0: $VertexBuffer$Usage$$Type)
 
+public static "unbind"(): void
 public "close"(): void
 public "isInvalid"(): boolean
 public "bind"(): void
 public "getFormat"(): $VertexFormat
 public "draw"(): void
-public "handler$cka000$lodestone$close"(arg0: $CallbackInfo$$Type): void
+public "uploadIndexBuffer"(arg0: $ByteBufferBuilder$Result$$Type): void
 public "upload"(arg0: $MeshData$$Type): void
 public "drawWithShader"(arg0: $Matrix4f$$Type, arg1: $Matrix4f$$Type, arg2: $ShaderInstance$$Type): void
-public "uploadIndexBuffer"(arg0: $ByteBufferBuilder$Result$$Type): void
-public "drawInstanced"(arg0: integer): void
-public "addAttributeVBO"(arg0: integer, arg1: $FloatBuffer$$Type, arg2: $VertexBuffer$Usage$$Type, arg3: $Consumer$$Type): void
-public "drawWithShaderInstanced"(arg0: $Matrix4f$$Type, arg1: $Matrix4f$$Type, arg2: $ShaderInstance$$Type, arg3: integer): void
-public static "unbind"(): void
-public static "cast"(arg0: $VertexBuffer$$Type): $IVertexBuffer
 get "invalid"(): boolean
 get "format"(): $VertexFormat
 }
@@ -483,8 +339,8 @@ public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
 public "indexType"(): $VertexFormat$IndexType
-public "buildSortedIndexBuffer"(arg0: $ByteBufferBuilder$$Type, arg1: $VertexSorting$$Type): $ByteBufferBuilder$Result
 public "centroids"(): ($Vector3f)[]
+public "buildSortedIndexBuffer"(arg0: $ByteBufferBuilder$$Type, arg1: $VertexSorting$$Type): $ByteBufferBuilder$Result
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -500,8 +356,8 @@ import {$AutoCloseable$$Interface} from "java.lang.AutoCloseable"
 import {$ByteBufferBuilder$$Type} from "com.mojang.blaze3d.vertex.ByteBufferBuilder"
 import {$MeshData$SortState} from "com.mojang.blaze3d.vertex.MeshData$SortState"
 import {$ByteBufferBuilder$Result$$Type} from "com.mojang.blaze3d.vertex.ByteBufferBuilder$Result"
-import {$VertexSorting$$Type} from "com.mojang.blaze3d.vertex.VertexSorting"
 import {$ByteBuffer} from "java.nio.ByteBuffer"
+import {$VertexSorting$$Type} from "com.mojang.blaze3d.vertex.VertexSorting"
 import {$MeshData$DrawState, $MeshData$DrawState$$Type} from "com.mojang.blaze3d.vertex.MeshData$DrawState"
 
 export class $MeshData implements $AutoCloseable$$Interface {
@@ -509,9 +365,9 @@ constructor(arg0: $ByteBufferBuilder$Result$$Type, arg1: $MeshData$DrawState$$Ty
 
 public "close"(): void
 public "drawState"(): $MeshData$DrawState
-public "sortQuads"(arg0: $ByteBufferBuilder$$Type, arg1: $VertexSorting$$Type): $MeshData$SortState
 public "indexBuffer"(): $ByteBuffer
 public "vertexBuffer"(): $ByteBuffer
+public "sortQuads"(arg0: $ByteBufferBuilder$$Type, arg1: $VertexSorting$$Type): $MeshData$SortState
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -540,68 +396,62 @@ export type $ByteBufferBuilder$Result$$Type = ($ByteBufferBuilder$Result);
  */
 export type $ByteBufferBuilder$Result$$Original = $ByteBufferBuilder$Result;}
 declare module "com.mojang.blaze3d.vertex.BufferBuilder" {
+import {$BufferBuilderExtension$$Interface} from "net.caffeinemc.mods.sodium.client.render.vertex.buffer.BufferBuilderExtension"
 import {$VertexFormatElement$$Type} from "com.mojang.blaze3d.vertex.VertexFormatElement"
 import {$VertexConsumer, $VertexConsumer$$Type, $VertexConsumer$$Interface} from "com.mojang.blaze3d.vertex.VertexConsumer"
 import {$Vector3f$$Type} from "org.joml.Vector3f"
 import {$Matrix4f$$Type} from "org.joml.Matrix4f"
-import {$VertexFormatDescription$$Type} from "org.embeddedt.embeddium.api.vertex.format.VertexFormatDescription"
 import {$Matrix3f$$Type} from "org.joml.Matrix3f"
 import {$BakedQuad$$Type} from "net.minecraft.client.renderer.block.model.BakedQuad"
 import {$PoseStack$Pose$$Type} from "com.mojang.blaze3d.vertex.PoseStack$Pose"
 import {$MemoryStack$$Type} from "org.lwjgl.system.MemoryStack"
 import {$MeshData} from "com.mojang.blaze3d.vertex.MeshData"
 import {$ByteBufferBuilder, $ByteBufferBuilder$$Type} from "com.mojang.blaze3d.vertex.ByteBufferBuilder"
-import {$VertexFormat$Mode, $VertexFormat$Mode$$Type} from "com.mojang.blaze3d.vertex.VertexFormat$Mode"
-import {$BufferBuilderAccessor$$Interface} from "io.wispforest.owo.mixin.BufferBuilderAccessor"
-import {$VertexBufferWriter, $VertexBufferWriter$$Type, $VertexBufferWriter$$Interface} from "org.embeddedt.embeddium.api.vertex.buffer.VertexBufferWriter"
+import {$VertexFormat$Mode$$Type} from "com.mojang.blaze3d.vertex.VertexFormat$Mode"
+import {$VertexBufferWriter, $VertexBufferWriter$$Type, $VertexBufferWriter$$Interface} from "net.caffeinemc.mods.sodium.api.vertex.buffer.VertexBufferWriter"
 import {$ByteBuffer$$Type} from "java.nio.ByteBuffer"
-import {$VertexFormat, $VertexFormat$$Type} from "com.mojang.blaze3d.vertex.VertexFormat"
+import {$VertexFormat$$Type} from "com.mojang.blaze3d.vertex.VertexFormat"
 
-export class $BufferBuilder implements $VertexConsumer$$Interface, $BufferBuilderAccessor$$Interface, $VertexBufferWriter$$Interface {
+export class $BufferBuilder implements $VertexConsumer$$Interface, $BufferBuilderExtension$$Interface, $VertexBufferWriter$$Interface {
 readonly "buffer": $ByteBufferBuilder
  "building": boolean
 
 constructor(arg0: $ByteBufferBuilder$$Type, arg1: $VertexFormat$Mode$$Type, arg2: $VertexFormat$$Type)
 
 public "build"(): $MeshData
-public "push"(arg0: $MemoryStack$$Type, arg1: long, arg2: integer, arg3: $VertexFormatDescription$$Type): void
-public "getFormat"(): $VertexFormat
-public "setColor"(arg0: integer): $VertexConsumer
+public "push"(arg0: $MemoryStack$$Type, arg1: long, arg2: integer, arg3: $VertexFormat$$Type): void
 public "setColor"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): $VertexConsumer
+public "setColor"(arg0: integer): $VertexConsumer
 public "buildOrThrow"(): $MeshData
+public "setLight"(arg0: integer): $VertexConsumer
 public "setUv1"(arg0: integer, arg1: integer): $VertexConsumer
 public "setUv2"(arg0: integer, arg1: integer): $VertexConsumer
 public "setNormal"(arg0: float, arg1: float, arg2: float): $VertexConsumer
-public "setLight"(arg0: integer): $VertexConsumer
-public "setOverlay"(arg0: integer): $VertexConsumer
-public "addVertex"(arg0: float, arg1: float, arg2: float): $VertexConsumer
-public "addVertex"(arg0: float, arg1: float, arg2: float, arg3: integer, arg4: float, arg5: float, arg6: integer, arg7: integer, arg8: float, arg9: float, arg10: float): void
-public "setUv"(arg0: float, arg1: float): $VertexConsumer
-public "getDrawMode"(): $VertexFormat$Mode
-public "putBulkData"(arg0: $PoseStack$Pose$$Type, arg1: $BakedQuad$$Type, arg2: float, arg3: float, arg4: float, arg5: float, arg6: integer, arg7: integer, arg8: boolean): void
 public "putBulkData"(arg0: $PoseStack$Pose$$Type, arg1: $BakedQuad$$Type, arg2: (float)[], arg3: float, arg4: float, arg5: float, arg6: float, arg7: (integer)[], arg8: integer, arg9: boolean): void
 public "putBulkData"(arg0: $PoseStack$Pose$$Type, arg1: $BakedQuad$$Type, arg2: float, arg3: float, arg4: float, arg5: float, arg6: integer, arg7: integer): void
-public "beginElement"(arg0: $VertexFormatElement$$Type): long
-public "canUseIntrinsics"(): boolean
-public "isBuilding"(): boolean
+public "sodium$duplicateVertex"(): void
+public "setOverlay"(arg0: integer): $VertexConsumer
+public "addVertex"(arg0: float, arg1: float, arg2: float, arg3: integer, arg4: float, arg5: float, arg6: integer, arg7: integer, arg8: float, arg9: float, arg10: float): void
+public "addVertex"(arg0: float, arg1: float, arg2: float): $VertexConsumer
+public "setUv"(arg0: float, arg1: float): $VertexConsumer
 public "setColor"(arg0: float, arg1: float, arg2: float, arg3: float): $VertexConsumer
 public "setNormal"(arg0: $PoseStack$Pose$$Type, arg1: float, arg2: float, arg3: float): $VertexConsumer
-public "addVertex"(arg0: $Vector3f$$Type): $VertexConsumer
+public "setWhiteAlpha"(arg0: integer): $VertexConsumer
 public "addVertex"(arg0: $PoseStack$Pose$$Type, arg1: $Vector3f$$Type): $VertexConsumer
 public "addVertex"(arg0: $PoseStack$Pose$$Type, arg1: float, arg2: float, arg3: float): $VertexConsumer
 public "addVertex"(arg0: $Matrix4f$$Type, arg1: float, arg2: float, arg3: float): $VertexConsumer
-public "setWhiteAlpha"(arg0: integer): $VertexConsumer
+public "addVertex"(arg0: $Vector3f$$Type): $VertexConsumer
 public static "of"(arg0: $VertexConsumer$$Type): $VertexBufferWriter
-public static "copyInto"(arg0: $VertexBufferWriter$$Type, arg1: $MemoryStack$$Type, arg2: long, arg3: integer, arg4: $VertexFormatDescription$$Type): void
+public static "copyInto"(arg0: $VertexBufferWriter$$Type, arg1: $MemoryStack$$Type, arg2: long, arg3: integer, arg4: $VertexFormat$$Type): void
 public static "tryOf"(arg0: $VertexConsumer$$Type): $VertexBufferWriter
+public "canUseIntrinsics"(): boolean
 public "misc"(arg0: $VertexFormatElement$$Type, ...arg1: (integer)[]): $VertexConsumer
 public "applyBakedLighting"(arg0: integer, arg1: $ByteBuffer$$Type): integer
 public "applyBakedNormals"(arg0: $Vector3f$$Type, arg1: $ByteBuffer$$Type, arg2: $Matrix3f$$Type): void
-get "format"(): $VertexFormat
+public "putBulkData"(arg0: $PoseStack$Pose$$Type, arg1: $BakedQuad$$Type, arg2: float, arg3: float, arg4: float, arg5: float, arg6: integer, arg7: integer, arg8: boolean): void
 set "color"(value: integer)
 set "light"(value: integer)
 set "overlay"(value: integer)
-get "drawMode"(): $VertexFormat$Mode
 set "whiteAlpha"(value: integer)
 }
 /**
@@ -613,6 +463,84 @@ export type $BufferBuilder$$Type = ($BufferBuilder);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $BufferBuilder$$Original = $BufferBuilder;}
+declare module "com.mojang.blaze3d.vertex.VertexConsumer" {
+import {$IVertexConsumerExtension$$Interface} from "net.neoforged.neoforge.client.extensions.IVertexConsumerExtension"
+import {$PoseStack$Pose$$Type} from "com.mojang.blaze3d.vertex.PoseStack$Pose"
+import {$VertexFormatElement$$Type} from "com.mojang.blaze3d.vertex.VertexFormatElement"
+import {$Vector3f$$Type} from "org.joml.Vector3f"
+import {$ByteBuffer$$Type} from "java.nio.ByteBuffer"
+import {$Matrix4f$$Type} from "org.joml.Matrix4f"
+import {$BakedQuad$$Type} from "net.minecraft.client.renderer.block.model.BakedQuad"
+import {$Matrix3f$$Type} from "org.joml.Matrix3f"
+
+export interface $VertexConsumer$$Interface extends $IVertexConsumerExtension$$Interface {
+set "color"(value: integer)
+set "light"(value: integer)
+set "whiteAlpha"(value: integer)
+set "overlay"(value: integer)
+}
+
+export class $VertexConsumer implements $VertexConsumer$$Interface {
+ "setColor"(arg0: float, arg1: float, arg2: float, arg3: float): $VertexConsumer
+ "setColor"(arg0: integer, arg1: integer, arg2: integer, arg3: integer): $VertexConsumer
+ "setColor"(arg0: integer): $VertexConsumer
+ "setLight"(arg0: integer): $VertexConsumer
+ "setUv1"(arg0: integer, arg1: integer): $VertexConsumer
+ "setUv2"(arg0: integer, arg1: integer): $VertexConsumer
+ "setNormal"(arg0: $PoseStack$Pose$$Type, arg1: float, arg2: float, arg3: float): $VertexConsumer
+ "setNormal"(arg0: float, arg1: float, arg2: float): $VertexConsumer
+ "setWhiteAlpha"(arg0: integer): $VertexConsumer
+ "putBulkData"(arg0: $PoseStack$Pose$$Type, arg1: $BakedQuad$$Type, arg2: (float)[], arg3: float, arg4: float, arg5: float, arg6: float, arg7: (integer)[], arg8: integer, arg9: boolean): void
+ "putBulkData"(arg0: $PoseStack$Pose$$Type, arg1: $BakedQuad$$Type, arg2: float, arg3: float, arg4: float, arg5: float, arg6: integer, arg7: integer): void
+ "setOverlay"(arg0: integer): $VertexConsumer
+ "addVertex"(arg0: $PoseStack$Pose$$Type, arg1: $Vector3f$$Type): $VertexConsumer
+ "addVertex"(arg0: $PoseStack$Pose$$Type, arg1: float, arg2: float, arg3: float): $VertexConsumer
+ "addVertex"(arg0: float, arg1: float, arg2: float): $VertexConsumer
+ "addVertex"(arg0: $Matrix4f$$Type, arg1: float, arg2: float, arg3: float): $VertexConsumer
+ "addVertex"(arg0: $Vector3f$$Type): $VertexConsumer
+ "addVertex"(arg0: float, arg1: float, arg2: float, arg3: integer, arg4: float, arg5: float, arg6: integer, arg7: integer, arg8: float, arg9: float, arg10: float): void
+ "setUv"(arg0: float, arg1: float): $VertexConsumer
+ "misc"(arg0: $VertexFormatElement$$Type, ...arg1: (integer)[]): $VertexConsumer
+ "applyBakedLighting"(arg0: integer, arg1: $ByteBuffer$$Type): integer
+ "applyBakedNormals"(arg0: $Vector3f$$Type, arg1: $ByteBuffer$$Type, arg2: $Matrix3f$$Type): void
+ "putBulkData"(arg0: $PoseStack$Pose$$Type, arg1: $BakedQuad$$Type, arg2: float, arg3: float, arg4: float, arg5: float, arg6: integer, arg7: integer, arg8: boolean): void
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $VertexConsumer$$Type = ($VertexConsumer);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $VertexConsumer$$Original = $VertexConsumer;}
+declare module "com.mojang.blaze3d.vertex.MeshData$DrawState" {
+import {$VertexFormat$IndexType, $VertexFormat$IndexType$$Type} from "com.mojang.blaze3d.vertex.VertexFormat$IndexType"
+import {$VertexFormat$Mode, $VertexFormat$Mode$$Type} from "com.mojang.blaze3d.vertex.VertexFormat$Mode"
+import {$VertexFormat, $VertexFormat$$Type} from "com.mojang.blaze3d.vertex.VertexFormat"
+import {$Record} from "java.lang.Record"
+
+export class $MeshData$DrawState extends $Record {
+constructor(arg0: $VertexFormat$$Type, arg1: integer, arg2: integer, arg3: $VertexFormat$Mode$$Type, arg4: $VertexFormat$IndexType$$Type)
+
+public "mode"(): $VertexFormat$Mode
+public "equals"(arg0: any): boolean
+public "toString"(): StringJS
+public "hashCode"(): integer
+public "format"(): $VertexFormat
+public "indexType"(): $VertexFormat$IndexType
+public "vertexCount"(): integer
+public "indexCount"(): integer
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $MeshData$DrawState$$Type = ({"mode"?: $VertexFormat$Mode$$Type, "vertexCount"?: integer, "format"?: $VertexFormat$$Type, "indexCount"?: integer, "indexType"?: $VertexFormat$IndexType$$Type}) | ([mode?: $VertexFormat$Mode$$Type, vertexCount?: integer, format?: $VertexFormat$$Type, indexCount?: integer, indexType?: $VertexFormat$IndexType$$Type]);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $MeshData$DrawState$$Original = $MeshData$DrawState;}
 declare module "com.mojang.blaze3d.vertex.VertexFormatElement$Type" {
 import {$Enum} from "java.lang.Enum"
 
@@ -664,3 +592,48 @@ export type $ByteBufferBuilder$$Type = ($ByteBufferBuilder);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $ByteBufferBuilder$$Original = $ByteBufferBuilder;}
+declare module "com.mojang.blaze3d.vertex.VertexFormatElement$Usage" {
+import {$Enum} from "java.lang.Enum"
+import {$ExtensionInfo} from "net.neoforged.fml.common.asm.enumextension.ExtensionInfo"
+import {$IExtensibleEnum$$Interface} from "net.neoforged.fml.common.asm.enumextension.IExtensibleEnum"
+
+export class $VertexFormatElement$Usage extends $Enum<($VertexFormatElement$Usage)> implements $IExtensibleEnum$$Interface {
+static readonly "POSITION": $VertexFormatElement$Usage
+static readonly "UV": $VertexFormatElement$Usage
+static readonly "GENERIC": $VertexFormatElement$Usage
+static readonly "COLOR": $VertexFormatElement$Usage
+static readonly "NORMAL": $VertexFormatElement$Usage
+
+public "toString"(): StringJS
+public static "values"(): ($VertexFormatElement$Usage)[]
+public static "valueOf"(arg0: StringJS): $VertexFormatElement$Usage
+public static "getExtensionInfo"(): $ExtensionInfo
+public static get "extensionInfo"(): $ExtensionInfo
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $VertexFormatElement$Usage$$Type = (("position") | ("normal") | ("color") | ("uv") | ("generic"));
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $VertexFormatElement$Usage$$Original = $VertexFormatElement$Usage;}
+declare module "com.mojang.blaze3d.vertex.VertexFormat$Builder" {
+import {$VertexFormatElement$$Type} from "com.mojang.blaze3d.vertex.VertexFormatElement"
+import {$VertexFormat} from "com.mojang.blaze3d.vertex.VertexFormat"
+
+export class $VertexFormat$Builder {
+public "add"(arg0: StringJS, arg1: $VertexFormatElement$$Type): $VertexFormat$Builder
+public "build"(): $VertexFormat
+public "padding"(arg0: integer): $VertexFormat$Builder
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $VertexFormat$Builder$$Type = ($VertexFormat$Builder);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $VertexFormat$Builder$$Original = $VertexFormat$Builder;}

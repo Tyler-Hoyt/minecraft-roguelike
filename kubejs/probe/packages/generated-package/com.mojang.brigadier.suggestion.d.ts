@@ -40,23 +40,23 @@ export class $SuggestionsBuilder {
 constructor(arg0: StringJS, arg1: StringJS, arg2: integer)
 constructor(arg0: StringJS, arg1: integer)
 
+public "getInput"(): StringJS
 public "add"(arg0: $SuggestionsBuilder$$Type): $SuggestionsBuilder
 public "build"(): $Suggestions
 public "getRemaining"(): StringJS
+public "buildFuture"(): $CompletableFuture<($Suggestions)>
+public "createOffset"(arg0: integer): $SuggestionsBuilder
 public "getStart"(): integer
-public "suggest"(arg0: StringJS, arg1: $Message$$Type): $SuggestionsBuilder
-public "suggest"(arg0: StringJS): $SuggestionsBuilder
-public "suggest"(arg0: integer, arg1: $Message$$Type): $SuggestionsBuilder
-public "suggest"(arg0: integer): $SuggestionsBuilder
 public "getRemainingLowerCase"(): StringJS
 public "restart"(): $SuggestionsBuilder
-public "createOffset"(arg0: integer): $SuggestionsBuilder
-public "buildFuture"(): $CompletableFuture<($Suggestions)>
-public "getInput"(): StringJS
+public "suggest"(arg0: integer, arg1: $Message$$Type): $SuggestionsBuilder
+public "suggest"(arg0: StringJS): $SuggestionsBuilder
+public "suggest"(arg0: StringJS, arg1: $Message$$Type): $SuggestionsBuilder
+public "suggest"(arg0: integer): $SuggestionsBuilder
+get "input"(): StringJS
 get "remaining"(): StringJS
 get "start"(): integer
 get "remainingLowerCase"(): StringJS
-get "input"(): StringJS
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

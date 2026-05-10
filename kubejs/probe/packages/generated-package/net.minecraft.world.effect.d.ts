@@ -1,207 +1,3 @@
-declare module "net.minecraft.world.effect.WeavingMobEffect" {
-import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
-import {$Map} from "java.util.Map"
-import {$Codec} from "com.mojang.serialization.Codec"
-import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
-import {$Attribute} from "net.minecraft.world.entity.ai.attributes.Attribute"
-import {$Holder} from "net.minecraft.core.Holder"
-import {$MobEffect} from "net.minecraft.world.effect.MobEffect"
-import {$MobEffect$AttributeTemplate} from "net.minecraft.world.effect.MobEffect$AttributeTemplate"
-
-export class $WeavingMobEffect extends $MobEffect {
-static readonly "CODEC": $Codec<($Holder<($MobEffect)>)>
-readonly "attributeModifiers": $Map<($Holder<($Attribute)>), ($MobEffect$AttributeTemplate)>
-static readonly "STREAM_CODEC": $StreamCodec<($RegistryFriendlyByteBuf), ($Holder<($MobEffect)>)>
-
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $WeavingMobEffect$$Type = ($WeavingMobEffect);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $WeavingMobEffect$$Original = $WeavingMobEffect;}
-declare module "net.minecraft.world.effect.RaidOmenMobEffect" {
-import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
-import {$Map} from "java.util.Map"
-import {$Codec} from "com.mojang.serialization.Codec"
-import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
-import {$Attribute} from "net.minecraft.world.entity.ai.attributes.Attribute"
-import {$Holder} from "net.minecraft.core.Holder"
-import {$MobEffect} from "net.minecraft.world.effect.MobEffect"
-import {$MobEffect$AttributeTemplate} from "net.minecraft.world.effect.MobEffect$AttributeTemplate"
-
-export class $RaidOmenMobEffect extends $MobEffect {
-static readonly "CODEC": $Codec<($Holder<($MobEffect)>)>
-readonly "attributeModifiers": $Map<($Holder<($Attribute)>), ($MobEffect$AttributeTemplate)>
-static readonly "STREAM_CODEC": $StreamCodec<($RegistryFriendlyByteBuf), ($Holder<($MobEffect)>)>
-
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $RaidOmenMobEffect$$Type = ($RaidOmenMobEffect);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $RaidOmenMobEffect$$Original = $RaidOmenMobEffect;}
-declare module "net.minecraft.world.effect.RegenerationMobEffect" {
-import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
-import {$Map} from "java.util.Map"
-import {$Codec} from "com.mojang.serialization.Codec"
-import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
-import {$Attribute} from "net.minecraft.world.entity.ai.attributes.Attribute"
-import {$Holder} from "net.minecraft.core.Holder"
-import {$MobEffect} from "net.minecraft.world.effect.MobEffect"
-import {$MobEffect$AttributeTemplate} from "net.minecraft.world.effect.MobEffect$AttributeTemplate"
-
-export class $RegenerationMobEffect extends $MobEffect {
-static readonly "CODEC": $Codec<($Holder<($MobEffect)>)>
-readonly "attributeModifiers": $Map<($Holder<($Attribute)>), ($MobEffect$AttributeTemplate)>
-static readonly "STREAM_CODEC": $StreamCodec<($RegistryFriendlyByteBuf), ($Holder<($MobEffect)>)>
-
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $RegenerationMobEffect$$Type = ($RegenerationMobEffect);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $RegenerationMobEffect$$Original = $RegenerationMobEffect;}
-declare module "net.minecraft.world.effect.SaturationMobEffect" {
-import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
-import {$Map} from "java.util.Map"
-import {$InstantenousMobEffect} from "net.minecraft.world.effect.InstantenousMobEffect"
-import {$Codec} from "com.mojang.serialization.Codec"
-import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
-import {$Attribute} from "net.minecraft.world.entity.ai.attributes.Attribute"
-import {$Holder} from "net.minecraft.core.Holder"
-import {$MobEffect} from "net.minecraft.world.effect.MobEffect"
-import {$MobEffect$AttributeTemplate} from "net.minecraft.world.effect.MobEffect$AttributeTemplate"
-
-export class $SaturationMobEffect extends $InstantenousMobEffect {
-static readonly "CODEC": $Codec<($Holder<($MobEffect)>)>
-readonly "attributeModifiers": $Map<($Holder<($Attribute)>), ($MobEffect$AttributeTemplate)>
-static readonly "STREAM_CODEC": $StreamCodec<($RegistryFriendlyByteBuf), ($Holder<($MobEffect)>)>
-
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $SaturationMobEffect$$Type = ($SaturationMobEffect);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $SaturationMobEffect$$Original = $SaturationMobEffect;}
-declare module "net.minecraft.world.effect.PoisonMobEffect" {
-import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
-import {$Map} from "java.util.Map"
-import {$Codec} from "com.mojang.serialization.Codec"
-import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
-import {$Attribute} from "net.minecraft.world.entity.ai.attributes.Attribute"
-import {$LivingEntity$$Type} from "net.minecraft.world.entity.LivingEntity"
-import {$Holder} from "net.minecraft.core.Holder"
-import {$MobEffect} from "net.minecraft.world.effect.MobEffect"
-import {$MobEffect$AttributeTemplate} from "net.minecraft.world.effect.MobEffect$AttributeTemplate"
-
-export class $PoisonMobEffect extends $MobEffect {
-static readonly "CODEC": $Codec<($Holder<($MobEffect)>)>
-readonly "attributeModifiers": $Map<($Holder<($Attribute)>), ($MobEffect$AttributeTemplate)>
-static readonly "STREAM_CODEC": $StreamCodec<($RegistryFriendlyByteBuf), ($Holder<($MobEffect)>)>
-
-public "shouldApplyEffectTickThisTick"(arg0: integer, arg1: integer): boolean
-public "applyEffectTick"(arg0: $LivingEntity$$Type, arg1: integer): boolean
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $PoisonMobEffect$$Type = ($PoisonMobEffect);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $PoisonMobEffect$$Original = $PoisonMobEffect;}
-declare module "net.minecraft.world.effect.HungerMobEffect" {
-import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
-import {$Map} from "java.util.Map"
-import {$Codec} from "com.mojang.serialization.Codec"
-import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
-import {$Attribute} from "net.minecraft.world.entity.ai.attributes.Attribute"
-import {$Holder} from "net.minecraft.core.Holder"
-import {$MobEffect} from "net.minecraft.world.effect.MobEffect"
-import {$MobEffect$AttributeTemplate} from "net.minecraft.world.effect.MobEffect$AttributeTemplate"
-
-export class $HungerMobEffect extends $MobEffect {
-static readonly "CODEC": $Codec<($Holder<($MobEffect)>)>
-readonly "attributeModifiers": $Map<($Holder<($Attribute)>), ($MobEffect$AttributeTemplate)>
-static readonly "STREAM_CODEC": $StreamCodec<($RegistryFriendlyByteBuf), ($Holder<($MobEffect)>)>
-
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $HungerMobEffect$$Type = ($HungerMobEffect);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $HungerMobEffect$$Original = $HungerMobEffect;}
-declare module "net.minecraft.world.effect.BadOmenMobEffect" {
-import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
-import {$Map} from "java.util.Map"
-import {$Codec} from "com.mojang.serialization.Codec"
-import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
-import {$Attribute} from "net.minecraft.world.entity.ai.attributes.Attribute"
-import {$Holder} from "net.minecraft.core.Holder"
-import {$MobEffect} from "net.minecraft.world.effect.MobEffect"
-import {$MobEffect$AttributeTemplate} from "net.minecraft.world.effect.MobEffect$AttributeTemplate"
-
-export class $BadOmenMobEffect extends $MobEffect {
-static readonly "CODEC": $Codec<($Holder<($MobEffect)>)>
-readonly "attributeModifiers": $Map<($Holder<($Attribute)>), ($MobEffect$AttributeTemplate)>
-static readonly "STREAM_CODEC": $StreamCodec<($RegistryFriendlyByteBuf), ($Holder<($MobEffect)>)>
-
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $BadOmenMobEffect$$Type = ($BadOmenMobEffect);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $BadOmenMobEffect$$Original = $BadOmenMobEffect;}
-declare module "net.minecraft.world.effect.AbsorptionMobEffect" {
-import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
-import {$Map} from "java.util.Map"
-import {$Codec} from "com.mojang.serialization.Codec"
-import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
-import {$Attribute} from "net.minecraft.world.entity.ai.attributes.Attribute"
-import {$Holder} from "net.minecraft.core.Holder"
-import {$MobEffect} from "net.minecraft.world.effect.MobEffect"
-import {$MobEffect$AttributeTemplate} from "net.minecraft.world.effect.MobEffect$AttributeTemplate"
-
-export class $AbsorptionMobEffect extends $MobEffect {
-static readonly "CODEC": $Codec<($Holder<($MobEffect)>)>
-readonly "attributeModifiers": $Map<($Holder<($Attribute)>), ($MobEffect$AttributeTemplate)>
-static readonly "STREAM_CODEC": $StreamCodec<($RegistryFriendlyByteBuf), ($Holder<($MobEffect)>)>
-
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $AbsorptionMobEffect$$Type = ($AbsorptionMobEffect);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $AbsorptionMobEffect$$Original = $AbsorptionMobEffect;}
 declare module "net.minecraft.world.effect.OozingMobEffect" {
 import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
 import {$Map} from "java.util.Map"
@@ -277,6 +73,31 @@ export type $InfestedMobEffect$$Type = ($InfestedMobEffect);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $InfestedMobEffect$$Original = $InfestedMobEffect;}
+declare module "net.minecraft.world.effect.WeavingMobEffect" {
+import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
+import {$Map} from "java.util.Map"
+import {$Codec} from "com.mojang.serialization.Codec"
+import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
+import {$Attribute} from "net.minecraft.world.entity.ai.attributes.Attribute"
+import {$Holder} from "net.minecraft.core.Holder"
+import {$MobEffect} from "net.minecraft.world.effect.MobEffect"
+import {$MobEffect$AttributeTemplate} from "net.minecraft.world.effect.MobEffect$AttributeTemplate"
+
+export class $WeavingMobEffect extends $MobEffect {
+static readonly "CODEC": $Codec<($Holder<($MobEffect)>)>
+readonly "attributeModifiers": $Map<($Holder<($Attribute)>), ($MobEffect$AttributeTemplate)>
+static readonly "STREAM_CODEC": $StreamCodec<($RegistryFriendlyByteBuf), ($Holder<($MobEffect)>)>
+
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $WeavingMobEffect$$Type = ($WeavingMobEffect);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $WeavingMobEffect$$Original = $WeavingMobEffect;}
 declare module "net.minecraft.world.effect.MobEffect$AttributeTemplate" {
 import {$AttributeModifier} from "net.minecraft.world.entity.ai.attributes.AttributeModifier"
 import {$ResourceLocation, $ResourceLocation$$Type} from "net.minecraft.resources.ResourceLocation"
@@ -288,6 +109,7 @@ export class $MobEffect$AttributeTemplate extends $Record {
 constructor(arg0: $ResourceLocation$$Type, arg1: double, arg2: $AttributeModifier$Operation$$Type)
 constructor(id: $ResourceLocation$$Type, amount: double, operation: $AttributeModifier$Operation$$Type, curve: $Int2DoubleFunction$$Type)
 
+public "operation"(): $AttributeModifier$Operation
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
@@ -295,17 +117,66 @@ public "id"(): $ResourceLocation
 public "create"(arg0: integer): $AttributeModifier
 public "amount"(): double
 public "curve"(): $Int2DoubleFunction
-public "operation"(): $AttributeModifier$Operation
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
  * types for convenience unless there's a naming conflict.
  */
-export type $MobEffect$AttributeTemplate$$Type = ({"id"?: $ResourceLocation$$Type, "operation"?: $AttributeModifier$Operation$$Type, "amount"?: double, "curve"?: $Int2DoubleFunction$$Type}) | ([id?: $ResourceLocation$$Type, operation?: $AttributeModifier$Operation$$Type, amount?: double, curve?: $Int2DoubleFunction$$Type]);
+export type $MobEffect$AttributeTemplate$$Type = ({"operation"?: $AttributeModifier$Operation$$Type, "amount"?: double, "curve"?: $Int2DoubleFunction$$Type, "id"?: $ResourceLocation$$Type}) | ([operation?: $AttributeModifier$Operation$$Type, amount?: double, curve?: $Int2DoubleFunction$$Type, id?: $ResourceLocation$$Type]);
 /**
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $MobEffect$AttributeTemplate$$Original = $MobEffect$AttributeTemplate;}
+declare module "net.minecraft.world.effect.RaidOmenMobEffect" {
+import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
+import {$Map} from "java.util.Map"
+import {$Codec} from "com.mojang.serialization.Codec"
+import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
+import {$Attribute} from "net.minecraft.world.entity.ai.attributes.Attribute"
+import {$Holder} from "net.minecraft.core.Holder"
+import {$MobEffect} from "net.minecraft.world.effect.MobEffect"
+import {$MobEffect$AttributeTemplate} from "net.minecraft.world.effect.MobEffect$AttributeTemplate"
+
+export class $RaidOmenMobEffect extends $MobEffect {
+static readonly "CODEC": $Codec<($Holder<($MobEffect)>)>
+readonly "attributeModifiers": $Map<($Holder<($Attribute)>), ($MobEffect$AttributeTemplate)>
+static readonly "STREAM_CODEC": $StreamCodec<($RegistryFriendlyByteBuf), ($Holder<($MobEffect)>)>
+
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $RaidOmenMobEffect$$Type = ($RaidOmenMobEffect);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $RaidOmenMobEffect$$Original = $RaidOmenMobEffect;}
+declare module "net.minecraft.world.effect.RegenerationMobEffect" {
+import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
+import {$Map} from "java.util.Map"
+import {$Codec} from "com.mojang.serialization.Codec"
+import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
+import {$Attribute} from "net.minecraft.world.entity.ai.attributes.Attribute"
+import {$Holder} from "net.minecraft.core.Holder"
+import {$MobEffect} from "net.minecraft.world.effect.MobEffect"
+import {$MobEffect$AttributeTemplate} from "net.minecraft.world.effect.MobEffect$AttributeTemplate"
+
+export class $RegenerationMobEffect extends $MobEffect {
+static readonly "CODEC": $Codec<($Holder<($MobEffect)>)>
+readonly "attributeModifiers": $Map<($Holder<($Attribute)>), ($MobEffect$AttributeTemplate)>
+static readonly "STREAM_CODEC": $StreamCodec<($RegistryFriendlyByteBuf), ($Holder<($MobEffect)>)>
+
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $RegenerationMobEffect$$Type = ($RegenerationMobEffect);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $RegenerationMobEffect$$Original = $RegenerationMobEffect;}
 declare module "net.minecraft.world.effect.WitherMobEffect" {
 import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
 import {$Map} from "java.util.Map"
@@ -331,6 +202,32 @@ export type $WitherMobEffect$$Type = ($WitherMobEffect);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $WitherMobEffect$$Original = $WitherMobEffect;}
+declare module "net.minecraft.world.effect.SaturationMobEffect" {
+import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
+import {$Map} from "java.util.Map"
+import {$InstantenousMobEffect} from "net.minecraft.world.effect.InstantenousMobEffect"
+import {$Codec} from "com.mojang.serialization.Codec"
+import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
+import {$Attribute} from "net.minecraft.world.entity.ai.attributes.Attribute"
+import {$Holder} from "net.minecraft.core.Holder"
+import {$MobEffect} from "net.minecraft.world.effect.MobEffect"
+import {$MobEffect$AttributeTemplate} from "net.minecraft.world.effect.MobEffect$AttributeTemplate"
+
+export class $SaturationMobEffect extends $InstantenousMobEffect {
+static readonly "CODEC": $Codec<($Holder<($MobEffect)>)>
+readonly "attributeModifiers": $Map<($Holder<($Attribute)>), ($MobEffect$AttributeTemplate)>
+static readonly "STREAM_CODEC": $StreamCodec<($RegistryFriendlyByteBuf), ($Holder<($MobEffect)>)>
+
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $SaturationMobEffect$$Type = ($SaturationMobEffect);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $SaturationMobEffect$$Original = $SaturationMobEffect;}
 declare module "net.minecraft.world.effect.MobEffect" {
 import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
 import {$MobEffectInstance$$Type} from "net.minecraft.world.effect.MobEffectInstance"
@@ -355,8 +252,8 @@ import {$AttributeModifier$Operation$$Type} from "net.minecraft.world.entity.ai.
 import {$DamageSource$$Type} from "net.minecraft.world.damagesource.DamageSource"
 import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
 import {$IClientMobEffectExtensions$$Type} from "net.neoforged.neoforge.client.extensions.common.IClientMobEffectExtensions"
-import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
 import {$Attribute, $Attribute$$Type} from "net.minecraft.world.entity.ai.attributes.Attribute"
+import {$BiConsumer$$Type} from "java.util.function.BiConsumer"
 import {$AttributeMap$$Type} from "net.minecraft.world.entity.ai.attributes.AttributeMap"
 import {$LivingEntity$$Type} from "net.minecraft.world.entity.LivingEntity"
 import {$MobEffectCategory} from "net.minecraft.world.effect.MobEffectCategory"
@@ -369,45 +266,45 @@ readonly "attributeModifiers": $Map<($Holder<($Attribute)>), ($MobEffect$Attribu
 static readonly "STREAM_CODEC": $StreamCodec<($RegistryFriendlyByteBuf), ($Holder<($MobEffect)>)>
 
 public "getDisplayName"(): $Component
-public "getColor"(): integer
-public "onEffectAdded"(arg0: $LivingEntity$$Type, arg1: integer): void
-public "onEffectStarted"(arg0: $LivingEntity$$Type, arg1: integer): void
-public "onMobRemoved"(arg0: $LivingEntity$$Type, arg1: integer, arg2: $Entity$RemovalReason$$Type): void
-public "onMobHurt"(arg0: $LivingEntity$$Type, arg1: integer, arg2: $DamageSource$$Type, arg3: float): void
 public "getCategory"(): $MobEffectCategory
-public "getDescriptionId"(): StringJS
-public "getBlendDurationTicks"(): integer
-public "addAttributeModifier"(arg0: $Holder$$Type<($Attribute)>, arg1: $ResourceLocation$$Type, arg2: $AttributeModifier$Operation$$Type, arg3: $Int2DoubleFunction$$Type): $MobEffect
-public "addAttributeModifier"(arg0: $Holder$$Type<($Attribute)>, arg1: $ResourceLocation$$Type, arg2: double, arg3: $AttributeModifier$Operation$$Type): $MobEffect
-public "createParticleOptions"(arg0: $MobEffectInstance$$Type): $ParticleOptions
-public "applyInstantenousEffect"(arg0: $Entity$$Type, arg1: $Entity$$Type, arg2: $LivingEntity$$Type, arg3: integer, arg4: double): void
-public "shouldApplyEffectTickThisTick"(arg0: integer, arg1: integer): boolean
-public "withSoundOnAdded"(arg0: $SoundEvent$$Type): $MobEffect
-public "setBlendDuration"(arg0: integer): $MobEffect
+public "isBeneficial"(): boolean
 /**
  * 
  * @deprecated
  */
 public "initializeClient"(arg0: $Consumer$$Type<($IClientMobEffectExtensions)>): void
+public "setBlendDuration"(arg0: integer): $MobEffect
+public "withSoundOnAdded"(arg0: $SoundEvent$$Type): $MobEffect
 public "isInstantenous"(): boolean
 public "createModifiers"(arg0: integer, arg1: $BiConsumer$$Type<($Holder<($Attribute)>), ($AttributeModifier)>): void
+public "onEffectStarted"(arg0: $LivingEntity$$Type, arg1: integer): void
 public "applyEffectTick"(arg0: $LivingEntity$$Type, arg1: integer): boolean
-public "isBeneficial"(): boolean
+public "onMobRemoved"(arg0: $LivingEntity$$Type, arg1: integer, arg2: $Entity$RemovalReason$$Type): void
+public "onEffectAdded"(arg0: $LivingEntity$$Type, arg1: integer): void
+public "onMobHurt"(arg0: $LivingEntity$$Type, arg1: integer, arg2: $DamageSource$$Type, arg3: float): void
+public "shouldApplyEffectTickThisTick"(arg0: integer, arg1: integer): boolean
 public "requiredFeatures"(): $FeatureFlagSet
 public "requiredFeatures"(...arg0: ($FeatureFlag$$Type)[]): $MobEffect
+public "addAttributeModifier"(arg0: $Holder$$Type<($Attribute)>, arg1: $ResourceLocation$$Type, arg2: double, arg3: $AttributeModifier$Operation$$Type): $MobEffect
+public "addAttributeModifier"(arg0: $Holder$$Type<($Attribute)>, arg1: $ResourceLocation$$Type, arg2: $AttributeModifier$Operation$$Type, arg3: $Int2DoubleFunction$$Type): $MobEffect
 public "addAttributeModifiers"(arg0: $AttributeMap$$Type, arg1: integer): void
+public "getBlendDurationTicks"(): integer
+public "createParticleOptions"(arg0: $MobEffectInstance$$Type): $ParticleOptions
+public "applyInstantenousEffect"(arg0: $Entity$$Type, arg1: $Entity$$Type, arg2: $LivingEntity$$Type, arg3: integer, arg4: double): void
 public "removeAttributeModifiers"(arg0: $AttributeMap$$Type): void
+public "getColor"(): integer
+public "getDescriptionId"(): StringJS
 public "isEnabled"(arg0: $FeatureFlagSet$$Type): boolean
-public "fillEffectCures"(arg0: $Set$$Type<($EffectCure$$Type)>, arg1: $MobEffectInstance$$Type): void
 public "getSortOrder"(arg0: $MobEffectInstance$$Type): integer
+public "fillEffectCures"(arg0: $Set$$Type<($EffectCure$$Type)>, arg1: $MobEffectInstance$$Type): void
 get "displayName"(): $Component
-get "color"(): integer
 get "category"(): $MobEffectCategory
-get "descriptionId"(): StringJS
-get "blendDurationTicks"(): integer
+get "beneficial"(): boolean
 set "blendDuration"(value: integer)
 get "instantenous"(): boolean
-get "beneficial"(): boolean
+get "blendDurationTicks"(): integer
+get "color"(): integer
+get "descriptionId"(): StringJS
 /**
  * This field is a type stub generated by ProbeJS and shall not be used in any sense.
  */
@@ -426,6 +323,56 @@ export type $MobEffect$$Type = (Special.MobEffect);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $MobEffect$$Original = $MobEffect;}
+declare module "net.minecraft.world.effect.PoisonMobEffect" {
+import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
+import {$Map} from "java.util.Map"
+import {$Codec} from "com.mojang.serialization.Codec"
+import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
+import {$Attribute} from "net.minecraft.world.entity.ai.attributes.Attribute"
+import {$Holder} from "net.minecraft.core.Holder"
+import {$MobEffect} from "net.minecraft.world.effect.MobEffect"
+import {$MobEffect$AttributeTemplate} from "net.minecraft.world.effect.MobEffect$AttributeTemplate"
+
+export class $PoisonMobEffect extends $MobEffect {
+static readonly "CODEC": $Codec<($Holder<($MobEffect)>)>
+readonly "attributeModifiers": $Map<($Holder<($Attribute)>), ($MobEffect$AttributeTemplate)>
+static readonly "STREAM_CODEC": $StreamCodec<($RegistryFriendlyByteBuf), ($Holder<($MobEffect)>)>
+
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $PoisonMobEffect$$Type = ($PoisonMobEffect);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $PoisonMobEffect$$Original = $PoisonMobEffect;}
+declare module "net.minecraft.world.effect.HungerMobEffect" {
+import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
+import {$Map} from "java.util.Map"
+import {$Codec} from "com.mojang.serialization.Codec"
+import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
+import {$Attribute} from "net.minecraft.world.entity.ai.attributes.Attribute"
+import {$Holder} from "net.minecraft.core.Holder"
+import {$MobEffect} from "net.minecraft.world.effect.MobEffect"
+import {$MobEffect$AttributeTemplate} from "net.minecraft.world.effect.MobEffect$AttributeTemplate"
+
+export class $HungerMobEffect extends $MobEffect {
+static readonly "CODEC": $Codec<($Holder<($MobEffect)>)>
+readonly "attributeModifiers": $Map<($Holder<($Attribute)>), ($MobEffect$AttributeTemplate)>
+static readonly "STREAM_CODEC": $StreamCodec<($RegistryFriendlyByteBuf), ($Holder<($MobEffect)>)>
+
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $HungerMobEffect$$Type = ($HungerMobEffect);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $HungerMobEffect$$Original = $HungerMobEffect;}
 declare module "net.minecraft.world.effect.HealOrHarmMobEffect" {
 import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
 import {$Map} from "java.util.Map"
@@ -470,8 +417,8 @@ static readonly "STREAM_CODEC": $StreamCodec<($RegistryFriendlyByteBuf), ($Holde
 
 constructor(arg0: $MobEffectCategory$$Type, arg1: integer)
 
-public "shouldApplyEffectTickThisTick"(arg0: integer, arg1: integer): boolean
 public "isInstantenous"(): boolean
+public "shouldApplyEffectTickThisTick"(arg0: integer, arg1: integer): boolean
 get "instantenous"(): boolean
 }
 /**
@@ -506,6 +453,56 @@ export type $MobEffectCategory$$Type = (("beneficial") | ("harmful") | ("neutral
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $MobEffectCategory$$Original = $MobEffectCategory;}
+declare module "net.minecraft.world.effect.BadOmenMobEffect" {
+import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
+import {$Map} from "java.util.Map"
+import {$Codec} from "com.mojang.serialization.Codec"
+import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
+import {$Attribute} from "net.minecraft.world.entity.ai.attributes.Attribute"
+import {$Holder} from "net.minecraft.core.Holder"
+import {$MobEffect} from "net.minecraft.world.effect.MobEffect"
+import {$MobEffect$AttributeTemplate} from "net.minecraft.world.effect.MobEffect$AttributeTemplate"
+
+export class $BadOmenMobEffect extends $MobEffect {
+static readonly "CODEC": $Codec<($Holder<($MobEffect)>)>
+readonly "attributeModifiers": $Map<($Holder<($Attribute)>), ($MobEffect$AttributeTemplate)>
+static readonly "STREAM_CODEC": $StreamCodec<($RegistryFriendlyByteBuf), ($Holder<($MobEffect)>)>
+
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $BadOmenMobEffect$$Type = ($BadOmenMobEffect);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $BadOmenMobEffect$$Original = $BadOmenMobEffect;}
+declare module "net.minecraft.world.effect.AbsorptionMobEffect" {
+import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
+import {$Map} from "java.util.Map"
+import {$Codec} from "com.mojang.serialization.Codec"
+import {$RegistryFriendlyByteBuf} from "net.minecraft.network.RegistryFriendlyByteBuf"
+import {$Attribute} from "net.minecraft.world.entity.ai.attributes.Attribute"
+import {$Holder} from "net.minecraft.core.Holder"
+import {$MobEffect} from "net.minecraft.world.effect.MobEffect"
+import {$MobEffect$AttributeTemplate} from "net.minecraft.world.effect.MobEffect$AttributeTemplate"
+
+export class $AbsorptionMobEffect extends $MobEffect {
+static readonly "CODEC": $Codec<($Holder<($MobEffect)>)>
+readonly "attributeModifiers": $Map<($Holder<($Attribute)>), ($MobEffect$AttributeTemplate)>
+static readonly "STREAM_CODEC": $StreamCodec<($RegistryFriendlyByteBuf), ($Holder<($MobEffect)>)>
+
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $AbsorptionMobEffect$$Type = ($AbsorptionMobEffect);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $AbsorptionMobEffect$$Original = $AbsorptionMobEffect;}
 declare module "net.minecraft.world.effect.MobEffectInstance" {
 import {$StreamCodec} from "net.minecraft.network.codec.StreamCodec"
 import {$CompoundTag$$Type} from "net.minecraft.nbt.CompoundTag"
@@ -525,12 +522,10 @@ import {$LivingEntity$$Type} from "net.minecraft.world.entity.LivingEntity"
 import {$ParticleOptions} from "net.minecraft.core.particles.ParticleOptions"
 
 export class $MobEffectInstance implements $Comparable$$Interface<($MobEffectInstance)> {
- "duration": integer
 static readonly "MAX_AMPLIFIER": integer
 static readonly "CODEC": $Codec<($MobEffectInstance)>
 static readonly "INFINITE_DURATION": integer
 static readonly "MIN_AMPLIFIER": integer
- "amplifier": integer
 static readonly "STREAM_CODEC": $StreamCodec<($RegistryFriendlyByteBuf), ($MobEffectInstance)>
 
 constructor(arg0: $Holder$$Type<($MobEffect)>, arg1: integer, arg2: integer, arg3: boolean, arg4: boolean, arg5: boolean)
@@ -552,31 +547,33 @@ public "save"(): $Tag
 public "is"(arg0: $Holder$$Type<($MobEffect)>): boolean
 public "tick"(arg0: $LivingEntity$$Type, arg1: $Runnable$$Type): boolean
 public "getDuration"(): integer
-public "showIcon"(): boolean
-public "getParticleOptions"(): $ParticleOptions
 public "copyBlendState"(arg0: $MobEffectInstance$$Type): void
-public "onEffectAdded"(arg0: $LivingEntity$$Type): void
+public "getParticleOptions"(): $ParticleOptions
+public "isVisible"(): boolean
+public "getEffect"(): $Holder<($MobEffect)>
+public "getCures"(): $Set<($EffectCure)>
 public "onEffectStarted"(arg0: $LivingEntity$$Type): void
 public "onMobRemoved"(arg0: $LivingEntity$$Type, arg1: $Entity$RemovalReason$$Type): void
-public "getAmplifier"(): integer
+public "onEffectAdded"(arg0: $LivingEntity$$Type): void
 public "endsWithin"(arg0: integer): boolean
-public "onMobHurt"(arg0: $LivingEntity$$Type, arg1: $DamageSource$$Type, arg2: float): void
-public "isVisible"(): boolean
+public "showIcon"(): boolean
 public "isAmbient"(): boolean
-public "getCures"(): $Set<($EffectCure)>
-public "getDescriptionId"(): StringJS
-public "getBlendFactor"(arg0: $LivingEntity$$Type, arg1: float): float
-public "isInfiniteDuration"(): boolean
-public "mapDuration"(arg0: $Int2IntFunction$$Type): integer
+public "onMobHurt"(arg0: $LivingEntity$$Type, arg1: $DamageSource$$Type, arg2: float): void
 public "skipBlending"(): void
-public "getEffect"(): $Holder<($MobEffect)>
+public "mapDuration"(arg0: $Int2IntFunction$$Type): integer
+public "isInfiniteDuration"(): boolean
+public "getBlendFactor"(arg0: $LivingEntity$$Type, arg1: float): float
+public "getAmplifier"(): integer
+public "getDescriptionId"(): StringJS
+get "duration"(): integer
 get "particleOptions"(): $ParticleOptions
 get "visible"(): boolean
-get "ambient"(): boolean
-get "cures"(): $Set<($EffectCure)>
-get "descriptionId"(): StringJS
-get "infiniteDuration"(): boolean
 get "effect"(): $Holder<($MobEffect)>
+get "cures"(): $Set<($EffectCure)>
+get "ambient"(): boolean
+get "infiniteDuration"(): boolean
+get "amplifier"(): integer
+get "descriptionId"(): StringJS
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_

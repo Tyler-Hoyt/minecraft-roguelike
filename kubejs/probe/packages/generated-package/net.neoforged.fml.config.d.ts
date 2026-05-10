@@ -1,68 +1,3 @@
-declare module "net.neoforged.fml.config.IConfigSpec" {
-import {$ModConfig$$Type} from "net.neoforged.fml.config.ModConfig"
-import {$UnmodifiableCommentedConfig$$Type} from "com.electronwill.nightconfig.core.UnmodifiableCommentedConfig"
-import {$IConfigSpec$ILoadedConfig$$Type} from "net.neoforged.fml.config.IConfigSpec$ILoadedConfig"
-import {$CommentedConfig$$Type} from "com.electronwill.nightconfig.core.CommentedConfig"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export interface $IConfigSpec$$Interface {
-get "empty"(): boolean
-}
-
-export class $IConfigSpec implements $IConfigSpec$$Interface {
- "isEmpty"(): boolean
- "correct"(arg0: $CommentedConfig$$Type): void
- "isCorrect"(arg0: $UnmodifiableCommentedConfig$$Type): boolean
- "acceptConfig"(arg0: $IConfigSpec$ILoadedConfig$$Type): void
- "validateSpec"(arg0: $ModConfig$$Type): void
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $IConfigSpec$$Type = ($IConfigSpec);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $IConfigSpec$$Original = $IConfigSpec;}
-declare module "net.neoforged.fml.config.ModConfig" {
-import {$ModConfig$Type} from "net.neoforged.fml.config.ModConfig$Type"
-import {$IConfigSpec$ILoadedConfig} from "net.neoforged.fml.config.IConfigSpec$ILoadedConfig"
-import {$Path} from "java.nio.file.Path"
-import {$IConfigSpec} from "net.neoforged.fml.config.IConfigSpec"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export class $ModConfig {
-public "getType"(): $ModConfig$Type
-public "getFileName"(): StringJS
-public "getLoadedConfig"(): $IConfigSpec$ILoadedConfig
-public "getSpec"(): $IConfigSpec
-public "getFullPath"(): $Path
-public "getModId"(): StringJS
-get "type"(): $ModConfig$Type
-get "fileName"(): StringJS
-get "loadedConfig"(): $IConfigSpec$ILoadedConfig
-get "spec"(): $IConfigSpec
-get "fullPath"(): $Path
-get "modId"(): StringJS
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ModConfig$$Type = ($ModConfig);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ModConfig$$Original = $ModConfig;}
 declare module "net.neoforged.fml.config.ModConfig$Type" {
 import {$Enum} from "java.lang.Enum"
 
@@ -114,3 +49,68 @@ export type $IConfigSpec$ILoadedConfig$$Type = ($IConfigSpec$ILoadedConfig);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $IConfigSpec$ILoadedConfig$$Original = $IConfigSpec$ILoadedConfig;}
+declare module "net.neoforged.fml.config.IConfigSpec" {
+import {$ModConfig$$Type} from "net.neoforged.fml.config.ModConfig"
+import {$UnmodifiableCommentedConfig$$Type} from "com.electronwill.nightconfig.core.UnmodifiableCommentedConfig"
+import {$IConfigSpec$ILoadedConfig$$Type} from "net.neoforged.fml.config.IConfigSpec$ILoadedConfig"
+import {$CommentedConfig$$Type} from "com.electronwill.nightconfig.core.CommentedConfig"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export interface $IConfigSpec$$Interface {
+get "empty"(): boolean
+}
+
+export class $IConfigSpec implements $IConfigSpec$$Interface {
+ "validateSpec"(arg0: $ModConfig$$Type): void
+ "acceptConfig"(arg0: $IConfigSpec$ILoadedConfig$$Type): void
+ "isEmpty"(): boolean
+ "correct"(arg0: $CommentedConfig$$Type): void
+ "isCorrect"(arg0: $UnmodifiableCommentedConfig$$Type): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $IConfigSpec$$Type = ($IConfigSpec);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $IConfigSpec$$Original = $IConfigSpec;}
+declare module "net.neoforged.fml.config.ModConfig" {
+import {$ModConfig$Type} from "net.neoforged.fml.config.ModConfig$Type"
+import {$IConfigSpec$ILoadedConfig} from "net.neoforged.fml.config.IConfigSpec$ILoadedConfig"
+import {$Path} from "java.nio.file.Path"
+import {$IConfigSpec} from "net.neoforged.fml.config.IConfigSpec"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $ModConfig {
+public "getType"(): $ModConfig$Type
+public "getFileName"(): StringJS
+public "getModId"(): StringJS
+public "getFullPath"(): $Path
+public "getSpec"(): $IConfigSpec
+public "getLoadedConfig"(): $IConfigSpec$ILoadedConfig
+get "type"(): $ModConfig$Type
+get "fileName"(): StringJS
+get "modId"(): StringJS
+get "fullPath"(): $Path
+get "spec"(): $IConfigSpec
+get "loadedConfig"(): $IConfigSpec$ILoadedConfig
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ModConfig$$Type = ($ModConfig);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ModConfig$$Original = $ModConfig;}

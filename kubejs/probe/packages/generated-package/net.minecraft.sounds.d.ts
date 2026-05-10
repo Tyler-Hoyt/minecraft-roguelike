@@ -35,6 +35,33 @@ export type $SoundEvent$$Type = (Special.SoundEvent);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $SoundEvent$$Original = $SoundEvent;}
+declare module "net.minecraft.sounds.Music" {
+import {$Codec} from "com.mojang.serialization.Codec"
+import {$SoundEvent, $SoundEvent$$Type} from "net.minecraft.sounds.SoundEvent"
+import {$Holder, $Holder$$Type} from "net.minecraft.core.Holder"
+
+export class $Music {
+static readonly "CODEC": $Codec<($Music)>
+
+constructor(arg0: $Holder$$Type<($SoundEvent)>, arg1: integer, arg2: integer, arg3: boolean)
+
+public "getEvent"(): $Holder<($SoundEvent)>
+public "getMaxDelay"(): integer
+public "getMinDelay"(): integer
+public "replaceCurrentMusic"(): boolean
+get "event"(): $Holder<($SoundEvent)>
+get "maxDelay"(): integer
+get "minDelay"(): integer
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $Music$$Type = ($Music);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $Music$$Original = $Music;}
 declare module "net.minecraft.sounds.SoundSource" {
 import {$Enum} from "java.lang.Enum"
 
@@ -64,30 +91,3 @@ export type $SoundSource$$Type = (("master") | ("music") | ("records") | ("weath
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $SoundSource$$Original = $SoundSource;}
-declare module "net.minecraft.sounds.Music" {
-import {$Codec} from "com.mojang.serialization.Codec"
-import {$SoundEvent, $SoundEvent$$Type} from "net.minecraft.sounds.SoundEvent"
-import {$Holder, $Holder$$Type} from "net.minecraft.core.Holder"
-
-export class $Music {
-static readonly "CODEC": $Codec<($Music)>
-
-constructor(arg0: $Holder$$Type<($SoundEvent)>, arg1: integer, arg2: integer, arg3: boolean)
-
-public "getMinDelay"(): integer
-public "getMaxDelay"(): integer
-public "getEvent"(): $Holder<($SoundEvent)>
-public "replaceCurrentMusic"(): boolean
-get "minDelay"(): integer
-get "maxDelay"(): integer
-get "event"(): $Holder<($SoundEvent)>
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $Music$$Type = ($Music);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $Music$$Original = $Music;}

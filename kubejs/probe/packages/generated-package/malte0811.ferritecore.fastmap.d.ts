@@ -29,14 +29,14 @@ import {$Property, $Property$$Type} from "net.minecraft.world.level.block.state.
 export class $FastMap<Value> {
 constructor(arg0: $Collection$$Type<($Property$$Type<(never)>)>, arg1: $Map$$Type<($Map$$Type<($Property$$Type<(never)>), ($Comparable$$Type<(never)>)>), (Value)>, arg2: boolean)
 
+public "getIndexOf"(arg0: $Map$$Type<($Property$$Type<(never)>), ($Comparable$$Type<(never)>)>): integer
 public "getValue"(arg0: integer, arg1: any): $Comparable<(never)>
 public "getValue"<T extends $Comparable<(object)>>(arg0: integer, arg1: $Property$$Type<(T)>): T
 public "getKey"(arg0: integer): $FastMapKey<(never)>
 public "with"(arg0: integer, arg1: $Property$$Type<(never)>, arg2: any): Value
 public "getEntry"(arg0: integer, arg1: integer): $Map$Entry<($Property<(never)>), ($Comparable<(never)>)>
-public "getIndexOf"(arg0: $Map$$Type<($Property$$Type<(never)>), ($Comparable$$Type<(never)>)>): integer
-public "isSingleState"(): boolean
 public "numProperties"(): integer
+public "isSingleState"(): boolean
 public "getPropertySet"(): $ReferenceSet<($Property<(never)>)>
 get "singleState"(): boolean
 get "propertySet"(): $ReferenceSet<($Property<(never)>)>

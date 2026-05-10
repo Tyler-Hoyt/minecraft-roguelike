@@ -1,35 +1,3 @@
-declare module "net.neoforged.fml.common.asm.enumextension.ExtensionInfo" {
-import {$Enum} from "java.lang.Enum"
-import {$Class$$Type} from "java.lang.Class"
-import {$NetworkedEnum$NetworkCheck, $NetworkedEnum$NetworkCheck$$Type} from "net.neoforged.fml.common.asm.enumextension.NetworkedEnum$NetworkCheck"
-import {$Record} from "java.lang.Record"
-
-/**
- * This class is not allowed By KubeJS!
- * You should not load the class, or KubeJS will throw an error.
- * Loading the class using require() will not throw an error, but the class will be undefined.
- */
-export class $ExtensionInfo extends $Record {
-constructor(extended: boolean, vanillaCount: integer, totalCount: integer, netCheck: $NetworkedEnum$NetworkCheck$$Type)
-
-public "equals"(arg0: any): boolean
-public "toString"(): StringJS
-public "hashCode"(): integer
-public "totalCount"(): integer
-public "netCheck"(): $NetworkedEnum$NetworkCheck
-public "extended"(): boolean
-public static "nonExtended"<T extends $Enum<(object)>>(arg0: $Class$$Type<(T)>): $ExtensionInfo
-public "vanillaCount"(): integer
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ExtensionInfo$$Type = ({"totalCount"?: integer, "vanillaCount"?: integer, "netCheck"?: $NetworkedEnum$NetworkCheck$$Type, "extended"?: boolean}) | ([totalCount?: integer, vanillaCount?: integer, netCheck?: $NetworkedEnum$NetworkCheck$$Type, extended?: boolean]);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ExtensionInfo$$Original = $ExtensionInfo;}
 declare module "net.neoforged.fml.common.asm.enumextension.NetworkedEnum$NetworkCheck" {
 import {$Enum} from "java.lang.Enum"
 
@@ -76,3 +44,35 @@ export type $IExtensibleEnum$$Type = ($IExtensibleEnum);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $IExtensibleEnum$$Original = $IExtensibleEnum;}
+declare module "net.neoforged.fml.common.asm.enumextension.ExtensionInfo" {
+import {$Enum} from "java.lang.Enum"
+import {$Class$$Type} from "java.lang.Class"
+import {$NetworkedEnum$NetworkCheck, $NetworkedEnum$NetworkCheck$$Type} from "net.neoforged.fml.common.asm.enumextension.NetworkedEnum$NetworkCheck"
+import {$Record} from "java.lang.Record"
+
+/**
+ * This class is not allowed By KubeJS!
+ * You should not load the class, or KubeJS will throw an error.
+ * Loading the class using require() will not throw an error, but the class will be undefined.
+ */
+export class $ExtensionInfo extends $Record {
+constructor(extended: boolean, vanillaCount: integer, totalCount: integer, netCheck: $NetworkedEnum$NetworkCheck$$Type)
+
+public "equals"(arg0: any): boolean
+public "toString"(): StringJS
+public "hashCode"(): integer
+public "extended"(): boolean
+public "netCheck"(): $NetworkedEnum$NetworkCheck
+public "totalCount"(): integer
+public "vanillaCount"(): integer
+public static "nonExtended"<T extends $Enum<(object)>>(arg0: $Class$$Type<(T)>): $ExtensionInfo
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ExtensionInfo$$Type = ({"extended"?: boolean, "totalCount"?: integer, "vanillaCount"?: integer, "netCheck"?: $NetworkedEnum$NetworkCheck$$Type}) | ([extended?: boolean, totalCount?: integer, vanillaCount?: integer, netCheck?: $NetworkedEnum$NetworkCheck$$Type]);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ExtensionInfo$$Original = $ExtensionInfo;}

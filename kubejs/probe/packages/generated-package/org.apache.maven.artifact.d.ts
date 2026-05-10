@@ -11,28 +11,28 @@ export interface $ArtifactRepository$$Interface {
 get "key"(): StringJS
 get "id"(): StringJS
 get "protocol"(): StringJS
-get "blocked"(): boolean
-get "url"(): StringJS
-set "id"(value: StringJS)
-set "layout"(value: $ArtifactRepositoryLayout$$Type)
-set "proxy"(value: $Proxy$$Type)
-get "layout"(): $ArtifactRepositoryLayout
 get "blacklisted"(): boolean
+set "releaseUpdatePolicy"(value: $ArtifactRepositoryPolicy$$Type)
+get "mirroredRepositories"(): $List<($ArtifactRepository)>
+set "snapshotUpdatePolicy"(value: $ArtifactRepositoryPolicy$$Type)
+set "mirroredRepositories"(value: $List$$Type<($ArtifactRepository$$Type)>)
+get "uniqueVersion"(): boolean
+set "blacklisted"(value: boolean)
+get "projectAware"(): boolean
+set "authentication"(value: $Authentication$$Type)
+get "authentication"(): $Authentication
 get "snapshots"(): $ArtifactRepositoryPolicy
 get "releases"(): $ArtifactRepositoryPolicy
-get "proxy"(): $Proxy
-set "url"(value: StringJS)
+get "layout"(): $ArtifactRepositoryLayout
+set "layout"(value: $ArtifactRepositoryLayout$$Type)
 set "blocked"(value: boolean)
-set "releaseUpdatePolicy"(value: $ArtifactRepositoryPolicy$$Type)
-set "mirroredRepositories"(value: $List$$Type<($ArtifactRepository$$Type)>)
-set "snapshotUpdatePolicy"(value: $ArtifactRepositoryPolicy$$Type)
-get "mirroredRepositories"(): $List<($ArtifactRepository)>
+get "url"(): StringJS
+set "id"(value: StringJS)
+get "proxy"(): $Proxy
+get "blocked"(): boolean
+set "proxy"(value: $Proxy$$Type)
+set "url"(value: StringJS)
 get "basedir"(): StringJS
-get "authentication"(): $Authentication
-get "projectAware"(): boolean
-get "uniqueVersion"(): boolean
-set "authentication"(value: $Authentication$$Type)
-set "blacklisted"(value: boolean)
 }
 
 export class $ArtifactRepository implements $ArtifactRepository$$Interface {
@@ -40,44 +40,44 @@ export class $ArtifactRepository implements $ArtifactRepository$$Interface {
  "find"(arg0: $Artifact$$Type): $Artifact
  "getId"(): StringJS
  "getProtocol"(): StringJS
- "isBlocked"(): boolean
- "getUrl"(): StringJS
- "setId"(arg0: StringJS): void
- "setLayout"(arg0: $ArtifactRepositoryLayout$$Type): void
- "setProxy"(arg0: $Proxy$$Type): void
- "getLayout"(): $ArtifactRepositoryLayout
 /**
  * 
  * @deprecated
  */
  "isBlacklisted"(): boolean
- "getSnapshots"(): $ArtifactRepositoryPolicy
- "getReleases"(): $ArtifactRepositoryPolicy
- "getProxy"(): $Proxy
- "setUrl"(arg0: StringJS): void
- "setBlocked"(arg0: boolean): void
- "pathOfRemoteRepositoryMetadata"(arg0: $ArtifactMetadata$$Type): StringJS
- "pathOfLocalRepositoryMetadata"(arg0: $ArtifactMetadata$$Type, arg1: $ArtifactRepository$$Type): StringJS
  "setReleaseUpdatePolicy"(arg0: $ArtifactRepositoryPolicy$$Type): void
- "setMirroredRepositories"(arg0: $List$$Type<($ArtifactRepository$$Type)>): void
- "setSnapshotUpdatePolicy"(arg0: $ArtifactRepositoryPolicy$$Type): void
  "getMirroredRepositories"(): $List<($ArtifactRepository)>
- "pathOf"(arg0: $Artifact$$Type): StringJS
- "getBasedir"(): StringJS
- "getAuthentication"(): $Authentication
- "isProjectAware"(): boolean
+ "setSnapshotUpdatePolicy"(arg0: $ArtifactRepositoryPolicy$$Type): void
+ "setMirroredRepositories"(arg0: $List$$Type<($ArtifactRepository$$Type)>): void
 /**
  * 
  * @deprecated
  */
  "isUniqueVersion"(): boolean
- "setAuthentication"(arg0: $Authentication$$Type): void
- "findVersions"(arg0: $Artifact$$Type): $List<(StringJS)>
 /**
  * 
  * @deprecated
  */
  "setBlacklisted"(arg0: boolean): void
+ "isProjectAware"(): boolean
+ "setAuthentication"(arg0: $Authentication$$Type): void
+ "findVersions"(arg0: $Artifact$$Type): $List<(StringJS)>
+ "getAuthentication"(): $Authentication
+ "getSnapshots"(): $ArtifactRepositoryPolicy
+ "getReleases"(): $ArtifactRepositoryPolicy
+ "getLayout"(): $ArtifactRepositoryLayout
+ "setLayout"(arg0: $ArtifactRepositoryLayout$$Type): void
+ "setBlocked"(arg0: boolean): void
+ "getUrl"(): StringJS
+ "setId"(arg0: StringJS): void
+ "getProxy"(): $Proxy
+ "isBlocked"(): boolean
+ "setProxy"(arg0: $Proxy$$Type): void
+ "pathOfLocalRepositoryMetadata"(arg0: $ArtifactMetadata$$Type, arg1: $ArtifactRepository$$Type): StringJS
+ "pathOfRemoteRepositoryMetadata"(arg0: $ArtifactMetadata$$Type): StringJS
+ "setUrl"(arg0: StringJS): void
+ "getBasedir"(): StringJS
+ "pathOf"(arg0: $Artifact$$Type): StringJS
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -88,6 +88,35 @@ export type $ArtifactRepository$$Type = ($ArtifactRepository);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $ArtifactRepository$$Original = $ArtifactRepository;}
+declare module "org.apache.maven.artifact.versioning.ArtifactVersion" {
+import {$Comparable$$Interface} from "java.lang.Comparable"
+
+export interface $ArtifactVersion$$Interface extends $Comparable$$Interface<($ArtifactVersion)> {
+get "majorVersion"(): integer
+get "minorVersion"(): integer
+get "incrementalVersion"(): integer
+get "buildNumber"(): integer
+get "qualifier"(): StringJS
+}
+
+export class $ArtifactVersion implements $ArtifactVersion$$Interface {
+ "getMajorVersion"(): integer
+ "getMinorVersion"(): integer
+ "getIncrementalVersion"(): integer
+ "getBuildNumber"(): integer
+ "getQualifier"(): StringJS
+ "parseVersion"(arg0: StringJS): void
+ "compareTo"(arg0: $ArtifactVersion$$Type): integer
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ArtifactVersion$$Type = ($ArtifactVersion);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ArtifactVersion$$Original = $ArtifactVersion;}
 declare module "org.apache.maven.artifact.resolver.filter.ArtifactFilter" {
 import {$Artifact, $Artifact$$Type} from "org.apache.maven.artifact.Artifact"
 
@@ -113,11 +142,11 @@ export {} // Mark the file as a module, do not remove unless there are other imp
 export interface $ArtifactHandler$$Interface {
 get "language"(): StringJS
 get "extension"(): StringJS
+get "includesDependencies"(): boolean
+get "addedToClasspath"(): boolean
+get "packaging"(): StringJS
 get "directory"(): StringJS
 get "classifier"(): StringJS
-get "packaging"(): StringJS
-get "addedToClasspath"(): boolean
-get "includesDependencies"(): boolean
 }
 
 export class $ArtifactHandler implements $ArtifactHandler$$Interface {
@@ -125,11 +154,11 @@ static readonly "ROLE": StringJS
 
  "getLanguage"(): StringJS
  "getExtension"(): StringJS
+ "isIncludesDependencies"(): boolean
+ "isAddedToClasspath"(): boolean
+ "getPackaging"(): StringJS
  "getDirectory"(): StringJS
  "getClassifier"(): StringJS
- "getPackaging"(): StringJS
- "isAddedToClasspath"(): boolean
- "isIncludesDependencies"(): boolean
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
@@ -140,74 +169,6 @@ export type $ArtifactHandler$$Type = ($ArtifactHandler);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $ArtifactHandler$$Original = $ArtifactHandler;}
-declare module "org.apache.maven.artifact.metadata.ArtifactMetadata" {
-import {$ArtifactRepository$$Type} from "org.apache.maven.artifact.repository.ArtifactRepository"
-import {$ArtifactMetadata$$Type as $ArtifactMetadata$0$$Type, $ArtifactMetadata$$Interface as $ArtifactMetadata$0$$Interface} from "org.apache.maven.repository.legacy.metadata.ArtifactMetadata"
-
-/**
- * 
- * @deprecated
- */
-export interface $ArtifactMetadata$$Interface extends $ArtifactMetadata$0$$Interface {
-get "key"(): any
-get "groupId"(): StringJS
-get "artifactId"(): StringJS
-get "baseVersion"(): StringJS
-get "remoteFilename"(): StringJS
-}
-
-export class $ArtifactMetadata implements $ArtifactMetadata$$Interface {
- "merge"(arg0: $ArtifactMetadata$$Type): void
- "merge"(arg0: $ArtifactMetadata$0$$Type): void
- "getKey"(): any
- "getGroupId"(): StringJS
- "getArtifactId"(): StringJS
- "storedInArtifactVersionDirectory"(): boolean
- "storedInGroupDirectory"(): boolean
- "storeInLocalRepository"(arg0: $ArtifactRepository$$Type, arg1: $ArtifactRepository$$Type): void
- "getBaseVersion"(): StringJS
- "getLocalFilename"(arg0: $ArtifactRepository$$Type): StringJS
- "getRemoteFilename"(): StringJS
- "extendedToString"(): StringJS
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ArtifactMetadata$$Type = ($ArtifactMetadata);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ArtifactMetadata$$Original = $ArtifactMetadata;}
-declare module "org.apache.maven.artifact.versioning.ArtifactVersion" {
-import {$Comparable$$Interface} from "java.lang.Comparable"
-
-export interface $ArtifactVersion$$Interface extends $Comparable$$Interface<($ArtifactVersion)> {
-get "majorVersion"(): integer
-get "minorVersion"(): integer
-get "buildNumber"(): integer
-get "qualifier"(): StringJS
-get "incrementalVersion"(): integer
-}
-
-export class $ArtifactVersion implements $ArtifactVersion$$Interface {
- "getMajorVersion"(): integer
- "getMinorVersion"(): integer
- "getBuildNumber"(): integer
- "parseVersion"(arg0: StringJS): void
- "getQualifier"(): StringJS
- "getIncrementalVersion"(): integer
- "compareTo"(arg0: $ArtifactVersion$$Type): integer
-}
-/**
- * Class-specific type exported by ProbeJS, use global Type_
- * types for convenience unless there's a naming conflict.
- */
-export type $ArtifactVersion$$Type = ($ArtifactVersion);
-/**
- * Original type to represent the class type itself. Use in JSDoc only.
- */
-export type $ArtifactVersion$$Original = $ArtifactVersion;}
 declare module "org.apache.maven.artifact.versioning.Restriction" {
 import {$ArtifactVersion, $ArtifactVersion$$Type} from "org.apache.maven.artifact.versioning.ArtifactVersion"
 
@@ -219,13 +180,13 @@ constructor(arg0: $ArtifactVersion$$Type, arg1: boolean, arg2: $ArtifactVersion$
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
-public "isLowerBoundInclusive"(): boolean
 public "isUpperBoundInclusive"(): boolean
+public "isLowerBoundInclusive"(): boolean
 public "getLowerBound"(): $ArtifactVersion
 public "containsVersion"(arg0: $ArtifactVersion$$Type): boolean
 public "getUpperBound"(): $ArtifactVersion
-get "lowerBoundInclusive"(): boolean
 get "upperBoundInclusive"(): boolean
+get "lowerBoundInclusive"(): boolean
 get "lowerBound"(): $ArtifactVersion
 get "upperBound"(): $ArtifactVersion
 }
@@ -238,6 +199,45 @@ export type $Restriction$$Type = ($Restriction);
  * Original type to represent the class type itself. Use in JSDoc only.
  */
 export type $Restriction$$Original = $Restriction;}
+declare module "org.apache.maven.artifact.metadata.ArtifactMetadata" {
+import {$ArtifactRepository$$Type} from "org.apache.maven.artifact.repository.ArtifactRepository"
+import {$ArtifactMetadata$$Type as $ArtifactMetadata$0$$Type, $ArtifactMetadata$$Interface as $ArtifactMetadata$0$$Interface} from "org.apache.maven.repository.legacy.metadata.ArtifactMetadata"
+
+/**
+ * 
+ * @deprecated
+ */
+export interface $ArtifactMetadata$$Interface extends $ArtifactMetadata$0$$Interface {
+get "key"(): any
+get "baseVersion"(): StringJS
+get "remoteFilename"(): StringJS
+get "groupId"(): StringJS
+get "artifactId"(): StringJS
+}
+
+export class $ArtifactMetadata implements $ArtifactMetadata$$Interface {
+ "merge"(arg0: $ArtifactMetadata$$Type): void
+ "merge"(arg0: $ArtifactMetadata$0$$Type): void
+ "getKey"(): any
+ "storedInGroupDirectory"(): boolean
+ "storeInLocalRepository"(arg0: $ArtifactRepository$$Type, arg1: $ArtifactRepository$$Type): void
+ "getBaseVersion"(): StringJS
+ "getLocalFilename"(arg0: $ArtifactRepository$$Type): StringJS
+ "getRemoteFilename"(): StringJS
+ "extendedToString"(): StringJS
+ "getGroupId"(): StringJS
+ "getArtifactId"(): StringJS
+ "storedInArtifactVersionDirectory"(): boolean
+}
+/**
+ * Class-specific type exported by ProbeJS, use global Type_
+ * types for convenience unless there's a naming conflict.
+ */
+export type $ArtifactMetadata$$Type = ($ArtifactMetadata);
+/**
+ * Original type to represent the class type itself. Use in JSDoc only.
+ */
+export type $ArtifactMetadata$$Original = $ArtifactMetadata;}
 declare module "org.apache.maven.artifact.Artifact" {
 import {$ArtifactFilter, $ArtifactFilter$$Type} from "org.apache.maven.artifact.resolver.filter.ArtifactFilter"
 import {$ArtifactRepository, $ArtifactRepository$$Type} from "org.apache.maven.artifact.repository.ArtifactRepository"
@@ -259,40 +259,40 @@ get "resolved"(): boolean
 set "release"(value: boolean)
 get "file"(): $File
 get "version"(): StringJS
-get "snapshot"(): boolean
-get "optional"(): boolean
-set "file"(value: $File$$Type)
-get "groupId"(): StringJS
-get "selectedVersionKnown"(): boolean
-set "version"(value: StringJS)
-get "repository"(): $ArtifactRepository
-get "artifactId"(): StringJS
-get "dependencyTrail"(): $List<(StringJS)>
-get "selectedVersion"(): $ArtifactVersion
-get "classifier"(): StringJS
-get "versionRange"(): $VersionRange
-set "scope"(value: StringJS)
-get "dependencyConflictId"(): StringJS
 get "dependencyFilter"(): $ArtifactFilter
-set "dependencyFilter"(value: $ArtifactFilter$$Type)
 get "availableVersions"(): $List<($ArtifactVersion)>
+set "dependencyFilter"(value: $ArtifactFilter$$Type)
 set "availableVersions"(value: $List$$Type<($ArtifactVersion$$Type)>)
-set "groupId"(value: StringJS)
-get "release"(): boolean
+get "dependencyConflictId"(): StringJS
+set "version"(value: StringJS)
+set "scope"(value: StringJS)
 set "baseVersion"(value: StringJS)
 get "baseVersion"(): StringJS
-set "resolved"(value: boolean)
-set "resolvedVersion"(value: StringJS)
-set "artifactHandler"(value: $ArtifactHandler$$Type)
 set "repository"(value: $ArtifactRepository$$Type)
-set "artifactId"(value: StringJS)
 set "optional"(value: boolean)
-get "metadataList"(): $Collection<($ArtifactMetadata)>
+set "resolvedVersion"(value: StringJS)
 get "downloadUrl"(): StringJS
-get "artifactHandler"(): $ArtifactHandler
-set "downloadUrl"(value: StringJS)
-set "dependencyTrail"(value: $List$$Type<(StringJS)>)
+set "artifactHandler"(value: $ArtifactHandler$$Type)
 set "versionRange"(value: $VersionRange$$Type)
+set "artifactId"(value: StringJS)
+set "dependencyTrail"(value: $List$$Type<(StringJS)>)
+set "downloadUrl"(value: StringJS)
+get "metadataList"(): $Collection<($ArtifactMetadata)>
+set "resolved"(value: boolean)
+get "artifactHandler"(): $ArtifactHandler
+get "dependencyTrail"(): $List<(StringJS)>
+get "versionRange"(): $VersionRange
+get "repository"(): $ArtifactRepository
+get "selectedVersionKnown"(): boolean
+get "groupId"(): StringJS
+get "selectedVersion"(): $ArtifactVersion
+get "artifactId"(): StringJS
+get "classifier"(): StringJS
+set "file"(value: $File$$Type)
+get "optional"(): boolean
+get "snapshot"(): boolean
+get "release"(): boolean
+set "groupId"(value: StringJS)
 }
 
 export class $Artifact implements $Artifact$$Interface {
@@ -316,44 +316,44 @@ static readonly "LATEST_VERSION": StringJS
  "setRelease"(arg0: boolean): void
  "getFile"(): $File
  "getVersion"(): StringJS
- "isSnapshot"(): boolean
- "isOptional"(): boolean
- "setFile"(arg0: $File$$Type): void
- "getGroupId"(): StringJS
- "isSelectedVersionKnown"(): boolean
- "setVersion"(arg0: StringJS): void
- "getRepository"(): $ArtifactRepository
- "getArtifactId"(): StringJS
- "getDependencyTrail"(): $List<(StringJS)>
- "getSelectedVersion"(): $ArtifactVersion
- "getClassifier"(): StringJS
- "getVersionRange"(): $VersionRange
- "setScope"(arg0: StringJS): void
- "getDependencyConflictId"(): StringJS
  "getDependencyFilter"(): $ArtifactFilter
- "setDependencyFilter"(arg0: $ArtifactFilter$$Type): void
  "getAvailableVersions"(): $List<($ArtifactVersion)>
+ "setDependencyFilter"(arg0: $ArtifactFilter$$Type): void
  "setAvailableVersions"(arg0: $List$$Type<($ArtifactVersion$$Type)>): void
- "setGroupId"(arg0: StringJS): void
- "isRelease"(): boolean
+ "getDependencyConflictId"(): StringJS
+ "setVersion"(arg0: StringJS): void
+ "setScope"(arg0: StringJS): void
  "setBaseVersion"(arg0: StringJS): void
  "getBaseVersion"(): StringJS
- "updateVersion"(arg0: StringJS, arg1: $ArtifactRepository$$Type): void
- "selectVersion"(arg0: StringJS): void
- "setResolved"(arg0: boolean): void
- "setResolvedVersion"(arg0: StringJS): void
- "setArtifactHandler"(arg0: $ArtifactHandler$$Type): void
  "setRepository"(arg0: $ArtifactRepository$$Type): void
- "setArtifactId"(arg0: StringJS): void
  "setOptional"(arg0: boolean): void
- "addMetadata"(arg0: $ArtifactMetadata$$Type): void
- "getMetadataList"(): $Collection<($ArtifactMetadata)>
+ "setResolvedVersion"(arg0: StringJS): void
  "hasClassifier"(): boolean
  "getDownloadUrl"(): StringJS
- "getArtifactHandler"(): $ArtifactHandler
- "setDownloadUrl"(arg0: StringJS): void
- "setDependencyTrail"(arg0: $List$$Type<(StringJS)>): void
+ "setArtifactHandler"(arg0: $ArtifactHandler$$Type): void
+ "addMetadata"(arg0: $ArtifactMetadata$$Type): void
+ "selectVersion"(arg0: StringJS): void
+ "updateVersion"(arg0: StringJS, arg1: $ArtifactRepository$$Type): void
  "setVersionRange"(arg0: $VersionRange$$Type): void
+ "setArtifactId"(arg0: StringJS): void
+ "setDependencyTrail"(arg0: $List$$Type<(StringJS)>): void
+ "setDownloadUrl"(arg0: StringJS): void
+ "getMetadataList"(): $Collection<($ArtifactMetadata)>
+ "setResolved"(arg0: boolean): void
+ "getArtifactHandler"(): $ArtifactHandler
+ "getDependencyTrail"(): $List<(StringJS)>
+ "getVersionRange"(): $VersionRange
+ "getRepository"(): $ArtifactRepository
+ "isSelectedVersionKnown"(): boolean
+ "getGroupId"(): StringJS
+ "getSelectedVersion"(): $ArtifactVersion
+ "getArtifactId"(): StringJS
+ "getClassifier"(): StringJS
+ "setFile"(arg0: $File$$Type): void
+ "isOptional"(): boolean
+ "isSnapshot"(): boolean
+ "isRelease"(): boolean
+ "setGroupId"(arg0: StringJS): void
  "compareTo"(arg0: $Artifact$$Type): integer
 }
 /**
@@ -375,23 +375,23 @@ export class $VersionRange {
 public "equals"(arg0: any): boolean
 public "toString"(): StringJS
 public "hashCode"(): integer
+public static "createFromVersionSpec"(arg0: StringJS): $VersionRange
+public "getRestrictions"(): $List<($Restriction)>
+public "getRecommendedVersion"(): $ArtifactVersion
+public "isSelectedVersionKnown"(arg0: $Artifact$$Type): boolean
+public "getSelectedVersion"(arg0: $Artifact$$Type): $ArtifactVersion
+public "containsVersion"(arg0: $ArtifactVersion$$Type): boolean
+public "hasRestrictions"(): boolean
+public static "createFromVersion"(arg0: StringJS): $VersionRange
+public "matchVersion"(arg0: $List$$Type<($ArtifactVersion$$Type)>): $ArtifactVersion
+public "restrict"(arg0: $VersionRange$$Type): $VersionRange
 /**
  * 
  * @deprecated
  */
 public "cloneOf"(): $VersionRange
-public "restrict"(arg0: $VersionRange$$Type): $VersionRange
-public static "createFromVersionSpec"(arg0: StringJS): $VersionRange
-public "getRecommendedVersion"(): $ArtifactVersion
-public "isSelectedVersionKnown"(arg0: $Artifact$$Type): boolean
-public "matchVersion"(arg0: $List$$Type<($ArtifactVersion$$Type)>): $ArtifactVersion
-public "getSelectedVersion"(arg0: $Artifact$$Type): $ArtifactVersion
-public static "createFromVersion"(arg0: StringJS): $VersionRange
-public "containsVersion"(arg0: $ArtifactVersion$$Type): boolean
-public "getRestrictions"(): $List<($Restriction)>
-public "hasRestrictions"(): boolean
-get "recommendedVersion"(): $ArtifactVersion
 get "restrictions"(): $List<($Restriction)>
+get "recommendedVersion"(): $ArtifactVersion
 }
 /**
  * Class-specific type exported by ProbeJS, use global Type_
