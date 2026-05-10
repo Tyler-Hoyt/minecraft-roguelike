@@ -1,0 +1,144 @@
+{
+    "type": "apotheosis:gem",
+    "constraints": {
+        "dimensions": [
+            "minecraft:the_nether"
+        ]
+    },
+    "min_purity": "flawed",
+    "unique": true,
+    "weights": {
+        "ascent": {
+            "quality": 2.0,
+            "weight": 50
+        },
+        "summit": {
+            "quality": 2.0,
+            "weight": 50
+        },
+        "pinnacle": {
+            "quality": 2.0,
+            "weight": 50
+        }
+    },
+    "bonuses": [
+        {
+            "type": "apotheosis:multi_attribute",
+            "desc": "bonus.apotheosis:multi_attr.desc.and",
+            "gem_class": {
+                "key": "light_weapon",
+                "types": [
+                    "apotheosis:melee_weapon",
+                    "apotheosis:trident"
+                ]
+            },
+            "modifiers": [
+                {
+                    "attribute": "apothic_attributes:life_steal",
+                    "operation": "add_value",
+                    "values": {
+                        "flawed": 0.035,
+                        "normal": 0.044,
+                        "flawless": 0.053,
+                        "perfect": 0.053
+                    }
+                },
+                {
+                    "attribute": "apothic_attributes:life_steal",
+                    "operation": "add_multiplied_total",
+                    "values": {
+                        "flawed": 0.018,
+                        "normal": 0.035,
+                        "flawless": 0.07,
+                        "perfect": 0.105
+                    }
+                }
+            ]
+        },
+        {
+            "type": "apotheosis:multi_attribute",
+            "desc": "bonus.apotheosis:multi_attr.desc.and",
+            "gem_class": "apotheosis:helmet",
+            "modifiers": [
+                {
+                    "attribute": "minecraft:generic.attack_damage",
+                    "operation": "add_multiplied_total",
+                    "values": {
+                        "flawed": 0.088,
+                        "normal": 0.123,
+                        "flawless": 0.158,
+                        "perfect": 0.21
+                    }
+                },
+                {
+                    "attribute": "minecraft:generic.max_health",
+                    "operation": "add_multiplied_total",
+                    "values": {
+                        "flawed": -0.105,
+                        "normal": -0.14,
+                        "flawless": -0.175,
+                        "perfect": -0.228
+                    }
+                }
+            ]
+        },
+        {
+            "type": "apotheosis:attribute",
+            "attribute": "apothic_attributes:healing_received",
+            "gem_class": "apotheosis:chestplate",
+            "operation": "add_multiplied_base",
+            "values": {
+                "flawed": 0.07,
+                "normal": 0.105,
+                "flawless": 0.14,
+                "perfect": 0.175
+            }
+        },
+        {
+            "type": "apotheosis:bloody_arrow",
+            "values": {
+                "flawed": {
+                    "cooldown": 450,
+                    "damage_mult": 1.21,
+                    "health_cost": 0.2
+                },
+                "normal": {
+                    "cooldown": 450,
+                    "damage_mult": 1.315,
+                    "health_cost": 0.3
+                },
+                "flawless": {
+                    "cooldown": 450,
+                    "damage_mult": 1.42,
+                    "health_cost": 0.4
+                },
+                "perfect": {
+                    "cooldown": 450,
+                    "damage_mult": 1.525,
+                    "health_cost": 0.5
+                }
+            }
+        },
+        {
+            "type": "apotheosis:leech_block",
+            "values": {
+                "flawed": {
+                    "cooldown": 450,
+                    "heal_factor": 0.088
+                },
+                "normal": {
+                    "cooldown": 450,
+                    "heal_factor": 0.14
+                },
+                "flawless": {
+                    "cooldown": 450,
+                    "heal_factor": 0.193
+                },
+                "perfect": {
+                    "cooldown": 450,
+                    "heal_factor": 0.228
+                }
+            }
+        }
+    ]
+}
